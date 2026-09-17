@@ -5,1366 +5,1260 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="2026韓國行">
-  <meta name="theme-color" content="#FFFFFF">
-  <title>🇰🇷 2026 韓國首爾＋濟州島自駕與美饌全攻略</title>
+  <meta name="apple-mobile-web-app-title" content="韓國旅程">
+  <meta name="theme-color" content="#F7F5F0">
+  <title>首爾與濟州 · 旅程手帳 2026</title>
 
-  <!-- Pretendard 韓文字體 -->
+  <!-- 字體：Pretendard 與 Noto Sans TC -->
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-body: #F4F6F8;
-      --bg-card: #FFFFFF;
-      --bg-card-sub: #F9FAFC;
-      --border: #E8ECEF;
-      --border-focus: #3182F6;
+      /* MUJI 自然色系 */
+      --bg-warm: #F7F5F0;
+      --bg-white: #FFFFFF;
+      --bg-subtle: #F2EFE9;
+      --border-warm: #E6E1D8;
       
-      --k-blue: #3182F6;
-      --k-blue-sub: #EBF4FF;
-      --k-orange: #FF5A36;
-      --k-orange-sub: #FFF0EB;
+      --muji-red: #7F0019;
+      --muji-wood: #7D6B58;
+      --muji-wood-light: #EFECE6;
       --naver-green: #03C75A;
-      --kakao-yellow: #FEE500;
-      --kakao-brown: #3C1E1E;
-      --k-purple: #7048E8;
-      --k-purple-sub: #F3F0FF;
       
-      --text-main: #191F28;
-      --text-body: #333D4B;
-      --text-sub: #6B7684;
-      --text-muted: #8B95A1;
+      --ink-primary: #2B2B2B;
+      --ink-body: #4A4643;
+      --ink-sub: #7A7570;
+      --ink-faint: #A6A099;
       
-      --radius-sm: 10px;
-      --radius-md: 16px;
-      --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.04);
-      --shadow-float: 0 8px 24px rgba(0, 0, 0, 0.08);
-      
+      --radius-sm: 8px;
+      --radius-md: 12px;
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
-    }
-
-    body.dark-mode {
-      --bg-body: #0E121A;
-      --bg-card: #181E2A;
-      --bg-card-sub: #222B3D;
-      --border: rgba(255, 255, 255, 0.09);
-      --text-main: #F8FAFC;
-      --text-body: #E2E8F0;
-      --text-sub: #94A3B8;
-      --text-muted: #64748B;
-      --k-blue-sub: rgba(49, 130, 246, 0.2);
-      --k-orange-sub: rgba(255, 90, 54, 0.2);
-      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
     body {
-      font-family: "Pretendard", "Plus Jakarta Sans", "Noto Sans TC", -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: var(--bg-body);
-      color: var(--text-body);
-      line-height: 1.5;
+      font-family: "Pretendard", "Noto Sans TC", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-warm);
+      color: var(--ink-body);
+      line-height: 1.6;
       padding-top: var(--safe-top);
-      padding-bottom: calc(78px + var(--safe-bottom));
+      padding-bottom: calc(72px + var(--safe-bottom));
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
-      transition: background-color 0.25s ease, color 0.25s ease;
+      letter-spacing: -0.01em;
     }
 
-    .app-header {
+    .muji-header {
       position: sticky;
       top: 0;
-      z-index: 120;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 16px 10px;
-    }
-    body.dark-mode .app-header { background: rgba(14, 18, 26, 0.94); }
-
-    .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-    .brand-pill {
-      display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px;
-      background: var(--k-blue-sub); border-radius: 20px; font-size: 0.72rem;
-      font-weight: 800; color: var(--k-blue);
-    }
-    .pulse-dot { width: 6px; height: 6px; background: var(--naver-green); border-radius: 50%; }
-
-    .theme-toggle-btn {
-      background: var(--bg-card-sub); border: 1px solid var(--border);
-      border-radius: 20px; padding: 4px 9px; font-size: 0.72rem;
-      font-weight: 700; color: var(--text-sub); cursor: pointer;
-      display: flex; align-items: center; gap: 4px;
+      z-index: 100;
+      background: rgba(247, 245, 240, 0.96);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border-warm);
+      padding: 14px 18px 10px;
     }
 
-    .app-title-block { display: flex; justify-content: space-between; align-items: baseline; margin-top: 2px; }
-    .app-title { font-size: 1.25rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.03em; }
-    .app-subtitle-kr { font-size: 0.75rem; font-weight: 700; color: var(--k-orange); }
+    .header-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
 
-    .search-row { margin-top: 10px; position: relative; }
+    .muji-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--muji-red);
+      text-transform: uppercase;
+      border: 1px solid rgba(127, 0, 25, 0.2);
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(127, 0, 25, 0.04);
+    }
+
+    .trip-dates { font-size: 0.75rem; color: var(--ink-sub); font-weight: 500; }
+
+    .muji-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink-primary);
+      letter-spacing: -0.02em;
+      margin-top: 2px;
+    }
+
+    .search-box { margin-top: 10px; position: relative; }
     .search-input {
-      width: 100%; height: 40px; background: var(--bg-card-sub);
-      border: 1px solid var(--border); border-radius: var(--radius-sm);
-      padding: 0 12px 0 36px; font-size: 0.88rem; color: var(--text-main);
+      width: 100%; height: 38px; background: var(--bg-white);
+      border: 1px solid var(--border-warm); border-radius: var(--radius-sm);
+      padding: 0 12px 0 34px; font-size: 0.85rem; color: var(--ink-primary);
       outline: none; font-family: inherit;
     }
-    .search-input:focus { border-color: var(--border-focus); background: var(--bg-card); }
-    .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 0.9rem; opacity: 0.45; }
+    .search-input:focus { border-color: var(--muji-red); }
+    .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); font-size: 0.85rem; color: var(--ink-faint); }
 
-    .category-scroll {
+    .filter-scroll {
       display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none;
       margin-top: 8px; padding-bottom: 2px;
     }
-    .category-scroll::-webkit-scrollbar { display: none; }
+    .filter-scroll::-webkit-scrollbar { display: none; }
 
-    .cat-btn {
-      flex: 0 0 auto; padding: 5px 11px; border-radius: 16px;
-      background: var(--bg-card-sub); border: 1px solid var(--border);
-      font-size: 0.74rem; font-weight: 600; color: var(--text-sub); cursor: pointer;
+    .filter-pill {
+      flex: 0 0 auto; padding: 4px 10px; border-radius: 4px;
+      background: var(--bg-white); border: 1px solid var(--border-warm);
+      font-size: 0.72rem; font-weight: 600; color: var(--ink-sub); cursor: pointer;
     }
-    .cat-btn.active { background: var(--text-main); color: var(--bg-card); font-weight: 800; }
-
-    .day-carousel {
-      display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
-      margin-top: 10px; margin-left: -16px; margin-right: -16px; padding: 0 16px 2px;
-    }
-    .day-carousel::-webkit-scrollbar { display: none; }
-
-    .day-pill {
-      flex: 0 0 auto; min-width: 72px; display: flex; flex-direction: column;
-      align-items: center; padding: 7px 8px; background: var(--bg-card);
-      border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer;
-    }
-    .day-pill.active {
-      background: var(--k-blue); border-color: var(--k-blue);
-      box-shadow: 0 4px 12px rgba(49, 130, 246, 0.25);
-    }
-    .day-pill .d-badge { font-size: 0.65rem; font-weight: 800; color: var(--text-muted); }
-    .day-pill.active .d-badge { color: #EBF4FF; }
-    .day-pill .d-title { font-size: 0.86rem; font-weight: 800; color: var(--text-main); margin: 1px 0; }
-    .day-pill.active .d-title { color: #FFFFFF; }
-    .day-pill .d-tag { font-size: 0.64rem; font-weight: 700; color: var(--k-orange); }
-    .day-pill.active .d-tag { color: #FFFFFF; opacity: 0.95; }
-
-    .main-wrapper { padding: 14px 16px; max-width: 650px; margin: 0 auto; }
-    .tab-pane { display: none; }
-    .tab-pane.active { display: block; }
-
-    .day-summary-banner {
-      background: var(--bg-card); border-radius: var(--radius-md);
-      border: 1px solid var(--border); padding: 16px 18px; margin-bottom: 16px;
-      box-shadow: var(--shadow-card); position: relative;
-    }
-    .day-summary-banner::before {
-      content: ''; position: absolute; left: 0; top: 0; width: 4px; height: 100%;
-      background: linear-gradient(to bottom, var(--k-blue), var(--k-orange));
-    }
-    .banner-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-    .banner-region { font-size: 0.72rem; font-weight: 800; color: var(--k-blue); background: var(--k-blue-sub); padding: 2px 8px; border-radius: 6px; }
-    .banner-title { font-size: 1.08rem; font-weight: 800; color: var(--text-main); line-height: 1.35; }
-    .banner-sub { font-size: 0.78rem; color: var(--text-sub); margin-top: 6px; display: flex; flex-wrap: wrap; gap: 10px; }
-
-    .timeline-container { position: relative; padding-left: 20px; }
-    .timeline-container::before {
-      content: ''; position: absolute; left: 6px; top: 14px; bottom: 14px;
-      width: 2px; background: var(--border);
+    .filter-pill.active {
+      background: var(--ink-primary); color: var(--bg-white); border-color: var(--ink-primary);
     }
 
-    .timeline-card {
-      position: relative; background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius-md); padding: 15px 16px; margin-bottom: 14px;
-      box-shadow: var(--shadow-card);
+    .day-slider {
+      display: flex; gap: 7px; overflow-x: auto; scrollbar-width: none;
+      margin-top: 10px; margin-left: -18px; margin-right: -18px; padding: 0 18px 2px;
     }
-    .timeline-dot {
-      position: absolute; left: -20px; top: 20px; width: 10px; height: 10px;
-      border-radius: 50%; background: var(--k-blue); border: 2px solid var(--bg-card);
+    .day-slider::-webkit-scrollbar { display: none; }
+
+    .day-item {
+      flex: 0 0 auto; min-width: 66px; display: flex; flex-direction: column;
+      align-items: center; padding: 6px 6px; background: var(--bg-white);
+      border: 1px solid var(--border-warm); border-radius: var(--radius-sm); cursor: pointer;
     }
+    .day-item.active { background: var(--muji-wood); border-color: var(--muji-wood); color: #FFFFFF; }
+    .day-item .d-num { font-size: 0.64rem; font-weight: 700; color: var(--ink-faint); }
+    .day-item.active .d-num { color: #EFECE6; }
+    .day-item .d-date { font-size: 0.82rem; font-weight: 700; color: var(--ink-primary); margin: 1px 0; }
+    .day-item.active .d-date { color: #FFFFFF; }
+    .day-item .d-spot { font-size: 0.62rem; color: var(--muji-wood); font-weight: 600; }
+    .day-item.active .d-spot { color: #FFFFFF; opacity: 0.95; }
 
-    .card-top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
-    .time-slot { font-size: 0.82rem; font-weight: 800; color: var(--k-blue); display: flex; align-items: center; gap: 4px; }
+    .page-container { padding: 14px 16px; max-width: 620px; margin: 0 auto; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
 
-    .type-badge { font-size: 0.66rem; font-weight: 800; padding: 2px 7px; border-radius: 6px; }
-    .badge-flight { background: var(--k-blue-sub); color: var(--k-blue); }
-    .badge-car { background: #FEF3C7; color: #B45309; }
-    .badge-food { background: var(--k-orange-sub); color: var(--k-orange); }
-    .badge-bar { background: var(--k-purple-sub); color: var(--k-purple); }
-    .badge-coffee { background: #FFF7ED; color: #C2410C; }
-    .badge-spot { background: #ECFDF5; color: #047857; }
-    .badge-stay { background: #F3E8FF; color: #6B21A8; }
-
-    .card-heading { font-size: 0.98rem; font-weight: 800; color: var(--text-main); margin-bottom: 3px; }
-    .hangul-tag {
-      display: inline-block; font-size: 0.8rem; font-weight: 700; color: var(--k-blue);
-      background: var(--bg-card-sub); padding: 2px 8px; border-radius: 4px;
-      margin-bottom: 6px; border: 1px solid var(--border);
+    .day-banner {
+      background: var(--bg-white); border-radius: var(--radius-md);
+      border: 1px solid var(--border-warm); padding: 16px 18px; margin-bottom: 14px; position: relative;
     }
-    .card-details { font-size: 0.82rem; color: var(--text-body); line-height: 1.45; margin-bottom: 8px; }
-
-    .k-alert-box {
-      background: #FFFBEB; border-left: 3px solid #F59E0B; padding: 7px 10px;
-      border-radius: 0 8px 8px 0; font-size: 0.74rem; font-weight: 600;
-      color: #78350F; margin: 8px 0; line-height: 1.4;
+    .day-banner::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--muji-wood);
     }
-    body.dark-mode .k-alert-box { background: rgba(245, 158, 11, 0.15); color: #FDE68A; }
+    .day-banner-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .banner-region { font-size: 0.72rem; font-weight: 700; color: var(--muji-wood); background: var(--muji-wood-light); padding: 1px 6px; border-radius: 3px; }
+    .banner-date { font-size: 0.74rem; color: var(--ink-sub); }
+    .banner-heading { font-size: 1.05rem; font-weight: 700; color: var(--ink-primary); line-height: 1.4; }
+    .banner-meta { font-size: 0.76rem; color: var(--ink-sub); margin-top: 5px; display: flex; flex-wrap: wrap; gap: 10px; }
 
-    .button-flex-row { display: flex; gap: 7px; margin-top: 10px; flex-wrap: wrap; }
-    .k-action-btn {
-      display: inline-flex; align-items: center; gap: 4px; padding: 6px 11px;
-      border-radius: 8px; font-size: 0.74rem; font-weight: 700;
-      text-decoration: none; cursor: pointer; border: 1px solid transparent; font-family: inherit;
-    }
-    .btn-naver { background: var(--naver-green); color: #FFFFFF; }
-    .btn-kakao { background: var(--kakao-yellow); color: var(--kakao-brown); }
-    .btn-copy { background: var(--bg-card-sub); border-color: var(--border); color: var(--text-body); }
-
-    .section-header { font-size: 1.05rem; font-weight: 800; color: var(--text-main); margin: 18px 0 10px; }
-    .overview-box {
-      background: var(--bg-card); border-radius: var(--radius-md);
-      border: 1px solid var(--border); padding: 16px; margin-bottom: 12px;
-      box-shadow: var(--shadow-card);
-    }
-    .overview-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-    .overview-title { font-size: 0.98rem; font-weight: 800; color: var(--text-main); }
-    .kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    .kv-item { background: var(--bg-card-sub); border-radius: 8px; padding: 8px 10px; }
-    .kv-item.full { grid-column: span 2; }
-    .kv-label { font-size: 0.65rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; }
-    .kv-value { font-size: 0.82rem; font-weight: 700; color: var(--text-main); word-break: break-all; }
-
-    .k-calc-card {
-      background: linear-gradient(135deg, #3182F6, #1A62D6); border-radius: var(--radius-md);
-      padding: 18px; color: white; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(49, 130, 246, 0.25);
-    }
-    .calc-header { font-size: 0.82rem; font-weight: 800; color: #D2E4FF; margin-bottom: 8px; display: flex; justify-content: space-between; }
-    .input-pill {
-      background: rgba(255, 255, 255, 0.16); border-radius: 12px; padding: 10px 14px;
-      display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
-    }
-    .input-pill input { background: none; border: none; outline: none; color: white; font-size: 1.35rem; font-weight: 800; width: 100%; font-family: inherit; }
-    .calc-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: 0.88rem; font-weight: 600; border-top: 1px solid rgba(255, 255, 255, 0.2); }
-
-    .weather-card {
-      background: var(--bg-card); border-radius: var(--radius-md); border: 1px solid var(--border);
-      padding: 14px 16px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;
+    .timeline { position: relative; padding-left: 18px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 5px; top: 12px; bottom: 12px; width: 1px; background: var(--border-warm);
     }
 
-    .bottom-app-bar {
+    .item-card {
+      position: relative; background: var(--bg-white); border: 1px solid var(--border-warm);
+      border-radius: var(--radius-md); padding: 14px 16px; margin-bottom: 12px;
+    }
+    .item-card::before {
+      content: ''; position: absolute; left: -17px; top: 18px; width: 7px; height: 7px;
+      border-radius: 50%; background: var(--muji-wood); border: 2px solid var(--bg-warm);
+    }
+
+    .item-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .item-time { font-size: 0.8rem; font-weight: 700; color: var(--muji-red); }
+    .badge-subtle { font-size: 0.65rem; font-weight: 600; padding: 1px 6px; border-radius: 3px; background: var(--bg-subtle); color: var(--ink-sub); }
+
+    .item-title { font-size: 0.95rem; font-weight: 700; color: var(--ink-primary); margin-bottom: 3px; }
+    .item-hangul {
+      display: inline-block; font-size: 0.78rem; font-weight: 500; color: var(--muji-wood);
+      background: var(--bg-subtle); padding: 1px 6px; border-radius: 3px; margin-bottom: 5px;
+    }
+    .item-text { font-size: 0.81rem; color: var(--ink-body); line-height: 1.5; margin-bottom: 6px; }
+
+    .note-box {
+      background: var(--muji-wood-light); border-radius: 4px; padding: 6px 10px;
+      font-size: 0.74rem; color: var(--ink-primary); margin: 6px 0; line-height: 1.45;
+    }
+
+    .btn-row { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+    .btn-muji {
+      display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px;
+      border-radius: 4px; font-size: 0.72rem; font-weight: 600; text-decoration: none;
+      cursor: pointer; font-family: inherit; border: 1px solid var(--border-warm);
+      background: var(--bg-white); color: var(--ink-body);
+    }
+    .btn-muji.naver { border-color: #A3E0BA; background: #F0FDF4; color: #15803D; }
+
+    .section-headline {
+      font-size: 0.98rem; font-weight: 700; color: var(--ink-primary); margin: 16px 0 8px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .section-headline::before {
+      content: ''; display: inline-block; width: 3px; height: 14px; background: var(--muji-red); border-radius: 1px;
+    }
+
+    .card-block {
+      background: var(--bg-white); border-radius: var(--radius-md); border: 1px solid var(--border-warm);
+      padding: 14px 16px; margin-bottom: 10px;
+    }
+    .card-block-title {
+      font-size: 0.92rem; font-weight: 700; color: var(--ink-primary); margin-bottom: 8px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .grid-info { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .grid-col { background: var(--bg-warm); border-radius: 4px; padding: 6px 8px; }
+    .grid-col.full { grid-column: span 2; }
+    .col-label { font-size: 0.65rem; color: var(--ink-faint); font-weight: 600; text-transform: uppercase; margin-bottom: 1px; }
+    .col-val { font-size: 0.8rem; font-weight: 600; color: var(--ink-primary); word-break: break-all; }
+
+    .calc-card {
+      background: var(--bg-white); border: 1px solid var(--border-warm); border-radius: var(--radius-md);
+      padding: 16px; margin-bottom: 14px;
+    }
+    .calc-input-row {
+      display: flex; align-items: center; gap: 8px; border-bottom: 2px solid var(--ink-primary);
+      padding: 6px 0; margin: 8px 0 12px;
+    }
+    .calc-input-row input {
+      border: none; background: none; outline: none; font-size: 1.3rem; font-weight: 700;
+      color: var(--ink-primary); width: 100%; font-family: inherit;
+    }
+    .calc-row-flex {
+      display: flex; justify-content: space-between; align-items: center; padding: 4px 0;
+      font-size: 0.85rem; color: var(--ink-body);
+    }
+    .calc-row-flex b { font-size: 1rem; color: var(--muji-red); }
+
+    .muji-nav {
       position: fixed; bottom: 0; left: 0; right: 0;
-      height: calc(58px + var(--safe-bottom)); padding-bottom: var(--safe-bottom);
-      background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--border);
+      height: calc(56px + var(--safe-bottom)); padding-bottom: var(--safe-bottom);
+      background: rgba(247, 245, 240, 0.96); backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px); border-top: 1px solid var(--border-warm);
       display: flex; justify-content: space-around; align-items: center; z-index: 200;
     }
-    body.dark-mode .bottom-app-bar { background: rgba(14, 18, 26, 0.94); }
 
-    .tab-item {
+    .nav-tab {
       display: flex; flex-direction: column; align-items: center; gap: 2px;
-      color: var(--text-muted); background: none; border: none; cursor: pointer;
+      color: var(--ink-faint); background: none; border: none; cursor: pointer;
       padding: 6px 14px; font-family: inherit;
     }
-    .tab-item.active { color: var(--k-blue); }
-    .tab-item .t-icon { font-size: 1.15rem; line-height: 1; }
-    .tab-item .t-label { font-size: 0.68rem; font-weight: 800; }
+    .nav-tab.active { color: var(--muji-red); }
+    .nav-tab .icon { font-size: 1.05rem; }
+    .nav-tab .lbl { font-size: 0.68rem; font-weight: 700; }
 
-    #kToast {
-      visibility: hidden; min-width: 200px; background-color: rgba(25, 31, 40, 0.95);
-      color: #FFFFFF; text-align: center; border-radius: 30px; padding: 10px 18px;
-      position: fixed; z-index: 999; bottom: 82px; left: 50%; transform: translateX(-50%);
-      font-size: 0.82rem; font-weight: 700; opacity: 0; transition: opacity 0.25s, visibility 0.25s;
+    #mujiToast {
+      visibility: hidden; min-width: 160px; background: rgba(43, 43, 43, 0.95);
+      color: #FFFFFF; text-align: center; border-radius: 4px; padding: 8px 16px;
+      position: fixed; z-index: 999; bottom: 76px; left: 50%; transform: translateX(-50%);
+      font-size: 0.78rem; font-weight: 500; opacity: 0; transition: opacity 0.2s;
     }
-    #kToast.show { visibility: visible; opacity: 1; }
+    #mujiToast.show { visibility: visible; opacity: 1; }
   </style>
 </head>
 <body>
 
-  <!-- 頂部導覽 -->
-  <header class="app-header">
-    <div class="header-top">
-      <div class="brand-pill">
-        <span class="pulse-dot"></span>
-        <span>2026 KOREA TRIP · 5人自駕</span>
-      </div>
-      <div class="header-actions">
-        <button class="theme-toggle-btn" onclick="toggleDarkMode()">
-          <span id="themeIcon">🌙</span>
-          <span id="themeText">暗黑模式</span>
-        </button>
-      </div>
+  <header class="muji-header">
+    <div class="header-meta-row">
+      <span class="muji-tag">AUTUMN 2026</span>
+      <span class="trip-dates">10/16 (五) — 10/24 (六) · 9天8夜</span>
     </div>
+    <div class="muji-title">首爾與濟州 · 旅程手帳</div>
 
-    <div class="app-title-block">
-      <h1 class="app-title">首爾＋濟州島自駕與美饌攻略</h1>
-      <span class="app-subtitle-kr">10/16 - 10/24 (9天8夜)</span>
-    </div>
-
-    <div class="search-row">
+    <div class="search-box">
       <span class="search-icon">🔍</span>
-      <input type="text" id="mainSearch" class="search-input" placeholder="搜尋景點、咖啡、酒吧、餐廳或門鎖密碼..." oninput="filterAll()">
+      <input type="text" id="mujiSearch" class="search-input" placeholder="搜尋景點、咖啡、餐廳或地址..." oninput="doSearch()">
     </div>
 
-    <div class="category-scroll" id="catBar">
-      <button class="cat-btn active" onclick="setCategory('ALL', this)">全部行程</button>
-      <button class="cat-btn" onclick="setCategory('COFFEE', this)">☕ 職人咖啡</button>
-      <button class="cat-btn" onclick="setCategory('FOOD', this)">🍴 必吃美饌</button>
-      <button class="cat-btn" onclick="setCategory('BAR', this)">🍸 人氣酒吧</button>
-      <button class="cat-btn" onclick="setCategory('SPOT', this)">🍁 賞楓打卡</button>
-      <button class="cat-btn" onclick="setCategory('CAR', this)">🚗 租車泊車</button>
+    <div class="filter-scroll" id="catBar">
+      <button class="filter-pill active" onclick="setCategory('ALL', this)">全部日程</button>
+      <button class="filter-pill" onclick="setCategory('COFFEE', this)">職人咖啡</button>
+      <button class="filter-pill" onclick="setCategory('FOOD', this)">在地美食</button>
+      <button class="filter-pill" onclick="setCategory('BAR', this)">特色酒吧</button>
+      <button class="filter-pill" onclick="setCategory('SPOT', this)">秋楓自然</button>
+      <button class="filter-pill" onclick="setCategory('STAY', this)">住宿交通</button>
     </div>
 
-    <div class="day-carousel" id="dayBar">
-      <div class="day-pill active" onclick="gotoDay(1)"><span class="d-badge">Day 1</span><span class="d-title">10/16 五</span><span class="d-tag">抵首爾/取車</span></div>
-      <div class="day-pill" onclick="gotoDay(2)"><span class="d-badge">Day 2</span><span class="d-title">10/17 六</span><span class="d-tag">延南洞/明洞</span></div>
-      <div class="day-pill" onclick="gotoDay(3)"><span class="d-badge">Day 3</span><span class="d-title">10/18 日</span><span class="d-tag">韓服/BarCham</span></div>
-      <div class="day-pill" onclick="gotoDay(4)"><span class="d-badge">Day 4</span><span class="d-title">10/19 一</span><span class="d-tag">加平賞楓飛索</span></div>
-      <div class="day-pill" onclick="gotoDay(5)"><span class="d-badge">Day 5</span><span class="d-title">10/20 二</span><span class="d-tag">漢南/還車/韓牛</span></div>
-      <div class="day-pill" onclick="gotoDay(6)"><span class="d-badge">Day 6</span><span class="d-title">10/21 三</span><span class="d-tag">飛濟州/熟成到</span></div>
-      <div class="day-pill" onclick="gotoDay(7)"><span class="d-badge">Day 7</span><span class="d-title">10/22 四</span><span class="d-tag">帶魚/海景別墅</span></div>
-      <div class="day-pill" onclick="gotoDay(8)"><span class="d-badge">Day 8</span><span class="d-title">10/23 五</span><span class="d-tag">牛島/採柑橘</span></div>
-      <div class="day-pill" onclick="gotoDay(9)"><span class="d-badge">Day 9</span><span class="d-title">10/24 六</span><span class="d-tag">活海鮮/返香港</span></div>
+    <div class="day-slider" id="daySlider">
+      <div class="day-item active" onclick="selectDay(1)"><span class="d-num">Day 1</span><span class="d-date">10/16</span><span class="d-spot">仁川抵達</span></div>
+      <div class="day-item" onclick="selectDay(2)"><span class="d-num">Day 2</span><span class="d-date">10/17</span><span class="d-spot">延南/明洞</span></div>
+      <div class="day-item" onclick="selectDay(3)"><span class="d-num">Day 3</span><span class="d-date">10/18</span><span class="d-spot">景福宮/西村</span></div>
+      <div class="day-item" onclick="selectDay(4)"><span class="d-num">Day 4</span><span class="d-date">10/19</span><span class="d-spot">加平賞楓</span></div>
+      <div class="day-item" onclick="selectDay(5)"><span class="d-num">Day 5</span><span class="d-date">10/20</span><span class="d-spot">漢南/還車</span></div>
+      <div class="day-item" onclick="selectDay(6)"><span class="d-num">Day 6</span><span class="d-date">10/21</span><span class="d-spot">飛往濟州</span></div>
+      <div class="day-item" onclick="selectDay(7)"><span class="d-num">Day 7</span><span class="d-date">10/22</span><span class="d-spot">南岸/西歸浦</span></div>
+      <div class="day-item" onclick="selectDay(8)"><span class="d-num">Day 8</span><span class="d-date">10/23</span><span class="d-spot">牛島/柑橘</span></div>
+      <div class="day-item" onclick="selectDay(9)"><span class="d-num">Day 9</span><span class="d-date">10/24</span><span class="d-spot">海鮮/返港</span></div>
     </div>
   </header>
 
-  <main class="main-wrapper">
+  <main class="page-container">
 
-    <!-- 頁面 1: 行程時間線 -->
-    <section id="pane-timeline" class="tab-pane active">
+    <!-- TAB 1: 每日行程 -->
+    <section id="tab-timeline" class="tab-content active">
 
       <!-- DAY 1 -->
-      <div class="day-section" id="day-sec-1">
-        <div class="day-summary-banner">
-          <div class="banner-meta">
-            <span class="banner-region">首爾仁川 · 恩平區</span>
-            <span style="font-size: 0.74rem; color: var(--text-muted);">10/16 星期五</span>
+      <div class="day-wrapper" id="day-item-1">
+        <div class="day-banner">
+          <div class="day-banner-top">
+            <span class="banner-region">首爾 · 恩平區</span>
+            <span class="banner-date">10/16 星期五</span>
           </div>
-          <div class="banner-title">香港啟航 ➔ 夜抵仁川 T1 ➔ 提取 9人商務車 ➔ 入住恩平 Ribbon Stay</div>
-          <div class="banner-sub">
-            <span>✈️ 航班：UO626 (16:55-21:35)</span>
-            <span>🚗 取車：22:30 仁川機場 T1 1樓 12號門</span>
+          <div class="banner-heading">香港啟航 ➔ 夜抵仁川 T1 ➔ 提取車輛 ➔ 入住恩平 Ribbon Stay</div>
+          <div class="banner-meta">
+            <span>UO626 (16:55-21:35)</span>
+            <span>22:30 仁川機場 T1 1樓 12號門取車</span>
           </div>
         </div>
 
-        <div class="timeline-container">
-          <div class="timeline-card" data-cat="FLIGHT" data-keywords="香港快運 機場 航班 飛機 UO626 仁川">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🛫 16:55 ➔ 21:35</span>
-              <span class="type-badge badge-flight">FLIGHT</span>
+        <div class="timeline">
+          <div class="item-card" data-cat="STAY" data-keys="航班 香港快運 UO626 仁川 機場">
+            <div class="item-top">
+              <span class="item-time">16:55 ➔ 21:35</span>
+              <span class="badge-subtle">FLIGHT</span>
             </div>
-            <div class="card-heading">香港國際機場 T2 啟航 ➔ 仁川機場 T1 降落</div>
-            <div class="hangul-tag">홍콩익스프레스 UO626 / 인천공항 T1</div>
-            <div class="card-details">搭乘香港快運 UO626 班機，預計 21:35 抵達仁川 T1。辦理入境通關手續及領取行李。</div>
+            <div class="item-title">香港國際機場 T2 ➔ 仁川機場 T1</div>
+            <div class="item-hangul">홍콩익스프레스 UO626 / 인천공항 T1</div>
+            <div class="item-text">搭乘香港快運 UO626 班機，21:35 抵達仁川機場 T1，辦理通關及領取行李。</div>
           </div>
 
-          <div class="timeline-card" data-cat="CAR" data-keywords="租車 RENTBANK 取車 staria 現代 仁川機場 12號門 9人座">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🚗 22:30 取車</span>
-              <span class="type-badge badge-car">CAR RENTAL</span>
+          <div class="item-card" data-cat="STAY" data-keys="租車 RENTBANK 取車 staria 現代 仁川 12號門">
+            <div class="item-top">
+              <span class="item-time">22:30</span>
+              <span class="badge-subtle">CAR RENTAL</span>
             </div>
-            <div class="card-heading">仁川機場 T1 提取 Hyundai Staria 9人商務車</div>
-            <div class="hangul-tag">인천공항 T1 1층 12번 게이트 (GATE 12)</div>
-            <div class="card-details">交接提取 Hyundai Staria 9人座標準型商務車 (RENTBANK / Trip.com 訂單 #1359047919213593)。</div>
-            <div class="k-alert-box">⚠️ 必備文件：香港駕照正本、國際駕照 (IDP)、護照正本、主駕駛名下實體凸字信用卡（按金 KRW 100,000 約 HK$570）。</div>
-            <div class="button-flex-row">
-              <button class="k-action-btn btn-copy" onclick="doCopy('+82-10-3212-6215', '電話已複製')">📞 +82-10-3212-6215</button>
-              <button class="k-action-btn btn-copy" onclick="doCopy('3410', 'PIN碼已複製')">🔑 PIN 3410</button>
+            <div class="item-title">仁川機場 T1 提取商務車 (Hyundai Staria)</div>
+            <div class="item-hangul">인천공항 T1 1층 12번 게이트 (GATE 12)</div>
+            <div class="item-text">車型：Hyundai Staria 商務車（RENTBANK / Trip.com 訂單 #1359047919213593）。</div>
+            <div class="note-box">備註：必備香港駕照正本、國際駕照 (IDP)、護照、實體信用卡（按金 KRW 100,000）。</div>
+            <div class="btn-row">
+              <button class="btn-muji" onclick="copyValue('+82-10-3212-6215', '電話已複製')">📞 +82-10-3212-6215</button>
+              <button class="btn-muji" onclick="copyValue('3410', 'PIN碼已複製')">🔑 PIN 3410</button>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="CAR" data-keywords="住宿 Ribbon Stay 恩平區 密碼鎖 鷹岩 泊車">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🏨 23:15 入住</span>
-              <span class="type-badge badge-stay">STAY</span>
+          <div class="item-card" data-cat="STAY" data-keys="住宿 Ribbon Stay 恩平區 密碼鎖 鷹岩 泊車">
+            <div class="item-top">
+              <span class="item-time">23:15</span>
+              <span class="badge-subtle">ACCOMMODATION</span>
             </div>
-            <div class="card-heading">入住首爾恩平區：Ribbon Stay (리본스테이)</div>
-            <div class="hangul-tag">서울 은평구 연서로3길 8（鷹岩站步行7分鐘）</div>
-            <div class="card-details">整套房源（3~4樓，容納7人），電子密碼鎖自助入住。自帶【免費專屬停車位】，Staria 9人座可直接免費停泊！</div>
-            <div class="k-alert-box">💡 房屋守則：10/17 11:00 前退房；垃圾分類（廚餘放水槽紫色專用袋）；離房請關冷氣並鎖好門戶。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/서울%20은평구%20연서로3길%208" target="_blank">🧭 Naver 導航</a>
-              <a class="k-action-btn btn-kakao" href="https://map.kakao.com/?q=서울%20은평구%20연서로3길%208" target="_blank">🟡 Kakao Map</a>
-              <button class="k-action-btn btn-copy" onclick="doCopy('서울 은평구 연서로3길 8', '韓文地址已複製')">📋 複製地址</button>
+            <div class="item-title">入住首爾恩平區：Ribbon Stay (리본스테이)</div>
+            <div class="item-hangul">서울 은평구 연서로3길 8（鷹岩站步行7分鐘）</div>
+            <div class="item-text">整套房源（3~4樓），電子密碼鎖自助入住。自帶免費專屬停車位，車輛可直接停泊。</div>
+            <div class="note-box">守則：10/17 11:00 前退房；垃圾分類（廚餘放水槽紫色專用袋）；離房請關閉冷氣並鎖緊門窗。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/서울%20은평구%20연서로3길%208" target="_blank">Naver Map</a>
+              <button class="btn-muji" onclick="copyValue('서울 은평구 연서로3길 8', '地址已複製')">複製地址</button>
             </div>
           </div>
         </div>
       </div>
 
       <!-- DAY 2 -->
-      <div class="day-section" id="day-sec-2" style="display:none;">
-        <div class="day-summary-banner">
-          <div class="banner-meta">
+      <div class="day-wrapper" id="day-item-2" style="display:none;">
+        <div class="day-banner">
+          <div class="day-banner-top">
             <span class="banner-region">首爾 · 麻浦延南洞 / 明洞</span>
-            <span style="font-size: 0.74rem; color: var(--text-muted);">10/17 星期六</span>
+            <span class="banner-date">10/17 星期六</span>
           </div>
-          <div class="banner-title">行李轉場 ➔ 延南文創 ➔ 冠軍虹吸咖啡 ➔ 鮮魚刺身 ➔ 明洞退稅 ➔ 安氏馬格利</div>
-          <div class="banner-sub">
-            <span>🏨 新民宿：MEMORYSTAY CASA Yeonnam (延南洞獨棟韓屋)</span>
+          <div class="banner-heading">行李轉場 ➔ 延南文創 ➔ 冠軍虹吸咖啡 ➔ 鮮魚刺身 ➔ 明洞退稅 ➔ 安氏馬格利</div>
+          <div class="banner-meta">
+            <span>新民宿：서울 마포구 연남로7길 26</span>
           </div>
         </div>
 
-        <div class="timeline-container">
-          <div class="timeline-card" data-cat="CAR" data-keywords="退房 行李 延南洞 MEMORYSTAY">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">⏰ 10:45 ➔ 11:15</span>
-              <span class="type-badge badge-stay">CHECK-IN</span>
+        <div class="timeline">
+          <div class="item-card" data-cat="STAY" data-keys="退房 行李 延南洞 MEMORYSTAY">
+            <div class="item-top">
+              <span class="item-time">10:45 ➔ 11:15</span>
+              <span class="badge-subtle">TRANSIT</span>
             </div>
-            <div class="card-heading">辦理退房 ➔ 延南洞 Airbnb 1樓寄存行李</div>
-            <div class="hangul-tag">메모리스테이 연남 (MEMORYSTAY CASA Yeonnam)</div>
-            <div class="card-details">自駕約 15 分鐘抵達延南洞新民宿，於 1 樓空間寄存 5 大行李箱。</div>
-          </div>
-
-          <div class="timeline-card" data-cat="FOOD" data-keywords="午餐 義式 Camello Yeonnam 延南洞">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍴 11:30 午餐</span>
-              <span class="type-badge badge-food">LUNCH</span>
-            </div>
-            <div class="card-heading">Camello Yeonnam (카멜로연남) 義式精緻午餐</div>
-            <div class="hangul-tag">카멜로연남 / 서울 마포구 연희로1길 57</div>
-            <div class="card-details">延南洞極高人氣義大利餐廳，招牌辣番茄燉飯、奶油牛排義大利麵。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/카멜로연남" target="_blank">🧭 Naver 導航</a>
-              <a class="k-action-btn btn-kakao" href="https://map.kakao.com/?q=카멜로연남" target="_blank">🟡 Kakao Map</a>
+            <div class="item-title">辦理退房 ➔ 開車前往延南洞民宿 1樓寄存行李</div>
+            <div class="item-hangul">서울 마포구 연남로7길 26（房東：다영）</div>
+            <div class="item-text">車程約 15 分鐘直達延南洞新民宿 MEMORYSTAY CASA Yeonnam，於 1 樓空間寄存行李。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/서울%20마포구%20연남로7길%2026" target="_blank">Naver Map</a>
+              <button class="btn-muji" onclick="copyValue('서울 마포구 연남로7길 26', '地址已複製')">複製地址</button>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="SPOT" data-keywords="漫步 京義線 森林鐵道 文創 延南洞">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🌿 13:30 漫步</span>
-              <span class="type-badge badge-spot">EXPLORE</span>
+          <div class="item-card" data-cat="FOOD" data-keys="午餐 義式 Camello Yeonnam 延南洞">
+            <div class="item-top">
+              <span class="item-time">11:30</span>
+              <span class="badge-subtle">LUNCH</span>
             </div>
-            <div class="card-heading">京義線森林鐵道林蔭道 ＆ 延南洞文創選品店</div>
-            <div class="hangul-tag">경의선숲길 연남동구간</div>
-            <div class="card-details">文青街區漫步，探訪特色選物店、獨立設計師服飾與街頭潮牌。</div>
-          </div>
-
-          <div class="timeline-card" data-cat="COFFEE" data-keywords="咖啡 冠軍 虹吸 手沖 Default Value Doduk Kyubum Clarimento">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">☕ 15:00 職人手沖</span>
-              <span class="type-badge badge-coffee">COFFEE</span>
-            </div>
-            <div class="card-heading">職人精品咖啡：Default Value / Doduk&Kyubum</div>
-            <div class="hangul-tag">디폴트밸류 (Default Value) / 도덕&규범</div>
-            <div class="card-details">首選 2022 KNBC 冠軍申昌浩的純白極簡虹吸名店 Default Value；或步行至 Doduk&Kyubum（黑膠手沖）。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/디폴트밸류" target="_blank">🧭 Naver 導航</a>
-              <button class="k-action-btn btn-copy" onclick="doCopy('02-2293-3889', '電話已複製')">📞 02-2293-3889 (車機導航)</button>
-              <button class="k-action-btn btn-copy" onclick="doCopy('디폴트밸류', '已複製')">📋 複製韓文</button>
+            <div class="item-title">Camello Yeonnam (카멜로연남) 義式精緻料理</div>
+            <div class="item-hangul">카멜로연남 / 서울 마포구 연희로1길 57</div>
+            <div class="item-text">延南洞人氣義大利餐廳，招牌辣番茄燉飯、牛排義大利麵。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/카멜로연남" target="_blank">Naver Map</a>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="FOOD" data-keywords="刺身 鮮魚 海鮮 秋鰤魚 Sarang">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🐟 16:30 晚餐</span>
-              <span class="type-badge badge-food">DINNER</span>
+          <div class="item-card" data-cat="SPOT" data-keys="漫步 京義線 森林鐵道 文創 延南洞">
+            <div class="item-top">
+              <span class="item-time">13:30</span>
+              <span class="badge-subtle">STROLL</span>
             </div>
-            <div class="card-heading">Sea Sliced Raw Fish Sarang (2號店) 厚切鮮魚刺身</div>
-            <div class="hangul-tag">바다회사랑 2호점 / 서울 마포구 동교로 143</div>
-            <div class="card-details">首爾著名排隊名店！必點當造秋季大鰤魚（방어회），油脂飽滿，附壽司飯與海苔包裹食用。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/바다회사랑%202호점" target="_blank">🧭 Naver 導航</a>
+            <div class="item-title">京義線森林鐵道林蔭道 ＆ 延南洞獨立文創小店</div>
+            <div class="item-hangul">경의선숲길 연남동구간</div>
+            <div class="item-text">綠蔭步道漫步，探訪設計選物店、香氛與手作雜貨店。</div>
+          </div>
+
+          <div class="item-card" data-cat="COFFEE" data-keys="咖啡 冠軍 虹吸 手沖 Default Value Doduk Kyubum Clarimento">
+            <div class="item-top">
+              <span class="item-time">15:00</span>
+              <span class="badge-subtle">COFFEE</span>
+            </div>
+            <div class="item-title">職人精品咖啡：Default Value / Doduk&Kyubum</div>
+            <div class="item-hangul">디폴트밸류 (Default Value) / 도덕&규범</div>
+            <div class="item-text">首選 2022 韓國咖啡師冠軍申昌浩的極簡虹吸名店 Default Value；或 Doduk&Kyubum（黑膠手沖）。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/디폴트밸류" target="_blank">Naver Map</a>
+              <button class="btn-muji" onclick="copyValue('02-2293-3889', '電話已複製')">📞 02-2293-3889</button>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="SPOT" data-keywords="購物 明洞 退稅 Olive Young 藥妝">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🛍️ 19:00 購物</span>
-              <span class="type-badge badge-spot">SHOPPING</span>
+          <div class="item-card" data-cat="FOOD" data-keys="刺身 鮮魚 海鮮 秋鰤魚 Sarang">
+            <div class="item-top">
+              <span class="item-time">16:30</span>
+              <span class="badge-subtle">DINNER</span>
             </div>
-            <div class="card-heading">明洞商圈採購藥妝（Olive Young 即時現場退稅）</div>
-            <div class="hangul-tag">올리브영 명동타운점</div>
-            <div class="card-details">單筆消費滿 15,000 韓元憑護照可現場直接折抵退稅金額。</div>
+            <div class="item-title">Sea Sliced Raw Fish Sarang (2號店) 厚切秋鰤魚刺身</div>
+            <div class="item-hangul">바다회사랑 2호점 / 서울 마포구 동교로 143</div>
+            <div class="item-text">品嚐當季大鰤魚（방어회），油脂豐富，搭配壽司飯與海苔。餐後可回民宿辦理入住。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/바다회사랑%202호점" target="_blank">Naver Map</a>
+            </div>
           </div>
 
-          <div class="timeline-card" data-cat="BAR" data-keywords="酒吧 馬格利 安氏 Mr Ahn Namsan">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍶 21:00 酒吧</span>
-              <span class="type-badge badge-bar">BAR</span>
+          <div class="item-card" data-cat="SPOT" data-keys="購物 明洞 退稅 Olive Young 藥妝">
+            <div class="item-top">
+              <span class="item-time">19:00</span>
+              <span class="badge-subtle">SHOPPING</span>
             </div>
-            <div class="card-heading">Korean Bistro Mr. Ahn's Makgeolli (安氏막걸리)</div>
-            <div class="hangul-tag">한국술집 안씨막걸리 / 서울 용산구 회나무로 3</div>
-            <div class="card-details">米芝蓮指南推薦現代韓國酒館，精選多款傳統手工生馬格利與精緻下酒菜。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/안씨막걸리" target="_blank">🧭 Naver 導航</a>
+            <div class="item-title">明洞商圈採購藥妝（Olive Young 即時現場退稅）</div>
+            <div class="item-hangul">올리브영 명동타운점</div>
+            <div class="item-text">滿 15,000 韓元出示護照即可現場直接扣除退稅款。</div>
+          </div>
+
+          <div class="item-card" data-cat="BAR" data-keys="酒吧 馬格利 安氏 Mr Ahn Namsan">
+            <div class="item-top">
+              <span class="item-time">21:00</span>
+              <span class="badge-subtle">BAR</span>
+            </div>
+            <div class="item-title">Korean Bistro Mr. Ahn's Makgeolli (安氏막걸리)</div>
+            <div class="item-hangul">한국술집 안씨막걸리 / 서울 용산구 회나무로 3</div>
+            <div class="item-text">米芝蓮指南推薦現代韓國酒館，精選手工生馬格利與精緻下酒料理。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/안씨막걸리" target="_blank">Naver Map</a>
             </div>
           </div>
         </div>
       </div>
 
       <!-- DAY 3 -->
-      <div class="day-section" id="day-sec-3" style="display:none;">
-        <div class="day-summary-banner">
-          <div class="banner-meta">
+      <div class="day-wrapper" id="day-item-3" style="display:none;">
+        <div class="day-banner">
+          <div class="day-banner-top">
             <span class="banner-region">首爾 · 鐘路北村 / 西村</span>
-            <span style="font-size: 0.74rem; color: var(--text-muted);">10/18 星期日</span>
+            <span class="banner-date">10/18 星期日</span>
           </div>
-          <div class="banner-title">韓服景福宮 ➔ 北村黑瓦露台咖啡 ➔ 廣藏市場 ➔ On 6.5 ➔ Bar Cham ➔ 孝道炸雞</div>
-          <div class="banner-sub">
-            <span>🍸 Bar Cham (亞洲50大 #33)</span>
-            <span>🍷 On 6.5 (已預約)</span>
+          <div class="banner-heading">韓服景福宮 ➔ 北村黑瓦露台咖啡 ➔ 廣藏市場 ➔ On 6.5 ➔ Bar Cham ➔ 孝道炸雞</div>
+          <div class="banner-meta">
+            <span>Bar Cham (亞洲50大 #33)</span>
+            <span>On 6.5 (已預約)</span>
           </div>
         </div>
 
-        <div class="timeline-container">
-          <div class="timeline-card" data-cat="SPOT" data-keywords="韓服 景福宮 北村 文化體驗">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">👘 09:00 體驗</span>
-              <span class="type-badge badge-spot">EXPERIENCE</span>
+        <div class="timeline">
+          <div class="item-card" data-cat="SPOT" data-keys="韓服 景福宮 北村 文化體驗">
+            <div class="item-top">
+              <span class="item-time">09:00</span>
+              <span class="badge-subtle">EXPERIENCE</span>
             </div>
-            <div class="card-heading">景福宮韓服租借體驗 ＆ 北村韓屋村散步拍照</div>
-            <div class="hangul-tag">경복궁 & 북촌한옥마을</div>
-            <div class="card-details">穿著傳統韓服免費入景福宮參觀攝影，漫步北村傳統黑瓦韓屋聚落。</div>
+            <div class="item-title">景福宮韓服租借體驗 ＆ 北村韓屋村散步</div>
+            <div class="item-hangul">경복궁 & 북촌한옥마을</div>
+            <div class="item-text">身穿傳統韓服免費進入景福宮參觀攝影，隨後漫步北村傳統黑瓦聚落。</div>
           </div>
 
-          <div class="timeline-card" data-cat="COFFEE" data-keywords="咖啡 北村 景觀 天台 Green Mile Coffee">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">☕ 11:30 景觀露台</span>
-              <span class="type-badge badge-coffee">COFFEE</span>
+          <div class="item-card" data-cat="COFFEE" data-keys="咖啡 北村 景觀 天台 Green Mile Coffee">
+            <div class="item-top">
+              <span class="item-time">11:30</span>
+              <span class="badge-subtle">COFFEE</span>
             </div>
-            <div class="card-heading">Green Mile Coffee Bukchon (그린마일커피 북촌점)</div>
-            <div class="hangul-tag">서울 종로구 북촌로 64 / 02-744-2404</div>
-            <div class="card-details">3樓頂樓露台俯瞰北村傳統黑瓦韓屋頂全景！招牌 Green Mile Latte。低消每人一杯飲品。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/그린마일커피%20북촌점" target="_blank">🧭 Naver 導航</a>
-              <button class="k-action-btn btn-copy" onclick="doCopy('02-744-2404', '電話已複製')">📞 02-744-2404 (車機定位)</button>
-            </div>
-          </div>
-
-          <div class="timeline-card" data-cat="FOOD" data-keywords="廣藏市場 生牛肉 綠豆煎餅 麻藥飯捲 富村">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🥞 12:45 午餐</span>
-              <span class="type-badge badge-food">LUNCH</span>
-            </div>
-            <div class="card-heading">廣藏市場小吃巡禮：富村生牛肉 ＆ 順熙家綠豆煎餅</div>
-            <div class="hangul-tag">광장시장 (부촌육회 & 순희네빈대떡)</div>
-            <div class="card-details">米芝蓮必比登推薦【富村生牛肉】活章魚伴生牛肉、酥脆綠豆煎餅、麻藥飯捲。</div>
-          </div>
-
-          <div class="timeline-card" data-cat="FOOD" data-keywords="晚餐 On 6.5 泡菜 餐酒館 預約">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍷 18:00 晚餐</span>
-              <span class="type-badge badge-food">FINE DINING</span>
-            </div>
-            <div class="card-heading">On 6.5 (온6.5) 創意泡菜餐酒館【已預約】</div>
-            <div class="hangul-tag">서울 종로구 북촌로1길 28</div>
-            <div class="card-details">將韓國傳統發酵泡菜昇華為 Fine Dining 等級創意料理與自然酒搭配。</div>
-          </div>
-
-          <div class="timeline-card" data-cat="BAR" data-keywords="酒吧 Bar Cham 亞洲50最佳 Gong Gan Catchtable">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍸 20:00 酒吧</span>
-              <span class="type-badge badge-bar">ASIA'S 50 #33</span>
-            </div>
-            <div class="card-heading">Bar Cham (바 참) ＆ Gong-Gan (공간)</div>
-            <div class="hangul-tag">바 참 / 서울 종로구 자하문로7길 34</div>
-            <div class="card-details">亞洲 50 最佳酒吧 #33。西村老韓屋改造，冠軍調酒師結合傳統酒之經典之作。</div>
-            <div class="k-alert-box">⚠️ 排隊攻略：5人建議拆成 2+3 人入座最快；抵達現場立即以門口平板 Catchtable 取號！</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/바참" target="_blank">🧭 Naver: Bar Cham</a>
+            <div class="item-title">Green Mile Coffee Bukchon (그린마일커피 북촌점)</div>
+            <div class="item-hangul">서울 종로구 북촌로 64 / 02-744-2404</div>
+            <div class="item-text">3樓頂樓露台俯瞰傳統黑瓦韓屋頂全景，招牌 Green Mile Latte（抹茶奶霜+濃縮）。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/그린마일커피%20북촌점" target="_blank">Naver Map</a>
+              <button class="btn-muji" onclick="copyValue('02-744-2404', '電話已複製')">📞 02-744-2404</button>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="FOOD" data-keywords="宵夜 孝道炸雞 Hyodo 炸雞 米芝蓮">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍗 22:30 宵夜</span>
-              <span class="type-badge badge-food">LATE NIGHT</span>
+          <div class="item-card" data-cat="FOOD" data-keys="廣藏市場 生牛肉 綠豆煎餅 麻藥飯捲 富村">
+            <div class="item-top">
+              <span class="item-time">12:45</span>
+              <span class="badge-subtle">LUNCH</span>
             </div>
-            <div class="card-heading">Hyodo Chicken (孝道炸雞 光化門店)</div>
-            <div class="hangul-tag">효도치킨 광화문점 / 서울 종로구 사직로8길 21-1</div>
-            <div class="card-details">米芝蓮星級主廚研發之招牌「小銀魚螺絲椒炸雞」（꽈리멸치치킨）。</div>
+            <div class="item-title">廣藏市場小吃：富村生牛肉 ＆ 順熙家綠豆煎餅</div>
+            <div class="item-hangul">광장시장 (부촌육회 & 순희네빈대떡)</div>
+            <div class="item-text">米芝蓮必比登推薦【富村生牛肉】活章魚伴生牛肉、酥脆綠豆煎餅、麻藥飯捲。</div>
+          </div>
+
+          <div class="item-card" data-cat="COFFEE" data-keys="清水堂 益善洞 咖啡 下午茶 竹林">
+            <div class="item-top">
+              <span class="item-time">15:00</span>
+              <span class="badge-subtle">TEA TIME</span>
+            </div>
+            <div class="item-title">清水堂 (청수당) 益善洞竹林韓屋 Cafe</div>
+            <div class="item-hangul">청수당 / 서울 종로구 돈화문로11나길 31-9</div>
+            <div class="item-text">竹林小溪庭院造景，現烤舒芙蕾蛋糕與滴漏咖啡。</div>
+          </div>
+
+          <div class="item-card" data-cat="FOOD" data-keys="晚餐 On 6.5 泡菜 餐酒館 預約">
+            <div class="item-top">
+              <span class="item-time">18:00</span>
+              <span class="badge-subtle">RESERVED DINNER</span>
+            </div>
+            <div class="item-title">On 6.5 (온6.5) 創意泡菜餐酒館【已預約】</div>
+            <div class="item-hangul">서울 종로구 북촌로1길 28</div>
+            <div class="item-text">發酵泡菜概念當代料理與自然酒搭配體驗。</div>
+          </div>
+
+          <div class="item-card" data-cat="BAR" data-keys="酒吧 Bar Cham 亞洲50最佳 Gong Gan Catchtable">
+            <div class="item-top">
+              <span class="item-time">20:00</span>
+              <span class="badge-subtle">BAR (ASIA'S 50 #33)</span>
+            </div>
+            <div class="item-title">Bar Cham (바 참) ＆ Gong-Gan (공간)</div>
+            <div class="item-hangul">바 참 / 서울 종로구 자하문로7길 34</div>
+            <div class="item-text">西村老韓屋冠軍酒吧。人數較多時建議拆成 2+3 人入座最快；抵達現場立即以門口平板 Catchtable 取號。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/바참" target="_blank">Naver Map</a>
+            </div>
+          </div>
+
+          <div class="item-card" data-cat="FOOD" data-keys="宵夜 孝道炸雞 Hyodo 炸雞 米芝蓮">
+            <div class="item-top">
+              <span class="item-time">22:30</span>
+              <span class="badge-subtle">LATE NIGHT</span>
+            </div>
+            <div class="item-title">Hyodo Chicken (孝道炸雞 光化門店)</div>
+            <div class="item-hangul">효도치킨 광화문점 / 서울 종로구 사직로8길 21-1</div>
+            <div class="item-text">招牌「小銀魚螺絲椒炸雞」（꽈리멸치치킨），外酥多汁。</div>
           </div>
         </div>
       </div>
 
       <!-- DAY 4 -->
-      <div class="day-section" id="day-sec-4" style="display:none;">
-        <div class="day-summary-banner">
-          <div class="banner-meta">
-            <span class="banner-region">京畿道 · 加平秋楓</span>
-            <span style="font-size: 0.74rem; color: var(--text-muted);">10/19 星期一</span>
+      <div class="day-wrapper" id="day-item-4" style="display:none;">
+        <div class="day-banner">
+          <div class="day-banner-top">
+            <span class="banner-region">京畿道 · 加平賞楓</span>
+            <span class="banner-date">10/19 星期一</span>
           </div>
-          <div class="banner-title">高空飛索 ➔ 南怡島金黃紅葉 ➔ 春川炒雞 ➔ 晨靜樹木園 ➔ 東大門一隻雞 ➔ M+MS bar</div>
-          <div class="banner-sub">
-            <span>🚗 提早 07:00 出發避開晨間車潮</span>
-            <span>🍸 M+MS bar (亞洲50大 #42)</span>
+          <div class="banner-heading">高空飛索 ➔ 南怡島賞楓 ➔ 春川炒雞 ➔ 晨靜樹木園 ➔ 東大門一隻雞 ➔ M+MS bar</div>
+          <div class="banner-meta">
+            <span>提早 07:00 出發避開車潮</span>
+            <span>M+MS bar (亞洲50大 #42)</span>
           </div>
         </div>
 
-        <div class="timeline-container">
-          <div class="timeline-card" data-cat="SPOT" data-keywords="南怡島 飛索 Zipwire 入島 加平">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">⚡ 08:30 / 09:00</span>
-              <span class="type-badge badge-spot">ZIPLINE</span>
+        <div class="timeline">
+          <div class="item-card" data-cat="SPOT" data-keys="南怡島 飛索 Zipwire 入島 加平">
+            <div class="item-top">
+              <span class="item-time">08:30 / 09:00</span>
+              <span class="badge-subtle">ZIPLINE</span>
             </div>
-            <div class="card-heading">南怡島 Skyline Zipwire 高空飛索入島</div>
-            <div class="hangul-tag">남이섬 짚와이어 / 경기 가평군 가평읍 북한강변로 1024</div>
-            <div class="card-details">自 80 公尺高塔鋼索以時速數十公里飛馳直衝入島（需提前 15 分鐘報到）。</div>
+            <div class="item-title">南怡島 Skyline Zipwire 高空飛索入島</div>
+            <div class="item-hangul">남이섬 짚와이어 / 경기 가평군 가평읍 북한강변로 1024</div>
+            <div class="item-text">自 80 公尺高塔鋼索極速滑行飛馳入島（需提前 15 分鐘報到）。</div>
           </div>
 
-          <div class="timeline-card" data-cat="SPOT" data-keywords="南怡島 賞楓 銀杏 水杉 紅葉">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍁 09:30 ➔ 12:00</span>
-              <span class="type-badge badge-spot">AUTUMN FOLIAGE</span>
+          <div class="item-card" data-cat="SPOT" data-keys="南怡島 賞楓 銀杏 水杉 紅葉">
+            <div class="item-top">
+              <span class="item-time">09:30 ➔ 12:00</span>
+              <span class="badge-subtle">AUTUMN FOLIAGE</span>
             </div>
-            <div class="card-heading">南怡島賞楓 (水杉大道、銀杏金黃長廊)</div>
-            <div class="hangul-tag">남이섬 (Nami Island)</div>
-            <div class="card-details">秋天整座島嶼化身金黃與緋紅仙境，水杉路與中央楓葉大道絕美拍照。</div>
+            <div class="item-title">南怡島賞楓 (水杉大道、銀杏長廊)</div>
+            <div class="item-hangul">남이섬 (Nami Island)</div>
+            <div class="item-text">秋季金黃與緋紅滿山，水杉林與銀杏大道景致迷人。</div>
           </div>
 
-          <div class="timeline-card" data-cat="FOOD" data-keywords="午餐 春川炒雞 辣炒雞 加平碼頭">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🥘 12:30 午餐</span>
-              <span class="type-badge badge-food">LUNCH</span>
+          <div class="item-card" data-cat="FOOD" data-keys="午餐 春川炒雞 辣炒雞 加平碼頭">
+            <div class="item-top">
+              <span class="item-time">12:30</span>
+              <span class="badge-subtle">LUNCH</span>
             </div>
-            <div class="card-heading">加平碼頭：正宗春川辣炒雞排</div>
-            <div class="card-details">鐵板現炒嫩雞肉塊、高麗菜、地瓜、年糕與牽絲芝士，最後炒入白飯鍋巴。</div>
+            <div class="item-title">加平碼頭：正宗春川辣炒雞排</div>
+            <div class="item-text">鐵板現炒嫩雞肉、高麗菜、年糕與芝士，最後拌炒白飯鍋巴。</div>
           </div>
 
-          <div class="timeline-card" data-cat="SPOT" data-keywords="晨靜樹木園 菊花展 楓葉 賞楓">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🌸 15:10 賞景</span>
-              <span class="type-badge badge-spot">GARDEN</span>
+          <div class="item-card" data-cat="SPOT" data-keys="小法國村 義大利小鎮 晨靜樹木園 菊花展">
+            <div class="item-top">
+              <span class="item-time">13:30 ➔ 15:10</span>
+              <span class="badge-subtle">GARDEN & SIGHTSEEING</span>
             </div>
-            <div class="card-heading">晨靜樹木園 (아침고요수목원) 秋季菊花展與紅葉</div>
-            <div class="hangul-tag">아침고요수목원 / 경기 가평군 상면 수목원로 432</div>
-            <div class="card-details">滿園盛開的秋季菊花展與層疊斑斕的楓樹林蔭，空氣無比清新。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/아침고요수목원" target="_blank">🧭 Naver 導航</a>
+            <div class="item-title">小法國村 ＆ 晨靜樹木園 (秋季菊花展與紅葉)</div>
+            <div class="item-hangul">아침고요수목원 / 경기 가평군 상면 수목원로 432</div>
+            <div class="item-text">歐式繽紛建築群拍照，隨後前往晨靜樹木園欣賞滿園菊花展與紅葉。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/아침고요수목원" target="_blank">Naver Map</a>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="FOOD" data-keywords="陳玉華 一隻雞 東大門 蒜香雞 晚餐">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍲 19:00 晚餐</span>
-              <span class="type-badge badge-food">DINNER</span>
+          <div class="item-card" data-cat="FOOD" data-keys="陳玉華 一隻雞 東大門 蒜香雞 晚餐">
+            <div class="item-top">
+              <span class="item-time">19:00</span>
+              <span class="badge-subtle">DINNER</span>
             </div>
-            <div class="card-heading">陳玉華一隻雞 (진옥화할매원조닭한마리)</div>
-            <div class="hangul-tag">서울 종로구 종로40가길 18 (東大門一條街)</div>
-            <div class="card-details">東大門傳奇老店！原汁原味清甜雞湯，加入滿滿新鮮蒜泥、手工年糕與刀削麵。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/진옥화할매원조닭한마리" target="_blank">🧭 Naver 導航</a>
+            <div class="item-title">陳玉華一隻雞 (진옥화할매원조닭한마리)</div>
+            <div class="item-hangul">서울 종로구 종로40가길 18 (東大門)</div>
+            <div class="item-text">清甜嫩雞高湯，加入蒜泥、年糕與手工刀削麵。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/진옥화할매원조닭한마리" target="_blank">Naver Map</a>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="BAR" data-keywords="酒吧 MMS bar 島山公園 狎鷗亭 亞洲50最佳">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍸 21:00 酒吧</span>
-              <span class="type-badge badge-bar">ASIA'S 50 #42</span>
+          <div class="item-card" data-cat="BAR" data-keys="酒吧 MMS bar 島山公園 狎鷗亭 亞洲50最佳">
+            <div class="item-top">
+              <span class="item-time">21:00</span>
+              <span class="badge-subtle">BAR (ASIA'S 50 #42)</span>
             </div>
-            <div class="card-heading">M+MS bar (엠엠에스 Dosan)</div>
-            <div class="hangul-tag">서울 강남구 도산공원 부근 / 亞洲 50 最佳酒吧 #42</div>
-            <div class="card-details">島山公園極具時尚氛圍的頂級雞尾酒吧，調酒工藝水準卓越。</div>
+            <div class="item-title">M+MS bar (엠엠에스 Dosan)</div>
+            <div class="item-hangul">서울 강남구 도산공원 부근 / 亞洲 50 最佳酒吧 #42</div>
+            <div class="item-text">江南島山公園摩登酒吧，調酒工藝細緻優雅。</div>
           </div>
         </div>
       </div>
 
       <!-- DAY 5 -->
-      <div class="day-section" id="day-sec-5" style="display:none;">
-        <div class="day-summary-banner">
-          <div class="banner-meta">
+      <div class="day-wrapper" id="day-item-5" style="display:none;">
+        <div class="day-banner">
+          <div class="day-banner-top">
             <span class="banner-region">首爾 · 漢南洞 / 首爾站 / 馬場洞</span>
-            <span style="font-size: 0.74rem; color: var(--text-muted);">10/20 星期二</span>
+            <span class="banner-date">10/20 星期二</span>
           </div>
-          <div class="banner-title">漢南洞手沖 ➔ MUTAN炸醬麵 ➔ 聖水甜點 ➔ 首爾站還車 ➔ 馬場洞1++韓牛 ➔ Pine&Co</div>
-          <div class="banner-sub">
-            <span>🚗 20:00前 首爾站門市辦理還車</span>
-            <span>🥩 馬場洞頂級 1++ 韓牛炭火燒烤</span>
+          <div class="banner-heading">漢南洞手沖 ➔ MUTAN炸醬麵 ➔ 聖水甜點 ➔ 首爾站還車 ➔ 馬場洞1++韓牛 ➔ Pine&Co</div>
+          <div class="banner-meta">
+            <span>20:00前 首爾站門市還車</span>
+            <span>馬場洞頂級 1++ 韓牛炭火燒烤</span>
           </div>
         </div>
 
-        <div class="timeline-container">
-          <div class="timeline-card" data-cat="COFFEE" data-keywords="漢南洞 咖啡 手沖 GML Unpage Milestone 潮牌 Tamburins Nonfiction">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">☕ 09:30 漫步</span>
-              <span class="type-badge badge-coffee">COFFEE</span>
+        <div class="timeline">
+          <div class="item-card" data-cat="COFFEE" data-keys="漢南洞 咖啡 手沖 GML Unpage Milestone 潮牌 Tamburins Nonfiction">
+            <div class="item-top">
+              <span class="item-time">09:30</span>
+              <span class="badge-subtle">COFFEE & CULTURE</span>
             </div>
-            <div class="card-heading">漢南洞手沖巡禮：GML ＆ Unpage ＆ 潮牌選品</div>
-            <div class="hangul-tag">gml seoul (지엠엘) / 언페이지 (Unpage)</div>
-            <div class="card-details">全球名廠咖啡豆選品店 GML、手沖與特調概念吧 Unpage，順訪 Nonfiction、Tamburins 旗艦店。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/gml%20seoul" target="_blank">🧭 Naver: GML</a>
-              <button class="k-action-btn btn-copy" onclick="doCopy('02-792-2024', '電話已複製')">📞 02-792-2024 (車機導航)</button>
-              <button class="k-action-btn btn-copy" onclick="doCopy('서울 용산구 한남대로27가길 22 3층', '地址已複製')">📋 複製地址</button>
-            </div>
-          </div>
-
-          <div class="timeline-card" data-cat="FOOD" data-keywords="午餐 MUTAN 狎鷗亭 黑松露 炸醬麵 麵包蝦">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍜 12:30 午餐</span>
-              <span class="type-badge badge-food">LUNCH</span>
-            </div>
-            <div class="card-heading">MUTAN 狎鷗亭本店 (무탄 압구정본점)</div>
-            <div class="hangul-tag">무탄 압구정본점 / 서울 강남구 논현로176길 22</div>
-            <div class="card-details">頂級中菜排隊店：必吃黑松露牛排炸醬麵、爆漿厚切黃金麵包蝦（멘보샤）。</div>
-          </div>
-
-          <div class="timeline-card" data-cat="CAR" data-keywords="還車 首爾站 RENTBANK 樂天 Outlets">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🚗 18:30 還車</span>
-              <span class="type-badge badge-car">RETURN CAR</span>
-            </div>
-            <div class="card-heading">【首爾站門市】辦理還車（最晚 22:00 前）</div>
-            <div class="hangul-tag">서울 중구 한강대로 405 (서울역 / 樂天Outlets旁)</div>
-            <div class="card-details">於首爾站門市完成 Hyundai Staria 歸還手續。順道於樂天 Outlets 首爾站店採購 (LLOYD 飾品)。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/서울%20중구%20한강대로%20405" target="_blank">🧭 Naver 導航</a>
-              <button class="k-action-btn btn-copy" onclick="doCopy('+82-10-3212-6215', '電話已複製')">📞 租車客服電話</button>
+            <div class="item-title">漢南洞手沖巡禮：GML ＆ Unpage ＆ 潮牌選品</div>
+            <div class="item-hangul">gml seoul (지엠엘) / 언페이지 (Unpage)</div>
+            <div class="item-text">全球名廠咖啡豆選品店 GML、手沖與特調概念吧 Unpage，順訪 Nonfiction、Tamburins 旗艦店。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/gml%20seoul" target="_blank">Naver Map</a>
+              <button class="btn-muji" onclick="copyValue('02-792-2024', '電話已複製')">📞 02-792-2024</button>
+              <button class="btn-muji" onclick="copyValue('서울 용산구 한남대로27가길 22 3층', '地址已複製')">複製地址</button>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="FOOD" data-keywords="馬場洞 韓牛 炭火 1++ 牛肉 晚餐">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🥩 20:00 晚餐</span>
-              <span class="type-badge badge-food">1++ HANWOO</span>
+          <div class="item-card" data-cat="FOOD" data-keys="午餐 MUTAN 狎鷗亭 黑松露 炸醬麵 麵包蝦">
+            <div class="item-top">
+              <span class="item-time">12:30</span>
+              <span class="badge-subtle">LUNCH</span>
             </div>
-            <div class="card-heading">馬場洞畜產物市場：1++ 頂級雪花韓牛炭火燒烤</div>
-            <div class="hangul-tag">마장동 축산물시장 / 서울 성동구 마장로31길 40</div>
-            <div class="card-details">親自挑選最高等級 1++ 韓牛（肋眼、板腱、牛小排），直上樓炭火燒烤，油香爆汁！</div>
+            <div class="item-title">MUTAN 狎鷗亭本店 (무탄 압구정본점)</div>
+            <div class="item-hangul">무탄 압구정본점 / 서울 강남구 논현로176길 22</div>
+            <div class="item-text">招牌黑松露牛排炸醬麵、黃金麵包蝦（멘보샤）。</div>
           </div>
 
-          <div class="timeline-card" data-cat="BAR" data-keywords="酒吧 Pine&Co 狎鷗亭 Speakeasy 慶功">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍸 22:00 慶功</span>
-              <span class="type-badge badge-bar">BAR</span>
+          <div class="item-card" data-cat="STAY" data-keys="還車 首爾站 RENTBANK 樂天 Outlets">
+            <div class="item-top">
+              <span class="item-time">18:30 ➔ 19:30</span>
+              <span class="badge-subtle">CAR RETURN</span>
             </div>
-            <div class="card-heading">Pine&Co (파인앤코) 狎鷗亭 Speakeasy 酒吧</div>
-            <div class="hangul-tag">파인앤코 / 서울 강남구 선릉로157길 33</div>
-            <div class="card-details">隱密現代雞尾酒吧，極富創意的調酒風味結構，為首爾段旅程完美慶功。</div>
+            <div class="item-title">【首爾站門市】辦理還車（最晚 22:00 前）</div>
+            <div class="item-hangul">서울 중구 한강대로 405 (서울역門市 / 樂天Outlets旁)</div>
+            <div class="item-text">於首爾站門市完成商務車歸還手續。可順訪樂天 Outlets 首爾站店採購 (LLOYD 飾品)。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/서울%20중구%20한강대로%20405" target="_blank">Naver Map</a>
+              <button class="btn-muji" onclick="copyValue('+82-10-3212-6215', '電話已複製')">📞 客服電話</button>
+            </div>
+          </div>
+
+          <div class="item-card" data-cat="FOOD" data-keys="馬場洞 韓牛 炭火 1++ 牛肉 晚餐">
+            <div class="item-top">
+              <span class="item-time">20:00</span>
+              <span class="badge-subtle">1++ HANWOO</span>
+            </div>
+            <div class="item-title">馬場洞畜產物市場：1++ 頂級雪花韓牛炭火燒烤</div>
+            <div class="item-hangul">마장동 축산물시장 / 서울 성동구 마장로31길 40</div>
+            <div class="item-text">挑選最高等級 1++ 韓牛（肋眼、板腱、牛小排），上樓炭火直烤。</div>
+          </div>
+
+          <div class="item-card" data-cat="BAR" data-keys="酒吧 Pine&Co 狎鷗亭 Speakeasy 慶功">
+            <div class="item-top">
+              <span class="item-time">22:00</span>
+              <span class="badge-subtle">BAR</span>
+            </div>
+            <div class="item-title">Pine&Co (파인앤코) 狎鷗亭 Speakeasy 酒吧</div>
+            <div class="item-hangul">파인앤코 / 서울 강남구 선릉로157길 33</div>
+            <div class="item-text">低調隱密的現代調酒吧，為首爾段旅程完美慶功。</div>
           </div>
         </div>
       </div>
 
       <!-- DAY 6 -->
-      <div class="day-section" id="day-sec-6" style="display:none;">
-        <div class="day-summary-banner">
-          <div class="banner-meta">
+      <div class="day-wrapper" id="day-item-6" style="display:none;">
+        <div class="day-banner">
+          <div class="day-banner-top">
             <span class="banner-region">濟州 · 蓮洞市區</span>
-            <span style="font-size: 0.74rem; color: var(--text-muted);">10/21 星期三</span>
+            <span class="banner-date">10/21 星期三</span>
           </div>
-          <div class="banner-title">首爾飛濟州 ➔ 樂天取 IONIQ 9 ➔ 彩虹海岸 ➔ 光影藝術館 ➔ 芒草夕陽 ➔ 熟成到黑豬肉</div>
-          <div class="banner-sub">
-            <span>✈️ 易斯達航空 ZE207 (07:35-08:50)</span>
-            <span>🏨 宿：蓮洞 도심 속 전원주택 'Been' (前院停車)</span>
+          <div class="banner-heading">首爾飛濟州 ➔ 樂天取車 ➔ 彩虹海岸 ➔ 光影藝術館 ➔ 芒草夕陽 ➔ 熟成到黑豬肉</div>
+          <div class="banner-meta">
+            <span>易斯達航空 ZE207 (07:35-08:50)</span>
+            <span>新民宿：제주시 신대로17길 7</span>
           </div>
         </div>
 
-        <div class="timeline-container">
-          <div class="timeline-card" data-cat="FLIGHT" data-keywords="金浦 濟州 機場 航班 易斯達 ZE207">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🛫 07:35 ➔ 08:50</span>
-              <span class="type-badge badge-flight">FLIGHT</span>
+        <div class="timeline">
+          <div class="item-card" data-cat="STAY" data-keys="金浦 濟州 機場 航班 易斯達 ZE207">
+            <div class="item-top">
+              <span class="item-time">07:35 ➔ 08:50</span>
+              <span class="badge-subtle">FLIGHT</span>
             </div>
-            <div class="card-heading">金浦機場 (GMP) ➔ 濟州機場 (CJU)</div>
-            <div class="hangul-tag">이스타항공 ZE207 / 김포 ➔ 제주</div>
-            <div class="card-details">05:45 出發前往金浦機場，搭乘 ZE207 飛抵濟州，領取行李後前往 5 號門。</div>
+            <div class="item-title">金浦機場 (GMP) ➔ 濟州機場 (CJU)</div>
+            <div class="item-hangul">이스타항공 ZE207 / 김포 ➔ 제주</div>
+            <div class="item-text">05:45 出發前往金浦機場，搭乘 ZE207 飛往濟州，領取行李後前往 5 號門。</div>
           </div>
 
-          <div class="timeline-card" data-cat="CAR" data-keywords="樂天 租車 濟州 IONIQ 9 電車 7人座 Auto House">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">⚡ 09:30 取車</span>
-              <span class="type-badge badge-car">EV RENTAL</span>
+          <div class="item-card" data-cat="STAY" data-keys="樂天 租車 濟州 IONIQ 9 電車 7人座 Auto House">
+            <div class="item-top">
+              <span class="item-time">09:30</span>
+              <span class="badge-subtle">EV RENTAL</span>
             </div>
-            <div class="card-heading">濟州機場 Auto House 提取 IONIQ 9 純電 7人車</div>
-            <div class="hangul-tag">롯데렌터카 오토하우스 제주 (LOTTE Auto House)</div>
-            <div class="card-details">5 號門外搭乘免費接駁車前往 Auto House。車型：IONIQ 9 4WD (E) 7人純電車。</div>
-            <div class="k-alert-box">🎁 專屬福利：出示樂天車匙享山茶花丘 30% 折扣、樂天飯店 15% 折扣！</div>
-            <div class="button-flex-row">
-              <button class="k-action-btn btn-copy" onclick="doCopy('2622541225', '預約號已複製')">🔑 預約號 2622541225</button>
-              <button class="k-action-btn btn-copy" onclick="doCopy('1588-1230', '樂天電話已複製')">📞 1588-1230</button>
-            </div>
-          </div>
-
-          <div class="timeline-card" data-cat="SPOT" data-keywords="彩虹海岸 道頭峰 龍貓樹洞 拍照">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🌈 10:00 拍照</span>
-              <span class="type-badge badge-spot">COASTAL DRIVE</span>
-            </div>
-            <div class="card-heading">道頭彩虹海岸道路 ＆ 道頭峰公園 (龍貓樹洞)</div>
-            <div class="hangul-tag">도두동무지개해안도로 / 도두봉 키세스존</div>
-            <div class="card-details">色彩繽紛的防波石公路拍照打卡，登頂拍攝著名「龍貓樹洞」剪影與海景。</div>
-          </div>
-
-          <div class="timeline-card" data-cat="FOOD" data-keywords="午餐 姊妹麵條 黑豬肉 藍絲帶 豬肉湯麵">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍜 11:30 午餐</span>
-              <span class="type-badge badge-food">BLUE RIBBON</span>
-            </div>
-            <div class="card-heading">姊妹麵條 (자매국수) 濟州藍絲帶豬肉麵</div>
-            <div class="hangul-tag">자매국수 / 제주 제주시 항골남길 46</div>
-            <div class="card-details">濃郁黑豬骨熬製醇厚白湯，鋪滿炙烤切片黑豬肉片，濟州必嚐代表。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/자매국수" target="_blank">🧭 Naver 導航</a>
+            <div class="item-title">濟州機場 Auto House 提取 IONIQ 9 純電車</div>
+            <div class="item-hangul">롯데렌터카 오토하우스 제주 (LOTTE Auto House)</div>
+            <div class="item-text">5 號門外搭乘免費接駁車前往 Auto House。車型：IONIQ 9 4WD (E) 純電車。</div>
+            <div class="note-box">優惠：出示樂天車鑰匙享山茶花丘 30% 折扣、樂天飯店 15% 折扣！</div>
+            <div class="btn-row">
+              <button class="btn-muji" onclick="copyValue('2622541225', '預約號已複製')">🔑 預約號 2622541225</button>
+              <button class="btn-muji" onclick="copyValue('1588-1230', '電話已複製')">📞 1588-1230</button>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="SPOT" data-keywords="展覽 Arte Museum 沉浸式 光影 光影展">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🎨 13:30 展覽</span>
-              <span class="type-badge badge-spot">IMMERSIVE ART</span>
+          <div class="item-card" data-cat="SPOT" data-keys="彩虹海岸 道頭峰 龍貓樹洞 拍照">
+            <div class="item-top">
+              <span class="item-time">10:00</span>
+              <span class="badge-subtle">COASTAL DRIVE</span>
             </div>
-            <div class="card-heading">Arte Museum Jeju (아르떼뮤지엄 제주)</div>
-            <div class="hangul-tag">아르떼뮤지엄 제주 / 제주 제주시 애월읍 어림比로 478</div>
-            <div class="card-details">韓國頂級沉浸式光影藝術館，巨大聲光浪潮、星空與自然幻境。</div>
+            <div class="item-title">道頭彩虹海岸道路 ＆ 道頭峰公園 (龍貓樹洞)</div>
+            <div class="item-hangul">도두동무지개해안도로 / 도두봉 키세스존</div>
+            <div class="item-text">色彩防波石公路打卡，登頂拍攝「龍貓樹洞」剪影與海景。</div>
           </div>
 
-          <div class="timeline-card" data-cat="SPOT" data-keywords="新星岳 芒草 夕陽 雪綠茶博物館 Osulloc">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🌾 15:30 夕陽</span>
-              <span class="type-badge badge-spot">SUNSET & TEA</span>
+          <div class="item-card" data-cat="FOOD" data-keys="午餐 姊妹麵條 黑豬肉 藍絲帶 豬肉湯麵">
+            <div class="item-top">
+              <span class="item-time">11:30</span>
+              <span class="badge-subtle">BLUE RIBBON</span>
             </div>
-            <div class="card-heading">新星岳 (새별오름) 金黃芒草夕陽 ➔ 雪綠茶博物館</div>
-            <div class="hangul-tag">새별오름 & 오설록 티 뮤지엄</div>
-            <div class="card-details">秋天整座火山丘滿布金黃芒草浪花，夕陽無限震撼；順訪綠茶園與雪糕。</div>
+            <div class="item-title">姊妹麵條 (자매국수) 濟州藍絲帶豬肉麵</div>
+            <div class="item-hangul">자매국수 / 제주 제주시 항골남길 46</div>
+            <div class="item-text">濃郁豬骨熬製白湯，鋪滿炙烤切片黑豬肉片。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/자매국수" target="_blank">Naver Map</a>
+            </div>
           </div>
 
-          <div class="timeline-card" data-cat="FOOD" data-keywords="熟成到 晚餐 黑豬肉 蓮洞 烤肉 Catchtable">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🐖 18:30 晚餐</span>
-              <span class="type-badge badge-food">MUST EAT</span>
+          <div class="item-card" data-cat="SPOT" data-keys="展覽 Arte Museum 沉浸式 光影 光影展 新星岳 芒草 夕陽">
+            <div class="item-top">
+              <span class="item-time">13:30 ➔ 15:30</span>
+              <span class="badge-subtle">ART & NATURE</span>
             </div>
-            <div class="card-heading">熟成到 (Sukseongdo 蓮洞店) 極品熟成黑豬肉</div>
-            <div class="hangul-tag">숙성도 노형점/연동점</div>
-            <div class="card-details">濟州第一熟成黑豬肉，厚切專人炭火代烤，肉汁噴發！建議下午 Catchtable 線上取號。</div>
+            <div class="item-title">Arte Museum 光影展 ➔ 新星岳金黃芒草夕陽 ➔ 雪綠茶博物館</div>
+            <div class="item-hangul">아르떼뮤지엄 제주 & 새별오름</div>
+            <div class="item-text">沉浸式光影藝術館欣賞巨浪星空；秋季新星岳隨風搖曳的金黃芒草坡景致極具震撼力。</div>
           </div>
 
-          <div class="timeline-card" data-cat="CAR" data-keywords="住宿 Been 蓮洞 民宿 前院 車位">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🏨 20:30 入住</span>
-              <span class="type-badge badge-stay">STAY</span>
+          <div class="item-card" data-cat="FOOD" data-keys="熟成到 晚餐 黑豬肉 蓮洞 烤肉 Catchtable">
+            <div class="item-top">
+              <span class="item-time">18:30</span>
+              <span class="badge-subtle">DINNER</span>
             </div>
-            <div class="card-heading">入住蓮洞：도심 속 전원주택 'Been' (Airbnb)</div>
-            <div class="hangul-tag">도심 속 전원주택 Been / 제주시 연동 (여메로 부근)</div>
-            <div class="card-details">4.98 超高評分「旅人至愛」。前院獨立專屬車位，IONIQ 9 可免費停泊！3房5床2衛。</div>
+            <div class="item-title">熟成到 (Sukseongdo 蓮洞店) 極品熟成黑豬肉</div>
+            <div class="item-hangul">숙성도 노형점/연동점</div>
+            <div class="item-text">厚切專人炭火代烤，肉汁飽滿。建議下午透過 Catchtable 線上取號。</div>
+          </div>
+
+          <div class="item-card" data-cat="STAY" data-keys="住宿 Been 蓮洞 民宿 前院 車位">
+            <div class="item-top">
+              <span class="item-time">20:30</span>
+              <span class="badge-subtle">ACCOMMODATION</span>
+            </div>
+            <div class="item-title">入住蓮洞：도심 속 전원주택 'Been' (Airbnb)</div>
+            <div class="item-hangul">제주특별자치도 제주시 신대로17길 7（房東：경여）</div>
+            <div class="item-text">4.98 超高評分「旅人至愛」，前院獨立私人車位，純電車可直接免費停泊。3房5床2衛。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/제주%20제주시%20신대로17길%207" target="_blank">Naver Map</a>
+              <button class="btn-muji" onclick="copyValue('제주특별자치도 제주시 신대로17길 7', '地址已複製')">複製地址</button>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- DAY 7 -->
-      <div class="day-section" id="day-sec-7" style="display:none;">
-        <div class="day-summary-banner">
-          <div class="banner-meta">
+      <div class="day-wrapper" id="day-item-7" style="display:none;">
+        <div class="day-banner">
+          <div class="day-banner-top">
             <span class="banner-region">濟州南岸 · 西歸浦</span>
-            <span style="font-size: 0.74rem; color: var(--text-muted);">10/22 星期四</span>
+            <span class="banner-date">10/22 星期四</span>
           </div>
-          <div class="banner-title">龍頭海岸 ➔ 整條烤帶魚全席 ➔ 山茶花丘粉黛草 ➔ 濟州堂麵包 ➔ 西歸浦全景海景別墅</div>
-          <div class="banner-sub">
-            <span>🏨 連住 2 晚：西歸浦 3房3衛 全景海景別墅（按摩浴池＋洗脫烘）</span>
+          <div class="banner-heading">龍頭海岸 ➔ 整條烤帶魚全席 ➔ 山茶花丘粉黛草 ➔ 濟州堂麵包 ➔ 西歸浦海景別墅</div>
+          <div class="banner-meta">
+            <span>連住 2 晚：西歸浦市 지장샘로182번길 25</span>
           </div>
         </div>
 
-        <div class="timeline-container">
-          <div class="timeline-card" data-cat="SPOT" data-keywords="山房山 龍頭海岸 地質 景點 散步">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🌊 11:00 奇景</span>
-              <span class="type-badge badge-spot">COASTAL CLIFF</span>
+        <div class="timeline">
+          <div class="item-card" data-cat="SPOT" data-keys="山房山 龍頭海岸 地質 景點 散步">
+            <div class="item-top">
+              <span class="item-time">11:00</span>
+              <span class="badge-subtle">COASTAL CLIFF</span>
             </div>
-            <div class="card-heading">山房山 ＆ 龍頭海岸 (용머리해안) 凝灰岩峭壁</div>
-            <div class="hangul-tag">용머리해안 / 제주 서귀포시 안덕면 사계리</div>
-            <div class="card-details">火山凝灰岩層層疊疊延伸入海，壯麗如潛龍入海。</div>
+            <div class="item-title">山房山 ＆ 龍頭海岸 (용머리해안) 凝灰岩峭壁</div>
+            <div class="item-hangul">용머리해안 / 제주 서귀포시 안덕면 사계리</div>
+            <div class="item-text">幾千萬年火山凝灰岩層層疊疊延伸入海，壯麗如巨龍入海。</div>
           </div>
 
-          <div class="timeline-card" data-cat="FOOD" data-keywords="帶魚 烤魚 滿足的商會 春心之家 午餐 藍絲帶">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🐟 12:30 午餐</span>
-              <span class="type-badge badge-food">BLUE RIBBON</span>
+          <div class="item-card" data-cat="FOOD" data-keys="帶魚 烤魚 滿足的商會 春心之家 午餐 藍絲帶">
+            <div class="item-top">
+              <span class="item-time">12:30</span>
+              <span class="badge-subtle">BLUE RIBBON</span>
             </div>
-            <div class="card-heading">滿足的商會 (만족한상회) / 春心之家 (춘심이네)</div>
-            <div class="hangul-tag">만족한상회 / 제주 서귀포시 안덕면 중산간서로 2072</div>
-            <div class="card-details">一公尺長整條銀白鹽烤帶魚全席！專人現場挑刺，附醬蟹與燉帶魚。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/만족한상회" target="_blank">🧭 Naver 導航</a>
-            </div>
-          </div>
-
-          <div class="timeline-card" data-cat="SPOT" data-keywords="山茶花丘 Camellia Hill 粉黛亂子草 銀草 折扣">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🌸 14:00 賞花</span>
-              <span class="type-badge badge-spot">FLOWERS (30% OFF)</span>
-            </div>
-            <div class="card-heading">山茶花丘 (카멜리아힐) 秋季粉紅黛子草花海</div>
-            <div class="hangul-tag">카멜리아힐 / 서귀포시 안덕면 병악로 166</div>
-            <div class="card-details">夢幻粉黛亂子草花海與銀白芒草林蔭步道。出示樂天租車鑰匙享 30% 門票折扣！</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/카멜리아힐" target="_blank">🧭 Naver 導航</a>
+            <div class="item-title">滿足的商會 (만족한상회) / 春心之家 (춘심이네)</div>
+            <div class="item-hangul">만족한상회 / 제주 서귀포시 안덕면 중산간서로 2072</div>
+            <div class="item-text">整條一公尺銀白鹽烤帶魚全席，專人現場去骨挑刺，附醬蟹與燉魚。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/만족한상회" target="_blank">Naver Map</a>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="COFFEE" data-keywords="下午茶 濟州堂 麵包 莊園 Jejudang">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🥐 16:00 下午茶</span>
-              <span class="type-badge badge-coffee">BAKERY CAFE</span>
+          <div class="item-card" data-cat="SPOT" data-keys="山茶花丘 Camellia Hill 粉黛亂子草 銀草 折扣">
+            <div class="item-top">
+              <span class="item-time">14:00</span>
+              <span class="badge-subtle">FLOWERS</span>
             </div>
-            <div class="card-heading">Jejudang Bakery Cafe 濟州堂 (제주당)</div>
-            <div class="hangul-tag">제주당 베이커리카페 / 서귀포 안덕면</div>
-            <div class="card-details">歐洲莊園造景之綠意烘焙咖啡館，招牌擬真水果與蔬菜麵包。</div>
+            <div class="item-title">山茶花丘 (카멜리아힐) 秋季粉紅黛子草花海</div>
+            <div class="item-hangul">카멜리아힐 / 서귀포시 안덕면 병악로 166</div>
+            <div class="item-text">粉黛亂子草花海與銀白芒草林蔭步道。出示樂天車鑰匙享 30% 門票折扣！</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/카멜리아힐" target="_blank">Naver Map</a>
+            </div>
           </div>
 
-          <div class="timeline-card" data-cat="CAR" data-keywords="住宿 西歸浦 海景 別墅 Airbnb 浴池 洗衣機">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🏨 18:45 入住</span>
-              <span class="type-badge badge-stay">LUXURY VILLA</span>
+          <div class="item-card" data-cat="COFFEE" data-keys="下午茶 濟州堂 麵包 莊園 Jejudang">
+            <div class="item-top">
+              <span class="item-time">16:00</span>
+              <span class="badge-subtle">BAKERY CAFE</span>
             </div>
-            <div class="card-heading">入住西歸浦全景海景別墅（連住 2 晚）</div>
-            <div class="hangul-tag">서귀포 파노라마 오션뷰 숙소 (호근동/서홍동)</div>
-            <div class="card-details">懸崖視野遠眺海島！3 間獨立臥室各自享有獨立衛浴（一人一房一衛！），按摩浴池、BBQ 露台、洗脫烘機。</div>
+            <div class="item-title">Jejudang Bakery Cafe 濟州堂 (제주당)</div>
+            <div class="item-hangul">제주당 베이커리카페 / 서귀포 안덕면</div>
+            <div class="item-text">綠意大莊園造景之烘焙咖啡館，招牌擬真水果與蔬菜麵包。</div>
+          </div>
+
+          <div class="item-card" data-cat="STAY" data-keys="住宿 西歸浦 海景 別墅 Airbnb 浴池 洗衣機">
+            <div class="item-top">
+              <span class="item-time">20:30</span>
+              <span class="badge-subtle">ACCOMMODATION</span>
+            </div>
+            <div class="item-title">入住西歸浦全景海景別墅（連住 2 晚）</div>
+            <div class="item-hangul">제주특별자치도 서귀포시 지장샘로182번길 25（房東：준혁）</div>
+            <div class="item-text">西洪洞高處遠眺海島全景！3 間獨立臥室均配有專屬衛浴，按摩浴池 (Jacuzzi)、露台BBQ、洗脫烘機。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/제주%20서귀포시%20지장샘로182번길%2025" target="_blank">Naver Map</a>
+              <button class="btn-muji" onclick="copyValue('제주특별자치도 서귀포시 지장샘로182번길 25', '地址已複製')">複製地址</button>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- DAY 8 -->
-      <div class="day-section" id="day-sec-8" style="display:none;">
-        <div class="day-summary-banner">
-          <div class="banner-meta">
-            <span class="banner-region">濟州東部 · 牛島跳島</span>
-            <span style="font-size: 0.74rem; color: var(--text-muted);">10/23 星期五</span>
+      <div class="day-wrapper" id="day-item-8" style="display:none;">
+        <div class="day-banner">
+          <div class="day-banner-top">
+            <span class="banner-region">濟州東部 · 牛島</span>
+            <span class="banner-date">10/23 星期五</span>
           </div>
-          <div class="banner-title">城山碼頭 ➔ 牛島跳島電動車 ➔ 銘珍鮑魚 ➔ 採摘濟州柑橘 ➔ 偶來市場夜市 ➔ 別墅微醺</div>
-          <div class="banner-sub">
-            <span>⛵ 08:00 出發前往城山浦港</span>
-            <span>🍊 體驗：秋季親採新鮮柑橘</span>
+          <div class="banner-heading">城山碼頭 ➔ 牛島跳島電動車 ➔ 銘珍鮑魚 ➔ 採摘濟州柑橘 ➔ 偶來市場夜市 ➔ 別墅放鬆</div>
+          <div class="banner-meta">
+            <span>08:00 出發前往城山浦港</span>
+            <span>秋季親採新鮮柑橘體驗</span>
           </div>
         </div>
 
-        <div class="timeline-container">
-          <div class="timeline-card" data-cat="SPOT" data-keywords="牛島 跳島 城山港 輪渡 3輪電動車 Jimmy 花生雪糕">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">⛵ 08:00 ➔ 13:00</span>
-              <span class="type-badge badge-spot">ISLAND HOPPING</span>
+        <div class="timeline">
+          <div class="item-card" data-cat="SPOT" data-keys="牛島 跳島 城山港 輪渡 3輪電動車 Jimmy 花生雪糕">
+            <div class="item-top">
+              <span class="item-time">08:00 ➔ 13:00</span>
+              <span class="badge-subtle">ISLAND HOPPING</span>
             </div>
-            <div class="card-heading">城山浦港出發 ➔ 牛島跳島半日遊 (우도)</div>
-            <div class="hangul-tag">성산포항종합여객터미널 ➔ 우도</div>
-            <div class="card-details">搭船入島租借 3 輪電動車環島。遊覽西濱白沙珊瑚沙灘、Jimmy's 濃郁花生雪糕、牛島燈塔。</div>
-            <div class="k-alert-box">⚠️ 租借 3 輪電動車須出示國際駕照 (IDP) 及護照正本。</div>
+            <div class="item-title">城山浦港出發 ➔ 牛島跳島半日遊 (우도)</div>
+            <div class="item-hangul">성산포항종합여객터미널 ➔ 우도</div>
+            <div class="item-text">搭船入島租借 3 輪電動車環島。遊覽西濱白沙珊瑚沙灘、Jimmy's 花生雪糕、牛島燈塔。</div>
+            <div class="note-box">注意：租借 3 輪電動車須出示國際駕照 (IDP) 及護照正本。</div>
           </div>
 
-          <div class="timeline-card" data-cat="FOOD" data-keywords="銘珍鮑魚 鮑魚飯 奶油鮑魚 午餐 藍絲帶">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🦪 13:30 午餐</span>
-              <span class="type-badge badge-food">BLUE RIBBON</span>
+          <div class="item-card" data-cat="FOOD" data-keys="銘珍鮑魚 鮑魚飯 奶油鮑魚 午餐 藍絲帶">
+            <div class="item-top">
+              <span class="item-time">13:30</span>
+              <span class="badge-subtle">BLUE RIBBON</span>
             </div>
-            <div class="card-heading">銘珍鮑魚 (명진전복) 濟州必吃名店</div>
-            <div class="hangul-tag">명진전복 / 제주 제주시 구좌읍 해맞이해안로 1282</div>
-            <div class="card-details">藍絲帶推薦！招牌熱騰騰鮑魚內臟石鍋拌飯、奶油香煎活鮑魚。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/명진전복" target="_blank">🧭 Naver 導航</a>
+            <div class="item-title">銘珍鮑魚 (명진전복) 濟州經典名店</div>
+            <div class="item-hangul">명진전복 / 제주 제주시 구좌읍 해맞이해안로 1282</div>
+            <div class="item-text">藍絲帶推薦！熱騰騰鮑魚內臟石鍋拌飯、奶油香煎活鮑魚。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/명진전복" target="_blank">Naver Map</a>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="SPOT" data-keywords="採柑橘 水果 體驗 西歸浦 農場">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍊 15:30 體驗</span>
-              <span class="type-badge badge-spot">EXPERIENCE</span>
+          <div class="item-card" data-cat="SPOT" data-keys="採柑橘 水果 體驗 西歸浦 農場 偶來市場">
+            <div class="item-top">
+              <span class="item-time">15:00 ➔ 18:00</span>
+              <span class="badge-subtle">LOCAL LIFE</span>
             </div>
-            <div class="card-heading">西歸浦秋季採摘濟州柑橘農場體驗</div>
-            <div class="card-details">親手剪下秋季甜美多汁的濟州柑橘，園內各角落設有拍照打卡場景。</div>
-          </div>
-
-          <div class="timeline-card" data-cat="FOOD" data-keywords="偶來市場 每日偶來市場 柑橘大福 黑豬肉串 晚餐">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍢 18:00 逛街</span>
-              <span class="type-badge badge-food">NIGHT MARKET</span>
-            </div>
-            <div class="card-heading">西歸浦每日偶來市場 (서귀포매일올레시장)</div>
-            <div class="hangul-tag">서귀포매일올레시장 / 서귀포시 중앙로62번길 18</div>
-            <div class="card-details">品嚐整顆爆汁柑橘大福、炙燒黑豬肉串、烤秋刀魚紫菜包飯等夜市特色小吃。</div>
+            <div class="item-title">採摘濟州柑橘農場 ＆ 西歸浦每日偶來市場</div>
+            <div class="item-hangul">서귀포매일올레시장 / 서귀포시 중앙로62번길 18</div>
+            <div class="item-text">親手採摘秋季甜美柑橘；晚間逛偶來市場品嚐柑橘大福、烤黑豬肉串與小吃。</div>
           </div>
         </div>
       </div>
 
       <!-- DAY 9 -->
-      <div class="day-section" id="day-sec-9" style="display:none;">
-        <div class="day-summary-banner">
-          <div class="banner-meta">
+      <div class="day-wrapper" id="day-item-9" style="display:none;">
+        <div class="day-banner">
+          <div class="day-banner-top">
             <span class="banner-region">濟州 ➔ 香港</span>
-            <span style="font-size: 0.74rem; color: var(--text-muted);">10/24 星期六</span>
+            <span class="banner-date">10/24 星期六</span>
           </div>
-          <div class="banner-title">正房瀑布 ➔ 挾才海鮮拉麵 ➔ 東門市場手信 ➔ 三姓穴海鮮鍋 ➔ 樂天還車 ➔ 香港</div>
-          <div class="banner-sub">
-            <span>🚗 19:00 樂天 Auto House 還車</span>
-            <span>✈️ 真航空 LJ713 (21:30-23:35)</span>
+          <div class="banner-heading">正房瀑布 ➔ 挾才海鮮拉麵 ➔ 東門市場手信 ➔ 三姓穴海鮮鍋 ➔ 樂天還車 ➔ 返港</div>
+          <div class="banner-meta">
+            <span>19:00 樂天 Auto House 還車</span>
+            <span>真航空 LJ713 (21:30-23:35)</span>
           </div>
         </div>
 
-        <div class="timeline-container">
-          <div class="timeline-card" data-cat="SPOT" data-keywords="瀑布 正房瀑布 獨立岩 散步 西歸浦">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🌊 09:30 散步</span>
-              <span class="type-badge badge-spot">WATERFALL</span>
+        <div class="timeline">
+          <div class="item-card" data-cat="SPOT" data-keys="瀑布 正房瀑布 獨立岩 散步 西歸浦">
+            <div class="item-top">
+              <span class="item-time">09:30</span>
+              <span class="badge-subtle">WATERFALL</span>
             </div>
-            <div class="card-heading">正房瀑布 (唯一直瀉入海瀑布) ＆ 獨立岩</div>
-            <div class="hangul-tag">정방폭포 / 서귀포시 칠십리로214번길 37</div>
-            <div class="card-details">欣賞氣勢磅礴直瀉入大海的瀑布水幕與沿岸奇岩。</div>
+            <div class="item-title">正房瀑布 (亞洲唯一直接入海瀑布) ＆ 獨立岩</div>
+            <div class="item-hangul">정방폭포 / 서귀포시 칠십리로214번길 37</div>
+            <div class="item-text">退房後車程約 8–10 分鐘即達，欣賞直瀉入大海的瀑布水幕與奇岩。</div>
           </div>
 
-          <div class="timeline-card" data-cat="FOOD" data-keywords="挾才 海邊 海鮮拉麵 鮑魚 紅蟳 午餐">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍜 12:00 午餐</span>
-              <span class="type-badge badge-food">LUNCH</span>
+          <div class="item-card" data-cat="FOOD" data-keys="挾才 海邊 海鮮拉麵 鮑魚 紅蟳 午餐">
+            <div class="item-top">
+              <span class="item-time">12:00</span>
+              <span class="badge-subtle">LUNCH</span>
             </div>
-            <div class="card-heading">挾才海鮮拉麵 (협재해녀의집)</div>
-            <div class="hangul-tag">협재해녀의집 / 제주시 한림읍 협재3길 19</div>
-            <div class="card-details">抵達挾才海灘，品嚐加入整隻紅蟳、活鮑魚與鮮蝦的海女現煮拉麵。</div>
+            <div class="item-title">挾才海鮮拉麵 (협재해녀의집)</div>
+            <div class="item-hangul">협재해녀의집 / 제주시 한림읍 협재3길 19</div>
+            <div class="item-text">沿西海岸公路驅車抵達挾才海灘，品嚐加入紅蟳、活鮑魚與鮮蝦的海女拉麵。</div>
           </div>
 
-          <div class="timeline-card" data-cat="SPOT" data-keywords="手信 伴手禮 東門市場 七星路 購物 柑橘朱古力">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🎁 14:00 伴手禮</span>
-              <span class="type-badge badge-spot">SHOPPING</span>
+          <div class="item-card" data-cat="SPOT" data-keys="手信 伴手禮 東門市場 七星路 購物 柑橘朱古力">
+            <div class="item-top">
+              <span class="item-time">14:00</span>
+              <span class="badge-subtle">SHOPPING</span>
             </div>
-            <div class="card-heading">東門傳統市場 ＆ 七星路商圈手信採買</div>
-            <div class="hangul-tag">동문재래시장 / 제주시 관덕로14길 20</div>
-            <div class="card-details">採購濟州限定柑橘朱古力、牛島花生塔與黑豬肉泡麵伴手禮。</div>
+            <div class="item-title">東門傳統市場 ＆ 七星路商圈手信採買</div>
+            <div class="item-hangul">동문재래시장 / 제주시 관덕로14길 20</div>
+            <div class="item-text">採購濟州限定柑橘朱古力、牛島花生塔與特色伴手禮。</div>
           </div>
 
-          <div class="timeline-card" data-cat="FOOD" data-keywords="三姓穴 海鮮湯 活章魚 晚餐 藍絲帶">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🍲 17:30 慶功</span>
-              <span class="type-badge badge-food">BLUE RIBBON</span>
+          <div class="item-card" data-cat="FOOD" data-keys="三姓穴 海鮮湯 活章魚 晚餐 藍絲帶">
+            <div class="item-top">
+              <span class="item-time">17:30</span>
+              <span class="badge-subtle">BLUE RIBBON</span>
             </div>
-            <div class="card-heading">三姓穴海鮮湯 (삼성혈해물탕) 藍絲帶澎湃海鮮鍋</div>
-            <div class="hangul-tag">삼성혈해물탕 / 제주시 도령로 34 (蓮洞附近)</div>
-            <div class="card-details">告別慶功宴！整鍋滿出鍋沿的鮮活大章魚、鮑魚、扇貝與螃蟹，鮮甜無比。</div>
-            <div class="button-flex-row">
-              <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/삼성혈해물탕" target="_blank">🧭 Naver 導航</a>
+            <div class="item-title">三姓穴海鮮湯 (삼성혈해물탕) 藍絲帶澎湃海鮮鍋</div>
+            <div class="item-hangul">삼성혈해물탕 / 제주시 도령로 34 (蓮洞附近)</div>
+            <div class="item-text">告別晚餐！整鍋滿出鍋沿的鮮活大章魚、鮑魚、扇貝與螃蟹。</div>
+            <div class="btn-row">
+              <a class="btn-muji naver" href="https://map.naver.com/v5/search/삼성혈해물탕" target="_blank">Naver Map</a>
             </div>
           </div>
 
-          <div class="timeline-card" data-cat="CAR" data-keywords="還車 樂天 濟州機場 Auto House">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">🚗 19:00 還車</span>
-              <span class="type-badge badge-car">RETURN EV</span>
+          <div class="item-card" data-cat="STAY" data-keys="還車 樂天 濟州機場 Auto House 航班 返港">
+            <div class="item-top">
+              <span class="item-time">19:00 ➔ 21:30</span>
+              <span class="badge-subtle">RETURN & DEPART</span>
             </div>
-            <div class="card-heading">濟州機場 LOTTE Auto House 歸還純電車</div>
-            <div class="card-details">歸還 IONIQ 9 純電車，搭乘免費接駁車前往濟州機場國際航廈。</div>
-          </div>
-
-          <div class="timeline-card" data-cat="FLIGHT" data-keywords="機場 返港 航班 真航空 LJ713 退稅 香港">
-            <div class="timeline-dot"></div>
-            <div class="card-top-bar">
-              <span class="time-slot">✈️ 21:30 ➔ 23:35</span>
-              <span class="type-badge badge-flight">FLIGHT HOME</span>
-            </div>
-            <div class="card-heading">濟州 (CJU) ➔ 香港國際機場 T1</div>
-            <div class="hangul-tag">진에어 LJ713 / 제주 ➔ 홍콩</div>
-            <div class="card-details">搭乘真航空 LJ713 班機返回香港。於機場自助機台掃描辦理 Tax Free 退稅。</div>
+            <div class="item-title">濟州機場 Auto House 還車 ➔ 真航空 LJ713 返港</div>
+            <div class="item-hangul">진에어 LJ713 (21:30 ➔ 23:35 抵港 T1)</div>
+            <div class="item-text">歸還純電車後搭接駁車至機場，自助機台掃描辦理 Tax Free 退稅，登機返港。</div>
           </div>
         </div>
       </div>
 
     </section>
 
-    <!-- 頁面 2: 交通與住宿 -->
-    <section id="pane-logistics" class="tab-pane">
-      <div class="section-header">✈️ 航班總覽 (Flight Details)</div>
+    <!-- TAB 2: 交通與住宿清單 -->
+    <section id="tab-logistics" class="tab-content">
+      <div class="section-headline">航班資訊 (Flight Details)</div>
 
-      <div class="overview-box">
-        <div class="overview-top">
-          <div class="overview-title">去程：香港 HKG ➔ 仁川 ICN T1</div>
-          <span class="type-badge badge-flight">UO626</span>
+      <div class="card-block">
+        <div class="card-block-title">
+          <span>去程：香港 HKG ➔ 仁川 ICN T1</span>
+          <span class="badge-subtle">UO626</span>
         </div>
-        <div class="kv-grid">
-          <div class="kv-item"><div class="kv-label">日期</div><div class="kv-value">10/16 (五)</div></div>
-          <div class="kv-item"><div class="kv-label">時間</div><div class="kv-value">16:55 ➔ 21:35</div></div>
-          <div class="kv-item full"><div class="kv-label">航空公司</div><div class="kv-value">香港快運 HK Express (UO626)</div></div>
+        <div class="grid-info">
+          <div class="grid-col"><div class="col-label">日期</div><div class="col-val">10/16 (五)</div></div>
+          <div class="grid-col"><div class="col-label">時間</div><div class="col-val">16:55 ➔ 21:35</div></div>
+          <div class="grid-col full"><div class="col-label">航空公司</div><div class="col-val">香港快運 HK Express (UO626)</div></div>
         </div>
       </div>
 
-      <div class="overview-box">
-        <div class="overview-top">
-          <div class="overview-title">內陸：金浦 GMP ➔ 濟州 CJU</div>
-          <span class="type-badge badge-flight">ZE207</span>
+      <div class="card-block">
+        <div class="card-block-title">
+          <span>內陸：金浦 GMP ➔ 濟州 CJU</span>
+          <span class="badge-subtle">ZE207</span>
         </div>
-        <div class="kv-grid">
-          <div class="kv-item"><div class="kv-label">日期</div><div class="kv-value">10/21 (三)</div></div>
-          <div class="kv-item"><div class="kv-label">時間</div><div class="kv-value">07:35 ➔ 08:50</div></div>
-          <div class="kv-item full"><div class="kv-label">航空公司</div><div class="kv-value">易斯達航空 Eastar Jet (ZE207)</div></div>
-        </div>
-      </div>
-
-      <div class="overview-box">
-        <div class="overview-top">
-          <div class="overview-title">回程：濟州 CJU ➔ 香港 HKG T1</div>
-          <span class="type-badge badge-flight">LJ713</span>
-        </div>
-        <div class="kv-grid">
-          <div class="kv-item"><div class="kv-label">日期</div><div class="kv-value">10/24 (六)</div></div>
-          <div class="kv-item"><div class="kv-label">時間</div><div class="kv-value">21:30 ➔ 23:35</div></div>
-          <div class="kv-item full"><div class="kv-label">航空公司</div><div class="kv-value">真航空 Jin Air (LJ713)</div></div>
+        <div class="grid-info">
+          <div class="grid-col"><div class="col-label">日期</div><div class="col-val">10/21 (三)</div></div>
+          <div class="grid-col"><div class="col-label">時間</div><div class="col-val">07:35 ➔ 08:50</div></div>
+          <div class="grid-col full"><div class="col-label">航空公司</div><div class="col-val">易斯達航空 Eastar Jet (ZE207)</div></div>
         </div>
       </div>
 
-      <div class="section-header">🚗 自駕租車詳情 (Car Rental)</div>
-
-      <div class="overview-box">
-        <div class="overview-top">
-          <div class="overview-title">首爾段：Hyundai Staria 9人商務車</div>
-          <span class="type-badge badge-car">RENTBANK</span>
+      <div class="card-block">
+        <div class="card-block-title">
+          <span>回程：濟州 CJU ➔ 香港 HKG T1</span>
+          <span class="badge-subtle">LJ713</span>
         </div>
-        <div class="kv-grid">
-          <div class="kv-item"><div class="kv-label">訂單編號</div><div class="kv-value">#1359047919213593</div></div>
-          <div class="kv-item"><div class="kv-label">PIN 碼</div><div class="kv-value">3410</div></div>
-          <div class="kv-item full"><div class="kv-label">取車時間地點</div><div class="kv-value">10/16 22:30 · 仁川機場 T1 1樓 12號門 (GATE 12)</div></div>
-          <div class="kv-item full"><div class="kv-label">還車時間地點</div><div class="kv-value">10/20 22:00前 · 首爾站門市 (서울 중구 한강대로 405)</div></div>
-          <div class="kv-item full"><div class="kv-label">費用與按金</div><div class="kv-value">HKD 3,969.02 (已付) · 按金 KRW 100,000 (約 HK$570)</div></div>
-        </div>
-        <div class="button-flex-row">
-          <button class="k-action-btn btn-copy" onclick="doCopy('+82-10-3212-6215', '電話已複製')">📞 +82-10-3212-6215</button>
-          <button class="k-action-btn btn-copy" onclick="doCopy('3410', 'PIN 已複製')">🔑 複製 PIN</button>
+        <div class="grid-info">
+          <div class="grid-col"><div class="col-label">日期</div><div class="col-val">10/24 (六)</div></div>
+          <div class="grid-col"><div class="col-label">時間</div><div class="col-val">21:30 ➔ 23:35</div></div>
+          <div class="grid-col full"><div class="col-label">航空公司</div><div class="col-val">真航空 Jin Air (LJ713)</div></div>
         </div>
       </div>
 
-      <div class="overview-box">
-        <div class="overview-top">
-          <div class="overview-title">濟州段：IONIQ 9 純電 7人座 (4WD)</div>
-          <span class="type-badge badge-car">LOTTE</span>
+      <div class="section-headline">車輛租賃詳情 (Car Rental)</div>
+
+      <div class="card-block">
+        <div class="card-block-title">
+          <span>首爾段：Hyundai Staria 商務車</span>
+          <span class="badge-subtle">RENTBANK</span>
         </div>
-        <div class="kv-grid">
-          <div class="kv-item"><div class="kv-label">預約號碼</div><div class="kv-value">2622541225</div></div>
-          <div class="kv-item"><div class="kv-label">客服電話</div><div class="kv-value">1588-1230</div></div>
-          <div class="kv-item full"><div class="kv-label">取車地點</div><div class="kv-value">10/21 09:30 · 濟州機場 Auto House (92, Yonghae-ro)</div></div>
-          <div class="kv-item full"><div class="kv-label">還車地點</div><div class="kv-value">10/24 19:00 · 濟州機場 Auto House</div></div>
-          <div class="kv-item full"><div class="kv-label">車匙專屬福利</div><div class="kv-value">山茶花丘 30% 折扣、樂天飯店 15% 折扣</div></div>
+        <div class="grid-info">
+          <div class="grid-col"><div class="col-label">訂單編號</div><div class="col-val">#1359047919213593</div></div>
+          <div class="grid-col"><div class="col-label">PIN 碼</div><div class="col-val">3410</div></div>
+          <div class="grid-col full"><div class="col-label">取車時間地點</div><div class="col-val">10/16 22:30 · 仁川機場 T1 1樓 12號門</div></div>
+          <div class="grid-col full"><div class="col-label">還車時間地點</div><div class="col-val">10/20 22:00前 · 首爾站門市 (서울 중구 한강대로 405)</div></div>
+          <div class="grid-col full"><div class="col-label">費用與按金</div><div class="col-val">HKD 3,969.02 (已付) · 按金 KRW 100,000</div></div>
         </div>
-        <div class="button-flex-row">
-          <button class="k-action-btn btn-copy" onclick="doCopy('2622541225', '預約號已複製')">🔑 複製預約號</button>
+        <div class="btn-row">
+          <button class="btn-muji" onclick="copyValue('+82-10-3212-6215', '電話已複製')">📞 +82-10-3212-6215</button>
+          <button class="btn-muji" onclick="copyValue('3410', 'PIN 已複製')">🔑 複製 PIN</button>
         </div>
       </div>
 
-      <div class="section-header">🏨 住宿安排 (Accommodations)</div>
-
-      <div class="overview-box">
-        <div class="overview-top">
-          <div class="overview-title">首爾 D1：Ribbon Stay (리본스테이)</div>
-          <span class="type-badge badge-stay">10/16-17 (1晚)</span>
+      <div class="card-block">
+        <div class="card-block-title">
+          <span>濟州段：IONIQ 9 純電車 (4WD)</span>
+          <span class="badge-subtle">LOTTE</span>
         </div>
-        <div class="kv-grid">
-          <div class="kv-item full"><div class="kv-label">韓文地址</div><div class="kv-value">서울 은평구 연서로3길 8（鷹岩站步行7分鐘）</div></div>
-          <div class="kv-item"><div class="kv-label">格局容量</div><div class="kv-value">整套 3~4 樓 (最多7人)</div></div>
-          <div class="kv-item"><div class="kv-label">免費車位</div><div class="kv-value">自帶專屬免費停車位</div></div>
-          <div class="kv-item full"><div class="kv-label">入住與退房</div><div class="kv-value">密碼自助入住 ｜ 10/17 11:00 前退房</div></div>
+        <div class="grid-info">
+          <div class="grid-col"><div class="col-label">預約號碼</div><div class="col-val">2622541225</div></div>
+          <div class="grid-col"><div class="col-label">客服電話</div><div class="col-val">1588-1230</div></div>
+          <div class="grid-col full"><div class="col-label">取車地點</div><div class="col-val">10/21 09:30 · 濟州機場 Auto House (92, Yonghae-ro)</div></div>
+          <div class="grid-col full"><div class="col-label">還車地點</div><div class="col-val">10/24 19:00 · 濟州機場 Auto House</div></div>
+          <div class="grid-col full"><div class="col-label">專屬優惠</div><div class="col-val">出示車匙：山茶花丘 30% 折扣、樂天飯店 15% 折扣</div></div>
         </div>
-        <div class="button-flex-row">
-          <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/서울%20은평구%20연서로3길%208" target="_blank">🧭 Naver 導航</a>
-          <button class="k-action-btn btn-copy" onclick="doCopy('서울 은평구 연서로3길 8', '地址已複製')">📋 複製地址</button>
+        <div class="btn-row">
+          <button class="btn-muji" onclick="copyValue('2622541225', '預約號已複製')">🔑 複製預約號</button>
         </div>
       </div>
 
-      <div class="overview-box">
-        <div class="overview-top">
-          <div class="overview-title">首爾 D2~D5：MEMORYSTAY CASA Yeonnam</div>
-          <span class="type-badge badge-stay">10/17-21 (4晚)</span>
+      <div class="section-headline">住宿安排 (Accommodations)</div>
+
+      <div class="card-block">
+        <div class="card-block-title">
+          <span>首爾 D1：Ribbon Stay (리본스테이)</span>
+          <span class="badge-subtle">10/16-17 (1晚)</span>
         </div>
-        <div class="kv-grid">
-          <div class="kv-item full"><div class="kv-label">位置</div><div class="kv-value">首爾麻浦區延南洞（近弘大入口站）</div></div>
-          <div class="kv-item"><div class="kv-label">格局特色</div><div class="kv-value">獨棟韓屋新裝修 (3房4大床1衛)</div></div>
-          <div class="kv-item"><div class="kv-label">行李寄存</div><div class="kv-value">1樓提供入住前與退房後寄存</div></div>
+        <div class="grid-info">
+          <div class="grid-col full"><div class="col-label">地址</div><div class="col-val">서울 은평구 연서로3길 8（鷹岩站步行7分鐘）</div></div>
+          <div class="grid-col"><div class="col-label">房源空間</div><div class="col-val">整套 3~4 樓</div></div>
+          <div class="grid-col"><div class="col-label">專屬泊車</div><div class="col-val">自帶免費專屬停車位</div></div>
+          <div class="grid-col full"><div class="col-label">入住退房</div><div class="col-val">密碼自助入住 ｜ 10/17 11:00 前退房</div></div>
+        </div>
+        <div class="btn-row">
+          <a class="btn-muji naver" href="https://map.naver.com/v5/search/서울%20은평구%20연서로3길%208" target="_blank">Naver Map</a>
+          <button class="btn-muji" onclick="copyValue('서울 은평구 연서로3길 8', '地址已複製')">複製地址</button>
         </div>
       </div>
 
-      <div class="overview-box">
-        <div class="overview-top">
-          <div class="overview-title">濟州 D6：도심 속 전원주택 'Been' (Airbnb)</div>
-          <span class="type-badge badge-stay">10/21-22 (1晚)</span>
+      <div class="card-block">
+        <div class="card-block-title">
+          <span>首爾 D2~D5：MEMORYSTAY CASA Yeonnam</span>
+          <span class="badge-subtle">10/17-21 (4晚)</span>
         </div>
-        <div class="kv-grid">
-          <div class="kv-item full"><div class="kv-label">位置</div><div class="kv-value">濟州市蓮洞（女梅路附近，距機場10-15分）</div></div>
-          <div class="kv-item"><div class="kv-label">格局空間</div><div class="kv-value">3間臥室、5張床、2間完整衛浴</div></div>
-          <div class="kv-item"><div class="kv-label">自駕停車</div><div class="kv-value">前院獨立私人車位（IONIQ 9 免費停）</div></div>
+        <div class="grid-info">
+          <div class="grid-col full"><div class="col-label">最新地址</div><div class="col-val">서울 마포구 연남로7길 26（近弘大站）</div></div>
+          <div class="grid-col"><div class="col-label">房東</div><div class="col-val">다영</div></div>
+          <div class="grid-col"><div class="col-label">行李寄存</div><div class="col-val">1樓提供寄存服務</div></div>
+        </div>
+        <div class="btn-row">
+          <a class="btn-muji naver" href="https://map.naver.com/v5/search/서울%20마포구%20연남로7길%2026" target="_blank">Naver Map</a>
+          <button class="btn-muji" onclick="copyValue('서울 마포구 연남로7길 26', '地址已複製')">複製地址</button>
         </div>
       </div>
 
-      <div class="overview-box">
-        <div class="overview-top">
-          <div class="overview-title">濟州 D7~D8：西歸浦全景海景別墅 (Airbnb)</div>
-          <span class="type-badge badge-stay">10/22-24 (2晚)</span>
+      <div class="card-block">
+        <div class="card-block-title">
+          <span>濟州 D6：도심 속 전원주택 'Been' (Airbnb)</span>
+          <span class="badge-subtle">10/21-22 (1晚)</span>
         </div>
-        <div class="kv-grid">
-          <div class="kv-item full"><div class="kv-label">位置</div><div class="kv-value">西歸浦市西洪洞/虎好洞（懸崖遠眺海景）</div></div>
-          <div class="kv-item"><div class="kv-label">頂級格局</div><div class="kv-value">3房4床 + 3間衛浴（一人一房一衛浴！）</div></div>
-          <div class="kv-item"><div class="kv-label">奢華設備</div><div class="kv-value">按摩浴池 (Jacuzzi)、露台BBQ、洗脫烘機</div></div>
+        <div class="grid-info">
+          <div class="grid-col full"><div class="col-label">最新地址</div><div class="col-val">제주특별자치도 제주시 신대로17길 7（蓮洞市區）</div></div>
+          <div class="grid-col"><div class="col-label">房東</div><div class="col-val">경여</div></div>
+          <div class="grid-col"><div class="col-label">自駕停車</div><div class="col-val">前院獨立私人免費車位</div></div>
+        </div>
+        <div class="btn-row">
+          <a class="btn-muji naver" href="https://map.naver.com/v5/search/제주%20제주시%20신대로17길%207" target="_blank">Naver Map</a>
+          <button class="btn-muji" onclick="copyValue('제주특별자치도 제주시 신대로17길 7', '地址已複製')">複製地址</button>
+        </div>
+      </div>
+
+      <div class="card-block">
+        <div class="card-block-title">
+          <span>濟州 D7~D8：西歸浦全景海景別墅 (Airbnb)</span>
+          <span class="badge-subtle">10/22-24 (2晚)</span>
+        </div>
+        <div class="grid-info">
+          <div class="grid-col full"><div class="col-label">最新地址</div><div class="col-val">제주특별자치도 서귀포시 지장샘로182번길 25</div></div>
+          <div class="grid-col"><div class="col-label">房東</div><div class="col-val">준혁 (Superhost)</div></div>
+          <div class="grid-col"><div class="col-label">衛浴設施</div><div class="col-val">3間獨立臥室各自配有完整衛浴</div></div>
+          <div class="grid-col full"><div class="col-label">屋內設備</div><div class="col-val">按摩浴池 (Jacuzzi)、洗脫烘洗衣機、露台BBQ</div></div>
+        </div>
+        <div class="btn-row">
+          <a class="btn-muji naver" href="https://map.naver.com/v5/search/제주%20서귀포시%20지장샘로182번길%2025" target="_blank">Naver Map</a>
+          <button class="btn-muji" onclick="copyValue('제주특별자치도 서귀포시 지장샘로182번길 25', '地址已複製')">複製地址</button>
         </div>
       </div>
     </section>
 
-    <!-- 頁面 3: 美食地圖 -->
-    <section id="pane-food" class="tab-pane">
-      <div class="section-header">🍽️ 首爾精選與備選美食</div>
+    <!-- TAB 3: 美食備選清單 -->
+    <section id="tab-food" class="tab-content">
+      <div class="section-headline">首爾精選與備選名單</div>
 
-      <div class="overview-box">
-        <div class="overview-title" style="margin-bottom: 8px;">🦀 頂級醬油蟹名單</div>
-        <div class="card-details">
+      <div class="card-block">
+        <div class="card-block-title">🦀 頂級醬油蟹</div>
+        <div class="item-text">
           • <b>真味食堂 (진미식당)：</b> 米芝蓮必比登推薦，麻浦區頂級醬蟹代表。<br>
-          • <b>元祖馬山醬蟹 ＆ 一味醬蟹 ＆ 烏達里家(明洞)：</b> 蟹黃滿滿，拌麻油紫菜飯絕品。
+          • <b>元祖馬山醬蟹 ＆ 一味醬蟹 ＆ 烏達里家(明洞)：</b> 蟹黃豐富，拌麻油紫菜飯絕品。
         </div>
-        <div class="button-flex-row">
-          <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/진미식당" target="_blank">🧭 Naver: 真味食堂</a>
+        <div class="btn-row">
+          <a class="btn-muji naver" href="https://map.naver.com/v5/search/진미식당" target="_blank">Naver Map: 真味食堂</a>
         </div>
       </div>
 
-      <div class="overview-box">
-        <div class="overview-title" style="margin-bottom: 8px;">🍲 經典湯品、韓牛 ＆ 烤肉</div>
-        <div class="card-details">
+      <div class="card-block">
+        <div class="card-block-title">🍲 經典湯品 ＆ 烤肉</div>
+        <div class="item-text">
           • <b>聖水馬鈴薯排骨湯 (소문난성수감자탕)：</b> 白種元推薦，24小時營業濃郁排骨肉。<br>
           • <b>土俗村參雞湯 (토속촌)：</b> 景福宮百年韓屋參雞湯。<br>
-          • <b>金豬食堂 (금돼지식당)：</b> 米芝蓮必比登、BTS 愛店烤五花肉。<br>
-          • <b>里門雪濃湯 (이문설농탕) ＆ 河東館 (하동관)：</b> 百年韓牛牛骨清湯名店。
-        </div>
-        <div class="button-flex-row">
-          <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/소문난성수감자탕" target="_blank">🧭 Naver: 聖水排骨湯</a>
+          • <b>金豬食堂 (금돼지식당)：</b> 米芝蓮必比登烤五花肉。<br>
+          • <b>里門雪濃湯 (이문설농탕) ＆ 河東館 (하동관)：</b> 百年韓牛清湯名店。
         </div>
       </div>
 
-      <div class="overview-box">
-        <div class="overview-title" style="margin-bottom: 8px;">☕ 精品手沖與冠軍烘豆所名單</div>
-        <div class="card-details">
-          • <b>Lounge Clarimento (라운지 클라리멘토)：</b> 麻浦合井，精緻手沖單品與沉靜氛圍。<br>
+      <div class="card-block">
+        <div class="card-block-title">☕ 精品手沖與烘豆所名單</div>
+        <div class="item-text">
+          • <b>Lounge Clarimento (라운지 클라리멘토)：</b> 麻浦合井，精緻手沖單品。<br>
           • <b>Doduk&Kyubum (도덕&규범)：</b> 麻浦上水/弘大，黑膠手沖烘焙所 (0507-1495-7807)。<br>
-          • <b>Bunker Company Apgujeong (벙커컴퍼니)：</b> 狎鷗亭獨棟老宅，冠軍烘豆師創意特調 (02-544-7767)。<br>
-          • <b>GML (지엠엘) ＆ Unpage (언페이지)：</b> 漢南洞名廠選品豆手沖概念店。
+          • <b>Bunker Company Apgujeong (벙커컴퍼니)：</b> 狎鷗亭獨棟老宅烘豆所 (02-544-7767)。<br>
+          • <b>GML (지엠엘) ＆ Unpage (언페이지)：</b> 漢南洞精品手沖吧。
         </div>
       </div>
 
-      <div class="section-header">🍊 濟州精選與備選名單</div>
+      <div class="section-headline">濟州精選與備選名單</div>
 
-      <div class="overview-box">
-        <div class="overview-title" style="margin-bottom: 8px;">🐟 活青花魚刺身 ＆ 黑豬肉</div>
-        <div class="card-details">
-          • <b>美英家 (미영이네식당)：</b> 謨瑟浦港藍絲帶名店，活青花魚刺身附白魚湯。<br>
-          • <b>豚似豚 (돈사돈) ＆ 千吉谷 (천짓골식당)：</b> GD愛店厚切炭火黑豬肉 / 白切肉名店。<br>
+      <div class="card-block">
+        <div class="card-block-title">🐟 活青花魚刺身 ＆ 黑豬肉</div>
+        <div class="item-text">
+          • <b>美英家 (미영이네식당)：</b> 謨瑟浦港藍絲帶名店，活青花魚刺身附濃郁白魚湯。<br>
+          • <b>豚似豚 (돈사돈) ＆ 千吉谷 (천짓골식당)：</b> 厚切炭火黑豬肉 / 白切肉名店。<br>
           • <b>Coffee Temple (커피템플)：</b> 13年藍絲帶認證，招牌濟州柑橘特調咖啡。<br>
           • <b>頑固的石斑魚 (고집돌우럭)：</b> 招牌紅燒野生石斑魚海鮮鍋套餐。
         </div>
-        <div class="button-flex-row">
-          <a class="k-action-btn btn-naver" href="https://map.naver.com/v5/search/미영이네식당" target="_blank">🧭 Naver: 美英家</a>
+        <div class="btn-row">
+          <a class="btn-muji naver" href="https://map.naver.com/v5/search/미영이네식당" target="_blank">Naver Map: 美英家</a>
         </div>
       </div>
     </section>
 
-    <!-- 頁面 4: 換算與實用工具 -->
-    <section id="pane-tools" class="tab-pane">
-      <div class="section-header">🧮 韓元 ⇄ 港幣 即時換算 ＆ 5人拆帳</div>
+    <!-- TAB 4: 實用工具 -->
+    <section id="tab-tools" class="tab-content">
+      <div class="section-headline">匯率換算工具 (KRW ⇄ HKD)</div>
 
-      <div class="k-calc-card">
-        <div class="calc-header">
-          <span>🇰🇷 韓元折合港幣匯率計算機</span>
-          <span>10,000 ₩ ≈ HK$ 57</span>
+      <div class="calc-card">
+        <div style="font-size:0.75rem; color:var(--ink-sub);">輸入韓元金額 (KRW) · 參考匯率 10,000 ₩ ≈ HK$ 57</div>
+        <div class="calc-input-row">
+          <span style="font-size:1.1rem; font-weight:700; color:var(--muji-wood);">₩</span>
+          <input type="number" id="krwNum" placeholder="例如: 100000" oninput="doCalc()">
         </div>
-        <div class="input-pill">
-          <span>₩</span>
-          <input type="number" id="calcKrw" placeholder="輸入韓元金額 (例如: 120000)" oninput="runSplitCalc()">
-        </div>
-        <div class="calc-row">
-          <span>總計折合港幣：</span>
-          <span id="hkdTotal" style="font-size:1.1rem; font-weight:800;">HK$ 0</span>
-        </div>
-        <div class="calc-row" style="margin-top:2px;">
-          <span>5 位成人平均分攤：</span>
-          <span id="hkdSplit" style="font-size:1.1rem; font-weight:800; color: #FEE500;">HK$ 0 / 人</span>
+        <div class="calc-row-flex">
+          <span>折合港幣：</span>
+          <b id="hkdOutput">HK$ 0</b>
         </div>
       </div>
 
-      <div class="section-header">🌤️ 10月中旬韓國秋季自駕氣候指南</div>
-      <div class="weather-card">
-        <div>
-          <div style="font-size:0.9rem; font-weight:800; color:var(--text-main);">🍁 首爾 & 加平 (10/16 - 10/20)</div>
-          <div style="font-size:0.75rem; color:var(--text-sub);">約 10°C ~ 20°C · 乾爽晴朗，早晚偏涼需備風衣或輕羽絨</div>
-        </div>
-        <span style="font-size:1.5rem;">🍂</span>
-      </div>
-      <div class="weather-card">
-        <div>
-          <div style="font-size:0.9rem; font-weight:800; color:var(--text-main);">🌊 濟州島 & 牛島 (10/21 - 10/24)</div>
-          <div style="font-size:0.75rem; color:var(--text-sub);">約 14°C ~ 22°C · 沿海風大，建議攜帶防風外套與墨鏡</div>
-        </div>
-        <span style="font-size:1.5rem;">🍊</span>
-      </div>
+      <div class="section-headline">自駕與旅行手冊</div>
 
-      <div class="section-header">💡 自駕、預約與退稅須知</div>
-
-      <div class="overview-box">
-        <div class="overview-title" style="margin-bottom:6px;">🚗 自駕與公路收費道</div>
-        <div class="card-details">
-          • <b>無 Hi-Pass 感應卡：</b> 本車若未裝 Hi-Pass 卡，行駛收費站時請務必走行 <b>藍色或灰色車道</b> (現金/信用卡通道)，切勿行駛 Hi-Pass 專用車道。<br>
+      <div class="card-block">
+        <div class="card-block-title">🚗 自駕與高速公路收費道</div>
+        <div class="item-text">
+          • <b>無 Hi-Pass 感應卡：</b> 行經收費站請走行 <b>藍色或灰色車道</b> (現金/信用卡通道)，切勿走 Hi-Pass 專用道。<br>
+          • <b>導航系統：</b> 韓國境內請使用 <b>Naver Map</b> 或 <b>Kakao Map</b>。<br>
           • <b>市區停車：</b> 可下載 <b>Kakao Parking</b> 即時查詢週邊收費停車場與空位。
         </div>
       </div>
 
-      <div class="overview-box">
-        <div class="overview-title" style="margin-bottom:6px;">📱 餐廳預約神器 Catchtable</div>
-        <div class="card-details">
-          • <b>支援海外手機：</b> 提前下載 Catchtable Global App，支援香港手機號碼與海外信用卡。<br>
+      <div class="card-block">
+        <div class="card-block-title">📱 餐廳排隊神器 Catchtable</div>
+        <div class="item-text">
+          • <b>海外門號支援：</b> 提前下載 Catchtable Global App，支援香港手機門號與海外信用卡。<br>
           • <b>熟成到 (Day 6 晚餐)：</b> 當天下午可透過 App 遠端抽號登記。<br>
           • <b>On 6.5 (Day 3 晚餐)：</b> 需提前線上預約。<br>
-          • <b>Bar Cham (Day 3 酒吧)：</b> 抵達現場時用門口平板登記，5 人拆成 2+3 人入座最快！
+          • <b>Bar Cham (Day 3 酒吧)：</b> 抵達現場時用門口平板登記排隊。
         </div>
       </div>
 
-      <div class="overview-box">
-        <div class="overview-title" style="margin-bottom:6px;">💰 Tax Free 即時現場退稅</div>
-        <div class="card-details">
-          • <b>現場即時退稅：</b> 於 Olive Young、百貨公司、樂天 Outlets 等貼有 Tax Free 標誌店家，單筆消費滿 <b>15,000 韓元</b>，結帳時出示護照即可現場直接扣除退稅款！<br>
+      <div class="card-block">
+        <div class="card-block-title">💰 Tax Free 即時退稅須知</div>
+        <div class="item-text">
+          • <b>現場即時退稅：</b> 於 Olive Young、百貨公司等貼有 Tax Free 標誌店家，單筆消費滿 <b>15,000 韓元</b>，結帳時出示護照即可現場直接扣除退稅款！<br>
           • <b>機場退稅：</b> 若店家開立退稅單據，離境當天於濟州機場出境大廳退稅機台掃描護照及單據辦理退稅。
         </div>
       </div>
 
-      <div class="overview-box">
-        <div class="overview-title" style="margin-bottom:6px;">🚨 緊急求助聯絡電話</div>
-        <div class="card-details">
-          • 警察局報警：<b>112</b><br>
-          • 火警/救護車：<b>119</b><br>
-          • 韓國觀光公社 24小時旅遊諮詢（支援中文）：<b>1330</b><br>
-          • 樂天租車濟州客服：<b>1588-1230</b><br>
+      <div class="card-block">
+        <div class="card-block-title">🚨 緊急聯絡資訊</div>
+        <div class="item-text">
+          • 警察局：<b>112</b> ｜ 火警急救：<b>119</b><br>
+          • 韓國觀光公社 24小時中文熱線：<b>1330</b><br>
+          • 濟州樂天租車客服：<b>1588-1230</b><br>
           • 首爾 RENTBANK 租車客服：<b>+82-10-3212-6215</b>
         </div>
       </div>
@@ -1372,39 +1266,39 @@
 
   </main>
 
-  <!-- 底部固定選單 -->
-  <nav class="bottom-app-bar">
-    <button class="tab-item active" onclick="switchNavPane('timeline', this)">
-      <span class="t-icon">🗓️</span>
-      <span class="t-label">每日行程</span>
+  <!-- 底部固定導覽 -->
+  <nav class="muji-nav">
+    <button class="nav-tab active" onclick="switchTab('timeline', this)">
+      <span class="icon">🗓️</span>
+      <span class="lbl">每日行程</span>
     </button>
-    <button class="tab-item" onclick="switchNavPane('logistics', this)">
-      <span class="t-icon">✈️</span>
-      <span class="t-label">交通住宿</span>
+    <button class="nav-tab" onclick="switchTab('logistics', this)">
+      <span class="icon">✈️</span>
+      <span class="lbl">交通住宿</span>
     </button>
-    <button class="tab-item" onclick="switchNavPane('food', this)">
-      <span class="t-icon">🍽️</span>
-      <span class="t-label">美食地圖</span>
+    <button class="nav-tab" onclick="switchTab('food', this)">
+      <span class="icon">🥢</span>
+      <span class="lbl">美食備選</span>
     </button>
-    <button class="tab-item" onclick="switchNavPane('tools', this)">
-      <span class="t-icon">🧮</span>
-      <span class="t-label">換算工具</span>
+    <button class="nav-tab" onclick="switchTab('tools', this)">
+      <span class="icon">📒</span>
+      <span class="lbl">旅行工具</span>
     </button>
   </nav>
 
-  <div id="kToast">已複製到剪貼簿</div>
+  <div id="mujiToast">已複製到剪貼簿</div>
 
   <script>
-    function switchNavPane(paneId, btnEl) {
-      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-      document.querySelectorAll('.tab-item').forEach(b => b.classList.remove('active'));
+    function switchTab(tabId, btn) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
 
-      document.getElementById('pane-' + paneId).classList.add('active');
-      btnEl.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+      btn.classList.add('active');
 
-      const dayBar = document.getElementById('dayBar');
+      const dayBar = document.getElementById('daySlider');
       const catBar = document.getElementById('catBar');
-      if (paneId === 'timeline') {
+      if (tabId === 'timeline') {
         dayBar.style.display = 'flex';
         catBar.style.display = 'flex';
       } else {
@@ -1414,120 +1308,103 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function gotoDay(dayIdx) {
-      document.querySelectorAll('.day-pill').forEach(p => p.classList.remove('active'));
-      const activePill = document.querySelectorAll('.day-pill')[dayIdx - 1];
-      if (activePill) activePill.classList.add('active');
+    function selectDay(dayNum) {
+      document.querySelectorAll('.day-item').forEach(el => el.classList.remove('active'));
+      const activeItem = document.querySelectorAll('.day-item')[dayNum - 1];
+      if (activeItem) activeItem.classList.add('active');
 
-      document.querySelectorAll('.day-section').forEach(s => s.style.display = 'none');
-      const targetSec = document.getElementById('day-sec-' + dayIdx);
-      if (targetSec) targetSec.style.display = 'block';
+      document.querySelectorAll('.day-wrapper').forEach(el => el.style.display = 'none');
+      const target = document.getElementById('day-item-' + dayNum);
+      if (target) target.style.display = 'block';
 
-      document.getElementById('mainSearch').value = '';
-      resetCategoryState();
-      resetVisibilityState();
+      document.getElementById('mujiSearch').value = '';
+      resetPills();
+      resetVis();
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function setCategory(cat, btn) {
-      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.filter-pill').forEach(el => el.classList.remove('active'));
       btn.classList.add('active');
 
       if (cat === 'ALL') {
-        resetVisibilityState();
+        resetVis();
         return;
       }
 
-      document.querySelectorAll('.day-section').forEach(s => s.style.display = 'block');
-      document.querySelectorAll('.timeline-card').forEach(c => {
-        c.style.display = (c.dataset.cat === cat) ? 'block' : 'none';
+      document.querySelectorAll('.day-wrapper').forEach(el => el.style.display = 'block');
+      document.querySelectorAll('.item-card').forEach(card => {
+        card.style.display = (card.dataset.cat === cat) ? 'block' : 'none';
       });
     }
 
-    function resetCategoryState() {
-      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-      const first = document.querySelector('.cat-btn');
+    function resetPills() {
+      document.querySelectorAll('.filter-pill').forEach(el => el.classList.remove('active'));
+      const first = document.querySelector('.filter-pill');
       if (first) first.classList.add('active');
     }
 
-    function resetVisibilityState() {
-      const activePill = document.querySelector('.day-pill.active');
-      const dayIndex = activePill ? (Array.from(document.querySelectorAll('.day-pill')).indexOf(activePill) + 1) : 1;
+    function resetVis() {
+      const activeDay = document.querySelector('.day-item.active');
+      const idx = activeDay ? (Array.from(document.querySelectorAll('.day-item')).indexOf(activeDay) + 1) : 1;
 
-      document.querySelectorAll('.day-section').forEach((s, idx) => {
-        s.style.display = (idx + 1 === dayIndex) ? 'block' : 'none';
+      document.querySelectorAll('.day-wrapper').forEach((el, i) => {
+        el.style.display = (i + 1 === idx) ? 'block' : 'none';
       });
-      document.querySelectorAll('.timeline-card, .overview-box').forEach(el => {
+      document.querySelectorAll('.item-card, .card-block').forEach(el => {
         el.style.display = '';
       });
     }
 
-    function filterAll() {
-      const q = document.getElementById('mainSearch').value.toLowerCase().trim();
-      const activePane = document.querySelector('.tab-pane.active');
+    function doSearch() {
+      const q = document.getElementById('mujiSearch').value.toLowerCase().trim();
+      const activeTab = document.querySelector('.tab-content.active');
 
       if (!q) {
-        resetVisibilityState();
+        resetVis();
         return;
       }
 
-      if (activePane.id === 'pane-timeline') {
-        document.querySelectorAll('.day-section').forEach(s => s.style.display = 'block');
+      if (activeTab.id === 'tab-timeline') {
+        document.querySelectorAll('.day-wrapper').forEach(el => el.style.display = 'block');
       }
 
-      document.querySelectorAll('.timeline-card').forEach(card => {
-        const text = (card.innerText + ' ' + (card.dataset.keywords || '')).toLowerCase();
+      document.querySelectorAll('.item-card').forEach(card => {
+        const text = (card.innerText + ' ' + (card.dataset.keys || '')).toLowerCase();
         card.style.display = text.includes(q) ? 'block' : 'none';
       });
 
-      document.querySelectorAll('.overview-box').forEach(box => {
-        box.style.display = box.innerText.toLowerCase().includes(q) ? 'block' : 'none';
+      document.querySelectorAll('.card-block').forEach(block => {
+        block.style.display = block.innerText.toLowerCase().includes(q) ? 'block' : 'none';
       });
     }
 
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      document.getElementById('themeIcon').innerText = isDark ? '☀️' : '🌙';
-      document.getElementById('themeText').innerText = isDark ? '明亮模式' : '暗黑模式';
-      localStorage.setItem('korea_app_theme', isDark ? 'dark' : 'light');
-    }
-
-    if (localStorage.getItem('korea_app_theme') === 'dark') {
-      toggleDarkMode();
-    }
-
-    function doCopy(text, msg) {
+    function copyValue(text, msg) {
       navigator.clipboard.writeText(text).then(() => {
-        showKToast(msg || '已複製：' + text);
+        showToasttext, msg) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(msg || '已複製：' + text);
       }).catch(() => {
-        const input = document.createElement('input');
-        input.value = text;
-        document.body.appendChild(input);
-        input.select();
+        const t = document.createElement('input');
+        t.value = text;
+        document.body.appendChild(t);
+        t.select();
         document.execCommand('copy');
-        document.body.removeChild(input);
-        showKToast(msg || '已複製');
+        document.body.removeChild(t);
+        showToast(msg || '已複製');
       });
     }
 
-    function showKToast(msg) {
-      const t = document.getElementById('kToast');
+    function showToast(msg) {
+      const t = document.getElementById('mujiToast');
       t.innerText = msg;
       t.className = 'show';
       setTimeout(() => { t.className = t.className.replace('show', ''); }, 2000);
     }
 
-    function runSplitCalc() {
-      const val = parseFloat(document.getElementById('calcKrw').value) || 0;
-      const rate = 0.0057; // 10,000 KRW ≈ 57 HKD
-      const totalHkd = Math.round(val * rate);
-      const perPerson = Math.round(totalHkd / 5);
-
-      document.getElementById('hkdTotal').innerText = 'HK$ ' + totalHkd.toLocaleString();
-      document.getElementById('hkdSplit').innerText = 'HK$ ' + perPerson.toLocaleString() + ' / 人';
-    }
-  </script>
-</body>
-</html>
+    function doCalc() {
+      const v = parseFloat(document.getElementById('krwNum').value) || 0;
+      const rate = 0.0057;
+      const hkd = Math.round(v * rate);
+      document.getElementById('hkdOutput').innerText = 'HK$ ' + hk
