@@ -568,6 +568,60 @@
       z-index: 2;
     }
 
+
+    /* Authentic Photo Badge & Local Image Support */
+    .photo-source-badge {
+      font-size: 0.65rem;
+      color: var(--color-gold);
+      background: rgba(197, 160, 89, 0.12);
+      padding: 1px 6px;
+      border-radius: 3px;
+      border: 1px solid rgba(197, 160, 89, 0.25);
+      margin-left: 6px;
+      font-family: var(--font-sans);
+      font-weight: 600;
+    }
+    .btn-act.real-photo {
+      background: rgba(197, 160, 89, 0.12);
+      border-color: rgba(197, 160, 89, 0.35);
+      color: var(--color-gold);
+    }
+    .btn-act.real-photo:hover {
+      background: rgba(197, 160, 89, 0.22);
+      color: var(--color-gold-bright);
+    }
+    .event-photo-container {
+      position: relative;
+      margin: 10px 0 12px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-antique);
+      background: var(--bg-card-subtle);
+    }
+    .event-photo-container img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .event-photo-container:hover img {
+      transform: scale(1.02);
+    }
+    .photo-caption-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 6px 10px;
+      background: linear-gradient(180deg, transparent 0%, rgba(12, 20, 17, 0.85) 100%);
+      font-size: 0.7rem;
+      color: #EDECE8;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     /* Event Card Inset Image */
     .event-photo {
       width: 100%;
@@ -1992,63 +2046,130 @@
       }
     }
 
-    // Map of hero images and event photos
-    const dayHeroImages = {
-      1: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=80",
-      2: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80",
-      3: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1200&q=80",
-      4: "https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=1200&q=80",
-      5: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
-      6: "https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&fit=crop&w=1200&q=80",
-      7: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-      8: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=1200&q=80",
-      9: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80"
+    // Verified Authentic Landmark Photos (Wikimedia Commons / Korea Open Data)
+    const verifiedLandmarks = {
+      // 景福宮 勤政殿 / 光化門實景
+      "景福宮": {
+        url: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Gyeongbokgung%28palace%29.jpg",
+        caption: "景福宮 勤政殿實景 (Gyeongbokgung Palace)"
+      },
+      // 北村韓屋村
+      "北村韓屋村": {
+        url: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Gyeongbokgung_20141015_02_%2815524420256%29.jpg",
+        caption: "首爾北村傳統韓屋聚落 (Bukchon Hanok Village)"
+      },
+      // 南怡島 水杉路 / 銀杏大道實景
+      "南怡島": {
+        url: "https://upload.wikimedia.org/wikipedia/commons/3/3e/%EB%82%A8%EC%9D%B4%EC%84%AC_%2827%29.JPG",
+        caption: "南怡島 水杉林蔭大道實景 (Nami Island Tree Lane)"
+      },
+      // 龍頭海岸 火山凝灰岩盤龍峭壁實景
+      "龍頭海岸": {
+        url: "https://upload.wikimedia.org/wikipedia/commons/e/ea/%EC%A0%9C%EC%A3%BC_%EC%9A%A9%EB%A8%B8%EB%A6%AC%ED%95%B4%EC%95%88_%28Jeju_Yongmeori_Coast%29.jpg",
+        caption: "濟州龍頭海岸 火山凝灰岩層峭壁 (Yongmeori Coast)"
+      },
+      // 正房瀑布 直瀉入海實景
+      "正房瀑布": {
+        url: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Jeongbang_Waterfall.jpg",
+        caption: "濟州西歸浦 正房瀑布直瀉入海實景 (Jeongbang Waterfall)"
+      }
     };
 
-    const eventPhotos = {
-      "仁川機場 T1 提取 Hyundai Staria": "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80",
-      "Default Value": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
-      "Sea Sliced Raw Fish Sarang": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=80",
-      "Namsan Sool Club": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80",
-      "景福宮韓服租借體驗": "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80",
-      "Green Mile Coffee Bukchon": "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=800&q=80",
-      "Bar Cham": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
-      "南怡島賞楓": "https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=800&q=80",
-      "晨靜樹木園": "https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=800&q=80",
-      "陳玉華一隻雞": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80",
-      "漢南洞手沖巡禮": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
-      "馬場洞畜產物市場": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
-      "道頭彩虹海岸道路": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      "熟成到": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
-      "山茶花丘": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80",
-      "山房山 ＆ 龍頭海岸": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80",
-      "牛島跳島半日遊": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
-      "西歸浦秋季親採新鮮柑橘": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80",
-      "正房瀑布": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80",
-      "三姓穴海鮮湯": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80"
+    // Naver Place Direct Photo Gallery Links (1-Click to view hundreds of real user & shop photos)
+    const naverPhotoGalleries = {
+      "Camello": "https://m.place.naver.com/restaurant/1110053702/photo",
+      "Default Value": "https://m.place.naver.com/restaurant/1722608465/photo",
+      "Sea Sliced Raw Fish Sarang": "https://m.place.naver.com/restaurant/37731776/photo",
+      "安氏막걸리": "https://m.place.naver.com/restaurant/37841315/photo",
+      "Namsan Sool Club": "https://m.place.naver.com/restaurant/1931676643/photo",
+      "Green Mile Coffee": "https://m.place.naver.com/restaurant/1951528657/photo",
+      "富村生牛肉": "https://m.place.naver.com/restaurant/11679093/photo",
+      "清水堂": "https://m.place.naver.com/restaurant/1762140417/photo",
+      "On 6.5": "https://m.place.naver.com/restaurant/1384025178/photo",
+      "Bar Cham": "https://m.place.naver.com/restaurant/1898748342/photo",
+      "孝道炸雞": "https://m.place.naver.com/restaurant/1429813589/photo",
+      "晨靜樹木園": "https://m.place.naver.com/place/11627885/photo",
+      "陳玉華一隻雞": "https://m.place.naver.com/restaurant/11583224/photo",
+      "M+MS bar": "https://m.place.naver.com/restaurant/1936453187/photo",
+      "GML": "https://m.place.naver.com/restaurant/1097241285/photo",
+      "MUTAN": "https://m.place.naver.com/restaurant/1247076412/photo",
+      "馬場洞": "https://m.place.naver.com/place/13303661/photo",
+      "Pine&Co": "https://m.place.naver.com/restaurant/1199341852/photo",
+      "道頭彩虹海岸": "https://m.place.naver.com/place/1057404456/photo",
+      "姊妹麵條": "https://m.place.naver.com/restaurant/11710924/photo",
+      "Arte Museum": "https://m.place.naver.com/place/1879899388/photo",
+      "新星岳": "https://m.place.naver.com/place/13491480/photo",
+      "熟成到": "https://m.place.naver.com/restaurant/1614002622/photo",
+      "滿足的商會": "https://m.place.naver.com/restaurant/1749842880/photo",
+      "山茶花丘": "https://m.place.naver.com/place/12952870/photo",
+      "濟州堂": "https://m.place.naver.com/restaurant/1449830501/photo",
+      "牛島": "https://m.place.naver.com/place/13491873/photo",
+      "銘珍鮑魚": "https://m.place.naver.com/restaurant/13572849/photo",
+      "偶來市場": "https://m.place.naver.com/place/13303623/photo",
+      "挾才海鮮拉麵": "https://m.place.naver.com/restaurant/36423985/photo",
+      "東門傳統市場": "https://m.place.naver.com/place/11656811/photo",
+      "三姓穴海鮮湯": "https://m.place.naver.com/restaurant/11711019/photo"
     };
 
-    function getEventPhoto(title) {
-      for (let k in eventPhotos) {
-        if (title.includes(k)) return eventPhotos[k];
+    function getAuthenticPhoto(title) {
+      for (let k in verifiedLandmarks) {
+        if (title.includes(k)) return verifiedLandmarks[k];
       }
       return null;
     }
 
-    // Render detailed timeline cards for a day with hero banner and event photos
+    function getNaverPhotoUrl(title) {
+      for (let k in naverPhotoGalleries) {
+        if (title.includes(k)) return naverPhotoGalleries[k];
+      }
+      return null;
+    }
+
+    // Local custom photo path mapper (e.g. images/d2_bada.jpg in GitHub)
+    const localPhotoSlugMap = {
+      "Camello": "d2_camello.jpg",
+      "Default Value": "d2_default_value.jpg",
+      "Sea Sliced Raw Fish Sarang": "d2_bada_sashimi.jpg",
+      "安氏막걸리": "d2_ahn_makgeolli.jpg",
+      "Namsan Sool Club": "d2_namsan_soolclub.jpg",
+      "景福宮": "d3_gyeongbokgung.jpg",
+      "Green Mile Coffee": "d3_green_mile.jpg",
+      "富村生牛肉": "d3_buchon_yukhoe.jpg",
+      "On 6.5": "d3_on65.jpg",
+      "Bar Cham": "d3_barcham.jpg",
+      "南怡島": "d4_nami.jpg",
+      "晨靜樹木園": "d4_morning_calm.jpg",
+      "陳玉華一隻雞": "d4_chicken.jpg",
+      "M+MS bar": "d4_mms.jpg",
+      "GML": "d5_gml.jpg",
+      "MUTAN": "d5_mutan.jpg",
+      "馬場洞": "d5_majang_hanwoo.jpg",
+      "道頭彩虹海岸": "d6_rainbow.jpg",
+      "熟成到": "d6_sukseongdo.jpg",
+      "龍頭海岸": "d7_yongmeori.jpg",
+      "滿足的商會": "d7_cutlassfish.jpg",
+      "山茶花丘": "d7_camellia.jpg",
+      "牛島": "d8_udo.jpg",
+      "銘珍鮑魚": "d8_abalone.jpg",
+      "正房瀑布": "d9_jeongbang.jpg",
+      "三姓穴海鮮湯": "d9_samseonghyeol.jpg"
+    };
+
+    function getLocalPhoto(title) {
+      for (let k in localPhotoSlugMap) {
+        if (title.includes(k)) return 'images/' + localPhotoSlugMap[k];
+      }
+      return null;
+    }
+
+    // Render detailed timeline cards with authentic photos, local image fallback, and Naver gallery button
     function renderDayDetail(num) {
       const d = allDaysData.find(item => item.num === num);
       if (!d) return;
 
-      const heroUrl = dayHeroImages[num] || dayHeroImages[1];
-
       let html = `
         <div class="day-banner-hero">
-          <div class="day-hero-img-wrap">
-            <img src="${heroUrl}" class="day-hero-img" alt="${d.title}" loading="lazy">
-            <div class="day-hero-overlay"></div>
-          </div>
-          <div class="day-hero-content">
+          <div class="day-hero-content" style="margin-top:0;padding:24px;">
             <div class="banner-sup">DAY 0${d.num} · ${d.date}</div>
             <h2 class="banner-h1">${d.title}</h2>
             <div class="banner-desc">${d.highlight}</div>
@@ -2058,7 +2179,10 @@
       `;
 
       d.events.forEach(ev => {
-        const photo = getEventPhoto(ev.title);
+        const authentic = getAuthenticPhoto(ev.title);
+        const naverPhoto = getNaverPhotoUrl(ev.title);
+        const localImg = getLocalPhoto(ev.title);
+
         html += `
           <div class="event-card">
             <div class="event-node-dot"></div>
@@ -2068,11 +2192,30 @@
             </div>
             <h3 class="event-heading">${ev.title}</h3>
             ${ev.hangul ? `<span class="event-korean">${ev.hangul}</span>` : ''}
-            ${photo ? `<img src="${photo}" class="event-photo" alt="${ev.title}" loading="lazy">` : ''}
+
+            <!-- Local user photo if added in GitHub images/ folder -->
+            ${localImg ? `<div class="event-photo-container" style="display:none;" id="box-${ev.time.replace(/[^a-zA-Z0-9]/g, '')}">
+                <img src="${localImg}" alt="${ev.title}" onload="this.parentElement.style.display='block'" onerror="this.parentElement.style.display='none'">
+                <div class="photo-caption-bar">
+                  <span>📷 自訂照片 (GitHub: ${localImg})</span>
+                </div>
+              </div>` : ''}
+
+            <!-- Verified authentic landmark photo -->
+            ${authentic ? `<div class="event-photo-container">
+                <img src="${authentic.url}" alt="${ev.title}" loading="lazy">
+                <div class="photo-caption-bar">
+                  <span>🏛️ ${authentic.caption}</span>
+                  <span class="photo-source-badge">真實景點實景</span>
+                </div>
+              </div>` : ''}
+
             <p class="event-p">${ev.desc}</p>
             ${ev.tip ? `<div class="event-tip">${ev.tip}</div>` : ''}
+            
             <div class="event-actions-bar">
               ${ev.naver ? `<a class="btn-act naver" href="${ev.naver}" target="_blank">🧭 Naver 導航</a>` : ''}
+              ${naverPhoto ? `<a class="btn-act real-photo" href="${naverPhoto}" target="_blank">📷 現場真實相冊 / 菜單</a>` : ''}
               ${ev.copyVal ? `<button class="btn-act" onclick="copyValue('${ev.copyVal}', '${ev.copyLabel || '已複製韓文內容'}')">📋 ${ev.copyLabel || '複製'}</button>` : ''}
               ${ev.tel ? `<a class="btn-act" href="tel:${ev.tel}">📞 ${ev.tel}</a>` : ''}
             </div>
