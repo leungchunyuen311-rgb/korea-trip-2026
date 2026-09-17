@@ -5,52 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="韓國旅程2026">
+  <meta name="apple-mobile-web-app-title" content="韓國金秋紀行">
   <meta name="theme-color" content="#0C1411">
-  <title>2026 韓國首爾・濟州島之旅</title>
+  <title>2026 韓國首爾・濟州島之旅 ｜ 旅程手帳</title>
 
-  <!-- Google Fonts: Elegant Classical Serif for Korean Antique Aesthetic & Clean Modern Body -->
+  <!-- Typography: Classical Serif for Antique Korean Elegance & Clean Modern Monospace / Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Noto+Serif+TC:wght@400;600;700;900&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=JetBrains+Mono:wght@500;700&family=Noto+Serif+TC:wght@400;600;700;900&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* Korean Antique Celadon & Jade Green Palette (高麗青瓷綠 / 丹青青綠 / 碧玉色) */
-      --bg-canvas: #0C1411;         /* Deep jade charcoal / 墨松色 */
-      --bg-sidebar: #090F0C;        /* Dark lacquer pine / 漆木黑綠 */
-      --bg-card: #131E19;           /* Celadon slate / 碧玉岩綠 */
+      /* Korean Antique Celadon & Pine Lacquer Theme (高麗青瓷綠 / 墨松漆黑 / 鍮器泥金) */
+      --bg-canvas: #0C1411;         /* Deep jade charcoal / 墨松底色 */
+      --bg-sidebar: #080D0A;        /* Dark lacquer pine / 漆木黑綠 */
+      --bg-card: #131E19;           /* Celadon slate / 碧玉石板色 */
       --bg-card-subtle: #192721;    /* Subtle jade tint / 潤玉色 */
-      --bg-hover: #1F322A;
+      --bg-hover: #1E3129;
 
-      --border-antique: #23352C;    /* Antique bronze green line / 青銅格線 */
-      --border-subtle: #1C2B24;     /* Delicate border */
-      
-      /* Accents: Korean Celadon Green & Antique Brass Gold */
+      --border-antique: #23352C;    /* Antique bronze line / 青銅格線 */
+      --border-subtle: #1C2B24;     /* Delicate divider */
+
+      /* Accents */
       --color-celadon: #34D399;     /* Vibrant celadon emerald / 翡翠青瓷綠 */
       --color-celadon-light: #6EE7B7;
       --color-celadon-dim: #10B981;
-      --color-jade-deep: #065F46;
       --color-gold: #C5A059;        /* Antique brass gold / 鍮器泥金色 */
       --color-gold-bright: #E5C07B;
-      --color-vermilion: #DC2626;   /* Royal seal cinnabar / 丹青硃砂紅 */
+      --color-vermilion: #DC2626;   /* Royal seal cinnabar / 硃砂印紅 */
+      --color-transit: #38BDF8;     /* Clean ice blue for routes */
 
       --text-main: #EDECE8;         /* Hanji cream white / 韓紙米白 */
-      --text-sub: #9EABA3;          /* Muted celadon sage / 黛綠灰 */
-      --text-muted: #64756D;        /* Deep pine needle gray */
+      --text-sub: #A3B1AA;          /* Muted celadon sage / 黛綠灰 */
+      --text-muted: #667870;        /* Deep pine needle gray */
 
       --font-serif: "Noto Serif TC", "Songti TC", "Batang", serif;
       --font-display: "Cinzel", "Noto Serif TC", serif;
+      --font-mono: "JetBrains Mono", monospace;
       --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
 
       --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.4);
+      --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.3);
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
 
     [data-theme="light"] {
       --bg-canvas: #F4F7F4;
-      --bg-sidebar: #E9EFE9;
+      --bg-sidebar: #E8EFEA;
       --bg-card: #FFFFFF;
       --bg-card-subtle: #F0F4F1;
       --bg-hover: #E3EBE4;
@@ -61,16 +63,17 @@
       --color-celadon: #059669;
       --color-celadon-light: #10B981;
       --color-celadon-dim: #047857;
-      --color-jade-deep: #D1FAE5;
       --color-gold: #9A7B38;
       --color-gold-bright: #785E23;
       --color-vermilion: #B91C1C;
+      --color-transit: #0284C7;
 
-      --text-main: #19241E;
-      --text-sub: #46574E;
-      --text-muted: #7A8E83;
+      --text-main: #18221D;
+      --text-sub: #45564D;
+      --text-muted: #798D82;
 
-      --shadow-subtle: 0 4px 20px rgba(25, 36, 30, 0.08);
+      --shadow-subtle: 0 4px 20px rgba(24, 34, 29, 0.08);
+      --shadow-card: 0 6px 24px rgba(24, 34, 29, 0.06);
     }
 
     * {
@@ -92,22 +95,22 @@
       overflow-x: hidden;
     }
 
-    /* Traditional Hanok / Celadon Lattice Background Accent */
+    /* Ambient Subtle Hanok Geometry */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: radial-gradient(circle at 10% 20%, rgba(52, 211, 153, 0.04) 0%, transparent 40%),
-                        radial-gradient(circle at 90% 80%, rgba(197, 160, 89, 0.03) 0%, transparent 40%);
+      background-image: radial-gradient(circle at 15% 20%, rgba(52, 211, 153, 0.03) 0%, transparent 45%),
+                        radial-gradient(circle at 85% 85%, rgba(197, 160, 89, 0.025) 0%, transparent 45%);
       pointer-events: none;
       z-index: 0;
     }
 
     /* =================================================== */
-    /* LEFT SIDEBAR (Matching reference image structure) */
+    /* LEFT SIDEBAR (Matching reference image architecture)*/
     /* =================================================== */
     .app-sidebar {
-      width: 220px;
+      width: 230px;
       flex-shrink: 0;
       background: var(--bg-sidebar);
       border-right: 1px solid var(--border-antique);
@@ -125,14 +128,14 @@
     .app-sidebar::-webkit-scrollbar { display: none; }
 
     .brand-section {
-      padding-bottom: 20px;
+      padding-bottom: 18px;
       border-bottom: 1px solid var(--border-antique);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .brand-year {
       font-family: var(--font-display);
       font-size: 0.72rem;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       color: var(--color-gold);
       font-weight: 700;
       text-transform: uppercase;
@@ -161,12 +164,12 @@
       letter-spacing: 0.05em;
     }
 
-    /* Sidebar Top Utility Tabs (INFO, MONEY) */
+    /* Sidebar Top Utility Tabs */
     .sidebar-menu-row {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      margin-bottom: 20px;
+      gap: 4px;
+      margin-bottom: 18px;
     }
     .side-nav-item {
       display: flex;
@@ -201,25 +204,25 @@
 
     /* Sidebar Index Title */
     .sidebar-heading {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       padding-left: 6px;
     }
     .sidebar-heading .idx-title {
       font-family: var(--font-serif);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 800;
       color: var(--text-main);
       display: block;
       line-height: 1.2;
     }
     .sidebar-heading .idx-sub {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--color-gold);
       font-weight: 600;
       letter-spacing: 0.05em;
     }
 
-    /* Vertical Day List (01 OCT 16, etc.) */
+    /* Vertical Day List */
     .side-day-list {
       display: flex;
       flex-direction: column;
@@ -267,7 +270,7 @@
       color: var(--text-main);
     }
 
-    /* Mobile Drawer & Top Navbar (Shown only on small screens) */
+    /* Mobile Bar */
     .mobile-top-bar {
       display: none;
       position: sticky;
@@ -275,7 +278,7 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(12, 20, 17, 0.94);
+      background: rgba(12, 20, 17, 0.95);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-antique);
@@ -284,7 +287,7 @@
       justify-content: space-between;
     }
     [data-theme="light"] .mobile-top-bar {
-      background: rgba(244, 247, 244, 0.94);
+      background: rgba(244, 247, 244, 0.95);
     }
     .mobile-menu-btn {
       background: none;
@@ -315,7 +318,7 @@
       z-index: 1;
     }
 
-    /* Top Overview Header (Exact match to reference image) */
+    /* Hero Header */
     .header-tracking-label {
       font-family: var(--font-display);
       font-size: 0.74rem;
@@ -325,8 +328,8 @@
       text-transform: uppercase;
       display: inline-block;
       position: relative;
-      padding-bottom: 5px;
-      margin-bottom: 12px;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
     }
     .header-tracking-label::after {
       content: "";
@@ -341,21 +344,54 @@
 
     .main-hero-title {
       font-family: var(--font-serif);
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 900;
       color: var(--text-main);
       line-height: 1.25;
       letter-spacing: -0.01em;
-      margin-bottom: 22px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      margin-bottom: 18px;
     }
 
-    /* Progress Bar (Matching reference image) */
+    /* Trip Metrics Advisory Pill Bar (Online travel app best practice) */
+    .trip-metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .metric-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border-antique);
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .metric-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .metric-value {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .metric-sub {
+      font-size: 0.72rem;
+      color: var(--text-sub);
+    }
+
+    /* Progress Bar */
     .progress-wrapper {
-      margin-bottom: 34px;
+      margin-bottom: 30px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-antique);
+      border-radius: 10px;
+      padding: 14px 18px;
     }
     .progress-meta-row {
       display: flex;
@@ -365,39 +401,83 @@
       margin-bottom: 8px;
     }
     .progress-label {
-      font-family: var(--font-sans);
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-sub);
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
     .progress-status {
-      font-weight: 700;
+      font-weight: 800;
       color: var(--color-celadon);
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
     }
     .progress-track {
       width: 100%;
-      height: 5px;
+      height: 6px;
       background: var(--bg-card-subtle);
-      border-radius: 4px;
+      border-radius: 6px;
       overflow: hidden;
       border: 1px solid var(--border-subtle);
     }
     .progress-fill {
-      width: 100%;
+      width: 0%;
       height: 100%;
       background: linear-gradient(90deg, var(--color-celadon-dim), var(--color-celadon), var(--color-gold));
-      border-radius: 4px;
+      border-radius: 6px;
       transition: width 0.4s ease;
     }
 
-    /* Section Subheading: ITINERARY / 每日行程 */
+    /* Quick Action Logistics Dock (Online travel app best practice) */
+    .quick-dock {
+      background: var(--bg-card);
+      border: 1px solid var(--border-antique);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 30px;
+    }
+    .quick-dock-title {
+      font-family: var(--font-serif);
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .quick-dock-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 8px;
+    }
+    .quick-pill-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 0.78rem;
+    }
+    .quick-pill-item b {
+      color: var(--text-main);
+    }
+    .quick-copy-mini {
+      background: none;
+      border: none;
+      color: var(--color-celadon);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      background: rgba(52, 211, 153, 0.08);
+    }
+
+    /* Section Subheading */
     .itinerary-section-header {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       padding-bottom: 10px;
       border-bottom: 1px solid var(--border-antique);
       display: flex;
@@ -406,7 +486,7 @@
     }
     .itinerary-sub-title {
       font-family: var(--font-display);
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       font-weight: 800;
       letter-spacing: 0.12em;
       color: var(--text-sub);
@@ -420,7 +500,7 @@
       font-weight: 700;
     }
 
-    /* Index Stage Cards (The numbered 01, 02, 03... list from reference image) */
+    /* Stage Item List matching reference image */
     .stage-list {
       display: flex;
       flex-direction: column;
@@ -429,8 +509,8 @@
     .stage-item {
       display: flex;
       align-items: flex-start;
-      gap: 24px;
-      padding: 20px 10px;
+      gap: 22px;
+      padding: 20px 12px;
       border-bottom: 1px solid var(--border-subtle);
       cursor: pointer;
       border-radius: 8px;
@@ -444,7 +524,7 @@
     }
     .stage-num {
       font-family: var(--font-display);
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       font-weight: 700;
       color: var(--color-gold);
       min-width: 32px;
@@ -461,12 +541,13 @@
       margin-bottom: 4px;
     }
     .stage-date-badge {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: var(--color-celadon);
       background: rgba(52, 211, 153, 0.12);
-      padding: 1px 6px;
-      border-radius: 3px;
+      padding: 1px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
     }
     .stage-region {
       font-size: 0.72rem;
@@ -475,7 +556,7 @@
     }
     .stage-title {
       font-family: var(--font-serif);
-      font-size: 1.08rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--text-main);
       line-height: 1.4;
@@ -485,7 +566,7 @@
     .stage-route {
       font-size: 0.81rem;
       color: var(--text-sub);
-      line-height: 1.5;
+      line-height: 1.55;
       display: flex;
       align-items: center;
       flex-wrap: wrap;
@@ -497,172 +578,7 @@
       font-size: 0.78rem;
     }
 
-
-    /* Image Enhancements for Korean Antique Travel App */
-    .stage-item {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 16px 10px;
-      border-bottom: 1px solid var(--border-subtle);
-      cursor: pointer;
-      border-radius: 8px;
-      transition: all 0.2s ease;
-    }
-    .stage-item:hover {
-      background: rgba(52, 211, 153, 0.05);
-    }
-    .stage-thumb-wrap {
-      width: 76px;
-      height: 76px;
-      flex-shrink: 0;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border-antique);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-    }
-    .stage-thumb {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.35s ease;
-    }
-    .stage-item:hover .stage-thumb {
-      transform: scale(1.1);
-    }
-
-    /* Day Banner Hero with Ambient Background Image */
-    .day-banner-hero {
-      background: var(--bg-card);
-      border: 1px solid var(--border-antique);
-      border-radius: 12px;
-      padding: 0;
-      margin-bottom: 24px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-subtle);
-    }
-    .day-hero-img-wrap {
-      width: 100%;
-      height: 200px;
-      position: relative;
-      overflow: hidden;
-    }
-    .day-hero-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .day-hero-overlay {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(180deg, rgba(12, 20, 17, 0.2) 0%, rgba(12, 20, 17, 0.92) 100%);
-    }
-    [data-theme="light"] .day-hero-overlay {
-      background: linear-gradient(180deg, rgba(244, 247, 244, 0.2) 0%, rgba(244, 247, 244, 0.95) 100%);
-    }
-    .day-hero-content {
-      padding: 16px 24px 22px;
-      position: relative;
-      margin-top: -36px;
-      z-index: 2;
-    }
-
-
-    /* Authentic Photo Badge & Local Image Support */
-    .photo-source-badge {
-      font-size: 0.65rem;
-      color: var(--color-gold);
-      background: rgba(197, 160, 89, 0.12);
-      padding: 1px 6px;
-      border-radius: 3px;
-      border: 1px solid rgba(197, 160, 89, 0.25);
-      margin-left: 6px;
-      font-family: var(--font-sans);
-      font-weight: 600;
-    }
-    .btn-act.real-photo {
-      background: rgba(197, 160, 89, 0.12);
-      border-color: rgba(197, 160, 89, 0.35);
-      color: var(--color-gold);
-    }
-    .btn-act.real-photo:hover {
-      background: rgba(197, 160, 89, 0.22);
-      color: var(--color-gold-bright);
-    }
-    .event-photo-container {
-      position: relative;
-      margin: 10px 0 12px;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--border-antique);
-      background: var(--bg-card-subtle);
-    }
-    .event-photo-container img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    .event-photo-container:hover img {
-      transform: scale(1.02);
-    }
-    .photo-caption-bar {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 6px 10px;
-      background: linear-gradient(180deg, transparent 0%, rgba(12, 20, 17, 0.85) 100%);
-      font-size: 0.7rem;
-      color: #EDECE8;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Event Card Inset Image */
-    .event-photo {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin: 10px 0 12px;
-      border: 1px solid var(--border-antique);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-      transition: transform 0.25s ease;
-      display: block;
-    }
-    .event-photo:hover {
-      transform: scale(1.015);
-    }
-
-    .food-card-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin: 14px 0 18px;
-    }
-    .food-grid-item {
-      background: var(--bg-card-subtle);
-      border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .food-grid-img {
-      width: 100%;
-      height: 110px;
-      object-fit: cover;
-    }
-    .food-grid-caption {
-      padding: 8px 10px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
-    /* Detailed Day View (When a day is clicked) */
+    /* Detailed Day View */
     .day-detail-section {
       display: none;
       animation: fadeIn 0.25s ease;
@@ -692,7 +608,7 @@
       border: 1px solid var(--border-antique);
       color: var(--color-gold);
       font-family: var(--font-serif);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -702,11 +618,11 @@
       color: var(--color-celadon);
     }
 
-    /* Detailed Event Cards inside a Day */
+    /* Day Banner Hero (Refined Typographic Style, No Photos) */
     .day-banner-hero {
       background: var(--bg-card);
       border: 1px solid var(--border-antique);
-      border-radius: 12px;
+      border-radius: 10px;
       padding: 24px;
       margin-bottom: 24px;
       position: relative;
@@ -717,7 +633,7 @@
       position: absolute;
       top: 0; left: 0; width: 4px; height: 100%;
       background: var(--color-celadon);
-      border-radius: 12px 0 0 12px;
+      border-radius: 10px 0 0 10px;
     }
     .banner-sup {
       font-family: var(--font-display);
@@ -729,10 +645,11 @@
     }
     .banner-h1 {
       font-family: var(--font-serif);
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       font-weight: 900;
       color: var(--text-main);
       margin-bottom: 8px;
+      line-height: 1.35;
     }
     .banner-desc {
       font-size: 0.85rem;
@@ -740,20 +657,40 @@
       line-height: 1.5;
     }
 
-    /* Timeline events */
+    /* Timeline events & Transit Connectors (Best practice) */
     .timeline-wrap {
       position: relative;
-      padding-left: 24px;
+      padding-left: 26px;
     }
     .timeline-wrap::before {
       content: "";
       position: absolute;
       left: 7px;
-      top: 14px;
-      bottom: 14px;
+      top: 16px;
+      bottom: 16px;
       width: 2px;
       background: var(--border-antique);
     }
+
+    .transit-connector {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 0;
+      margin-left: -26px;
+      margin-bottom: 12px;
+      color: var(--color-transit);
+      font-size: 0.74rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+    }
+    .transit-connector::before {
+      content: "";
+      width: 16px;
+      height: 1px;
+      background: var(--border-antique);
+    }
+
     .event-card {
       position: relative;
       background: var(--bg-card);
@@ -761,18 +698,32 @@
       border-radius: 10px;
       padding: 18px 20px;
       margin-bottom: 16px;
-      box-shadow: var(--shadow-subtle);
+      box-shadow: var(--shadow-card);
       transition: all 0.2s ease;
     }
+    .event-card.completed {
+      opacity: 0.65;
+      border-color: var(--border-subtle);
+    }
+    .event-card.completed .event-heading {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
     .event-node-dot {
       position: absolute;
-      left: -23px;
+      left: -25px;
       top: 24px;
       width: 12px;
       height: 12px;
       border-radius: 50%;
       background: var(--bg-canvas);
       border: 3px solid var(--color-celadon);
+      transition: all 0.2s ease;
+    }
+    .event-card.completed .event-node-dot {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
     }
 
     .event-top-meta {
@@ -782,7 +733,7 @@
       margin-bottom: 6px;
     }
     .event-time {
-      font-family: var(--font-display);
+      font-family: var(--font-mono);
       font-size: 0.82rem;
       font-weight: 700;
       color: var(--color-gold);
@@ -820,7 +771,7 @@
       font-size: 0.84rem;
       color: var(--text-sub);
       line-height: 1.55;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .event-tip {
       background: rgba(197, 160, 89, 0.1);
@@ -832,12 +783,16 @@
       margin: 8px 0 10px;
       line-height: 1.5;
     }
+
+    /* Actions Bar */
     .event-actions-bar {
       display: flex;
       align-items: center;
       gap: 8px;
       flex-wrap: wrap;
       margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border-subtle);
     }
     .btn-act {
       display: inline-flex;
@@ -864,6 +819,18 @@
       border-color: rgba(3, 199, 90, 0.4);
       color: #34D399;
     }
+    .btn-act.check {
+      margin-left: auto;
+      background: rgba(197, 160, 89, 0.08);
+      border-color: rgba(197, 160, 89, 0.3);
+      color: var(--color-gold);
+    }
+    .btn-act.check.done {
+      background: var(--color-celadon-dim);
+      border-color: var(--color-celadon);
+      color: #0C1411;
+      font-weight: 800;
+    }
 
     /* Other Panels: INFO, MONEY, TRANSIT, FOOD */
     .tab-panel {
@@ -880,7 +847,7 @@
       border-radius: 10px;
       padding: 20px;
       margin-bottom: 16px;
-      box-shadow: var(--shadow-subtle);
+      box-shadow: var(--shadow-card);
     }
     .panel-card-title {
       font-family: var(--font-serif);
@@ -893,17 +860,17 @@
       align-items: center;
     }
 
-    /* Calculator */
+    /* Calculator with Quick Presets */
     .calc-row {
       display: flex;
       align-items: center;
       gap: 12px;
       border-bottom: 2px solid var(--border-antique);
       padding: 8px 0;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
     .calc-currency {
-      font-family: var(--font-display);
+      font-family: var(--font-mono);
       font-size: 1.2rem;
       font-weight: 800;
       color: var(--color-gold);
@@ -916,7 +883,30 @@
       color: var(--text-main);
       width: 100%;
       outline: none;
-      font-family: var(--font-sans);
+      font-family: var(--font-mono);
+    }
+    .calc-presets {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .calc-preset-btn {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-sub);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: var(--font-mono);
+    }
+    .calc-preset-btn:hover {
+      background: var(--bg-hover);
+      color: var(--color-celadon);
+      border-color: var(--color-celadon);
     }
     .calc-grid {
       display: grid;
@@ -937,9 +927,10 @@
       margin-bottom: 2px;
     }
     .calc-stat-val {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 800;
       color: var(--color-celadon);
+      font-family: var(--font-mono);
     }
 
     /* Toast */
@@ -966,7 +957,7 @@
       transform: translateY(0);
     }
 
-    /* Responsive adjustments */
+    /* Responsive */
     @media (max-width: 820px) {
       body { flex-direction: column; }
       .app-sidebar {
@@ -1006,7 +997,7 @@
   <div class="mobile-top-bar">
     <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
     <div class="mobile-brand">
-      <span>2026 韓國首爾・濟州島之旅</span>
+      <span>2026 韓國金秋紀行</span>
       <span class="brand-stamp">金秋</span>
     </div>
     <button class="btn-act" style="padding:4px 8px;" onclick="toggleTheme()">🌓</button>
@@ -1102,23 +1093,67 @@
       <!-- Tracking Header -->
       <div class="header-tracking-label">TRIP OVERVIEW</div>
       <h1 class="main-hero-title">
-        <span>2026 韓國首爾・濟州島之旅</span>
+        <span>2026 韓國首爾・濟州島金秋之旅</span>
       </h1>
 
-      <!-- Progress Bar Section -->
+      <!-- Trip Metrics & Weather Advisory (Mature Travel App Feature) -->
+      <div class="trip-metrics-bar">
+        <div class="metric-chip">
+          <span class="metric-label">📅 旅程週期</span>
+          <span class="metric-value">10/16 ➔ 10/24</span>
+          <span class="metric-sub">9天8夜 · 首爾+加平+濟州</span>
+        </div>
+        <div class="metric-chip">
+          <span class="metric-label">🍁 金秋氣候</span>
+          <span class="metric-value">首爾 8~18°C ｜ 濟州 14~21°C</span>
+          <span class="metric-sub">早晚溫差大，備防風薄羽絨</span>
+        </div>
+        <div class="metric-chip">
+          <span class="metric-label">🚗 自駕方案</span>
+          <span class="metric-value">Staria ➔ IONIQ 9 純電</span>
+          <span class="metric-sub">首爾商務車 + 濟州 7人純電車</span>
+        </div>
+      </div>
+
+      <!-- Progress Bar Section with Dynamic Counter -->
       <div class="progress-wrapper">
         <div class="progress-meta-row">
           <span class="progress-label">旅程進度 Progress</span>
-          <span class="progress-status">10/16 ➔ 10/24 🍁 準備就緒</span>
+          <span class="progress-status" id="progressStatusText">已打卡 0 / 28 個景點 (0%)</span>
         </div>
         <div class="progress-track">
-          <div class="progress-fill"></div>
+          <div class="progress-fill" id="progressBarFill"></div>
+        </div>
+      </div>
+
+      <!-- Quick Action Logistics Dock (Online travel app best practice) -->
+      <div class="quick-dock">
+        <div class="quick-dock-title">
+          <span>⚡ 行程核心代碼速查 (Quick Info Dock)</span>
+        </div>
+        <div class="quick-dock-grid">
+          <div class="quick-pill-item">
+            <span>首爾取車 PIN: <b>3410</b></span>
+            <button class="quick-copy-mini" onclick="copyValue('3410', '已複製首爾取車 PIN 3410')">複製</button>
+          </div>
+          <div class="quick-pill-item">
+            <span>首爾租車電話: <b>+82-10-3212-6215</b></span>
+            <button class="quick-copy-mini" onclick="copyValue('+82-10-3212-6215', '已複製租車電話')">複製</button>
+          </div>
+          <div class="quick-pill-item">
+            <span>濟州租車預約: <b>2622541225</b></span>
+            <button class="quick-copy-mini" onclick="copyValue('2622541225', '已複製濟州預約號')">複製</button>
+          </div>
+          <div class="quick-pill-item">
+            <span>濟州樂天電話: <b>1588-1230</b></span>
+            <button class="quick-copy-mini" onclick="copyValue('1588-1230', '已複製樂天電話')">複製</button>
+          </div>
         </div>
       </div>
 
       <!-- Itinerary List Section -->
       <div class="itinerary-section-header">
-        <div class="itinerary-sub-title">ITINERARY <span>/ 每日行程</span></div>
+        <div class="itinerary-sub-title">ITINERARY <span>/ 每日行程階段索引</span></div>
         <span style="font-size:0.75rem;color:var(--text-muted);">點擊任何一天進入詳細時間軸</span>
       </div>
 
@@ -1159,7 +1194,7 @@
               <span>冠軍虹吸 Default Value</span> <span class="arrow">➔</span>
               <span>厚切秋鰤魚刺身</span> <span class="arrow">➔</span>
               <span>安氏馬格利</span> <span class="arrow">➔</span>
-              <span>Namsan Sool Club (傳統酒 Tasting)</span>
+              <span>Namsan Sool Club</span>
             </div>
           </div>
         </div>
@@ -1368,6 +1403,16 @@
           <input type="number" class="calc-input" id="moneyKrwInput" placeholder="輸入韓元金額 (例如 180000)" oninput="recalcMoney()">
         </div>
 
+        <!-- Quick preset buttons (Online travel app best practice) -->
+        <div class="calc-presets">
+          <button class="calc-preset-btn" onclick="addPreset(10000)">+1萬</button>
+          <button class="calc-preset-btn" onclick="addPreset(30000)">+3萬</button>
+          <button class="calc-preset-btn" onclick="addPreset(50000)">+5萬</button>
+          <button class="calc-preset-btn" onclick="addPreset(100000)">+10萬</button>
+          <button class="calc-preset-btn" onclick="addPreset(200000)">+20萬</button>
+          <button class="calc-preset-btn" onclick="clearCalc()">清空</button>
+        </div>
+
         <div class="calc-grid">
           <div class="calc-stat-box">
             <div class="calc-stat-label">折合港幣 (匯率 0.0057)</div>
@@ -1530,6 +1575,9 @@
             copyVal: "UO626"
           },
           {
+            transit: "🚶 通關與步行約 15 分鐘至 1樓 12號門"
+          },
+          {
             time: "🚗 22:30",
             cat: "CAR RENTAL",
             title: "仁川機場 T1 提取 Hyundai Staria 9人商務車",
@@ -1539,6 +1587,9 @@
             copyVal: "3410",
             copyLabel: "複製 PIN 3410",
             tel: "+82-10-3212-6215"
+          },
+          {
+            transit: "🚗 自駕前往恩平區，行車約 45 分鐘（注意行駛現金/信用卡收費道）"
           },
           {
             time: "🏨 23:15",
@@ -1555,7 +1606,7 @@
       {
         num: 2,
         date: "10/17 星期六",
-        region: "首爾麻浦 · 延南洞 / 明洞",
+        region: "首爾麻浦 · 延南洞 / 梨泰院",
         title: "延南漫步：文創、手沖、秋鰤魚 ＆ Namsan Sool Club",
         highlight: "🐟 排隊厚切秋鰤魚 ➔ ☕ 2022 冠軍虹吸 ➔ 🍶 安氏生馬格利 ➔ 🥃 Namsan Sool Club 品酒",
         events: [
@@ -1569,6 +1620,9 @@
             copyVal: "서울 마포구 연남로7길 26"
           },
           {
+            transit: "🚶 漫步延南洞巷弄約 6 分鐘"
+          },
+          {
             time: "🍽️ 11:30",
             cat: "LUNCH",
             title: "Camello Yeonnam (카멜로연남) 義式精緻料理",
@@ -1577,11 +1631,17 @@
             naver: "https://map.naver.com/v5/search/%EC%B9%B4%EB%A9%9C%EB%A1%9C%EC%97%B0%EB%82%A8"
           },
           {
+            transit: "🚶 漫步京義線綠蔭大道約 5 分鐘"
+          },
+          {
             time: "🌿 13:30",
             cat: "STROLL",
             title: "京義線森林鐵道林蔭道 ＆ 延南洞文創小店",
             hangul: "경의선숲길 연남동구간",
             desc: "漫步首爾文青街區，探訪獨立設計師服飾、香氛與手作雜貨店。"
+          },
+          {
+            transit: "🚶 步行約 8 分鐘至延禧洞方向"
           },
           {
             time: "☕ 15:00",
@@ -1593,6 +1653,9 @@
             tel: "02-2293-3889"
           },
           {
+            transit: "🚶 步行前往弘大東橋路約 10 分鐘"
+          },
+          {
             time: "🐟 16:30",
             cat: "DINNER",
             title: "Sea Sliced Raw Fish Sarang (2號店) 厚切秋鰤魚刺身",
@@ -1601,11 +1664,17 @@
             naver: "https://map.naver.com/v5/search/%EB%B0%94%EB%8B%A4%ED%9A%8C%EC%82%AC%EB%9E%91%202%ED%98%B8%EC%A0%90"
           },
           {
+            transit: "🚇 地鐵或車程約 20 分鐘抵達明洞商圈"
+          },
+          {
             time: "🛍️ 19:00",
             cat: "SHOPPING",
             title: "明洞商圈採購藥妝（Olive Young 現場即時退稅）",
             hangul: "올리브영 명동타운점",
             desc: "單筆消費滿 15,000 韓元憑護照可現場直接折抵退稅金額。"
+          },
+          {
+            transit: "🚕 車程約 12 分鐘南下至梨泰院/經理團路"
           },
           {
             time: "🍶 21:00",
@@ -1617,12 +1686,15 @@
             copyVal: "서울 용산구 회나무로 3"
           },
           {
+            transit: "🚶 經理團路上坡步行約 4 分鐘"
+          },
+          {
             time: "🥃 22:30",
             cat: "TASTING BAR",
             title: "Namsan Sool Club (남산술클럽) 韓國傳統酒 Tasting",
             hangul: "남산술클럽 / 서울 용산구 회나무로26길 12 (經理團路)",
-            desc: "首爾首屈一指的韓國傳統酒 Tasting Bar！嚴選全韓小型獨立酒造之珍稀地酒、生馬格利、藥酒與蒸餾燒酎，提供專業品飲組合（Tasting Flight）。距安氏馬格利僅數分鐘步程，兩者連線體驗極致微醺。",
-            tip: "💡 亮點：可品嚐市面上難得一見的微型酒造限定佳釀，現場工作人員具備豐富傳統酒風土解說經驗。",
+            desc: "首爾極具代表性的韓國傳統酒 Tasting Bar！嚴選全韓小型獨立酒造之珍稀地酒、生馬格利、藥酒與蒸餾燒酎，提供專業品飲組合（Tasting Flight）。距安氏馬格利僅數分鐘步程，兩者連線體驗極致微醺。",
+            tip: "💡 亮點：可品嚐市面上難得一見的微型酒造限定佳釀，現場團隊具備豐富傳統酒風土解說經驗。",
             naver: "https://map.naver.com/v5/search/%EB%82%A8%EC%82%B0%EC%88%A0%ED%81%B4%EB%9F%BD",
             copyVal: "서울 용산구 회나무로26길 12"
           }
@@ -1643,12 +1715,18 @@
             desc: "身穿傳統韓服可免費免票進入景福宮參觀攝影，隨後漫步北村傳統黑瓦韓屋聚落。"
           },
           {
+            transit: "🚶 漫步北村石板路約 8 分鐘"
+          },
+          {
             time: "☕ 11:30",
             cat: "COFFEE",
             title: "Green Mile Coffee Bukchon (그린마일커피 북촌점)",
             hangul: "서울 종로구 북촌로 64 / 02-744-2404",
             desc: "3樓頂樓露台俯瞰北村傳統黑瓦韓屋頂全景！招牌 Green Mile Latte（抹茶奶霜+Espresso）。",
             naver: "https://map.naver.com/v5/search/%EA%B7%B8%EB%A6%B0%EB%A7%88%EC%9D%BC%EC%BB%A4%ED%94%BC%20%EB%B6%81%EC%B4%8C%EC%A0%90"
+          },
+          {
+            transit: "🚕 車程或地鐵約 10 分鐘至廣藏市場"
           },
           {
             time: "🥢 12:45",
@@ -1658,11 +1736,17 @@
             desc: "米芝蓮必比登推薦【富村生牛肉】活章魚伴生牛肉、酥脆現煎綠豆煎餅、麻藥飯捲。"
           },
           {
+            transit: "🚶 漫步至益善洞韓屋村約 12 分鐘"
+          },
+          {
             time: "🎋 15:00",
             cat: "TEA",
             title: "清水堂 (청수당) 益善洞竹林庭院 Cafe",
             hangul: "청수당 / 서울 종로구 돈화문로11나길 31-9",
             desc: "穿過流水竹林步道進入韓屋，品嚐現烤舒芙蕾蛋糕與滴漏單品咖啡。"
+          },
+          {
+            transit: "🚶 漫步安國洞方向約 15 分鐘"
           },
           {
             time: "🍷 18:00",
@@ -1672,6 +1756,9 @@
             desc: "將傳統發酵泡菜概念昇華為現代精緻料理與自然酒搭配體驗。"
           },
           {
+            transit: "🚶 步行跨過景福宮至西村老街約 12 分鐘"
+          },
+          {
             time: "🍸 20:00",
             cat: "ASIA'S 50 #33",
             title: "Bar Cham (바 참) ＆ Gong-Gan (공간)",
@@ -1679,6 +1766,9 @@
             desc: "西村老韓屋冠軍酒吧。融合韓國傳統燒酎烈酒之極致作品。",
             tip: "⚠️ 排隊攻略：建議拆成 2+3 人入座最快；抵達現場立即以門口平板 Catchtable 取號！",
             naver: "https://map.naver.com/v5/search/%EB%B0%94%EC%B0%B8"
+          },
+          {
+            transit: "🚶 步行至光化門約 8 分鐘"
           },
           {
             time: "🍗 22:30",
@@ -1704,6 +1794,9 @@
             desc: "自 80 公尺高塔鋼索以時速數十公里飛馳直衝入島（需提前 15 分鐘報到）。"
           },
           {
+            transit: "🚶 飛索入島後漫步水杉大道"
+          },
+          {
             time: "🍁 09:30 ➔ 12:00",
             cat: "AUTUMN",
             title: "南怡島賞楓 (水杉大道、銀杏金黃長廊)",
@@ -1711,10 +1804,16 @@
             desc: "秋季金黃與緋紅滿山，水杉路與中央楓葉大道絕美景致。"
           },
           {
+            transit: "🚢 搭渡輪返回碼頭約 10 分鐘"
+          },
+          {
             time: "🧀 12:30",
             cat: "LUNCH",
             title: "加平碼頭：正宗春川辣炒雞排",
             desc: "鐵板現炒嫩雞肉、高麗菜、年糕與牽絲芝士，最後炒入白飯製成鍋巴。"
+          },
+          {
+            transit: "🚗 自駕前往晨靜樹木園，車程約 35 分鐘"
           },
           {
             time: "🌸 15:10",
@@ -1725,12 +1824,18 @@
             naver: "https://map.naver.com/v5/search/%EC%95%84%EC%B9%A8%EA%B3%A0%EC%9A%94%EC%88%98%EB%AA%A9%EC%9B%90"
           },
           {
+            transit: "🚗 自駕返回首爾東大門，車程約 1 小時 15 分鐘"
+          },
+          {
             time: "🍲 19:00",
             cat: "DINNER",
             title: "陳玉華一隻雞 (진옥화할매원조닭한마리)",
             hangul: "서울 종로구 종로40가길 18 (東大門)",
             desc: "東大門傳奇老店！原汁原味清甜雞湯，加入滿滿新鮮蒜泥與手工刀削麵。",
             naver: "https://map.naver.com/v5/search/%EC%A7%84%EC%98%A5%ED%99%94%ED%95%A0%EB%A7%A4%EC%9B%90%EC%A1%B0%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC"
+          },
+          {
+            transit: "🚕 車程跨越漢江至江南島山公園約 20 分鐘"
           },
           {
             time: "🍸 21:00",
@@ -1758,11 +1863,17 @@
             tel: "02-792-2024"
           },
           {
+            transit: "🚕 車程跨江前往狎鷗亭約 12 分鐘"
+          },
+          {
             time: "🍜 12:30",
             cat: "LUNCH",
             title: "MUTAN 狎鷗亭本店 (무탄 압구정본점)",
             hangul: "서울 강남구 논현로176길 22",
             desc: "招牌黑松露牛排炸醬麵、爆漿黃金麵包蝦（멘보샤）。"
+          },
+          {
+            transit: "🚗 自駕前往首爾站門市還車，行車約 25 分鐘"
           },
           {
             time: "🚗 18:30 ➔ 19:30",
@@ -1773,11 +1884,17 @@
             naver: "https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EA%B5%AC%20%ED%95%9C%EA%B0%95%EB%8C%80%EB%A1%9C%20405"
           },
           {
+            transit: "🚇 地鐵或計程車前往城東區馬場洞約 20 分鐘"
+          },
+          {
             time: "🥩 20:00",
             cat: "DINNER",
             title: "馬場洞畜產物市場：1++ 頂級炭火韓牛",
             hangul: "마장동 축산물시장",
             desc: "親自挑選 1++ 最高等級雪花韓牛（肋眼、板腱、牛小排），直上樓炭火燒烤，油香四溢！"
+          },
+          {
+            transit: "🚕 計程車返回狎鷗亭約 15 分鐘"
           },
           {
             time: "🍸 22:00",
@@ -1803,6 +1920,9 @@
             desc: "05:45 出發往金浦。搭乘易斯達航空 ZE207 抵達濟州機場領取行李。"
           },
           {
+            transit: "🚌 機場 5號門搭乘樂天免費接駁車約 8 分鐘"
+          },
+          {
             time: "⚡ 09:30",
             cat: "CAR RENTAL",
             title: "LOTTE Auto House 提取 IONIQ 9 純電 7人車",
@@ -1814,11 +1934,17 @@
             tel: "1588-1230"
           },
           {
+            transit: "🚗 自駕沿海岸線行駛約 10 分鐘"
+          },
+          {
             time: "🌈 10:00",
             cat: "COAST",
             title: "道頭彩虹海岸道路 ＆ 道頭峰 (龍貓樹洞)",
             hangul: "도두동무지개해안도로 / 도두봉",
             desc: "繽紛防波塊海岸自駕拍照，登頂道頭峰拍攝著名「龍貓樹洞」剪影與海景。"
+          },
+          {
+            transit: "🚗 車程約 8 分鐘至濟州市區"
           },
           {
             time: "🍜 11:30",
@@ -1828,6 +1954,9 @@
             desc: "濃白醇厚黑豬肉骨高湯，鋪滿炙烤切片黑豬肉片。"
           },
           {
+            transit: "🚗 往西南方向自駕約 25 分鐘"
+          },
+          {
             time: "🎨 13:30 ➔ 17:00",
             cat: "ART & NATURE",
             title: "Arte Museum 光影藝術館 ➔ 新星岳金黃芒草",
@@ -1835,11 +1964,17 @@
             desc: "沉浸式巨幅光影浪潮；傍晚登上新星岳欣賞滿山隨風搖曳的金黃芒草與落日。"
           },
           {
+            transit: "🚗 自駕返回蓮洞市區約 20 分鐘"
+          },
+          {
             time: "🥩 18:30",
             cat: "DINNER",
             title: "熟成到 (Sukseongdo 蓮洞店) 極品代烤黑豬肉",
             hangul: "숙성도 노형점/연동점",
             desc: "濟州第一名熟成黑豬肉，專人厚切炭火桌邊代烤，肉汁噴發！建議下午先以 Catchtable 取號。"
+          },
+          {
+            transit: "🚗 車程約 3 分鐘直達民宿"
           },
           {
             time: "🏨 20:30",
@@ -1866,11 +2001,17 @@
             desc: "火山噴發凝灰岩層疊峭壁，如同盤臥海中的巨龍。"
           },
           {
+            transit: "🚗 自駕約 10 分鐘"
+          },
+          {
             time: "🐟 12:30",
             cat: "LUNCH",
             title: "滿足的商會 (만족한상회) 招牌整條烤帶魚",
             hangul: "만족한상회",
             desc: "濟州傳奇「整條銀白帶魚全席」！一公尺原條鹽烤帶魚，專人現場去骨挑刺。"
+          },
+          {
+            transit: "🚗 自駕約 15 分鐘至安德面"
           },
           {
             time: "🌸 14:00",
@@ -1880,11 +2021,17 @@
             desc: "夢幻粉黛亂子草與銀芒草步道。出示樂天租車鑰匙，享門票 30% 折扣！"
           },
           {
+            transit: "🚗 自駕約 12 分鐘"
+          },
+          {
             time: "🥐 16:00",
             cat: "BAKERY",
             title: "Jejudang Bakery Cafe 濟州堂 (제주당)",
             hangul: "제주당",
             desc: "歐洲莊園般的大型自然植栽烘焙咖啡館，招牌擬真水果與蔬菜造型麵包。"
+          },
+          {
+            transit: "🚗 自駕前往西歸浦高處別墅區，行車約 25 分鐘"
           },
           {
             time: "🏨 18:45",
@@ -1911,6 +2058,9 @@
             desc: "搭船入島租借 3 輪微型電動車環島。遊覽西濱白沙珊瑚海灘、Jimmy's 花生雪糕、牛島峰燈塔。（帶 IDP 駕照）。"
           },
           {
+            transit: "🚢 渡輪返回本島 ➔ 自駕沿海岸線約 15 分鐘"
+          },
+          {
             time: "🦪 13:30",
             cat: "LUNCH",
             title: "銘珍鮑魚 (명진전복) 濟州必吃名店",
@@ -1919,10 +2069,16 @@
             naver: "https://map.naver.com/v5/search/%EB%AA%85%EC%A7%84%EC%A0%84%EB%B3%B5"
           },
           {
+            transit: "🚗 自駕返回西歸浦果園區約 40 分鐘"
+          },
+          {
             time: "🍊 15:30",
             cat: "FARM",
             title: "西歸浦秋季親採新鮮柑橘農場體驗",
             desc: "親手剪下秋季甜美多汁的濟州柑橘，果園內設有可愛拍照打卡場景。"
+          },
+          {
+            transit: "🚗 自駕約 15 分鐘至市中心"
           },
           {
             time: "🍢 18:00",
@@ -1930,6 +2086,9 @@
             title: "西歸浦每日偶來市場 (서귀포매일올레시장)",
             hangul: "서귀포매일올레시장",
             desc: "品嚐整顆爆汁柑橘大福、炙燒黑豬肉串、烤秋刀魚紫菜包飯與特色在地小吃。"
+          },
+          {
+            transit: "🚗 車程約 8 分鐘返回海景別墅"
           },
           {
             time: "🌌 20:30",
@@ -1954,6 +2113,9 @@
             desc: "退房後開車僅 8 分鐘即達，欣賞氣勢磅礴直瀉大海的水幕奇觀。"
           },
           {
+            transit: "🚗 沿西北景觀公路自駕約 50 分鐘至挾才"
+          },
+          {
             time: "🦀 12:00",
             cat: "LUNCH",
             title: "挾才海鮮拉麵 (협재해녀의집)",
@@ -1961,11 +2123,17 @@
             desc: "驅車前往湛藍的挾才海灘，品嚐加入整隻紅蟳、活鮑魚與鮮蝦的道地海女拉麵。"
           },
           {
+            transit: "🚗 自駕前往濟州市區約 35 分鐘"
+          },
+          {
             time: "🛍️ 14:00",
             cat: "SHOPPING",
             title: "東門傳統市場 ＆ 七星路商圈手信採買",
             hangul: "동문재래시장",
             desc: "採購濟州限定柑橘朱古力、牛島花生夾心餅、黑豬肉脆片與伴手禮。"
+          },
+          {
+            transit: "🚗 車程約 10 分鐘至蓮洞附近"
           },
           {
             time: "🍲 17:30",
@@ -1976,11 +2144,17 @@
             naver: "https://map.naver.com/v5/search/%EC%82%BC%EC%84%B1%ED%98%88%ED%95%B4%EB%AC%BC%ED%83%95"
           },
           {
+            transit: "🚗 車程約 8 分鐘抵達機場租車站"
+          },
+          {
             time: "🚗 19:00",
             cat: "CAR RETURN",
             title: "濟州 LOTTE Auto House 還車 ➔ 機場接駁",
             hangul: "롯데렌터카 오토하우스",
             desc: "歸還純電車 IONIQ 9，搭乘免費接駁車前往濟州機場國際航廈，辦理退稅。"
+          },
+          {
+            transit: "🚶 辦理出境與 Tax Free 退稅手續"
           },
           {
             time: "🛫 21:30 ➔ 23:35",
@@ -1994,6 +2168,47 @@
     ];
 
     let currentDayNum = 1;
+    let visitedSet = new Set();
+
+    function loadVisited() {
+      try {
+        const saved = localStorage.getItem('korea_visited_items');
+        if (saved) {
+          visitedSet = new Set(JSON.parse(saved));
+        }
+      } catch (e) {}
+      updateProgressUI();
+    }
+
+    function toggleVisitItem(key, btn) {
+      if (visitedSet.has(key)) {
+        visitedSet.delete(key);
+      } else {
+        visitedSet.add(key);
+        showToast('已完成打卡 ✨');
+      }
+      try {
+        localStorage.setItem('korea_visited_items', JSON.stringify(Array.from(visitedSet)));
+      } catch (e) {}
+      
+      const card = btn.closest('.event-card');
+      if (card) {
+        card.classList.toggle('completed', visitedSet.has(key));
+      }
+      btn.classList.toggle('done', visitedSet.has(key));
+      btn.innerText = visitedSet.has(key) ? '已完成 ✓' : '打卡 ✓';
+      updateProgressUI();
+    }
+
+    function updateProgressUI() {
+      const totalCount = 28;
+      const count = visitedSet.size;
+      const pct = Math.min(100, Math.round((count / totalCount) * 100));
+      const fill = document.getElementById('progressBarFill');
+      const text = document.getElementById('progressStatusText');
+      if (fill) fill.style.width = pct + '%';
+      if (text) text.innerText = `已打卡 ${count} / ${totalCount} 個行程 (${pct}%)`;
+    }
 
     // View Switching
     function showView(viewId) {
@@ -2007,7 +2222,6 @@
       const navBtn = document.getElementById('btn-nav-' + viewId);
       if (navBtn) navBtn.classList.add('active');
 
-      // Close mobile sidebar if open
       document.getElementById('appSidebar').classList.remove('mobile-open');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -2018,7 +2232,6 @@
       document.querySelectorAll('.tab-panel, .day-detail-section').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.side-nav-item').forEach(el => el.classList.remove('active'));
 
-      // Highlight corresponding sidebar day
       const dayBtns = document.querySelectorAll('.side-day-btn');
       dayBtns.forEach((b, idx) => {
         if (idx === num - 1) b.classList.add('active');
@@ -2029,7 +2242,6 @@
       const detailView = document.getElementById('view-day-detail');
       detailView.classList.add('active');
 
-      // Update Prev / Next buttons
       document.getElementById('prevDayBtn').disabled = (num === 1);
       document.getElementById('nextDayBtn').disabled = (num === 9);
       document.getElementById('prevDayBtn').style.opacity = (num === 1) ? '0.4' : '1';
@@ -2046,145 +2258,31 @@
       }
     }
 
-    // Verified Authentic Landmark Photos (Wikimedia Commons / Korea Open Data)
-    const verifiedLandmarks = {
-      // 景福宮 勤政殿 / 光化門實景
-      "景福宮": {
-        url: "https://upload.wikimedia.org/wikipedia/commons/f/fc/Gyeongbokgung%28palace%29.jpg",
-        caption: "景福宮 勤政殿實景 (Gyeongbokgung Palace)"
-      },
-      // 北村韓屋村
-      "北村韓屋村": {
-        url: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Gyeongbokgung_20141015_02_%2815524420256%29.jpg",
-        caption: "首爾北村傳統韓屋聚落 (Bukchon Hanok Village)"
-      },
-      // 南怡島 水杉路 / 銀杏大道實景
-      "南怡島": {
-        url: "https://upload.wikimedia.org/wikipedia/commons/3/3e/%EB%82%A8%EC%9D%B4%EC%84%AC_%2827%29.JPG",
-        caption: "南怡島 水杉林蔭大道實景 (Nami Island Tree Lane)"
-      },
-      // 龍頭海岸 火山凝灰岩盤龍峭壁實景
-      "龍頭海岸": {
-        url: "https://upload.wikimedia.org/wikipedia/commons/e/ea/%EC%A0%9C%EC%A3%BC_%EC%9A%A9%EB%A8%B8%EB%A6%AC%ED%95%B4%EC%95%88_%28Jeju_Yongmeori_Coast%29.jpg",
-        caption: "濟州龍頭海岸 火山凝灰岩層峭壁 (Yongmeori Coast)"
-      },
-      // 正房瀑布 直瀉入海實景
-      "正房瀑布": {
-        url: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Jeongbang_Waterfall.jpg",
-        caption: "濟州西歸浦 正房瀑布直瀉入海實景 (Jeongbang Waterfall)"
-      }
-    };
-
-    // Naver Place Direct Photo Gallery Links (1-Click to view hundreds of real user & shop photos)
-    const naverPhotoGalleries = {
-      "Camello": "https://m.place.naver.com/restaurant/1110053702/photo",
-      "Default Value": "https://m.place.naver.com/restaurant/1722608465/photo",
-      "Sea Sliced Raw Fish Sarang": "https://m.place.naver.com/restaurant/37731776/photo",
-      "安氏막걸리": "https://m.place.naver.com/restaurant/37841315/photo",
-      "Namsan Sool Club": "https://m.place.naver.com/restaurant/1931676643/photo",
-      "Green Mile Coffee": "https://m.place.naver.com/restaurant/1951528657/photo",
-      "富村生牛肉": "https://m.place.naver.com/restaurant/11679093/photo",
-      "清水堂": "https://m.place.naver.com/restaurant/1762140417/photo",
-      "On 6.5": "https://m.place.naver.com/restaurant/1384025178/photo",
-      "Bar Cham": "https://m.place.naver.com/restaurant/1898748342/photo",
-      "孝道炸雞": "https://m.place.naver.com/restaurant/1429813589/photo",
-      "晨靜樹木園": "https://m.place.naver.com/place/11627885/photo",
-      "陳玉華一隻雞": "https://m.place.naver.com/restaurant/11583224/photo",
-      "M+MS bar": "https://m.place.naver.com/restaurant/1936453187/photo",
-      "GML": "https://m.place.naver.com/restaurant/1097241285/photo",
-      "MUTAN": "https://m.place.naver.com/restaurant/1247076412/photo",
-      "馬場洞": "https://m.place.naver.com/place/13303661/photo",
-      "Pine&Co": "https://m.place.naver.com/restaurant/1199341852/photo",
-      "道頭彩虹海岸": "https://m.place.naver.com/place/1057404456/photo",
-      "姊妹麵條": "https://m.place.naver.com/restaurant/11710924/photo",
-      "Arte Museum": "https://m.place.naver.com/place/1879899388/photo",
-      "新星岳": "https://m.place.naver.com/place/13491480/photo",
-      "熟成到": "https://m.place.naver.com/restaurant/1614002622/photo",
-      "滿足的商會": "https://m.place.naver.com/restaurant/1749842880/photo",
-      "山茶花丘": "https://m.place.naver.com/place/12952870/photo",
-      "濟州堂": "https://m.place.naver.com/restaurant/1449830501/photo",
-      "牛島": "https://m.place.naver.com/place/13491873/photo",
-      "銘珍鮑魚": "https://m.place.naver.com/restaurant/13572849/photo",
-      "偶來市場": "https://m.place.naver.com/place/13303623/photo",
-      "挾才海鮮拉麵": "https://m.place.naver.com/restaurant/36423985/photo",
-      "東門傳統市場": "https://m.place.naver.com/place/11656811/photo",
-      "三姓穴海鮮湯": "https://m.place.naver.com/restaurant/11711019/photo"
-    };
-
-    function getAuthenticPhoto(title) {
-      for (let k in verifiedLandmarks) {
-        if (title.includes(k)) return verifiedLandmarks[k];
-      }
-      return null;
-    }
-
-    function getNaverPhotoUrl(title) {
-      for (let k in naverPhotoGalleries) {
-        if (title.includes(k)) return naverPhotoGalleries[k];
-      }
-      return null;
-    }
-
-    // Local custom photo path mapper (e.g. images/d2_bada.jpg in GitHub)
-    const localPhotoSlugMap = {
-      "Camello": "d2_camello.jpg",
-      "Default Value": "d2_default_value.jpg",
-      "Sea Sliced Raw Fish Sarang": "d2_bada_sashimi.jpg",
-      "安氏막걸리": "d2_ahn_makgeolli.jpg",
-      "Namsan Sool Club": "d2_namsan_soolclub.jpg",
-      "景福宮": "d3_gyeongbokgung.jpg",
-      "Green Mile Coffee": "d3_green_mile.jpg",
-      "富村生牛肉": "d3_buchon_yukhoe.jpg",
-      "On 6.5": "d3_on65.jpg",
-      "Bar Cham": "d3_barcham.jpg",
-      "南怡島": "d4_nami.jpg",
-      "晨靜樹木園": "d4_morning_calm.jpg",
-      "陳玉華一隻雞": "d4_chicken.jpg",
-      "M+MS bar": "d4_mms.jpg",
-      "GML": "d5_gml.jpg",
-      "MUTAN": "d5_mutan.jpg",
-      "馬場洞": "d5_majang_hanwoo.jpg",
-      "道頭彩虹海岸": "d6_rainbow.jpg",
-      "熟成到": "d6_sukseongdo.jpg",
-      "龍頭海岸": "d7_yongmeori.jpg",
-      "滿足的商會": "d7_cutlassfish.jpg",
-      "山茶花丘": "d7_camellia.jpg",
-      "牛島": "d8_udo.jpg",
-      "銘珍鮑魚": "d8_abalone.jpg",
-      "正房瀑布": "d9_jeongbang.jpg",
-      "三姓穴海鮮湯": "d9_samseonghyeol.jpg"
-    };
-
-    function getLocalPhoto(title) {
-      for (let k in localPhotoSlugMap) {
-        if (title.includes(k)) return 'images/' + localPhotoSlugMap[k];
-      }
-      return null;
-    }
-
-    // Render detailed timeline cards with authentic photos, local image fallback, and Naver gallery button
+    // Render detailed timeline cards (Mature, Photo-free, Transit-aware)
     function renderDayDetail(num) {
       const d = allDaysData.find(item => item.num === num);
       if (!d) return;
 
       let html = `
         <div class="day-banner-hero">
-          <div class="day-hero-content" style="margin-top:0;padding:24px;">
-            <div class="banner-sup">DAY 0${d.num} · ${d.date}</div>
-            <h2 class="banner-h1">${d.title}</h2>
-            <div class="banner-desc">${d.highlight}</div>
-          </div>
+          <div class="banner-sup">DAY 0${d.num} · ${d.date} ｜ ${d.region}</div>
+          <h2 class="banner-h1">${d.title}</h2>
+          <div class="banner-desc">${d.highlight}</div>
         </div>
         <div class="timeline-wrap">
       `;
 
-      d.events.forEach(ev => {
-        const authentic = getAuthenticPhoto(ev.title);
-        const naverPhoto = getNaverPhotoUrl(ev.title);
-        const localImg = getLocalPhoto(ev.title);
+      d.events.forEach((ev, idx) => {
+        if (ev.transit) {
+          html += `<div class="transit-connector">${ev.transit}</div>`;
+          return;
+        }
+
+        const itemKey = `d${d.num}_e${idx}_${ev.title.slice(0, 6)}`;
+        const isDone = visitedSet.has(itemKey);
 
         html += `
-          <div class="event-card">
+          <div class="event-card ${isDone ? 'completed' : ''}">
             <div class="event-node-dot"></div>
             <div class="event-top-meta">
               <span class="event-time">${ev.time}</span>
@@ -2192,32 +2290,15 @@
             </div>
             <h3 class="event-heading">${ev.title}</h3>
             ${ev.hangul ? `<span class="event-korean">${ev.hangul}</span>` : ''}
-
-            <!-- Local user photo if added in GitHub images/ folder -->
-            ${localImg ? `<div class="event-photo-container" style="display:none;" id="box-${ev.time.replace(/[^a-zA-Z0-9]/g, '')}">
-                <img src="${localImg}" alt="${ev.title}" onload="this.parentElement.style.display='block'" onerror="this.parentElement.style.display='none'">
-                <div class="photo-caption-bar">
-                  <span>📷 自訂照片 (GitHub: ${localImg})</span>
-                </div>
-              </div>` : ''}
-
-            <!-- Verified authentic landmark photo -->
-            ${authentic ? `<div class="event-photo-container">
-                <img src="${authentic.url}" alt="${ev.title}" loading="lazy">
-                <div class="photo-caption-bar">
-                  <span>🏛️ ${authentic.caption}</span>
-                  <span class="photo-source-badge">真實景點實景</span>
-                </div>
-              </div>` : ''}
-
             <p class="event-p">${ev.desc}</p>
             ${ev.tip ? `<div class="event-tip">${ev.tip}</div>` : ''}
-            
             <div class="event-actions-bar">
               ${ev.naver ? `<a class="btn-act naver" href="${ev.naver}" target="_blank">🧭 Naver 導航</a>` : ''}
-              ${naverPhoto ? `<a class="btn-act real-photo" href="${naverPhoto}" target="_blank">📷 現場真實相冊 / 菜單</a>` : ''}
               ${ev.copyVal ? `<button class="btn-act" onclick="copyValue('${ev.copyVal}', '${ev.copyLabel || '已複製韓文內容'}')">📋 ${ev.copyLabel || '複製'}</button>` : ''}
               ${ev.tel ? `<a class="btn-act" href="tel:${ev.tel}">📞 ${ev.tel}</a>` : ''}
+              <button class="btn-act check ${isDone ? 'done' : ''}" onclick="toggleVisitItem('${itemKey}', this)">
+                ${isDone ? '已完成 ✓' : '打卡 ✓'}
+              </button>
             </div>
           </div>
         `;
@@ -2251,7 +2332,7 @@
       setTimeout(() => t.classList.remove('show'), 2000);
     }
 
-    // Money Calc
+    // Money Calculator with Presets
     function recalcMoney() {
       const v = parseFloat(document.getElementById('moneyKrwInput').value) || 0;
       const rate = 0.0057;
@@ -2261,7 +2342,20 @@
       document.getElementById('resHkdSplit').innerText = 'HK$ ' + split.toLocaleString() + ' / 人';
     }
 
-    // Mobile Sidebar Toggle
+    function addPreset(amount) {
+      const el = document.getElementById('moneyKrwInput');
+      const cur = parseFloat(el.value) || 0;
+      el.value = cur + amount;
+      recalcMoney();
+    }
+
+    function clearCalc() {
+      const el = document.getElementById('moneyKrwInput');
+      el.value = '';
+      recalcMoney();
+    }
+
+    // Mobile Sidebar
     function toggleSidebar() {
       document.getElementById('appSidebar').classList.toggle('mobile-open');
     }
@@ -2271,15 +2365,16 @@
       const cur = document.documentElement.getAttribute('data-theme');
       const next = (cur === 'light') ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('korea_antique_theme', next);
+      localStorage.setItem('korea_mature_theme', next);
       showToast(next === 'light' ? '已切換為青瓷米白日景 ☀️' : '已切換為墨松丹青夜景 🌙');
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-      const savedTheme = localStorage.getItem('korea_antique_theme');
+      const savedTheme = localStorage.getItem('korea_mature_theme');
       if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
       }
+      loadVisited();
     });
   </script>
 </body>
