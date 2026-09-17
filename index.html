@@ -497,6 +497,117 @@
       font-size: 0.78rem;
     }
 
+
+    /* Image Enhancements for Korean Antique Travel App */
+    .stage-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .stage-item:hover {
+      background: rgba(52, 211, 153, 0.05);
+    }
+    .stage-thumb-wrap {
+      width: 76px;
+      height: 76px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-antique);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+    .stage-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+    .stage-item:hover .stage-thumb {
+      transform: scale(1.1);
+    }
+
+    /* Day Banner Hero with Ambient Background Image */
+    .day-banner-hero {
+      background: var(--bg-card);
+      border: 1px solid var(--border-antique);
+      border-radius: 12px;
+      padding: 0;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-subtle);
+    }
+    .day-hero-img-wrap {
+      width: 100%;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+    .day-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .day-hero-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(180deg, rgba(12, 20, 17, 0.2) 0%, rgba(12, 20, 17, 0.92) 100%);
+    }
+    [data-theme="light"] .day-hero-overlay {
+      background: linear-gradient(180deg, rgba(244, 247, 244, 0.2) 0%, rgba(244, 247, 244, 0.95) 100%);
+    }
+    .day-hero-content {
+      padding: 16px 24px 22px;
+      position: relative;
+      margin-top: -36px;
+      z-index: 2;
+    }
+
+    /* Event Card Inset Image */
+    .event-photo {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 10px 0 12px;
+      border: 1px solid var(--border-antique);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s ease;
+      display: block;
+    }
+    .event-photo:hover {
+      transform: scale(1.015);
+    }
+
+    .food-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0 18px;
+    }
+    .food-grid-item {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .food-grid-img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+    }
+    .food-grid-caption {
+      padding: 8px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
     /* Detailed Day View (When a day is clicked) */
     .day-detail-section {
       display: none;
@@ -1881,21 +1992,73 @@
       }
     }
 
-    // Render detailed timeline cards for a day
+    // Map of hero images and event photos
+    const dayHeroImages = {
+      1: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=80",
+      2: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80",
+      3: "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=1200&q=80",
+      4: "https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=1200&q=80",
+      5: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
+      6: "https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&fit=crop&w=1200&q=80",
+      7: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+      8: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=1200&q=80",
+      9: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80"
+    };
+
+    const eventPhotos = {
+      "仁川機場 T1 提取 Hyundai Staria": "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80",
+      "Default Value": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+      "Sea Sliced Raw Fish Sarang": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=80",
+      "Namsan Sool Club": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80",
+      "景福宮韓服租借體驗": "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80",
+      "Green Mile Coffee Bukchon": "https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=800&q=80",
+      "Bar Cham": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80",
+      "南怡島賞楓": "https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=800&q=80",
+      "晨靜樹木園": "https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=800&q=80",
+      "陳玉華一隻雞": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80",
+      "漢南洞手沖巡禮": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80",
+      "馬場洞畜產物市場": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
+      "道頭彩虹海岸道路": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+      "熟成到": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+      "山茶花丘": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80",
+      "山房山 ＆ 龍頭海岸": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80",
+      "牛島跳島半日遊": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+      "西歸浦秋季親採新鮮柑橘": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80",
+      "正房瀑布": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80",
+      "三姓穴海鮮湯": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80"
+    };
+
+    function getEventPhoto(title) {
+      for (let k in eventPhotos) {
+        if (title.includes(k)) return eventPhotos[k];
+      }
+      return null;
+    }
+
+    // Render detailed timeline cards for a day with hero banner and event photos
     function renderDayDetail(num) {
       const d = allDaysData.find(item => item.num === num);
       if (!d) return;
 
+      const heroUrl = dayHeroImages[num] || dayHeroImages[1];
+
       let html = `
         <div class="day-banner-hero">
-          <div class="banner-sup">DAY 0${d.num} · ${d.date}</div>
-          <h2 class="banner-h1">${d.title}</h2>
-          <div class="banner-desc">${d.highlight}</div>
+          <div class="day-hero-img-wrap">
+            <img src="${heroUrl}" class="day-hero-img" alt="${d.title}" loading="lazy">
+            <div class="day-hero-overlay"></div>
+          </div>
+          <div class="day-hero-content">
+            <div class="banner-sup">DAY 0${d.num} · ${d.date}</div>
+            <h2 class="banner-h1">${d.title}</h2>
+            <div class="banner-desc">${d.highlight}</div>
+          </div>
         </div>
         <div class="timeline-wrap">
       `;
 
       d.events.forEach(ev => {
+        const photo = getEventPhoto(ev.title);
         html += `
           <div class="event-card">
             <div class="event-node-dot"></div>
@@ -1905,6 +2068,7 @@
             </div>
             <h3 class="event-heading">${ev.title}</h3>
             ${ev.hangul ? `<span class="event-korean">${ev.hangul}</span>` : ''}
+            ${photo ? `<img src="${photo}" class="event-photo" alt="${ev.title}" loading="lazy">` : ''}
             <p class="event-p">${ev.desc}</p>
             ${ev.tip ? `<div class="event-tip">${ev.tip}</div>` : ''}
             <div class="event-actions-bar">
