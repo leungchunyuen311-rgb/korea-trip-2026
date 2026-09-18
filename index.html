@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="韓國金秋紀行">
   <meta name="theme-color" content="#0C1411">
-  <title>2026 韓國首爾・濟州島之旅 ｜ 旅程手帳</title>
+  <title>2026 韓國首爾・濟州島 9天8夜自駕手帳 ｜ v6 全能旗艦版</title>
 
   <!-- Typography: Classical Serif for Antique Korean Elegance & Clean Modern Monospace / Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -989,6 +989,464 @@
         font-size: 1.15rem;
       }
     }
+  
+    /* =========================================================
+       NEW V6 TRAVEL APP FEATURES: COUNTDOWN, SPLITTER, PACKING, PHRASES, BOTTOM NAV
+       ========================================================= */
+
+    /* 1. Departure Countdown Bar */
+    .countdown-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 14px 20px;
+      background: linear-gradient(135deg, rgba(20, 36, 29, 0.95), rgba(12, 20, 17, 0.95));
+      border: 1px solid var(--border-antique);
+      border-radius: 14px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .countdown-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .countdown-icon {
+      font-size: 1.5rem;
+      animation: pulse 2s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .countdown-label {
+      font-size: 0.85rem;
+      color: var(--color-gold-bright);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .countdown-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .countdown-timer-boxes {
+      display: flex;
+      gap: 8px;
+    }
+    .countdown-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      min-width: 48px;
+      padding: 6px 4px;
+    }
+    .countdown-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-celadon-light);
+      line-height: 1;
+    }
+    .countdown-unit {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* 2. Region Filter Chips */
+    .filter-chips-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .filter-chip {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-antique);
+      color: var(--text-muted);
+      border-radius: 20px;
+      padding: 8px 16px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .filter-chip.active {
+      background: var(--color-celadon);
+      color: #080D0A;
+      border-color: var(--color-celadon);
+      font-weight: 700;
+      box-shadow: 0 0 12px rgba(52, 211, 153, 0.35);
+    }
+
+    /* 3. Group Expense Splitter */
+    .split-form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 0.78rem;
+      color: var(--color-gold);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .form-control {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-antique);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--text-light);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus {
+      border-color: var(--color-celadon);
+    }
+    .btn-action {
+      background: linear-gradient(135deg, var(--color-celadon), var(--color-celadon-dim));
+      color: #080D0A;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn-action:active {
+      transform: scale(0.98);
+    }
+    .btn-secondary {
+      background: var(--bg-card-subtle);
+      color: var(--text-light);
+      border: 1px solid var(--border-antique);
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .expense-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .expense-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      font-size: 0.88rem;
+    }
+    .expense-title {
+      font-weight: 600;
+      color: var(--text-light);
+    }
+    .expense-meta {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .expense-amt {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: var(--color-gold-bright);
+      text-align: right;
+    }
+    .expense-del-btn {
+      background: transparent;
+      border: none;
+      color: #EF4444;
+      cursor: pointer;
+      padding: 4px 8px;
+      font-size: 1rem;
+    }
+    .settlement-card {
+      background: linear-gradient(135deg, rgba(30, 49, 41, 0.7), rgba(12, 20, 17, 0.9));
+      border: 1px solid var(--color-gold);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+    .settlement-step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border-subtle);
+      font-size: 0.9rem;
+    }
+    .settlement-step:last-child {
+      border-bottom: none;
+    }
+
+    /* 4. Packing & Pre-trip Checklist */
+    .progress-bar-wrap {
+      background: var(--bg-card-subtle);
+      border-radius: 10px;
+      height: 12px;
+      overflow: hidden;
+      margin: 12px 0 20px;
+      border: 1px solid var(--border-subtle);
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-celadon-dim), var(--color-celadon));
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    .checklist-cat {
+      margin-bottom: 24px;
+    }
+    .checklist-cat-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-gold-bright);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-antique);
+      margin-bottom: 12px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s;
+    }
+    .check-item.completed {
+      opacity: 0.6;
+      background: rgba(19, 30, 25, 0.4);
+    }
+    .check-item.completed .check-label {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+    .check-box-custom {
+      min-width: 20px;
+      height: 20px;
+      border: 2px solid var(--color-celadon);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: #080D0A;
+      background: transparent;
+      margin-top: 1px;
+    }
+    .check-item.completed .check-box-custom {
+      background: var(--color-celadon);
+    }
+    .check-content {
+      flex: 1;
+    }
+    .check-label {
+      font-weight: 600;
+      color: var(--text-light);
+      font-size: 0.88rem;
+    }
+    .check-note {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* 5. Bilingual Survival Flashcards */
+    .phrase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .phrase-card {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-antique);
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .phrase-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-celadon);
+      box-shadow: 0 4px 16px rgba(52, 211, 153, 0.15);
+    }
+    .phrase-kr {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-celadon-light);
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .phrase-pron {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--color-gold);
+      margin-bottom: 8px;
+    }
+    .phrase-cn {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+    .phrase-tag {
+      align-self: flex-start;
+      margin-top: 10px;
+      font-size: 0.68rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--bg-hover);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Fullscreen Modal for Korean driver/staff */
+    .phrase-modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(8, 13, 10, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .phrase-modal-backdrop.active {
+      display: flex;
+    }
+    .phrase-modal-card {
+      background: var(--bg-card);
+      border: 2px solid var(--color-celadon);
+      border-radius: 20px;
+      padding: 32px 24px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+      position: relative;
+    }
+    .phrase-modal-close {
+      position: absolute;
+      top: 14px; right: 16px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .phrase-modal-kr {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 1.4;
+      margin-bottom: 16px;
+      word-break: keep-all;
+    }
+    .phrase-modal-pron {
+      font-size: 0.95rem;
+      color: var(--color-gold-bright);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 14px;
+    }
+    .phrase-modal-cn {
+      font-size: 1.1rem;
+      color: var(--color-celadon-light);
+      font-weight: 600;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-antique);
+    }
+
+    /* 6. Mobile Bottom Navigation Bar */
+    .mobile-bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: rgba(12, 20, 17, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-antique);
+      z-index: 1000;
+      padding: 0 8px;
+      justify-content: space-around;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .mobile-bottom-nav {
+        display: flex;
+      }
+      .app-main {
+        padding-bottom: 80px !important;
+      }
+    }
+    .bot-nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+      flex: 1;
+      height: 100%;
+      transition: color 0.2s;
+    }
+    .bot-nav-btn .icon {
+      font-size: 1.25rem;
+    }
+    .bot-nav-btn.active {
+      color: var(--color-celadon);
+      font-weight: 700;
+    }
+
   </style>
 </head>
 <body>
@@ -1032,6 +1490,14 @@
       <button class="side-nav-item" id="btn-nav-food" onclick="showView('food')">
         <span class="icon">🥢</span>
         <span>FOOD 美食酒吧</span>
+      </button>
+      <button class="side-nav-item" id="btn-nav-packing" onclick="showView('packing')">
+        <span class="icon">🎒</span>
+        <span>PACK 行李清單</span>
+      </button>
+      <button class="side-nav-item" id="btn-nav-phrases" onclick="showView('phrases')">
+        <span class="icon">💬</span>
+        <span>TALK 韓文溝通</span>
       </button>
     </div>
 
@@ -1393,46 +1859,131 @@
     <!-- ============================================== -->
     <!-- VIEW 4: MONEY 匯率分賬 -->
     <!-- ============================================== -->
-    <div class="tab-panel" id="view-money">
-      <div class="header-tracking-label">CURRENCY & EXPENSES</div>
-      <h1 class="main-hero-title">匯率換算與旅費分賬</h1>
+        <div class="tab-panel" id="view-money">
+      <div class="header-tracking-label">CURRENCY & EXPENSE SPLITTER</div>
+      <h1 class="main-hero-title">匯率快算與 5人同行記賬分賬 (Splitwise 模式)</h1>
 
+      <!-- Part 1: 即時雙向匯率快算機 -->
       <div class="panel-card">
-        <div class="calc-row">
-          <span class="calc-currency">₩ KRW</span>
-          <input type="number" class="calc-input" id="moneyKrwInput" placeholder="輸入韓元金額 (例如 180000)" oninput="recalcMoney()">
+        <h3 class="panel-card-title">💱 雙向即時匯率快算 (韓元 KRW ⇄ 港幣 HKD)</h3>
+        <p class="event-p" style="margin-bottom:14px;font-size:0.82rem;color:var(--text-muted);">
+          預設參考匯率：1 HKD ≈ 175.4 KRW（1 KRW ≈ 0.0057 HKD）。支援韓元或港幣雙向即時對調，並自動換算 5 人平分每人金額。
+        </p>
+        <div class="calc-grid" style="grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;">
+          <div class="form-group">
+            <label>₩ 韓元金額 (KRW)</label>
+            <input type="number" class="form-control" id="calcKrwInput" placeholder="例如 150000" oninput="convertFromKrw()">
+          </div>
+          <div class="form-group">
+            <label>HK$ 港幣金額 (HKD)</label>
+            <input type="number" class="form-control" id="calcHkdInput" placeholder="例如 855" oninput="convertFromHkd()">
+          </div>
         </div>
 
-        <!-- Quick preset buttons (Online travel app best practice) -->
-        <div class="calc-presets">
-          <button class="calc-preset-btn" onclick="addPreset(10000)">+1萬</button>
-          <button class="calc-preset-btn" onclick="addPreset(30000)">+3萬</button>
-          <button class="calc-preset-btn" onclick="addPreset(50000)">+5萬</button>
-          <button class="calc-preset-btn" onclick="addPreset(100000)">+10萬</button>
-          <button class="calc-preset-btn" onclick="addPreset(200000)">+20萬</button>
-          <button class="calc-preset-btn" onclick="clearCalc()">清空</button>
+        <div class="calc-presets" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+          <button class="calc-preset-btn" onclick="addKrwPreset(10000)">+1萬₩</button>
+          <button class="calc-preset-btn" onclick="addKrwPreset(30000)">+3萬₩</button>
+          <button class="calc-preset-btn" onclick="addKrwPreset(50000)">+5萬₩</button>
+          <button class="calc-preset-btn" onclick="addKrwPreset(100000)">+10萬₩</button>
+          <button class="calc-preset-btn" onclick="addKrwPreset(500000)">+50萬₩</button>
+          <button class="calc-preset-btn" onclick="clearCalcBi()">清空</button>
         </div>
 
         <div class="calc-grid">
           <div class="calc-stat-box">
-            <div class="calc-stat-label">折合港幣 (匯率 0.0057)</div>
-            <div class="calc-stat-val" id="resHkd">HK$ 0</div>
+            <div class="calc-stat-label">總金額折算</div>
+            <div class="calc-stat-val" id="resTotalConverted">HK$ 0</div>
           </div>
           <div class="calc-stat-box">
-            <div class="calc-stat-label">兩人平分每人 (HKD)</div>
-            <div class="calc-stat-val" style="color:var(--color-gold);" id="resHkdSplit">HK$ 0 / 人</div>
+            <div class="calc-stat-label">👥 5位成人平分 (每人應付)</div>
+            <div class="calc-stat-val" style="color:var(--color-gold-bright);" id="resSplit5">HK$ 0 / 人</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 2: 5人同行記賬分賬系統 (Splitwise Style) -->
+      <div class="panel-card" style="margin-top:20px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
+          <h3 class="panel-card-title" style="margin:0;">📝 旅程共同支出記賬本 (自動平賬計算)</h3>
+          <button class="btn-secondary" onclick="exportExpensesToWhatsApp()">📲 複製結算摘要到 WhatsApp</button>
+        </div>
+        <p class="event-p" style="margin-bottom:14px;font-size:0.82rem;color:var(--text-muted);">
+          支援記錄餐飲、租車加油、門票住宿等代付款項。系統自動為 5 人精準計算代付額、應付額與「最少轉賬次數平賬方案」，資料自動保存在本機瀏覽器。
+        </p>
+
+        <!-- New Expense Form -->
+        <div class="split-form-grid">
+          <div class="form-group">
+            <label>項目名稱</label>
+            <input type="text" class="form-control" id="expName" placeholder="例如：Camello 午餐 / 租車加油">
+          </div>
+          <div class="form-group">
+            <label>金額與幣種</label>
+            <div style="display:flex;gap:6px;">
+              <input type="number" class="form-control" id="expAmount" placeholder="金額" style="flex:2;">
+              <select class="form-control" id="expCurrency" style="flex:1;">
+                <option value="KRW">₩ KRW</option>
+                <option value="HKD">HK$</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>付款人 (Who Paid?)</label>
+            <select class="form-control" id="expPayer">
+              <option value="Leung">Leung (主駕駛)</option>
+              <option value="Joyce">Joyce</option>
+              <option value="同伴 A">同伴 A</option>
+              <option value="同伴 B">同伴 B</option>
+              <option value="同伴 C">同伴 C</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>消費類別</label>
+            <select class="form-control" id="expCategory">
+              <option value="🍽️ 餐飲美食">🍽️ 餐飲美食</option>
+              <option value="🚗 交通租車">🚗 交通租車/加油</option>
+              <option value="🏨 住宿費用">🏨 住宿費用</option>
+              <option value="🎟️ 門票活動">🎟️ 門票活動/體驗</option>
+              <option value="🛍️ 共同購物">🛍️ 超市採購/雜支</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn-action" onclick="addExpenseRecord()">➕ 加入這筆支出</button>
+          <button class="btn-secondary" onclick="clearAllExpenses()">清空記賬</button>
+        </div>
+
+        <!-- Expense Summary Cards -->
+        <div class="calc-grid" style="margin-top:20px;">
+          <div class="calc-stat-box">
+            <div class="calc-stat-label">累積總開銷 (折算 HKD)</div>
+            <div class="calc-stat-val" id="statTotalExpense">HK$ 0</div>
+          </div>
+          <div class="calc-stat-box">
+            <div class="calc-stat-label">5 人平均每人支出</div>
+            <div class="calc-stat-val" style="color:var(--color-celadon);" id="statAvgExpense">HK$ 0 / 人</div>
           </div>
         </div>
 
-        <div style="margin-top:14px;font-size:0.75rem;color:var(--text-muted);">
-          * 匯率基準：1 KRW ≈ 0.0057 HKD（100,000 韓元約折合 570 港幣）
+        <!-- Settlement Optimal Matrix -->
+        <div class="settlement-card" id="settlementBox">
+          <div style="font-size:0.95rem;font-weight:700;color:var(--color-gold-bright);margin-bottom:10px;display:flex;align-items:center;gap:6px;">
+            <span>⚖️ 最佳平賬轉賬解法 (誰該給誰多少錢)</span>
+          </div>
+          <div id="settlementList">
+            <div style="color:var(--text-muted);font-size:0.85rem;">暫無記賬支出，請先新增支出項目。</div>
+          </div>
+        </div>
+
+        <!-- History Ledger List -->
+        <div style="margin-top:24px;">
+          <div style="font-size:0.9rem;font-weight:700;color:var(--color-gold);margin-bottom:10px;">📋 支出明細記錄表</div>
+          <div class="expense-list" id="expenseListContainer">
+            <!-- Dynamically populated -->
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- ============================================== -->
-    <!-- VIEW 5: TRANSIT 交通住宿 -->
-    <!-- ============================================== -->
     <div class="tab-panel" id="view-transit">
       <div class="header-tracking-label">LOGISTICS OVERVIEW</div>
       <h1 class="main-hero-title">交通航班與住宿一覽</h1>
@@ -1481,6 +2032,19 @@
       <h1 class="main-hero-title">備用 / 替換美食與酒吧清單 (Backup List)</h1>
 
       <!-- Section 1: 首爾備用美食 -->
+      
+      <!-- 🥩 1++ 頂級韓牛新推薦：망원동 뿔 -->
+      <div class="panel-card" style="border-color:var(--color-gold);">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <h3 class="panel-card-title" style="color:var(--color-gold-bright);margin:0;">🥩 1++ 頂級熟成韓牛日式炭火燒肉：망원동 뿔 (bbul)</h3>
+          <a href="https://map.naver.com/p/entry/place/1563382529" target="_blank" class="badge-btn" style="text-decoration:none;">🗺️ Naver Map 直達</a>
+        </div>
+        <p class="event-p" style="margin-top:8px;"><b>• 特色：</b> 嚴選國內產最高等級 1++ (No.9) 韓牛，經 2 週濕式熟成，以個人小炭爐（화로구이）現點現烤。包含里脊 (등심)、菲力 (안심)、紐約客 (채끝)、牛肋條 (갈비살)、羽下肉 (살치살) 等部位，每 100g 單點。</p>
+        <p class="event-p"><b>• 人均消費：</b> 約 60,000 – 80,000 韓元（約 HK$340–$460 / 人）；品酒飽食約 90,000–120,000 韓元。</p>
+        <p class="event-p"><b>• 地理優勢：</b> 位於首爾麻浦區望遠洞（距離延南洞民宿開車僅 6–8 分鐘），自帶免費車位！可作為 Day 5 替代馬場洞的精緻頂級首選。</p>
+        <p class="event-p"><b>• 地址：</b> 서울 마포구 월드컵로19길 86 1층 ｜ <b>電話：</b> 010-6256-4255 ｜ <b>營業：</b> 平日 16:00-23:00 / 週末 12:00-23:00</p>
+      </div>
+
       <div class="panel-card">
         <h3 class="panel-card-title">🦀 首爾備用必吃美食</h3>
         <p class="event-p"><b>• 頂級醬油蟹：</b> <a href="https://map.naver.com/v5/search/%EC%A7%84%EB%AF%B8%EC%8B%9D%EB%8B%B9" target="_blank" style="color:var(--color-celadon);">真味食堂 (진미식당)</a> (米芝蓮必比登推薦，麻浦頂級代表)、元祖馬山醬蟹 (원조마산할매아구찜)、一味醬蟹 (일미간장게장)、烏達里家 (오다리집 明洞)。</p>
@@ -1550,6 +2114,268 @@
         <p class="event-p"><b>• Southbounder (사우스바운더)：</b> 中文觀光園區美式復古手工精釀啤酒與特色披薩餐酒館。</p>
       </div>
     </div>
+
+  
+    <!-- =========================================================
+         VIEW 6: PACKING & PRE-TRIP CHECKLIST (Packr / PackPoint Style)
+         ========================================================= -->
+    <div class="tab-panel" id="view-packing">
+      <div class="header-tracking-label">SMART PACKING CHECKLIST</div>
+      <h1 class="main-hero-title">行前必備與行李智能檢查清單</h1>
+
+      <div class="panel-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <div>
+            <span style="font-size:0.85rem;font-weight:700;color:var(--color-gold-bright);" id="packProgressText">準備進度：0 / 0 項 (0%)</span>
+          </div>
+          <button class="btn-secondary" onclick="resetChecklist()" style="padding:6px 12px;font-size:0.75rem;">重置清單</button>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="packProgressBar"></div>
+        </div>
+
+        <!-- Category 1: 證件與租車 -->
+        <div class="checklist-cat">
+          <div class="checklist-cat-title">🪪 關鍵證件與自駕手續 (駕駛必帶)</div>
+          <div class="check-item" data-key="c_idp" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">國際駕駛許可證 (IDP) 正本</div>
+              <div class="check-note">取車及牛島租借3輪電動車必備，須為有效1949/1968版</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_hkl" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">香港駕駛執照 正本</div>
+              <div class="check-note">持證滿12個月以上，租車櫃檯必須同時出示</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_pass" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">護照正本 (有效期6個月以上)</div>
+              <div class="check-note">辦理入境、機場免稅、Olive Young 即刻退稅憑證</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_card" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">主駕駛名下實體晶片凸字信用卡</div>
+              <div class="check-note">Visa/Mastercard，不可用純虛擬卡或銀聯卡付租車按金 (KRW 100,000)</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_qcode" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">出發前填妥 Q-Code / 韓國入境卡 QR Code</div>
+              <div class="check-note">出發前 3 天填妥，通關節省 20–30 分鐘</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: 電子設備與車用 -->
+        <div class="checklist-cat">
+          <div class="checklist-cat-title">🔌 電子設備與車用通訊配件</div>
+          <div class="check-item" data-key="c_plug" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">韓國雙圓孔轉插頭 (4.8mm 德標/歐規)</div>
+              <div class="check-note">韓國為 220V 雙圓粗針插座，建議每人自備 1–2 個</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_mount" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">車載手機導航出風口支架</div>
+              <div class="check-note">自駕看 Naver Map 必備神器，租車公司通常不提供</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_cables" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">車用 USB / Type-C 快速充電線與雙孔點煙器轉接頭</div>
+              <div class="check-note">長途自駕導航耗電快，車上多人充電必備</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_pb" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">大容量流動電源 (Powerbank)</div>
+              <div class="check-note">⚠️ 必須隨身攜帶上機，嚴禁放入託運行李箱</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_esim" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">韓國上網 eSIM / 實體 SIM 卡及更換取卡針</div>
+              <div class="check-note">支援熱點分享，出發前先完成 eSIM 安裝或開通</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: 秋季穿搭與健行 -->
+        <div class="checklist-cat">
+          <div class="checklist-cat-title">🧥 秋季首爾與濟州穿搭 (10月中溫差 10°C–22°C)</div>
+          <div class="check-item" data-key="c_jacket" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">防風保暖外套 / 輕羽絨</div>
+              <div class="check-note">早晚低溫約 10°C，濟州海邊及南怡島清晨風大必備</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_layers" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">洋蔥式多層次穿搭 (薄長袖、針織衫、內搭發熱衣)</div>
+              <div class="check-note">室內有暖氣、室外微涼，方便隨時穿脫</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_shoes" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">防滑好走運動鞋 / 健行波鞋</div>
+              <div class="check-note">景福宮、南怡島、新星岳芒草坡、城山牛島健行必備</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_sun" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">太陽眼鏡與防曬護膚品</div>
+              <div class="check-note">濟州沿海自駕與牛島戶外陽光強烈</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 4: 藥品與日常護理 -->
+        <div class="checklist-cat">
+          <div class="checklist-cat-title">💊 個人常備藥品與生活保養</div>
+          <div class="check-item" data-key="c_med_stomach" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">腸胃止瀉藥 / 胃散</div>
+              <div class="check-note">生魚片、醬油蟹、辛辣料理大快朵頤必備</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_med_motion" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">暈車 / 暈船藥</div>
+              <div class="check-note">牛島客輪航程、濟州西南部盤山公路必備</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_lotion" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">高保濕面霜、護手霜與潤唇膏</div>
+              <div class="check-note">韓國秋季空氣非常乾燥，避免皮膚乾裂脫皮</div>
+            </div>
+          </div>
+          <div class="check-item" data-key="c_wipes" onclick="toggleCheckItem(this)">
+            <div class="check-box-custom">✓</div>
+            <div class="check-content">
+              <div class="check-label">隨身消毒濕紙巾與小包面紙</div>
+              <div class="check-note">傳統市場小吃巡禮、自駕車內清潔</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END view-packing -->
+
+    <!-- =========================================================
+         VIEW 7: BILINGUAL SURVIVAL FLASHCARDS (Bilingual Modal)
+         ========================================================= -->
+    <div class="tab-panel" id="view-phrases">
+      <div class="header-tracking-label">BILINGUAL COMMUNICATION CARDS</div>
+      <h1 class="main-hero-title">韓文司機與店員大字溝通卡 (點擊放大出示)</h1>
+      <p class="event-p" style="margin-bottom:18px;color:var(--text-muted);font-size:0.85rem;">
+        點擊任意會話卡片，即可彈出<b>全螢幕高對比大字模式</b>，直接出示給韓國司機大哥或餐廳服務員看，解決溝通難題！
+      </p>
+
+      <div class="phrase-grid">
+        <!-- Card 1 -->
+        <div class="phrase-card" onclick="openPhraseModal('기사님, 이 주소로 가주세요.', '司機大哥，請載我們到這個地址。', 'Gisa-nim, i juso-ro gajuseyo.')">
+          <div>
+            <div class="phrase-kr">기사님, 이 주소로 가주세요.</div>
+            <div class="phrase-pron">Gisa-nim, i juso-ro gajuseyo.</div>
+            <div class="phrase-cn">司機大哥，請載我們到這個地址。</div>
+          </div>
+          <div class="phrase-tag">🚕 搭乘的士 / 導航</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="phrase-card" onclick="openPhraseModal('파, 양파, 부추, 내장은 빼주세요.', '請不要加蔥、洋蔥、韭菜和內臟。', 'Pa, yangpa, buchu, naejang-eun bbae-juseyo.')">
+          <div>
+            <div class="phrase-kr">파, 양파, 부추, 내장은 빼주세요.</div>
+            <div class="phrase-pron">Pa, yangpa, buchu, naejang-eun bbae-juseyo.</div>
+            <div class="phrase-cn">請不要加蔥、洋蔥、韭菜和內臟。</div>
+          </div>
+          <div class="phrase-tag">🍽️ 餐廳點餐 / 忌口要求</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="phrase-card" onclick="openPhraseModal('택스리펀(Tax Free) 영수증 발행해 주세요.', '請問可以幫我辦理即時退稅嗎？', 'Taekseu-ripeon yeongsujeung baraenghae juseyo.')">
+          <div>
+            <div class="phrase-kr">택스리펀(Tax Free) 영수증 발행해 주세요.</div>
+            <div class="phrase-pron">Taekseu-ripeon yeongsujeung baraenghae juseyo.</div>
+            <div class="phrase-cn">請幫我們開立退稅單據（或現場即刻扣減）。</div>
+          </div>
+          <div class="phrase-tag">🧾 藥妝服飾 / 退稅購物</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="phrase-card" onclick="openPhraseModal('저희 5명 단체 사진 한 장만 찍어주시겠어요?', '請問可以幫我們 5 個人拍張合照嗎？', 'Jeohui daseot-myeong danche sajin han jang-man jjigeo-jusigesseoyo?')">
+          <div>
+            <div class="phrase-kr">저희 5명 단체 사진 한 장만 찍어주시겠어요?</div>
+            <div class="phrase-pron">Jeohui daseot-myeong danche sajin han jang-man jjigeo-jusigesseoyo?</div>
+            <div class="phrase-cn">請問可以幫我們 5 個人拍張合照嗎？</div>
+          </div>
+          <div class="phrase-tag">📸 景點打卡 / 拍照求助</div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="phrase-card" onclick="openPhraseModal('따로 계산해 주실 수 있나요?', '請問可以分開付款嗎？', 'Ttaro gyesan-hae jusil su innayo?')">
+          <div>
+            <div class="phrase-kr">따로 계산해 주실 수 있나요?</div>
+            <div class="phrase-pron">Ttaro gyesan-hae jusil su innayo?</div>
+            <div class="phrase-cn">請問可以各自/分開付款結帳嗎？</div>
+          </div>
+          <div class="phrase-tag">💳 結帳付款 / 拆單</div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="phrase-card" onclick="openPhraseModal('렌트카 예약했습니다. 예약번호는 1359047919213593 입니다.', '我們有預訂租車，訂單編號是 1359047919213593。', 'Renteuka yeyak-haesseumnida.')">
+          <div>
+            <div class="phrase-kr">렌트카 예약했습니다. (예약번호 제시)</div>
+            <div class="phrase-pron">Renteuka yeyak-haesseumnida.</div>
+            <div class="phrase-cn">我們有預訂租車，這是我們的預訂確認單。</div>
+          </div>
+          <div class="phrase-tag">🚗 機場租車 / 取還車</div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="phrase-card" onclick="openPhraseModal('1++ 투뿔 한우 추천 부위가 어디인가요?', '請問今天有最推薦的 1++ 頂級韓牛部位嗎？', 'Tu-ppul han-u chucheon bu-wi-ga eodi-ingayo?')">
+          <div>
+            <div class="phrase-kr">1++ 투뿔 한우 추천 부위가 어디인가요?</div>
+            <div class="phrase-pron">Tu-ppul han-u chucheon bu-wi-ga eodi-ingayo?</div>
+            <div class="phrase-cn">請問今天最推薦的 1++ 頂級韓牛部位是什麼？</div>
+          </div>
+          <div class="phrase-tag">🥩 韓牛燒肉 / 望遠洞 뿔</div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="phrase-card" onclick="openPhraseModal('화장실이 어디에 있나요?', '請問洗手間在什麼地方？', 'Hwajangsil-i eodi-e innayo?')">
+          <div>
+            <div class="phrase-kr">화장실이 어디에 있나요?</div>
+            <div class="phrase-pron">Hwajangsil-i eodi-e innayo?</div>
+            <div class="phrase-cn">請問洗手間在什麼地方？（密碼是多少？）</div>
+          </div>
+          <div class="phrase-tag">🚻 咖啡廳 / 市場日常</div>
+        </div>
+      </div>
+    </div>
+    <!-- END view-phrases -->
 
   </main>
 
@@ -2376,6 +3202,379 @@
       }
       loadVisited();
     });
+  
+    // =========================================================
+    // V6 JAVASCRIPT: COUNTDOWN, SPLITTER, PACKING, PHRASES, FILTERS
+    // =========================================================
+
+    // 1. Departure Countdown
+    function updateCountdown() {
+      const depDate = new Date('2026-10-16T16:55:00+08:00').getTime();
+      const now = new Date().getTime();
+      const diff = depDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('departureCountdown').innerHTML = '<div style="color:var(--color-celadon);font-weight:700;">🎉 旅程已啟航！Enjoy Korea!</div>';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cdDays').innerText = days;
+      document.getElementById('cdHours').innerText = hours < 10 ? '0' + hours : hours;
+      document.getElementById('cdMins').innerText = mins < 10 ? '0' + mins : mins;
+      document.getElementById('cdSecs').innerText = secs < 10 ? '0' + secs : secs;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // 2. Regional Filter Chips (Index View)
+    function filterRegion(reg, btn) {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.overview-day-card');
+      cards.forEach((card, idx) => {
+        const dayNum = idx + 1;
+        if (reg === 'all') {
+          card.style.display = 'flex';
+        } else if (reg === 'seoul') {
+          card.style.display = (dayNum <= 5) ? 'flex' : 'none';
+        } else if (reg === 'jeju') {
+          card.style.display = (dayNum >= 6) ? 'flex' : 'none';
+        }
+      });
+    }
+
+    // 3. Bi-directional Currency Converter
+    const KRW_TO_HKD_RATE = 0.0057;
+    function convertFromKrw() {
+      const krw = parseFloat(document.getElementById('calcKrwInput').value) || 0;
+      const hkd = Math.round(krw * KRW_TO_HKD_RATE);
+      document.getElementById('calcHkdInput').value = hkd || '';
+      document.getElementById('resTotalConverted').innerText = 'HK$ ' + hkd.toLocaleString();
+      document.getElementById('resSplit5').innerText = 'HK$ ' + Math.round(hkd / 5).toLocaleString() + ' / 人';
+    }
+    function convertFromHkd() {
+      const hkd = parseFloat(document.getElementById('calcHkdInput').value) || 0;
+      const krw = Math.round(hkd / KRW_TO_HKD_RATE);
+      document.getElementById('calcKrwInput').value = krw || '';
+      document.getElementById('resTotalConverted').innerText = '₩ ' + krw.toLocaleString();
+      document.getElementById('resSplit5').innerText = 'HK$ ' + Math.round(hkd / 5).toLocaleString() + ' / 人';
+    }
+    function addKrwPreset(amt) {
+      const cur = parseFloat(document.getElementById('calcKrwInput').value) || 0;
+      document.getElementById('calcKrwInput').value = cur + amt;
+      convertFromKrw();
+    }
+    function clearCalcBi() {
+      document.getElementById('calcKrwInput').value = '';
+      document.getElementById('calcHkdInput').value = '';
+      document.getElementById('resTotalConverted').innerText = 'HK$ 0';
+      document.getElementById('resSplit5').innerText = 'HK$ 0 / 人';
+    }
+
+    // 4. Group Expense Splitter & Settlement Matrix
+    const GROUP_MEMBERS = ['Leung', 'Joyce', '同伴 A', '同伴 B', '同伴 C'];
+    let expenses = [];
+
+    function loadExpenses() {
+      const saved = localStorage.getItem('korea_expenses_v6');
+      if (saved) {
+        try { expenses = JSON.parse(saved); } catch(e) { expenses = []; }
+      }
+      renderExpenses();
+    }
+
+    function addExpenseRecord() {
+      const name = document.getElementById('expName').value.trim();
+      const amount = parseFloat(document.getElementById('expAmount').value) || 0;
+      const cur = document.getElementById('expCurrency').value;
+      const payer = document.getElementById('expPayer').value;
+      const cat = document.getElementById('expCategory').value;
+
+      if (!name || amount <= 0) {
+        showToast('請輸入項目名稱與有效金額！');
+        return;
+      }
+
+      const hkdAmount = (cur === 'KRW') ? Math.round(amount * KRW_TO_HKD_RATE) : amount;
+
+      const record = {
+        id: Date.now(),
+        name,
+        origAmount: amount,
+        currency: cur,
+        hkdAmount,
+        payer,
+        cat,
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      expenses.unshift(record);
+      saveExpenses();
+      document.getElementById('expName').value = '';
+      document.getElementById('expAmount').value = '';
+      showToast('已記錄支出：' + name);
+    }
+
+    function deleteExpense(id) {
+      expenses = expenses.filter(e => e.id !== id);
+      saveExpenses();
+      showToast('已刪除支出項目');
+    }
+
+    function clearAllExpenses() {
+      if (confirm('確定要清空所有支出記賬嗎？')) {
+        expenses = [];
+        saveExpenses();
+        showToast('記賬已清空');
+      }
+    }
+
+    function saveExpenses() {
+      localStorage.setItem('korea_expenses_v6', JSON.stringify(expenses));
+      renderExpenses();
+    }
+
+    function renderExpenses() {
+      const container = document.getElementById('expenseListContainer');
+      const totalHkd = expenses.reduce((sum, e) => sum + e.hkdAmount, 0);
+      const avgPerPerson = Math.round(totalHkd / 5);
+
+      document.getElementById('statTotalExpense').innerText = 'HK$ ' + totalHkd.toLocaleString();
+      document.getElementById('statAvgExpense').innerText = 'HK$ ' + avgPerPerson.toLocaleString() + ' / 人';
+
+      if (expenses.length === 0) {
+        container.innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem;padding:12px;text-align:center;">尚無記賬記錄，輸入上方表單即可開始記賬！</div>';
+        document.getElementById('settlementList').innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem;">暫無記賬支出，請先新增項目。</div>';
+        return;
+      }
+
+      let html = '';
+      expenses.forEach(e => {
+        html += `
+          <div class="expense-item">
+            <div>
+              <div class="expense-title">${e.cat} · ${e.name}</div>
+              <div class="expense-meta">付款人：<b style="color:var(--color-celadon);">${e.payer}</b> ｜ ${e.time}</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div class="expense-amt">
+                <div>HK$ ${e.hkdAmount.toLocaleString()}</div>
+                ${e.currency === 'KRW' ? `<div style="font-size:0.7rem;color:var(--text-muted);">₩ ${e.origAmount.toLocaleString()}</div>` : ''}
+              </div>
+              <button class="expense-del-btn" onclick="deleteExpense(${e.id})">✕</button>
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+
+      calculateSettlement(totalHkd, avgPerPerson);
+    }
+
+    function calculateSettlement(total, avg) {
+      let balances = {};
+      GROUP_MEMBERS.forEach(m => balances[m] = 0);
+
+      expenses.forEach(e => {
+        balances[e.payer] += e.hkdAmount;
+      });
+
+      let debtors = [];
+      let creditors = [];
+
+      GROUP_MEMBERS.forEach(m => {
+        const net = balances[m] - avg;
+        if (net < -1) {
+          debtors.push({ name: m, amount: -net });
+        } else if (net > 1) {
+          creditors.push({ name: m, amount: net });
+        }
+      });
+
+      let settlements = [];
+      let dIdx = 0, cIdx = 0;
+      while (dIdx < debtors.length && cIdx < creditors.length) {
+        let deb = debtors[dIdx];
+        let cred = creditors[cIdx];
+        let minAmt = Math.min(deb.amount, cred.amount);
+
+        settlements.push({
+          from: deb.name,
+          to: cred.name,
+          amount: Math.round(minAmt)
+        });
+
+        deb.amount -= minAmt;
+        cred.amount -= minAmt;
+
+        if (deb.amount <= 1) dIdx++;
+        if (cred.amount <= 1) cIdx++;
+      }
+
+      const sContainer = document.getElementById('settlementList');
+      if (settlements.length === 0) {
+        sContainer.innerHTML = '<div style="color:var(--color-celadon);font-size:0.85rem;">🎉 全員已平賬，互不相欠！</div>';
+      } else {
+        let sHtml = '';
+        settlements.forEach(s => {
+          sHtml += `
+            <div class="settlement-step">
+              <span style="color:#EF4444;font-weight:700;">${s.from}</span>
+              <span style="color:var(--text-muted);">應轉給</span>
+              <span style="color:var(--color-celadon);font-weight:700;">${s.to}</span>
+              <span style="font-family:'JetBrains Mono';font-weight:800;color:var(--color-gold-bright);margin-left:auto;">HK$ ${s.amount.toLocaleString()}</span>
+            </div>
+          `;
+        });
+        sContainer.innerHTML = sHtml;
+      }
+    }
+
+    function exportExpensesToWhatsApp() {
+      if (expenses.length === 0) {
+        showToast('尚無支出可匯出！');
+        return;
+      }
+      const total = expenses.reduce((sum, e) => sum + e.hkdAmount, 0);
+      const avg = Math.round(total / 5);
+
+      let text = `🇰🇷 韓國9天8夜 旅費結算明細\n`;
+      text += `💰 全團總支出：HK$ ${total.toLocaleString()}\n`;
+      text += `👥 5人平分每人應負擔：HK$ ${avg.toLocaleString()}\n\n`;
+      text += `⚖️ 【平賬轉賬清單】：\n`;
+
+      const steps = document.querySelectorAll('.settlement-step');
+      steps.forEach(step => {
+        text += `• ${step.innerText.replace(/\s+/g, ' ')}\n`;
+      });
+      text += `\n📋 記賬項目共 ${expenses.length} 筆。`;
+
+      copyValue(text);
+      showToast('已複製 WhatsApp 結算摘要！可以直接貼至群組 📲');
+    }
+
+    // 5. Smart Packing Checklist with LocalStorage
+    function loadChecklist() {
+      const saved = localStorage.getItem('korea_packing_v6');
+      if (saved) {
+        try {
+          const checkedMap = JSON.parse(saved);
+          document.querySelectorAll('.check-item').forEach(item => {
+            const key = item.getAttribute('data-key');
+            if (checkedMap[key]) {
+              item.classList.add('completed');
+            }
+          });
+        } catch(e){}
+      }
+      updatePackingProgress();
+    }
+
+    function toggleCheckItem(el) {
+      el.classList.toggle('completed');
+      saveChecklist();
+    }
+
+    function saveChecklist() {
+      let checkedMap = {};
+      document.querySelectorAll('.check-item').forEach(item => {
+        const key = item.getAttribute('data-key');
+        if (key && item.classList.contains('completed')) {
+          checkedMap[key] = true;
+        }
+      });
+      localStorage.setItem('korea_packing_v6', JSON.stringify(checkedMap));
+      updatePackingProgress();
+    }
+
+    function updatePackingProgress() {
+      const all = document.querySelectorAll('.check-item');
+      const completed = document.querySelectorAll('.check-item.completed');
+      const total = all.length;
+      const done = completed.length;
+      const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+
+      document.getElementById('packProgressText').innerText = `準備進度：${done} / ${total} 項 (${pct}%)`;
+      document.getElementById('packProgressBar').style.width = pct + '%';
+    }
+
+    function resetChecklist() {
+      if (confirm('確定要重置行李清單勾選狀態嗎？')) {
+        document.querySelectorAll('.check-item').forEach(el => el.classList.remove('completed'));
+        saveChecklist();
+        showToast('行李清單已重置');
+      }
+    }
+
+    // 6. Bilingual Phrase Fullscreen Modal
+    function openPhraseModal(kr, cn, pron) {
+      document.getElementById('modalKrText').innerText = kr;
+      document.getElementById('modalCnText').innerText = cn;
+      document.getElementById('modalPronText').innerText = pron;
+      document.getElementById('phraseModal').classList.add('active');
+    }
+    function closePhraseModal() {
+      document.getElementById('phraseModal').classList.remove('active');
+    }
+
+    // 7. Bottom Navigation Handler
+    let currentActiveDay = 1;
+    function setBotNavActive(btn) {
+      document.querySelectorAll('.bot-nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    // Window Load Hook
+    window.addEventListener('DOMContentLoaded', () => {
+      loadExpenses();
+      loadChecklist();
+    });
+
   </script>
+
+  <!-- 🌟 Fullscreen Korean Survival Phrase Modal -->
+  <div class="phrase-modal-backdrop" id="phraseModal" onclick="closePhraseModal()">
+    <div class="phrase-modal-card" onclick="event.stopPropagation()">
+      <button class="phrase-modal-close" onclick="closePhraseModal()">✕</button>
+      <div style="font-size:0.75rem;color:var(--color-gold);font-weight:700;letter-spacing:1px;margin-bottom:8px;">出示給韓國司機或店員看 ｜ SHOW TO LOCAL</div>
+      <div class="phrase-modal-kr" id="modalKrText">기사님, 이 주소로 가주세요.</div>
+      <div class="phrase-modal-pron" id="modalPronText">Gisa-nim, i juso-ro gajuseyo.</div>
+      <div class="phrase-modal-cn" id="modalCnText">司機大哥，請載我們到這個地址。</div>
+      <div style="margin-top:20px;">
+        <button class="btn-action" onclick="closePhraseModal()" style="padding:8px 24px;font-size:0.85rem;">關閉大字視窗</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🌟 Mobile Bottom Navigation Bar -->
+  <nav class="mobile-bottom-nav">
+    <button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index');setBotNavActive(this)">
+      <span class="icon">🔖</span>
+      <span>總覽</span>
+    </button>
+    <button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentActiveDay || 1);setBotNavActive(this)">
+      <span class="icon">📅</span>
+      <span>每日</span>
+    </button>
+    <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money');setBotNavActive(this)">
+      <span class="icon">💰</span>
+      <span>分賬</span>
+    </button>
+    <button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing');setBotNavActive(this)">
+      <span class="icon">🎒</span>
+      <span>行李</span>
+    </button>
+    <button class="bot-nav-btn" id="bot-nav-phrases" onclick="showView('phrases');setBotNavActive(this)">
+      <span class="icon">💬</span>
+      <span>溝通卡</span>
+    </button>
+  </nav>
+
 </body>
 </html>
