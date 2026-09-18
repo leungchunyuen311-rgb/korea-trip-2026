@@ -12,79 +12,86 @@
   <!-- Typography: Classical Serif for Antique Korean Elegance & Clean Modern Monospace / Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=JetBrains+Mono:wght@500;700&family=Noto+Serif+TC:wght@400;600;700;900&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Serif+KR:wght@400;600;700&family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* 🍎 Apple iPhone 18 Red & Pure Obsidian Black Luxury Theme (ZERO GREEN) */
-      --bg-canvas: #000000;         /* Pure Deep Black */
-      --bg-sidebar: #070707;        /* Matte Obsidian Rail */
-      --bg-card: #0D0D0D;           /* Deep Slate Card */
-      --bg-card-subtle: #141414;    /* Subtle Box */
-      --bg-hover: #1C1C1C;
+      /* ⚜️ Classical Antique Heritage & Gilded Espresso Theme (ZERO GREEN, ZERO RED) */
+      --bg-canvas: #121110;         /* Deep Antique Ebony / Bookbinding Leather */
+      --bg-sidebar: #171614;        /* Archival Book Rail */
+      --bg-card: #1C1B18;           /* Warm Walnut / Deep Vellum Card */
+      --bg-card-subtle: #23211D;    /* Inset Archival Panel */
+      --bg-hover: #2B2823;          /* Warm Hover Tint */
 
-      --border-antique: #222222;    /* Hairline Divider */
-      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-antique: rgba(197, 160, 89, 0.32);   /* Antique Gilded Hairline */
+      --border-subtle: rgba(197, 160, 89, 0.16);
+      --border-double: 3px double rgba(197, 160, 89, 0.45); /* Classic Bookplate Border */
 
-      /* 🍎 Apple iPhone 18 Red Accents */
-      --color-apple-red: #DC2626;   /* Primary iPhone 18 Red */
-      --color-apple-red-bright: #EF4444;
-      --color-apple-red-light: #F87171;
-      --color-apple-red-dim: #991B1B;
-      --color-apple-red-glow: rgba(220, 38, 38, 0.4);
-      --color-apple-red-bg: rgba(220, 38, 38, 0.14);
-      --color-apple-red-border: rgba(220, 38, 38, 0.35);
+      /* ⚜️ Antique Gold & Burnished Brass Accents (NO RED, NO GREEN) */
+      --color-gold: #C5A059;        /* Primary Classical Antique Gold */
+      --color-gold-bright: #E5C378; /* Lustrous Champagne Gold */
+      --color-gold-light: #F2E3B8;  /* Warm Parchment Gold */
+      --color-gold-dim: #8E6F38;    /* Deep Burnished Bronze */
+      --color-gold-glow: rgba(197, 160, 89, 0.35);
+      --color-gold-bg: rgba(197, 160, 89, 0.12);
+      --color-gold-border: rgba(197, 160, 89, 0.38);
 
-      /* Redirect Legacy Colors to Apple Red & Gold */
-      --color-celadon: #DC2626;
-      --color-celadon-light: #F87171;
-      --color-celadon-dim: #991B1B;
-      --color-terracotta: #DC2626;
-      --color-gold: #D4AF37;        /* Refined Gold Accents */
-      --color-gold-bright: #F59E0B;
-      --color-vermilion: #DC2626;
-      --color-transit: #38BDF8;     /* Clean Blue for Transit */
+      /* Redirect Legacy Colors to Antique Gold & Warm Bronze */
+      --color-celadon: #C5A059;
+      --color-celadon-light: #E5C378;
+      --color-celadon-dim: #8E6F38;
+      --color-terracotta: #B38646;  /* Warm Antique Amber */
+      --color-vermilion: #C5A059;
+      --color-apple-red: #C5A059;
+      --color-apple-red-bright: #E5C378;
+      --color-apple-red-light: #F2E3B8;
+      --color-apple-red-dim: #8E6F38;
+      --color-apple-red-glow: rgba(197, 160, 89, 0.35);
+      --color-apple-red-bg: rgba(197, 160, 89, 0.12);
+      --color-apple-red-border: rgba(197, 160, 89, 0.38);
+      --color-transit: #C5A059;
 
-      --text-main: #FFFFFF;         /* Crisp Pure White */
-      --text-sub: #A1A1AA;          /* Silver Zinc */
-      --text-muted: #71717A;        /* Muted Grey */
+      --text-main: #F4EFEB;         /* Warm Ivory Vellum */
+      --text-sub: #BDB2A3;          /* Antique Linen / Stone */
+      --text-muted: #8E8476;        /* Aged Quill Ink */
 
-      /* Fonts Matching Japanese Hokuriku Trip (Noto Serif TC) */
+      /* Classical Fonts: Serifs with Graceful Proportions */
       --font-serif: "Noto Serif TC", "Songti TC", "Songti SC", "Source Han Serif TC", "Yu Mincho", serif;
-      --font-display: "Cinzel", "Noto Serif TC", serif;
-      --font-mono: "JetBrains Mono", monospace;
-      --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-display: "Cinzel", "Cormorant Garamond", "Noto Serif TC", serif;
+      --font-editorial: "Cormorant Garamond", "Playfair Display", "Noto Serif TC", serif;
+      --font-mono: "Cinzel", "Cormorant Garamond", serif;
+      --font-sans: "Noto Serif TC", "Songti TC", -apple-system, BlinkMacSystemFont, sans-serif;
 
-      --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.8);
-      --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.7);
+      --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.6);
+      --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.75);
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
 
     [data-theme="light"] {
-      --bg-canvas: #F4F7F4;
-      --bg-sidebar: #E8EFEA;
-      --bg-card: #FFFFFF;
-      --bg-card-subtle: #F0F4F1;
-      --bg-hover: #E3EBE4;
+      --bg-canvas: #F8F5EE;         /* Antique Vellum Parchment */
+      --bg-sidebar: #EFE9DE;        /* Aged Book Rail */
+      --bg-card: #FFFFFF;           /* Clean Page */
+      --bg-card-subtle: #F3ECE1;    /* Inset Parchment */
+      --bg-hover: #E7DECE;
 
-      --border-antique: #D0DCD3;
-      --border-subtle: #DEE7E1;
+      --border-antique: #D6C9B6;    /* Antique Brass Hairline */
+      --border-subtle: #E2D7C7;
 
-      --color-celadon: #B91C1C;
-      --color-celadon-light: #DC2626;
-      --color-celadon-dim: #991B1B;
-      --color-gold: #9A7B38;
-      --color-gold-bright: #785E23;
-      --color-vermilion: #B91C1C;
-      --color-transit: #0284C7;
+      --color-celadon: #9A7528;
+      --color-celadon-light: #785A1D;
+      --color-celadon-dim: #5C4312;
+      --color-gold: #9A7528;
+      --color-gold-bright: #785A1D;
+      --color-vermilion: #9A7528;
+      --color-transit: #9A7528;
 
-      --text-main: #18221D;
-      --text-sub: #45564D;
-      --text-muted: #798D82;
+      --text-main: #24201A;         /* Dark Sepia Archival Ink */
+      --text-sub: #564E42;          /* Muted Charcoal Ink */
+      --text-muted: #847A6D;
 
-      --shadow-subtle: 0 4px 20px rgba(24, 34, 29, 0.08);
-      --shadow-card: 0 6px 24px rgba(24, 34, 29, 0.06);
+      --shadow-subtle: 0 4px 20px rgba(36, 32, 26, 0.08);
+      --shadow-card: 0 6px 24px rgba(36, 32, 26, 0.06);
     }
 
     * {
@@ -111,7 +118,7 @@
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background-image: radial-gradient(circle at 15% 20%, rgba(220, 38, 38, 0.16) 0%, transparent 45%),
+      background-image: radial-gradient(circle at 15% 20%, rgba(197, 160, 89, 0.12) 0%, transparent 45%),
                         radial-gradient(circle at 85% 85%, rgba(197, 160, 89, 0.025) 0%, transparent 45%);
       pointer-events: none;
       z-index: 0;
@@ -166,8 +173,8 @@
       gap: 4px;
       padding: 2px 7px;
       border-radius: 3px;
-      background: rgba(220, 38, 38, 0.15);
-      border: 1px solid rgba(220, 38, 38, 0.4);
+      background: rgba(197, 160, 89, 0.12);
+      border: 1px solid rgba(197, 160, 89, 0.35);
       color: var(--color-vermilion);
       font-family: var(--font-serif);
       font-size: 0.68rem;
@@ -203,8 +210,8 @@
       color: var(--text-main);
     }
     .side-nav-item.active {
-      background: rgba(220, 38, 38, 0.16);
-      border-color: rgba(220, 38, 38, 0.16);
+      background: rgba(197, 160, 89, 0.12);
+      border-color: rgba(197, 160, 89, 0.12);
       color: var(--color-celadon-light);
     }
     .side-nav-item .icon {
@@ -267,7 +274,7 @@
     }
     .side-day-btn.active .side-day-num {
       color: var(--color-celadon);
-      text-shadow: 0 0 10px rgba(220, 38, 38, 0.16);
+      text-shadow: 0 0 10px rgba(197, 160, 89, 0.12);
     }
     .side-day-date {
       font-family: var(--font-sans);
@@ -482,8 +489,8 @@
       font-size: 0.72rem;
       padding: 2px 6px;
       border-radius: 4px;
-      border: 1px solid rgba(220, 38, 38, 0.16);
-      background: rgba(220, 38, 38, 0.16);
+      border: 1px solid rgba(197, 160, 89, 0.12);
+      background: rgba(197, 160, 89, 0.12);
     }
 
     /* Section Subheading */
@@ -528,7 +535,7 @@
       transition: all 0.2s ease;
     }
     .stage-item:hover {
-      background: rgba(220, 38, 38, 0.16);
+      background: rgba(197, 160, 89, 0.12);
     }
     .stage-item:active {
       transform: scale(0.99);
@@ -555,7 +562,7 @@
       font-size: 0.72rem;
       font-weight: 700;
       color: var(--color-celadon);
-      background: rgba(220, 38, 38, 0.16);
+      background: rgba(197, 160, 89, 0.12);
       padding: 1px 7px;
       border-radius: 4px;
       font-family: var(--font-mono);
@@ -756,9 +763,9 @@
       border-radius: 3px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      background: rgba(220, 38, 38, 0.16);
+      background: rgba(197, 160, 89, 0.12);
       color: var(--color-celadon);
-      border: 1px solid rgba(220, 38, 38, 0.16);
+      border: 1px solid rgba(197, 160, 89, 0.12);
     }
     .event-heading {
       font-family: var(--font-serif);
@@ -828,7 +835,7 @@
     .btn-act.naver {
       background: rgba(3, 199, 90, 0.12);
       border-color: rgba(3, 199, 90, 0.4);
-      color: #EF4444;
+      color: #E5C378;
     }
     .btn-act.check {
       margin-left: auto;
@@ -1110,7 +1117,7 @@
       background: var(--color-celadon);
       color: #060606;
       border-color: var(--color-celadon);
-      box-shadow: 0 0 12px rgba(220, 38, 38, 0.16);
+      box-shadow: 0 0 12px rgba(197, 160, 89, 0.12);
     }
     .day-pill-btn.active .pill-sub {
       color: #060606;
@@ -1216,7 +1223,7 @@
     .expense-del-btn {
       background: transparent;
       border: none;
-      color: #EF4444;
+      color: #E5C378;
       cursor: pointer;
       padding: 4px 8px;
       font-size: 1rem;
@@ -1340,7 +1347,7 @@
     .phrase-card:hover {
       transform: translateY(-2px);
       border-color: var(--color-celadon);
-      box-shadow: 0 4px 16px rgba(220, 38, 38, 0.16);
+      box-shadow: 0 4px 16px rgba(197, 160, 89, 0.12);
     }
     .phrase-kr {
       font-size: 1.15rem;
@@ -1533,9 +1540,9 @@
       font-size: 0.72rem;
       padding: 2px 7px;
       border-radius: 4px;
-      background: rgba(220, 38, 38, 0.16);
+      background: rgba(197, 160, 89, 0.12);
       color: var(--color-celadon) !important;
-      border: 1px solid rgba(220, 38, 38, 0.16);
+      border: 1px solid rgba(197, 160, 89, 0.12);
       text-decoration: none !important;
       font-weight: 600;
       white-space: nowrap;
@@ -1546,7 +1553,7 @@
     .badge-naver:hover, .badge-naver:active {
       background: var(--color-celadon);
       color: #060606 !important;
-      box-shadow: 0 0 8px rgba(220, 38, 38, 0.16);
+      box-shadow: 0 0 8px rgba(197, 160, 89, 0.12);
     }
 
     /* Mobile Sidebar & Drawer Overlay (Fix for Issue 2) */
@@ -1629,8 +1636,8 @@
       border-radius: 2px !important;
     }
     .progress-fill {
-      background: linear-gradient(90deg, #DC2626, #EF4444) !important;
-      box-shadow: 0 0 10px rgba(239, 68, 68, 0.5) !important;
+      background: linear-gradient(90deg, #C5A059, #E5C378) !important;
+      box-shadow: 0 0 10px rgba(229, 195, 120, 0.45) !important;
       height: 100% !important;
       border-radius: 2px !important;
     }
@@ -1643,7 +1650,7 @@
       width: 54px;
       height: 54px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #EF4444, #B91C1C) !important;
+      background: linear-gradient(135deg, #E5C378, #7A5E2E) !important;
       color: #FFFFFF !important;
       display: flex;
       align-items: center;
@@ -1651,7 +1658,7 @@
       font-size: 2rem;
       font-weight: 300;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 6px 24px rgba(220, 38, 38, 0.6) !important;
+      box-shadow: 0 6px 24px rgba(197, 160, 89, 0.50) !important;
       cursor: pointer;
       z-index: 990;
       transition: transform 0.2s, box-shadow 0.2s;
@@ -1662,40 +1669,40 @@
 
     /* Stage Item Date Badges (01 10/16五 etc) - NO GREEN, USE APPLE RED */
     .stage-date-badge, .badge-btn, .btn-act.check {
-      background: rgba(220, 38, 38, 0.14) !important;
-      color: #F87171 !important;
-      border: 1px solid rgba(220, 38, 38, 0.35) !important;
+      background: rgba(197, 160, 89, 0.12) !important;
+      color: #F2E3B8 !important;
+      border: 1px solid rgba(197, 160, 89, 0.32) !important;
       border-radius: 4px;
       padding: 2px 8px;
       font-size: 0.75rem;
       font-weight: 700;
     }
     .btn-act.check.done {
-      background: #DC2626 !important;
+      background: #C5A059 !important;
       color: #FFFFFF !important;
-      border-color: #DC2626 !important;
+      border-color: #C5A059 !important;
     }
 
     /* Quick Info Dock Copy Buttons ([複製]) - APPLE RED */
     .btn-copy, .btn-act {
-      background: rgba(220, 38, 38, 0.12) !important;
-      color: #F87171 !important;
-      border: 1px solid rgba(220, 38, 38, 0.3) !important;
+      background: rgba(197, 160, 89, 0.10) !important;
+      color: #F2E3B8 !important;
+      border: 1px solid rgba(197, 160, 89, 0.28) !important;
       border-radius: 4px;
       transition: all 0.2s ease;
     }
     .btn-copy:hover, .btn-act:hover {
-      background: #DC2626 !important;
+      background: #C5A059 !important;
       color: #FFFFFF !important;
     }
 
     /* Countdown Digits in Apple Red */
     .countdown-num {
-      color: #EF4444 !important;
-      text-shadow: 0 0 10px rgba(239, 68, 68, 0.4) !important;
+      color: #E5C378 !important;
+      text-shadow: 0 0 10px rgba(229, 195, 120, 0.35) !important;
     }
     .countdown-bar {
-      border: 1px solid rgba(220, 38, 38, 0.3) !important;
+      border: 1px solid rgba(197, 160, 89, 0.28) !important;
       background: linear-gradient(135deg, rgba(28, 12, 14, 0.95), rgba(12, 12, 12, 0.95)) !important;
     }
 
@@ -1707,9 +1714,9 @@
       font-size: 0.72rem;
       padding: 2px 7px;
       border-radius: 4px;
-      background: rgba(220, 38, 38, 0.12) !important;
-      color: #F87171 !important;
-      border: 1px solid rgba(220, 38, 38, 0.35) !important;
+      background: rgba(197, 160, 89, 0.10) !important;
+      color: #F2E3B8 !important;
+      border: 1px solid rgba(197, 160, 89, 0.32) !important;
       text-decoration: none !important;
       font-weight: 600;
       white-space: nowrap;
@@ -1718,17 +1725,17 @@
       vertical-align: middle;
     }
     .badge-naver:hover, .badge-naver:active {
-      background: #DC2626 !important;
+      background: #C5A059 !important;
       color: #FFFFFF !important;
-      box-shadow: 0 0 10px rgba(220, 38, 38, 0.5) !important;
+      box-shadow: 0 0 10px rgba(197, 160, 89, 0.45) !important;
     }
 
     /* Day Pills (Day 01..09) Active State: Apple Red */
     .day-pill-btn.active {
-      background: linear-gradient(135deg, #EF4444, #DC2626) !important;
+      background: linear-gradient(135deg, #E5C378, #C5A059) !important;
       color: #FFFFFF !important;
-      border-color: #EF4444 !important;
-      box-shadow: 0 0 14px rgba(239, 68, 68, 0.5) !important;
+      border-color: #E5C378 !important;
+      box-shadow: 0 0 14px rgba(229, 195, 120, 0.45) !important;
     }
     .day-pill-btn.active .pill-sub {
       color: #FFFFFF !important;
@@ -1738,29 +1745,29 @@
     /* Sidebar Active States: Apple Red */
     .side-nav-item.active {
       color: #FFFFFF !important;
-      background: rgba(220, 38, 38, 0.18) !important;
-      border-left: 3px solid #DC2626 !important;
+      background: rgba(197, 160, 89, 0.15) !important;
+      border-left: 3px solid #C5A059 !important;
     }
     .side-day-btn.active {
-      background: rgba(220, 38, 38, 0.18) !important;
-      border-left: 3px solid #DC2626 !important;
+      background: rgba(197, 160, 89, 0.15) !important;
+      border-left: 3px solid #C5A059 !important;
     }
     .side-day-btn.active .side-day-num {
-      color: #EF4444 !important;
+      color: #E5C378 !important;
       font-weight: 800 !important;
     }
 
     /* Mobile Bottom Navigation: Apple Red */
     .bot-nav-btn.active {
-      color: #EF4444 !important;
+      color: #E5C378 !important;
       font-weight: 700 !important;
     }
 
     /* Timeline Node Dots: Apple Red */
     .event-node-dot {
-      background: #DC2626 !important;
+      background: #C5A059 !important;
       border: 3px solid #000000 !important;
-      box-shadow: 0 0 10px rgba(220, 38, 38, 0.7) !important;
+      box-shadow: 0 0 10px rgba(197, 160, 89, 0.55) !important;
     }
     .timeline-wrap::before {
       background: rgba(255, 255, 255, 0.1) !important;
@@ -1768,9 +1775,9 @@
 
     /* Action Buttons (e.g. ➕ 加入這筆支出): Apple Red */
     .btn-action {
-      background: linear-gradient(135deg, #EF4444, #DC2626) !important;
+      background: linear-gradient(135deg, #E5C378, #C5A059) !important;
       color: #FFFFFF !important;
-      box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4) !important;
+      box-shadow: 0 4px 14px rgba(197, 160, 89, 0.35) !important;
     }
 
     /* =========================================================
@@ -1778,12 +1785,14 @@
        ========================================================= */
     .hero-cover-container {
       margin-bottom: 24px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(220, 38, 38, 0.3);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
-      background: #080808;
       position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(197, 160, 89, 0.45);
+      outline: 3px double rgba(197, 160, 89, 0.3);
+      outline-offset: -6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75), inset 0 0 40px rgba(0, 0, 0, 0.6);
+      background: #141311;
     }
     .hero-cover-card {
       position: relative;
@@ -1827,11 +1836,11 @@
       gap: 6px;
       font-size: 0.72rem;
       font-weight: 700;
-      color: #F87171;
+      color: #F2E3B8;
       letter-spacing: 1.5px;
       margin-bottom: 8px;
-      background: rgba(220, 38, 38, 0.18);
-      border: 1px solid rgba(220, 38, 38, 0.35);
+      background: rgba(197, 160, 89, 0.15);
+      border: 1px solid rgba(197, 160, 89, 0.32);
       padding: 3px 12px;
       border-radius: 20px;
       text-transform: uppercase;
@@ -1850,7 +1859,7 @@
       margin-bottom: 6px;
     }
     .hero-cover-cities .city-sep {
-      color: #EF4444;
+      color: #E5C378;
       font-size: 1.1rem;
     }
     .hero-cover-sub {
@@ -1879,9 +1888,9 @@
   <aside class="app-sidebar" id="appSidebar">
     <button class="sidebar-close-btn" onclick="toggleSidebar(false)">✕</button>
     <div class="brand-section">
-      <div class="brand-year">2026 AUTUMN</div>
-      <div class="brand-title">韓國首爾・濟州島之旅</div>
-      <div class="brand-stamp">🍂 金秋紀行</div>
+      <div class="brand-year">VOYAGE ARCHIVE · 2026</div>
+      <div class="brand-title">韓國首爾・濟州島典藏行紀</div>
+      <div class="brand-stamp">🍂 金秋手帳</div>
     </div>
 
     <!-- Quick Navigation: INFO & MONEY -->
@@ -1972,9 +1981,9 @@
     <div class="tab-panel active" id="view-index">
       
       <!-- Tracking Header -->
-      <div class="header-tracking-label">TRIP OVERVIEW</div>
+      <div class="header-tracking-label">AUTUMN VOYAGE CHRONICLE · 2026</div>
       <h1 class="main-hero-title">
-        <span>2026 韓國首爾・濟州島金秋之旅</span>
+        <span>二零二六 · 韓國首爾・濟州島金秋典藏行紀</span>
       </h1>
 
             <!-- 🌟 Hero Cover Poster Banner (cover.jpg) -->
@@ -1989,13 +1998,13 @@
                onerror="handleCoverError(this)">
           <div class="hero-cover-gradient"></div>
           <div class="hero-cover-meta">
-            <div class="hero-cover-tag">🍂 LAI’S FAMILY AUTUMN JOURNEY 2026</div>
+            <div class="hero-cover-tag">◈ VOYAGE MEMOIR · AUTUMN 2026 ◈</div>
             <div class="hero-cover-cities">
               <span>SEOUL 서울</span>
               <span class="city-sep">✦</span>
               <span>JEJU 제주</span>
             </div>
-            <div class="hero-cover-sub">Lai’s Family Seoul & Jeju Trip 2026 ｜ 9天8夜雙城自駕手帳</div>
+            <div class="hero-cover-sub">Lai’s Family Seoul & Jeju Trip 2026 ｜ 9天8夜雙城自駕典藏手帳</div>
           </div>
         </div>
       </div>
@@ -2003,17 +2012,17 @@
       <!-- 🌟 Flight Departure Countdown Bar (TripIt Style) -->
       <div class="countdown-bar">
         <div class="countdown-title-wrap">
-          <span class="countdown-icon">✈️</span>
+          <span class="countdown-icon">🧭</span>
           <div>
-            <div class="countdown-label">啟航倒數計時 ｜ 香港快運 UO626</div>
+            <div class="countdown-label">CHRONOMETER · 啟航倒數紀曆 ｜ 香港快運 UO626</div>
             <div class="countdown-sub">出發：10月16日 (五) 16:55 ➔ 21:35 抵達仁川 T1</div>
           </div>
         </div>
         <div class="countdown-timer-boxes" id="departureCountdown">
-          <div class="countdown-box"><span class="countdown-num" id="cdDays">--</span><span class="countdown-unit">天</span></div>
-          <div class="countdown-box"><span class="countdown-num" id="cdHours">--</span><span class="countdown-unit">時</span></div>
-          <div class="countdown-box"><span class="countdown-num" id="cdMins">--</span><span class="countdown-unit">分</span></div>
-          <div class="countdown-box"><span class="countdown-num" id="cdSecs">--</span><span class="countdown-unit">秒</span></div>
+          <div class="countdown-box"><span class="countdown-num" id="cdDays">--</span><span class="countdown-unit">DAYS · 天</span></div>
+          <div class="countdown-box"><span class="countdown-num" id="cdHours">--</span><span class="countdown-unit">HRS · 時</span></div>
+          <div class="countdown-box"><span class="countdown-num" id="cdMins">--</span><span class="countdown-unit">MIN · 分</span></div>
+          <div class="countdown-box"><span class="countdown-num" id="cdSecs">--</span><span class="countdown-unit">SEC · 秒</span></div>
         </div>
       </div>
 
@@ -2050,7 +2059,7 @@
       <!-- Quick Action Logistics Dock (Online travel app best practice) -->
       <div class="quick-dock">
         <div class="quick-dock-title">
-          <span>⚡ 行程核心代碼速查 (Quick Info Dock)</span>
+          <span>📜 行程典藏密碼帖 (Archival Quick Directory)</span>
         </div>
         <div class="quick-dock-grid">
           <div class="quick-pill-item">
@@ -2083,10 +2092,10 @@
 
         <!-- 01 -->
         <div class="stage-item" onclick="openDay(1)">
-          <div class="stage-num">01</div>
+          <div class="stage-num">I</div>
           <div class="stage-content">
             <div class="stage-top-meta">
-              <span class="stage-date-badge">10/16 五</span>
+              <span class="stage-date-badge">◈ 10.16 五 ◈</span>
               <span class="stage-region">首爾仁川 · 恩平區</span>
             </div>
             <h2 class="stage-title">第一階段：都會夜色與自駕啟程</h2>
@@ -2101,10 +2110,10 @@
 
         <!-- 02 -->
         <div class="stage-item" onclick="openDay(2)">
-          <div class="stage-num">02</div>
+          <div class="stage-num">II</div>
           <div class="stage-content">
             <div class="stage-top-meta">
-              <span class="stage-date-badge">10/17 六</span>
+              <span class="stage-date-badge">◈ 10.17 六 ◈</span>
               <span class="stage-region">首爾麻浦 · 延南洞 / 梨泰院</span>
             </div>
             <h2 class="stage-title">延南漫步：文創、手沖、秋鰤魚 ＆ Namsan Sool Club</h2>
@@ -2122,10 +2131,10 @@
 
         <!-- 03 -->
         <div class="stage-item" onclick="openDay(3)">
-          <div class="stage-num">03</div>
+          <div class="stage-num">III</div>
           <div class="stage-content">
             <div class="stage-top-meta">
-              <span class="stage-date-badge">10/18 日</span>
+              <span class="stage-date-badge">◈ 10.18 日 ◈</span>
               <span class="stage-region">首爾鐘路 · 北村 / 西村</span>
             </div>
             <h2 class="stage-title">第二階段：韓屋古風與亞洲頂級酒吧</h2>
@@ -2143,10 +2152,10 @@
 
         <!-- 04 -->
         <div class="stage-item" onclick="openDay(4)">
-          <div class="stage-num">04</div>
+          <div class="stage-num">IV</div>
           <div class="stage-content">
             <div class="stage-top-meta">
-              <span class="stage-date-badge">10/19 一</span>
+              <span class="stage-date-badge">◈ 10.19 一 ◈</span>
               <span class="stage-region">京畿道 · 加平秋楓自駕</span>
             </div>
             <h2 class="stage-title">加平秘境：雲端飛索與南怡島賞楓</h2>
@@ -2163,10 +2172,10 @@
 
         <!-- 05 -->
         <div class="stage-item" onclick="openDay(5)">
-          <div class="stage-num">05</div>
+          <div class="stage-num">V</div>
           <div class="stage-content">
             <div class="stage-top-meta">
-              <span class="stage-date-badge">10/20 二</span>
+              <span class="stage-date-badge">◈ 10.20 二 ◈</span>
               <span class="stage-region">首爾 · 漢南洞 / 馬場洞</span>
             </div>
             <h2 class="stage-title">漢陽雅興：名店選豆、還車與頂級韓牛</h2>
@@ -2183,10 +2192,10 @@
 
         <!-- 06 -->
         <div class="stage-item" onclick="openDay(6)">
-          <div class="stage-num">06</div>
+          <div class="stage-num">VI</div>
           <div class="stage-content">
             <div class="stage-top-meta">
-              <span class="stage-date-badge">10/21 三</span>
+              <span class="stage-date-badge">◈ 10.21 三 ◈</span>
               <span class="stage-region">金浦飛濟州 ➔ 濟州市蓮洞</span>
             </div>
             <h2 class="stage-title">第三階段：耽羅仙境、純電自駕與黑豬肉</h2>
@@ -2204,10 +2213,10 @@
 
         <!-- 07 -->
         <div class="stage-item" onclick="openDay(7)">
-          <div class="stage-num">07</div>
+          <div class="stage-num">VII</div>
           <div class="stage-content">
             <div class="stage-top-meta">
-              <span class="stage-date-badge">10/22 四</span>
+              <span class="stage-date-badge">◈ 10.22 四 ◈</span>
               <span class="stage-region">濟州南岸 · 西歸浦</span>
             </div>
             <h2 class="stage-title">壯麗南岸：整條烤帶魚與全景海景別墅</h2>
@@ -2223,10 +2232,10 @@
 
         <!-- 08 -->
         <div class="stage-item" onclick="openDay(8)">
-          <div class="stage-num">08</div>
+          <div class="stage-num">VIII</div>
           <div class="stage-content">
             <div class="stage-top-meta">
-              <span class="stage-date-badge">10/23 五</span>
+              <span class="stage-date-badge">◈ 10.23 五 ◈</span>
               <span class="stage-region">濟州東部 · 牛島跳島</span>
             </div>
             <h2 class="stage-title">牛島碧海：珊瑚白沙、名產石鍋與親採蜜柑</h2>
@@ -2243,10 +2252,10 @@
 
         <!-- 09 -->
         <div class="stage-item" onclick="openDay(9)">
-          <div class="stage-num">09</div>
+          <div class="stage-num">IX</div>
           <div class="stage-content">
             <div class="stage-top-meta">
-              <span class="stage-date-badge">10/24 六</span>
+              <span class="stage-date-badge">◈ 10.24 六 ◈</span>
               <span class="stage-region">西歸浦 ➔ 機場返港</span>
             </div>
             <h2 class="stage-title">鮮味尾聲：直入大海瀑布與澎湃海鮮鍋</h2>
@@ -4041,7 +4050,7 @@
         settlements.forEach(s => {
           sHtml += `
             <div class="settlement-step">
-              <span style="color:#EF4444;font-weight:700;">${s.from}</span>
+              <span style="color:#E5C378;font-weight:700;">${s.from}</span>
               <span style="color:var(--text-muted);">應轉給</span>
               <span style="color:var(--color-celadon);font-weight:700;">${s.to}</span>
               <span style="font-family:'JetBrains Mono';font-weight:800;color:var(--color-gold-bright);margin-left:auto;">HK$ ${s.amount.toLocaleString()}</span>
