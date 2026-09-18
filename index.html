@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="韓國金秋紀行">
   <meta name="theme-color" content="#0C1411">
-  <title>2026 韓國首爾・濟州島 9天8夜自駕手帳 ｜ v6 全能旗艦版</title>
+  <title>2026 韓國首爾・濟州島 9天8夜自駕手帳 ｜ v7 全能旗艦版</title>
 
   <!-- Typography: Classical Serif for Antique Korean Elegance & Clean Modern Monospace / Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -991,7 +991,7 @@
     }
   
     /* =========================================================
-       NEW V6 TRAVEL APP FEATURES: COUNTDOWN, SPLITTER, PACKING, PHRASES, BOTTOM NAV
+       V7 TRAVEL APP ENHANCEMENTS: PILLS, SPLITTER, PACKING, PHRASES, BOTTOM NAV
        ========================================================= */
 
     /* 1. Departure Countdown Bar */
@@ -1059,36 +1059,54 @@
       margin-top: 2px;
     }
 
-    /* 2. Region Filter Chips */
-    .filter-chips-row {
+    /* 2. Horizontal Scrolling Day Pills Navigation Bar */
+    .day-pills-bar {
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding-bottom: 8px;
-      margin-bottom: 18px;
+      padding: 6px 2px 14px;
+      margin-bottom: 16px;
       -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
     }
-    .filter-chip {
+    .day-pill-btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       background: var(--bg-card-subtle);
       border: 1px solid var(--border-antique);
       color: var(--text-muted);
-      border-radius: 20px;
-      padding: 8px 16px;
-      font-size: 0.82rem;
-      font-weight: 600;
+      border-radius: 12px;
+      padding: 8px 14px;
+      min-width: 72px;
       cursor: pointer;
       white-space: nowrap;
       transition: all 0.2s ease;
+      flex-shrink: 0;
     }
-    .filter-chip.active {
+    .day-pill-btn .pill-d {
+      font-size: 0.85rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .day-pill-btn .pill-sub {
+      font-size: 0.68rem;
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+    .day-pill-btn.active {
       background: var(--color-celadon);
       color: #080D0A;
       border-color: var(--color-celadon);
+      box-shadow: 0 0 12px rgba(52, 211, 153, 0.4);
+    }
+    .day-pill-btn.active .pill-sub {
+      color: #080D0A;
       font-weight: 700;
-      box-shadow: 0 0 12px rgba(52, 211, 153, 0.35);
     }
 
-    /* 3. Group Expense Splitter */
+    /* 3. Group Expense Splitter & Settlement Form */
     .split-form-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -1562,6 +1580,23 @@
         <span>2026 韓國首爾・濟州島金秋之旅</span>
       </h1>
 
+      <!-- 🌟 Flight Departure Countdown Bar (TripIt Style) -->
+      <div class="countdown-bar">
+        <div class="countdown-title-wrap">
+          <span class="countdown-icon">✈️</span>
+          <div>
+            <div class="countdown-label">啟航倒數計時 ｜ 香港快運 UO626</div>
+            <div class="countdown-sub">出發：10月16日 (五) 16:55 ➔ 21:35 抵達仁川 T1</div>
+          </div>
+        </div>
+        <div class="countdown-timer-boxes" id="departureCountdown">
+          <div class="countdown-box"><span class="countdown-num" id="cdDays">--</span><span class="countdown-unit">天</span></div>
+          <div class="countdown-box"><span class="countdown-num" id="cdHours">--</span><span class="countdown-unit">時</span></div>
+          <div class="countdown-box"><span class="countdown-num" id="cdMins">--</span><span class="countdown-unit">分</span></div>
+          <div class="countdown-box"><span class="countdown-num" id="cdSecs">--</span><span class="countdown-unit">秒</span></div>
+        </div>
+      </div>
+
       <!-- Trip Metrics & Weather Advisory (Mature Travel App Feature) -->
       <div class="trip-metrics-bar">
         <div class="metric-chip">
@@ -1701,7 +1736,7 @@
               <span>春川炒雞排</span> <span class="arrow">➔</span>
               <span>晨靜樹木園菊花展</span> <span class="arrow">➔</span>
               <span>東大門陳玉華一隻雞</span> <span class="arrow">➔</span>
-              <span>M+MS bar (亞洲50大 #42)</span>
+              <span>Bar Zest (亞洲50大 #2) / M+MS bar</span>
             </div>
           </div>
         </div>
@@ -1813,11 +1848,24 @@
     <!-- VIEW 2: DAY DETAILS VIEW (Dynamic Day Cards) -->
     <!-- ============================================== -->
     <div class="day-detail-section" id="view-day-detail">
+      <!-- 🌟 Horizontal Scrolling Day Pills Navigation Bar -->
+      <div class="day-pills-bar" id="dayPillsBar">
+        <button class="day-pill-btn active" id="pill-d1" onclick="openDay(1)"><span class="pill-d">Day 01</span><span class="pill-sub">10/16 五</span></button>
+        <button class="day-pill-btn" id="pill-d2" onclick="openDay(2)"><span class="pill-d">Day 02</span><span class="pill-sub">10/17 六</span></button>
+        <button class="day-pill-btn" id="pill-d3" onclick="openDay(3)"><span class="pill-d">Day 03</span><span class="pill-sub">10/18 日</span></button>
+        <button class="day-pill-btn" id="pill-d4" onclick="openDay(4)"><span class="pill-d">Day 04</span><span class="pill-sub">10/19 一</span></button>
+        <button class="day-pill-btn" id="pill-d5" onclick="openDay(5)"><span class="pill-d">Day 05</span><span class="pill-sub">10/20 二</span></button>
+        <button class="day-pill-btn" id="pill-d6" onclick="openDay(6)"><span class="pill-d">Day 06</span><span class="pill-sub">10/21 三</span></button>
+        <button class="day-pill-btn" id="pill-d7" onclick="openDay(7)"><span class="pill-d">Day 07</span><span class="pill-sub">10/22 四</span></button>
+        <button class="day-pill-btn" id="pill-d8" onclick="openDay(8)"><span class="pill-d">Day 08</span><span class="pill-sub">10/23 五</span></button>
+        <button class="day-pill-btn" id="pill-d9" onclick="openDay(9)"><span class="pill-d">Day 09</span><span class="pill-sub">10/24 六</span></button>
+      </div>
+
       <div class="back-btn-row">
         <button class="back-to-index-btn" onclick="showView('index')">← 返回行程總覽 Index</button>
         <div style="display:flex;gap:6px;">
-          <button class="btn-act" id="prevDayBtn" onclick="stepDay(-1)">上一天</button>
-          <button class="btn-act" id="nextDayBtn" onclick="stepDay(1)">下一天</button>
+          <button class="btn-act" id="prevDayBtn" onclick="stepDay(-1)">← 上一天</button>
+          <button class="btn-act" id="nextDayBtn" onclick="stepDay(1)">下一天 →</button>
         </div>
       </div>
 
@@ -2072,6 +2120,20 @@
       <!-- Section 3: 首爾備用頂級人氣酒吧 -->
       <div class="panel-card">
         <h3 class="panel-card-title">🍸 首爾備用人氣酒吧 (Asia's 50 Best & Speakeasy)</h3>
+      
+      <!-- 🍸 亞洲 50 最佳酒吧 #2 傳奇：Bar Zest (제스트) -->
+      <div class="panel-card" style="border-color:var(--color-celadon);">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+          <h3 class="panel-card-title" style="color:var(--color-celadon-light);margin:0;">🍸 亞洲 50 最佳酒吧 #2 / 世界 50 大 #18：Bar Zest (제스트)</h3>
+          <a href="https://map.naver.com/v5/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4" target="_blank" class="badge-btn" style="text-decoration:none;">🧭 Naver Map 直達</a>
+        </div>
+        <p class="event-p" style="margin-top:8px;"><b>• 殿堂級榮譽：</b> 榮獲 2024「亞洲 50 最佳酒吧」第 2 名、世界 50 最佳酒吧第 18 名，以及全球永續酒吧大獎（Ketel One Sustainable Bar Award）！</p>
+        <p class="event-p"><b>• 調酒概念：</b> 主打極致「零浪費 Zero-Waste」永續調酒哲學，自家提煉精餾杜松子酒、自製碳酸通寧水與利用整顆濟州漢拏峰柑橘進行調酒。</p>
+        <p class="event-p"><b>• 必試招牌：</b> 招牌 Zest Gin & Tonic、濟州柑橘特調、以回收果皮發酵的多層次風味雞尾酒。</p>
+        <p class="event-p"><b>• 地理與步行：</b> 位於江南清潭洞，距離 Day 4 的 M+MS bar 步行僅約 6 分鐘（約 500 公尺），兩家可完美安排同晚連訪或二選一！</p>
+        <p class="event-p"><b>• 地址：</b> 서울 강남구 도산대로55길 26 하늘빌딩 1층 (狎鷗亭羅德奧站 4 號出口步行 5 分) ｜ <b>電話：</b> 010-3177-8801 ｜ <b>營業：</b> 平日 18:30–02:00 / 週末 15:00–02:00</p>
+      </div>
+
         <p class="event-p"><b>• Bar Cham (바 참)：</b> 西村老韓屋，<b>亞洲 50 最佳酒吧 #33</b>，融合傳統燒酎與地道食材（建議拆 2+3 人入座最快，現場平板 Catchtable 取號）。<a href="https://map.naver.com/v5/search/%EB%B0%94%EC%B0%B8" target="_blank" style="color:var(--color-celadon);">[Naver Map]</a></p>
         <p class="event-p"><b>• Zest (제스트)：</b> 江南清潭洞，<b>亞洲 50 最佳酒吧 #2</b>，極致永續零浪費理念的世界頂級調酒吧。</p>
         <p class="event-p"><b>• M+MS bar (엠엠에스 Dosan)：</b> 江南島山公園，<b>亞洲 50 最佳酒吧 #42</b>，摩登現代調酒藝術。</p>
@@ -2664,11 +2726,16 @@
             transit: "🚕 車程跨越漢江至江南島山公園約 20 分鐘"
           },
           {
-            time: "🍸 21:00",
-            cat: "ASIA'S 50 #42",
-            title: "M+MS bar (엠엠에스 Dosan)",
-            hangul: "서울 강남구 도산공원 부근 / 亞洲 50 最佳酒吧 #42",
-            desc: "島山公園極具時尚氛圍的頂級雞尾酒吧，調酒工藝細緻優雅。"
+            time: "🍸 21:00 ➔ 23:30",
+            cat: "ASIA'S 50 #2 & #42",
+            title: "Bar Zest (제스트) ＆ M+MS bar (엠엠에스)",
+            hangul: "서울 강남구 도산대로55길 26 (Zest) ｜ 도산공원 부근 (M+MS)",
+            desc: "【江南清潭/島山頂級酒吧雙絕】：\n1. 🌟 Bar Zest (제스트)：榮獲 2024「亞洲 50 最佳酒吧」第 2 名（世界 50 大第 18）！極致零浪費（Zero-Waste）永續調酒神殿，必點自家精餾杜松子酒調製的招牌 Zest G&T 與濟州柑橘特調。\n2. 🍸 M+MS bar (엠엠에스 Dosan)：亞洲 50 最佳酒吧第 42 名，距離 Zest 步行僅約 6 分鐘（約 500 公尺），兩家可依候位狀況安排雙連訪或二選一！",
+            tip: "💡 候位與預約攻略：Zest 建議提早於 Catchtable 預訂或現場 20:30 前取號候位（5人同行可分 2+3 人或入座桌席）；若 Zest 需候位可先至旁邊 M+MS bar 享用首杯！",
+            naver: "https://map.naver.com/v5/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4",
+            copyVal: "서울 강남구 도산대로55길 26",
+            copyLabel: "複製 Zest 地址",
+            tel: "+82-10-3177-8801"
           }
         ]
       },
@@ -2993,6 +3060,7 @@
       }
     ];
 
+    window.currentDayNum = 1;
     let currentDayNum = 1;
     let visitedSet = new Set();
 
@@ -3037,6 +3105,12 @@
     }
 
     // View Switching
+    function updateBottomNavActive(activeId) {
+      document.querySelectorAll('.bot-nav-btn').forEach(b => b.classList.remove('active'));
+      const btn = document.getElementById('bot-nav-' + activeId);
+      if (btn) btn.classList.add('active');
+    }
+
     function showView(viewId) {
       document.querySelectorAll('.tab-panel, .day-detail-section').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.side-nav-item').forEach(el => el.classList.remove('active'));
@@ -3048,32 +3122,62 @@
       const navBtn = document.getElementById('btn-nav-' + viewId);
       if (navBtn) navBtn.classList.add('active');
 
-      document.getElementById('appSidebar').classList.remove('mobile-open');
+      // Update mobile bottom nav
+      updateBottomNavActive(viewId);
+
+      const sidebar = document.getElementById('appSidebar');
+      if (sidebar) sidebar.classList.remove('mobile-open');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Open Specific Day
+    // Open Specific Day (1 - 9)
     function openDay(num) {
+      num = parseInt(num, 10);
+      if (isNaN(num) || num < 1) num = 1;
+      if (num > 9) num = 9;
       currentDayNum = num;
+
       document.querySelectorAll('.tab-panel, .day-detail-section').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.side-nav-item').forEach(el => el.classList.remove('active'));
 
+      // Highlight sidebar day buttons
       const dayBtns = document.querySelectorAll('.side-day-btn');
       dayBtns.forEach((b, idx) => {
         if (idx === num - 1) b.classList.add('active');
         else b.classList.remove('active');
       });
 
+      // Highlight day pills in day detail view
+      document.querySelectorAll('.day-pill-btn').forEach((b, idx) => {
+        if (idx === num - 1) {
+          b.classList.add('active');
+          // Scroll pill into view smoothly
+          try { b.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); } catch(e){}
+        } else {
+          b.classList.remove('active');
+        }
+      });
+
       renderDayDetail(num);
       const detailView = document.getElementById('view-day-detail');
-      detailView.classList.add('active');
+      if (detailView) detailView.classList.add('active');
 
-      document.getElementById('prevDayBtn').disabled = (num === 1);
-      document.getElementById('nextDayBtn').disabled = (num === 9);
-      document.getElementById('prevDayBtn').style.opacity = (num === 1) ? '0.4' : '1';
-      document.getElementById('nextDayBtn').style.opacity = (num === 9) ? '0.4' : '1';
+      const prevBtn = document.getElementById('prevDayBtn');
+      const nextBtn = document.getElementById('nextDayBtn');
+      if (prevBtn) {
+        prevBtn.disabled = (num === 1);
+        prevBtn.style.opacity = (num === 1) ? '0.4' : '1';
+      }
+      if (nextBtn) {
+        nextBtn.disabled = (num === 9);
+        nextBtn.style.opacity = (num === 9) ? '0.4' : '1';
+      }
 
-      document.getElementById('appSidebar').classList.remove('mobile-open');
+      // Update mobile bottom nav to 'day'
+      updateBottomNavActive('day');
+
+      const sidebar = document.getElementById('appSidebar');
+      if (sidebar) sidebar.classList.remove('mobile-open');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -3204,17 +3308,21 @@
     });
   
     // =========================================================
-    // V6 JAVASCRIPT: COUNTDOWN, SPLITTER, PACKING, PHRASES, FILTERS
+    // V7 JAVASCRIPT: COUNTDOWN, SPLITTER, PACKING, PHRASES
     // =========================================================
 
-    // 1. Departure Countdown
+    // 1. Departure Countdown (Defensive & Robust)
     function updateCountdown() {
+      const cdDays = document.getElementById('cdDays');
+      if (!cdDays) return; // Guard: do nothing if element is absent
+
       const depDate = new Date('2026-10-16T16:55:00+08:00').getTime();
       const now = new Date().getTime();
       const diff = depDate - now;
 
       if (diff <= 0) {
-        document.getElementById('departureCountdown').innerHTML = '<div style="color:var(--color-celadon);font-weight:700;">🎉 旅程已啟航！Enjoy Korea!</div>';
+        const wrap = document.getElementById('departureCountdown');
+        if (wrap) wrap.innerHTML = '<div style="color:var(--color-celadon);font-weight:700;">🎉 旅程已啟航！Enjoy Korea!</div>';
         return;
       }
 
@@ -3223,78 +3331,113 @@
       const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const secs = Math.floor((diff % (1000 * 60)) / 1000);
 
-      document.getElementById('cdDays').innerText = days;
-      document.getElementById('cdHours').innerText = hours < 10 ? '0' + hours : hours;
-      document.getElementById('cdMins').innerText = mins < 10 ? '0' + mins : mins;
-      document.getElementById('cdSecs').innerText = secs < 10 ? '0' + secs : secs;
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+      const hEl = document.getElementById('cdHours');
+      const mEl = document.getElementById('cdMins');
+      const sEl = document.getElementById('cdSecs');
 
-    // 2. Regional Filter Chips (Index View)
-    function filterRegion(reg, btn) {
-      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-      btn.classList.add('active');
-
-      const cards = document.querySelectorAll('.overview-day-card');
-      cards.forEach((card, idx) => {
-        const dayNum = idx + 1;
-        if (reg === 'all') {
-          card.style.display = 'flex';
-        } else if (reg === 'seoul') {
-          card.style.display = (dayNum <= 5) ? 'flex' : 'none';
-        } else if (reg === 'jeju') {
-          card.style.display = (dayNum >= 6) ? 'flex' : 'none';
-        }
-      });
+      if (cdDays) cdDays.innerText = days;
+      if (hEl) hEl.innerText = hours < 10 ? '0' + hours : hours;
+      if (mEl) mEl.innerText = mins < 10 ? '0' + mins : mins;
+      if (sEl) sEl.innerText = secs < 10 ? '0' + secs : secs;
     }
 
-    // 3. Bi-directional Currency Converter
+    // 2. Bi-directional Currency Converter (KRW ⇄ HKD)
     const KRW_TO_HKD_RATE = 0.0057;
+
     function convertFromKrw() {
-      const krw = parseFloat(document.getElementById('calcKrwInput').value) || 0;
+      const elKrw = document.getElementById('calcKrwInput');
+      const elHkd = document.getElementById('calcHkdInput');
+      const elTotal = document.getElementById('resTotalConverted');
+      const elSplit = document.getElementById('resSplit5');
+
+      if (!elKrw || !elHkd) return;
+
+      const krw = parseFloat(elKrw.value) || 0;
+      if (krw === 0) {
+        elHkd.value = '';
+        if (elTotal) elTotal.innerText = 'HK$ 0';
+        if (elSplit) elSplit.innerText = 'HK$ 0 / 人';
+        return;
+      }
+
       const hkd = Math.round(krw * KRW_TO_HKD_RATE);
-      document.getElementById('calcHkdInput').value = hkd || '';
-      document.getElementById('resTotalConverted').innerText = 'HK$ ' + hkd.toLocaleString();
-      document.getElementById('resSplit5').innerText = 'HK$ ' + Math.round(hkd / 5).toLocaleString() + ' / 人';
+      elHkd.value = hkd;
+      if (elTotal) elTotal.innerText = 'HK$ ' + hkd.toLocaleString();
+      if (elSplit) elSplit.innerText = 'HK$ ' + Math.round(hkd / 5).toLocaleString() + ' / 人';
     }
+
     function convertFromHkd() {
-      const hkd = parseFloat(document.getElementById('calcHkdInput').value) || 0;
+      const elKrw = document.getElementById('calcKrwInput');
+      const elHkd = document.getElementById('calcHkdInput');
+      const elTotal = document.getElementById('resTotalConverted');
+      const elSplit = document.getElementById('resSplit5');
+
+      if (!elKrw || !elHkd) return;
+
+      const hkd = parseFloat(elHkd.value) || 0;
+      if (hkd === 0) {
+        elKrw.value = '';
+        if (elTotal) elTotal.innerText = '₩ 0';
+        if (elSplit) elSplit.innerText = 'HK$ 0 / 人';
+        return;
+      }
+
       const krw = Math.round(hkd / KRW_TO_HKD_RATE);
-      document.getElementById('calcKrwInput').value = krw || '';
-      document.getElementById('resTotalConverted').innerText = '₩ ' + krw.toLocaleString();
-      document.getElementById('resSplit5').innerText = 'HK$ ' + Math.round(hkd / 5).toLocaleString() + ' / 人';
+      elKrw.value = krw;
+      if (elTotal) elTotal.innerText = '₩ ' + krw.toLocaleString();
+      if (elSplit) elSplit.innerText = 'HK$ ' + Math.round(hkd / 5).toLocaleString() + ' / 人';
     }
+
     function addKrwPreset(amt) {
-      const cur = parseFloat(document.getElementById('calcKrwInput').value) || 0;
-      document.getElementById('calcKrwInput').value = cur + amt;
+      const el = document.getElementById('calcKrwInput');
+      if (!el) return;
+      const cur = parseFloat(el.value) || 0;
+      el.value = cur + amt;
       convertFromKrw();
     }
+
     function clearCalcBi() {
-      document.getElementById('calcKrwInput').value = '';
-      document.getElementById('calcHkdInput').value = '';
-      document.getElementById('resTotalConverted').innerText = 'HK$ 0';
-      document.getElementById('resSplit5').innerText = 'HK$ 0 / 人';
+      const elKrw = document.getElementById('calcKrwInput');
+      const elHkd = document.getElementById('calcHkdInput');
+      const elTotal = document.getElementById('resTotalConverted');
+      const elSplit = document.getElementById('resSplit5');
+
+      if (elKrw) elKrw.value = '';
+      if (elHkd) elHkd.value = '';
+      if (elTotal) elTotal.innerText = 'HK$ 0';
+      if (elSplit) elSplit.innerText = 'HK$ 0 / 人';
     }
 
-    // 4. Group Expense Splitter & Settlement Matrix
+    // 3. Group Expense Splitter & Settlement Matrix
     const GROUP_MEMBERS = ['Leung', 'Joyce', '同伴 A', '同伴 B', '同伴 C'];
     let expenses = [];
 
     function loadExpenses() {
-      const saved = localStorage.getItem('korea_expenses_v6');
-      if (saved) {
-        try { expenses = JSON.parse(saved); } catch(e) { expenses = []; }
+      try {
+        const saved = localStorage.getItem('korea_expenses_v6');
+        if (saved) {
+          expenses = JSON.parse(saved) || [];
+        }
+      } catch(e) {
+        expenses = [];
       }
       renderExpenses();
     }
 
     function addExpenseRecord() {
-      const name = document.getElementById('expName').value.trim();
-      const amount = parseFloat(document.getElementById('expAmount').value) || 0;
-      const cur = document.getElementById('expCurrency').value;
-      const payer = document.getElementById('expPayer').value;
-      const cat = document.getElementById('expCategory').value;
+      const elName = document.getElementById('expName');
+      const elAmount = document.getElementById('expAmount');
+      const elCur = document.getElementById('expCurrency');
+      const elPayer = document.getElementById('expPayer');
+      const elCat = document.getElementById('expCategory');
+
+      if (!elName || !elAmount) return;
+
+      const name = elName.value.trim();
+      const amount = parseFloat(elAmount.value) || 0;
+      const cur = elCur ? elCur.value : 'KRW';
+      const payer = elPayer ? elPayer.value : 'Leung';
+      const cat = elCat ? elCat.value : '🍽️ 餐飲美食';
 
       if (!name || amount <= 0) {
         showToast('請輸入項目名稱與有效金額！');
@@ -3316,8 +3459,8 @@
 
       expenses.unshift(record);
       saveExpenses();
-      document.getElementById('expName').value = '';
-      document.getElementById('expAmount').value = '';
+      elName.value = '';
+      elAmount.value = '';
       showToast('已記錄支出：' + name);
     }
 
@@ -3328,29 +3471,41 @@
     }
 
     function clearAllExpenses() {
-      if (confirm('確定要清空所有支出記賬嗎？')) {
+      if (expenses.length === 0) {
+        showToast('目前尚無記賬支出！');
+        return;
+      }
+      if (confirm('確定要清空所有支出記賬嗎？此操作不可還原。')) {
         expenses = [];
         saveExpenses();
-        showToast('記賬已清空');
+        showToast('記賬已全部清空');
       }
     }
 
     function saveExpenses() {
-      localStorage.setItem('korea_expenses_v6', JSON.stringify(expenses));
+      try {
+        localStorage.setItem('korea_expenses_v6', JSON.stringify(expenses));
+      } catch(e){}
       renderExpenses();
     }
 
     function renderExpenses() {
       const container = document.getElementById('expenseListContainer');
-      const totalHkd = expenses.reduce((sum, e) => sum + e.hkdAmount, 0);
+      const elTotal = document.getElementById('statTotalExpense');
+      const elAvg = document.getElementById('statAvgExpense');
+      const sContainer = document.getElementById('settlementList');
+
+      if (!container) return;
+
+      const totalHkd = expenses.reduce((sum, e) => sum + (e.hkdAmount || 0), 0);
       const avgPerPerson = Math.round(totalHkd / 5);
 
-      document.getElementById('statTotalExpense').innerText = 'HK$ ' + totalHkd.toLocaleString();
-      document.getElementById('statAvgExpense').innerText = 'HK$ ' + avgPerPerson.toLocaleString() + ' / 人';
+      if (elTotal) elTotal.innerText = 'HK$ ' + totalHkd.toLocaleString();
+      if (elAvg) elAvg.innerText = 'HK$ ' + avgPerPerson.toLocaleString() + ' / 人';
 
       if (expenses.length === 0) {
-        container.innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem;padding:12px;text-align:center;">尚無記賬記錄，輸入上方表單即可開始記賬！</div>';
-        document.getElementById('settlementList').innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem;">暫無記賬支出，請先新增項目。</div>';
+        container.innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem;padding:16px;text-align:center;">尚無記賬記錄，填寫上方表單即可開始記賬！</div>';
+        if (sContainer) sContainer.innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem;">暫無記賬支出，請先新增項目。</div>';
         return;
       }
 
@@ -3359,15 +3514,15 @@
         html += `
           <div class="expense-item">
             <div>
-              <div class="expense-title">${e.cat} · ${e.name}</div>
-              <div class="expense-meta">付款人：<b style="color:var(--color-celadon);">${e.payer}</b> ｜ ${e.time}</div>
+              <div class="expense-title">${e.cat || '支出'} · ${e.name}</div>
+              <div class="expense-meta">付款人：<b style="color:var(--color-celadon);">${e.payer}</b> ｜ ${e.time || ''}</div>
             </div>
             <div style="display:flex;align-items:center;gap:12px;">
               <div class="expense-amt">
-                <div>HK$ ${e.hkdAmount.toLocaleString()}</div>
-                ${e.currency === 'KRW' ? `<div style="font-size:0.7rem;color:var(--text-muted);">₩ ${e.origAmount.toLocaleString()}</div>` : ''}
+                <div>HK$ ${(e.hkdAmount || 0).toLocaleString()}</div>
+                ${e.currency === 'KRW' ? `<div style="font-size:0.7rem;color:var(--text-muted);">₩ ${(e.origAmount || 0).toLocaleString()}</div>` : ''}
               </div>
-              <button class="expense-del-btn" onclick="deleteExpense(${e.id})">✕</button>
+              <button class="expense-del-btn" onclick="deleteExpense(${e.id})" title="刪除">✕</button>
             </div>
           </div>
         `;
@@ -3382,7 +3537,11 @@
       GROUP_MEMBERS.forEach(m => balances[m] = 0);
 
       expenses.forEach(e => {
-        balances[e.payer] += e.hkdAmount;
+        if (balances[e.payer] !== undefined) {
+          balances[e.payer] += (e.hkdAmount || 0);
+        } else {
+          balances[e.payer] = (e.hkdAmount || 0);
+        }
       });
 
       let debtors = [];
@@ -3418,6 +3577,8 @@
       }
 
       const sContainer = document.getElementById('settlementList');
+      if (!sContainer) return;
+
       if (settlements.length === 0) {
         sContainer.innerHTML = '<div style="color:var(--color-celadon);font-size:0.85rem;">🎉 全員已平賬，互不相欠！</div>';
       } else {
@@ -3441,7 +3602,7 @@
         showToast('尚無支出可匯出！');
         return;
       }
-      const total = expenses.reduce((sum, e) => sum + e.hkdAmount, 0);
+      const total = expenses.reduce((sum, e) => sum + (e.hkdAmount || 0), 0);
       const avg = Math.round(total / 5);
 
       let text = `🇰🇷 韓國9天8夜 旅費結算明細\n`;
@@ -3459,24 +3620,25 @@
       showToast('已複製 WhatsApp 結算摘要！可以直接貼至群組 📲');
     }
 
-    // 5. Smart Packing Checklist with LocalStorage
+    // 4. Smart Packing Checklist with LocalStorage
     function loadChecklist() {
-      const saved = localStorage.getItem('korea_packing_v6');
-      if (saved) {
-        try {
-          const checkedMap = JSON.parse(saved);
+      try {
+        const saved = localStorage.getItem('korea_packing_v6');
+        if (saved) {
+          const checkedMap = JSON.parse(saved) || {};
           document.querySelectorAll('.check-item').forEach(item => {
             const key = item.getAttribute('data-key');
-            if (checkedMap[key]) {
+            if (key && checkedMap[key]) {
               item.classList.add('completed');
             }
           });
-        } catch(e){}
-      }
+        }
+      } catch(e){}
       updatePackingProgress();
     }
 
     function toggleCheckItem(el) {
+      if (!el) return;
       el.classList.toggle('completed');
       saveChecklist();
     }
@@ -3489,7 +3651,9 @@
           checkedMap[key] = true;
         }
       });
-      localStorage.setItem('korea_packing_v6', JSON.stringify(checkedMap));
+      try {
+        localStorage.setItem('korea_packing_v6', JSON.stringify(checkedMap));
+      } catch(e){}
       updatePackingProgress();
     }
 
@@ -3500,8 +3664,10 @@
       const done = completed.length;
       const pct = total === 0 ? 0 : Math.round((done / total) * 100);
 
-      document.getElementById('packProgressText').innerText = `準備進度：${done} / ${total} 項 (${pct}%)`;
-      document.getElementById('packProgressBar').style.width = pct + '%';
+      const pText = document.getElementById('packProgressText');
+      const pBar = document.getElementById('packProgressBar');
+      if (pText) pText.innerText = `準備進度：${done} / ${total} 項 (${pct}%)`;
+      if (pBar) pBar.style.width = pct + '%';
     }
 
     function resetChecklist() {
@@ -3512,26 +3678,31 @@
       }
     }
 
-    // 6. Bilingual Phrase Fullscreen Modal
+    // 5. Bilingual Phrase Fullscreen Modal
     function openPhraseModal(kr, cn, pron) {
-      document.getElementById('modalKrText').innerText = kr;
-      document.getElementById('modalCnText').innerText = cn;
-      document.getElementById('modalPronText').innerText = pron;
-      document.getElementById('phraseModal').classList.add('active');
+      const mKr = document.getElementById('modalKrText');
+      const mCn = document.getElementById('modalCnText');
+      const mPron = document.getElementById('modalPronText');
+      const modal = document.getElementById('phraseModal');
+
+      if (mKr) mKr.innerText = kr;
+      if (mCn) mCn.innerText = cn;
+      if (mPron) mPron.innerText = pron;
+      if (modal) modal.classList.add('active');
     }
+
     function closePhraseModal() {
-      document.getElementById('phraseModal').classList.remove('active');
+      const modal = document.getElementById('phraseModal');
+      if (modal) modal.classList.remove('active');
     }
 
-    // 7. Bottom Navigation Handler
-    let currentActiveDay = 1;
-    function setBotNavActive(btn) {
-      document.querySelectorAll('.bot-nav-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
-
-    // Window Load Hook
+    // Master DOM Loaded Listener
     window.addEventListener('DOMContentLoaded', () => {
+      // Start Countdown
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // Load Expenses and Packing
       loadExpenses();
       loadChecklist();
     });
@@ -3554,23 +3725,23 @@
 
   <!-- 🌟 Mobile Bottom Navigation Bar -->
   <nav class="mobile-bottom-nav">
-    <button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index');setBotNavActive(this)">
+    <button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index')">
       <span class="icon">🔖</span>
       <span>總覽</span>
     </button>
-    <button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentActiveDay || 1);setBotNavActive(this)">
+    <button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentDayNum || 1)">
       <span class="icon">📅</span>
       <span>每日</span>
     </button>
-    <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money');setBotNavActive(this)">
+    <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')">
       <span class="icon">💰</span>
       <span>分賬</span>
     </button>
-    <button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing');setBotNavActive(this)">
+    <button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')">
       <span class="icon">🎒</span>
       <span>行李</span>
     </button>
-    <button class="bot-nav-btn" id="bot-nav-phrases" onclick="showView('phrases');setBotNavActive(this)">
+    <button class="bot-nav-btn" id="bot-nav-phrases" onclick="showView('phrases')">
       <span class="icon">💬</span>
       <span>溝通卡</span>
     </button>
