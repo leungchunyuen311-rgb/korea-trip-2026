@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="韓國金秋紀行">
   <meta name="theme-color" content="#0C1411">
-  <title>2026 韓國首爾・濟州島 9天8夜自駕手帳 ｜ v7 全能旗艦版</title>
+  <title>2026 韓國首爾・濟州島 9天8夜自駕手帳 ｜ v8 終極完美版</title>
 
   <!-- Typography: Classical Serif for Antique Korean Elegance & Clean Modern Monospace / Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1465,6 +1465,136 @@
       font-weight: 700;
     }
 
+  
+    /* =========================================================
+       V8 UI/UX ENHANCEMENTS: INPUT OVERFLOW FIX, SIDEBAR DRAWER FIX, NAVER BADGES
+       ========================================================= */
+
+    *, *::before, *::after {
+      box-sizing: border-box !important;
+    }
+
+    /* Input & Form Control Overflow Fix (Fix for Issue 1) */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0 !important;
+      width: 100% !important;
+    }
+    .form-control {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-antique);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: var(--text-light);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      min-width: 0 !important;
+      width: 100% !important;
+    }
+    .calc-grid > * {
+      min-width: 0 !important;
+    }
+    @media (max-width: 480px) {
+      .calc-grid-bi {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
+    }
+
+    /* Naver Map Shortcut Badges in Backup Lists (Fix for Issue 4) */
+    .badge-naver {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(52, 211, 153, 0.12);
+      color: var(--color-celadon) !important;
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      text-decoration: none !important;
+      font-weight: 600;
+      white-space: nowrap;
+      margin: 2px 3px;
+      transition: all 0.2s ease;
+      vertical-align: middle;
+    }
+    .badge-naver:hover, .badge-naver:active {
+      background: var(--color-celadon);
+      color: #080D0A !important;
+      box-shadow: 0 0 8px rgba(52, 211, 153, 0.4);
+    }
+
+    /* Mobile Sidebar & Drawer Overlay (Fix for Issue 2) */
+    .sidebar-backdrop {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 9998;
+      transition: opacity 0.25s ease;
+    }
+    .sidebar-backdrop.active {
+      display: block;
+    }
+    .sidebar-close-btn {
+      display: none;
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-antique);
+      color: var(--color-gold);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 1rem;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      z-index: 10002;
+    }
+
+    @media (max-width: 820px) {
+      .app-sidebar {
+        display: none !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 280px !important;
+        max-width: 85vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        z-index: 9999 !important;
+        overflow-y: scroll !important;
+        -webkit-overflow-scrolling: touch !important;
+        touch-action: pan-y !important;
+        padding: 24px 16px 140px !important; /* Generous bottom padding for full scroll */
+        box-shadow: 12px 0 40px rgba(0, 0, 0, 0.9) !important;
+      }
+      .app-sidebar.mobile-open {
+        display: flex !important;
+      }
+      .sidebar-close-btn {
+        display: flex;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1480,7 +1610,9 @@
   </div>
 
   <!-- Left Sidebar (Matching reference image structure) -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
   <aside class="app-sidebar" id="appSidebar">
+    <button class="sidebar-close-btn" onclick="toggleSidebar(false)">✕</button>
     <div class="brand-section">
       <div class="brand-year">2026 AUTUMN</div>
       <div class="brand-title">韓國首爾・濟州島之旅</div>
@@ -1917,7 +2049,7 @@
         <p class="event-p" style="margin-bottom:14px;font-size:0.82rem;color:var(--text-muted);">
           預設參考匯率：1 HKD ≈ 175.4 KRW（1 KRW ≈ 0.0057 HKD）。支援韓元或港幣雙向即時對調，並自動換算 5 人平分每人金額。
         </p>
-        <div class="calc-grid" style="grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px;">
+        <div class="calc-grid calc-grid-bi" style="grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
           <div class="form-group">
             <label>₩ 韓元金額 (KRW)</label>
             <input type="number" class="form-control" id="calcKrwInput" placeholder="例如 150000" oninput="convertFromKrw()">
@@ -2075,112 +2207,129 @@
     <!-- ============================================== -->
     <!-- VIEW 6: FOOD 美食酒吧 & 備用清單 (BACKUP LIST) -->
     <!-- ============================================== -->
-    <div class="tab-panel" id="view-food">
+        <div class="tab-panel" id="view-food">
       <div class="header-tracking-label">BACKUP CULINARY & BARS</div>
-      <h1 class="main-hero-title">備用 / 替換美食與酒吧清單 (Backup List)</h1>
+      <h1 class="main-hero-title">備用 / 替換美食與酒吧清單 (全附 Naver Map 直達)</h1>
 
-      <!-- Section 1: 首爾備用美食 -->
-      
-      <!-- 🥩 1++ 頂級韓牛新推薦：망원동 뿔 -->
-      <div class="panel-card" style="border-color:var(--color-gold);">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-          <h3 class="panel-card-title" style="color:var(--color-gold-bright);margin:0;">🥩 1++ 頂級熟成韓牛日式炭火燒肉：망원동 뿔 (bbul)</h3>
-          <a href="https://map.naver.com/p/entry/place/1563382529" target="_blank" class="badge-btn" style="text-decoration:none;">🗺️ Naver Map 直達</a>
-        </div>
-        <p class="event-p" style="margin-top:8px;"><b>• 特色：</b> 嚴選國內產最高等級 1++ (No.9) 韓牛，經 2 週濕式熟成，以個人小炭爐（화로구이）現點現烤。包含里脊 (등심)、菲力 (안심)、紐約客 (채끝)、牛肋條 (갈비살)、羽下肉 (살치살) 等部位，每 100g 單點。</p>
-        <p class="event-p"><b>• 人均消費：</b> 約 60,000 – 80,000 韓元（約 HK$340–$460 / 人）；品酒飽食約 90,000–120,000 韓元。</p>
-        <p class="event-p"><b>• 地理優勢：</b> 位於首爾麻浦區望遠洞（距離延南洞民宿開車僅 6–8 分鐘），自帶免費車位！可作為 Day 5 替代馬場洞的精緻頂級首選。</p>
-        <p class="event-p"><b>• 地址：</b> 서울 마포구 월드컵로19길 86 1층 ｜ <b>電話：</b> 010-6256-4255 ｜ <b>營業：</b> 平日 16:00-23:00 / 週末 12:00-23:00</p>
-      </div>
-
+      <!-- Section 1: 首爾備用必吃美食 -->
       <div class="panel-card">
-        <h3 class="panel-card-title">🦀 首爾備用必吃美食</h3>
-        <p class="event-p"><b>• 頂級醬油蟹：</b> <a href="https://map.naver.com/v5/search/%EC%A7%84%EB%AF%B8%EC%8B%9D%EB%8B%B9" target="_blank" style="color:var(--color-celadon);">真味食堂 (진미식당)</a> (米芝蓮必比登推薦，麻浦頂級代表)、元祖馬山醬蟹 (원조마산할매아구찜)、一味醬蟹 (일미간장게장)、烏達里家 (오다리집 明洞)。</p>
-        <p class="event-p"><b>• 濃郁排骨湯：</b> <a href="https://map.naver.com/v5/search/%EC%86%8C%EB%AC%B8%EB%82%9C%EC%84%B1%EC%88%98%EA%B0%90%EC%9E%90%ED%83%95" target="_blank" style="color:var(--color-celadon);">傳聞中的聖水馬鈴薯排骨湯 (소문난성수감자탕)</a> (24小時/白種元三大天王)、東廟 24小時馬鈴薯排骨湯。</p>
-        <p class="event-p"><b>• 暖胃參雞湯：</b> 土俗村參雞湯 (토속촌 삼계탕 - 景福宮百年韓屋名店)、百年土種參雞湯 (백년토종삼계탕 - 弘大米芝蓮推薦)。</p>
-        <p class="event-p"><b>• 韓牛雪濃湯：</b> 里門雪濃湯 (이문설농탕 - 百年老店米芝蓮推薦)、河東館 (하동관 - 明洞80年韓牛清湯)。</p>
-        <p class="event-p"><b>• 烤肉與韓牛：</b> 金豬食堂 (금돼지식당 - 米芝蓮必比登/BTS愛店)、肉典食堂 (육전식당)、馬場洞畜產物市場 1++ 韓牛炭火燒烤。</p>
-        <p class="event-p"><b>• 傳統蹄膀與牛腸：</b> 滿足五香豬腳 (만족오향족발 - 米芝蓮必比登)、Myth 豬腳 (미쓰족발 弘大蒜味)、君子大韓烤腸 (대한곱창)、風川鰻魚 (풍천장어 延南店)。</p>
-        <p class="event-p"><b>• 韓式炸雞與麵點：</b> Puradak Chicken (푸라닭 黑蒜醬油)、BHC 炸雞、橋村炸雞 (Kyochon)、黃生家刀削麵 (황생가칼국수 - 三清洞米芝蓮必比登)。</p>
-        <p class="event-p"><b>• 人氣烘焙早午餐：</b> London Bagel Museum (런던베이글뮤지엄 安國/島山 - 需早於 Catchtable 取號)、Isaac Toast、Egg Drop。</p>
+        <h3 class="panel-card-title">🦀 首爾備用必吃美食 (點擊直接開 Naver Map 導航)</h3>
+
+        <p class="event-p">
+          <b>• 頂級醬油蟹：</b>
+          真味食堂 (진미식당 · 米芝蓮推薦麻浦名店) <a href="https://map.naver.com/v5/search/%EC%A7%84%EB%AF%B8%EC%8B%9D%EB%8B%B9" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          元祖馬山醬蟹 (원조마산할매아구찜) <a href="https://map.naver.com/v5/search/%EC%9B%90%EC%A1%B0%EB%A7%88%EC%82%B0%ED%95%A0%EB%A7%A4%EC%95%84%EA%B5%AC%EC%A7%90" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          一味醬蟹 (일미간장게장) <a href="https://map.naver.com/v5/search/%EC%9D%BC%EB%AF%B8%EA%B0%84%EC%9E%A5%EA%B2%8C%EC%9E%A5" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          烏達里家 (오다리집 明洞) <a href="https://map.naver.com/v5/search/%EC%98%A4%EB%8B%A4%EB%A6%AC%EC%A7%91%20%EB%AA%85%EB%8F%99" target="_blank" class="badge-naver">🗺️ Naver Map</a>
+        </p>
+
+        <p class="event-p">
+          <b>• 濃郁排骨湯：</b>
+          傳聞中的聖水馬鈴薯排骨湯 (소문난성수감자탕 · 24小時) <a href="https://map.naver.com/v5/search/%EC%86%8C%EB%AC%B8%EB%82%9C%EC%84%B1%EC%88%98%EA%B0%90%EC%9E%90%ED%83%95" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          東廟 24小時馬鈴薯排骨湯 (동묘 감자탕) <a href="https://map.naver.com/v5/search/%EB%8F%99%EB%AC%98%20%EA%B0%90%EC%9E%90%ED%83%95" target="_blank" class="badge-naver">🗺️ Naver Map</a>
+        </p>
+
+        <p class="event-p">
+          <b>• 暖胃參雞湯：</b>
+          土俗村參雞湯 (토속촌 삼계탕 · 景福宮百年韓屋) <a href="https://map.naver.com/v5/search/%ED%86%A0%EC%86%8D%EC%B4%8C%20%EC%82%BC%EA%B3%84%ED%83%95" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          百年土種參雞湯 (백년토종삼계탕 · 弘大米芝蓮) <a href="https://map.naver.com/v5/search/%EB%B0%B1%EB%85%84%ED%86%A0%EC%8 species%82%BC%EA%B3%84%ED%83%95" target="_blank" class="badge-naver">🗺️ Naver Map</a>
+        </p>
+
+        <p class="event-p">
+          <b>• 韓牛雪濃湯：</b>
+          里門雪濃湯 (이문설농탕 · 百年老店米芝蓮) <a href="https://map.naver.com/v5/search/%EC%9D%B4%EB%AC%B8%EC%84%A4%EB%86%8D%ED%83%95" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          河東館 (하동관 明洞本店 · 80年牛骨清湯) <a href="https://map.naver.com/v5/search/%ED%95%98%EB%8F%99%EA%B4%80%20%EB%AA%85%EB%8F%99%EB%B3%B8%EC%A0%90" target="_blank" class="badge-naver">🗺️ Naver Map</a>
+        </p>
+
+        <p class="event-p">
+          <b>• 烤肉與韓牛：</b>
+          望遠洞 뿔 (bbul · 1++熟成韓牛日式炭火，近延南洞帶車位) <a href="https://map.naver.com/p/entry/place/1563382529" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          金豬食堂 (금돼지식당 · 米芝蓮必比登/BTS愛店) <a href="https://map.naver.com/v5/search/%EA%B8%88%EB%8F%BC%EC%A7%80%EC%8B%9D%EB%8B%B9" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          肉典食堂 (육전식당 · 專人代烤厚切梅花肉) <a href="https://map.naver.com/v5/search/%EC%9C%A1%EC%A0%84%EC%8B%9D%EB%8B%B9" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          馬場洞畜產物市場 (마장동축산물시장 · 1++ 韓牛炭火現烤) <a href="https://map.naver.com/v5/search/%EB%A7%88%EC%9E%A5%EB%8F%99%EC%B6%95%EC%82%B0%EB%AC%BC%EC%8B%9C%EC%9E%A5" target="_blank" class="badge-naver">🗺️ Naver Map</a>
+        </p>
+
+        <p class="event-p">
+          <b>• 傳統蹄膀與牛腸：</b>
+          滿足五香豬腳 (만족오향족발 市廳本店 · 米芝蓮必比登) <a href="https://map.naver.com/v5/search/%EB%A7%8C%EC%A1%B1%EC%98%A4%ED%96%A5%EC%A1%B1%EB%B0%9C%20%EC%8B%9C%EC%B2%AD%EB%B3%B8%EC%A0%90" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          Myth 豬腳 (미쓰족발 弘大本店 · 蒜味沙律豬腳) <a href="https://map.naver.com/v5/search/%EB%AF%B8%EC%93%B0%EC%A1%B1%EB%B0%9C%20%ED%99%8D%EB%8C%80%EB%B3%B8%EC%A0%90" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          君子大韓烤腸 (대한곱창) <a href="https://map.naver.com/v5/search/%EB%8C%80%ED%95%9C%EA%B3%B1%EC%B0%BD" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          風川鰻魚 (풍천장어 延南店 · 現烤炭火活鰻) <a href="https://map.naver.com/v5/search/%ED%92%8D%EC%B2%9C%EC%9E%A5%EC%96%B4%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank" class="badge-naver">🗺️ Naver Map</a>
+        </p>
+
+        <p class="event-p">
+          <b>• 韓式炸雞與麵點：</b>
+          Puradak Chicken (푸라닭 · 黑蒜醬油頂級炸雞) <a href="https://map.naver.com/v5/search/%ED%91%B8%EB%9D%BC%EB%8B%AD" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          BHC 炸雞 (BHC치킨 · 芝士起司炸雞) <a href="https://map.naver.com/v5/search/BHC%EC%B9%98%ED%82%A8" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          橋村炸雞 (교촌치킨 · 蜂蜜經典炸雞) <a href="https://map.naver.com/v5/search/%EA%B5%90%EC%B4%8C%EC%B9%98%ED%82%A8" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          黃生家刀削麵 (황생가칼국수 · 三清洞米芝蓮) <a href="https://map.naver.com/v5/search/%ED%99%A9%EC%83%9D%EA%B0%80%EC%B0%A8%EA%B5%AD%EC%88%98" target="_blank" class="badge-naver">🗺️ Naver Map</a>
+        </p>
+
+        <p class="event-p">
+          <b>• 人氣烘焙早午餐：</b>
+          London Bagel Museum (런던베이글뮤지엄 安國/島山) <a href="https://map.naver.com/v5/search/%EB%9F%B0%EB%8D%98%EB%B2%A0%EC%9D%B4%EA%B8%80%EB% relief%EC%A7%80%EC%97%84" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          Egg Drop (에그드랍 弘大/明洞) <a href="https://map.naver.com/v5/search/%EC%97%90%EA%B7%B8%EB%93%9C%EB%9E%8D" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜
+          Isaac Toast (이삭토스트) <a href="https://map.naver.com/v5/search/%EC%9D%B4%EC%82%AD%ED%86%A0%EC%8A%A4%ED%8A%B8" target="_blank" class="badge-naver">🗺️ Naver Map</a>
+        </p>
       </div>
 
       <!-- Section 2: 首爾備用精品手沖與冠軍咖啡 -->
       <div class="panel-card">
         <h3 class="panel-card-title">☕ 首爾備用精品咖啡與手沖名店</h3>
-        <p class="event-p"><b>• Default Value (디폴트밸류)：</b> 延禧洞/延南洞，2022 韓國咖啡師冠軍申昌浩，純白極簡虹吸名店。<a href="https://map.naver.com/v5/search/%EB%94%94%ED%8F%B4%ED%8A%B8%EB%B0%B8%EB%A5%98" target="_blank" style="color:var(--color-celadon);">[Naver Map]</a></p>
-        <p class="event-p"><b>• GML Seoul (지엠엘)：</b> 漢南洞，全球名廠咖啡豆選品店 ＆ 職人單品手沖吧。<a href="https://map.naver.com/v5/search/gml%20seoul" target="_blank" style="color:var(--color-celadon);">[Naver Map]</a></p>
-        <p class="event-p"><b>• Unpage (언페이지)：</b> 漢南洞，極簡手沖濾滴與咖啡調酒概念吧檯。</p>
-        <p class="event-p"><b>• Doduk&Kyubum (도덕&규범)：</b> 麻浦上水/弘大，黑膠唱片 LP 復古手沖烘焙所。</p>
-        <p class="event-p"><b>• Bunker Company Apgujeong (벙커컴퍼니)：</b> 狎鷗亭獨棟復古工業風，冠軍烘豆師創意特調咖啡與甜點。</p>
-        <p class="event-p"><b>• Lounge Clarimento (라운지 클라리멘토)：</b> 麻浦合井，精緻手沖單品與沉靜氛圍。</p>
-        <p class="event-p"><b>• Green Mile Coffee Bukchon (그린마일커피)：</b> 北村韓屋村 3 樓露台，俯瞰黑瓦韓屋頂全景。<a href="https://map.naver.com/v5/search/%EA%B7%B8%EB%A6%B0%EB%A7%88%EC%9D%BC%EC%BB%A4%ED%94%BC%20%EB%B6%81%EC%B4%8C%EC%A0%90" target="_blank" style="color:var(--color-celadon);">[Naver Map]</a></p>
+        <p class="event-p"><b>• Default Value (디폴트밸류)：</b> 延禧洞/延南洞，2022 韓國咖啡師冠軍申昌浩，純白極簡虹吸名店。<a href="https://map.naver.com/v5/search/%EB%94%94%ED%8F%B4%ED%8A%B8%EB%B0%B8%EB%A5%98" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• GML Seoul (지엠엘)：</b> 漢南洞，全球名廠咖啡豆選品店 ＆ 職人單品手沖吧。<a href="https://map.naver.com/v5/search/gml%20seoul" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Unpage (언페이지)：</b> 漢南洞，極簡手沖濾滴與咖啡調酒概念吧檯。<a href="https://map.naver.com/v5/search/%EC%96%B8%ED%8E%98%EC%9D%B4%EC%A7%80%20%ED%95%9C%EB%82%A8" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Doduk&Kyubum (도덕과규범)：</b> 麻浦上水/弘大，黑膠唱片 LP 復古手沖烘焙所。<a href="https://map.naver.com/v5/search/%EB%8F%84%EB%8D%95%EA%B3%BC%EA%B7%9C%EB%B2%94" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Bunker Company Apgujeong (벙커컴퍼니 압구정점)：</b> 狎鷗亭獨棟復古工業風，冠軍烘豆師創意特調咖啡與甜點。<a href="https://map.naver.com/v5/search/%EB%B2%99%EC%BB%A4%EC%BB%B4%ED%8D%BC%EB%8B%88%20%EC%95%95%EA%B5%AC%EC%A0%95" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Lounge Clarimento (라운지 클라리멘토)：</b> 麻浦合井，精緻手沖單品與沉靜氛圍。<a href="https://map.naver.com/v5/search/%EB%9D%BC%EC%9A%B4%EC%A7%80%20%ED%81%B4%EB%9D%BC%EB%A6%AC%EB%A9%98%ED%86%A0" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Green Mile Coffee Bukchon (그린마일커피 북촌점)：</b> 北村韓屋村 3 樓露台，俯瞰黑瓦韓屋頂全景。<a href="https://map.naver.com/v5/search/%EA%B7%B8%EB%A6%B0%EB%A7%88%EC%9D%BC%EC%BB%A4%ED%94%BC%20%EB%B6%81%EC%B4%8C%EC%A0%90" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
       </div>
 
       <!-- Section 3: 首爾備用頂級人氣酒吧 -->
       <div class="panel-card">
         <h3 class="panel-card-title">🍸 首爾備用人氣酒吧 (Asia's 50 Best & Speakeasy)</h3>
-      
-      <!-- 🍸 亞洲 50 最佳酒吧 #2 傳奇：Bar Zest (제스트) -->
-      <div class="panel-card" style="border-color:var(--color-celadon);">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
-          <h3 class="panel-card-title" style="color:var(--color-celadon-light);margin:0;">🍸 亞洲 50 最佳酒吧 #2 / 世界 50 大 #18：Bar Zest (제스트)</h3>
-          <a href="https://map.naver.com/v5/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4" target="_blank" class="badge-btn" style="text-decoration:none;">🧭 Naver Map 直達</a>
-        </div>
-        <p class="event-p" style="margin-top:8px;"><b>• 殿堂級榮譽：</b> 榮獲 2024「亞洲 50 最佳酒吧」第 2 名、世界 50 最佳酒吧第 18 名，以及全球永續酒吧大獎（Ketel One Sustainable Bar Award）！</p>
-        <p class="event-p"><b>• 調酒概念：</b> 主打極致「零浪費 Zero-Waste」永續調酒哲學，自家提煉精餾杜松子酒、自製碳酸通寧水與利用整顆濟州漢拏峰柑橘進行調酒。</p>
-        <p class="event-p"><b>• 必試招牌：</b> 招牌 Zest Gin & Tonic、濟州柑橘特調、以回收果皮發酵的多層次風味雞尾酒。</p>
-        <p class="event-p"><b>• 地理與步行：</b> 位於江南清潭洞，距離 Day 4 的 M+MS bar 步行僅約 6 分鐘（約 500 公尺），兩家可完美安排同晚連訪或二選一！</p>
-        <p class="event-p"><b>• 地址：</b> 서울 강남구 도산대로55길 26 하늘빌딩 1층 (狎鷗亭羅德奧站 4 號出口步行 5 分) ｜ <b>電話：</b> 010-3177-8801 ｜ <b>營業：</b> 平日 18:30–02:00 / 週末 15:00–02:00</p>
-      </div>
-
-        <p class="event-p"><b>• Bar Cham (바 참)：</b> 西村老韓屋，<b>亞洲 50 最佳酒吧 #33</b>，融合傳統燒酎與地道食材（建議拆 2+3 人入座最快，現場平板 Catchtable 取號）。<a href="https://map.naver.com/v5/search/%EB%B0%94%EC%B0%B8" target="_blank" style="color:var(--color-celadon);">[Naver Map]</a></p>
-        <p class="event-p"><b>• Zest (제스트)：</b> 江南清潭洞，<b>亞洲 50 最佳酒吧 #2</b>，極致永續零浪費理念的世界頂級調酒吧。</p>
-        <p class="event-p"><b>• M+MS bar (엠엠에스 Dosan)：</b> 江南島山公園，<b>亞洲 50 最佳酒吧 #42</b>，摩登現代調酒藝術。</p>
-        <p class="event-p"><b>• Namsan Sool Club (남산술클럽)：</b> 梨泰院經理團路，韓國傳統酒 Tasting 聖殿，全韓微型獨立酒造珍稀地酒、生馬格利與蒸餾燒酎。<a href="https://map.naver.com/v5/search/%EB%82%A8%EC%82%B0%EC%88%A0%ED%81%B4%EB%9F%BD" target="_blank" style="color:var(--color-celadon);">[Naver Map]</a></p>
-        <p class="event-p"><b>• Korean Bistro Mr. Ahn's Makgeolli (안씨막걸리)：</b> 梨泰院，米芝蓮指南推薦現代生馬格利餐酒館。<a href="https://map.naver.com/v5/search/%EC%95%88%EC%94%A8%EB%A7%89%EA%B1%B8%EB%A6%AC" target="_blank" style="color:var(--color-celadon);">[Naver Map]</a></p>
-        <p class="event-p"><b>• Pine&Co (파인앤코)：</b> 狎鷗亭隱密 Speakeasy 現代雞尾酒吧。</p>
-        <p class="event-p"><b>• Gong-Gan (공간)：</b> 鐘路北村，質感傳統韓屋調酒吧（On 6.5 隔壁）。</p>
-        <p class="event-p"><b>• Alice Cheongdam (앨리스 청담)：</b> 清潭洞，愛麗絲夢遊仙境主題秘密花店暗門 Speakeasy。</p>
-        <p class="event-p"><b>• Le Chamber (르챔버)：</b> 清潭洞，推開魔法書架暗門進入的奢華威士忌與調酒吧。</p>
-        <p class="event-p"><b>• Cobbler (코블러)：</b> 西村傳統韓屋日式復古無酒單客製化雞尾酒吧。</p>
+        <p class="event-p"><b>• Zest (제스트)：</b> 江南清潭洞，<b>亞洲 50 最佳酒吧 #2 / 世界 50 大 #18</b>，極致零浪費（Zero-Waste）永續調酒神殿，自家精餾杜松子酒與濟州柑橘特調（近 M+MS bar 步行 6 分）。<a href="https://map.naver.com/v5/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Bar Cham (바 참)：</b> 西村老韓屋，<b>亞洲 50 最佳酒吧 #33</b>，融合傳統燒酎與地道食材（建議拆 2+3 人入座最快，現場平板 Catchtable 取號）。<a href="https://map.naver.com/v5/search/%EB%B0%94%EC%B0%B8" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• M+MS bar (엠엠에스 Dosan)：</b> 江南島山公園，<b>亞洲 50 最佳酒吧 #42</b>，摩登現代調酒藝術。<a href="https://map.naver.com/v5/search/%EC%97%A0%EC%97%A0%EC%97%90%EC%8A%A4%20%EB%8F%84%EC%82%B0" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Namsan Sool Club (남산술클럽)：</b> 梨泰院經理團路，韓國傳統酒 Tasting 聖殿，全韓微型獨立酒造珍稀地酒、生馬格利與蒸餾燒酎。<a href="https://map.naver.com/v5/search/%EB%82%A8%EC%82%B0%EC%88%A0%ED%81%B4%EB%9F%BD" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Korean Bistro Mr. Ahn's Makgeolli (안씨막걸리)：</b> 梨泰院，米芝蓮指南推薦現代生馬格利餐酒館。<a href="https://map.naver.com/v5/search/%EC%95%88%EC%94%A8%EB%A7%89%EA%B1%B8%EB%A6%AC" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Pine&Co (파인앤코)：</b> 狎鷗亭隱密 Speakeasy 現代雞尾酒吧。<a href="https://map.naver.com/v5/search/%ED%8C%8C%EC%9D%B8%EC%95%A4%EC%BD%94" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Gong-Gan (공간 북촌점)：</b> 鐘路北村，質感傳統韓屋調酒吧（On 6.5 隔壁）。<a href="https://map.naver.com/v5/search/%EA%B3%B5%EA%B0%84%20%EB%B6%81%EC%B4%8C" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Alice Cheongdam (앨리스 청담)：</b> 清潭洞，愛麗絲夢遊仙境主題秘密花店暗門 Speakeasy。<a href="https://map.naver.com/v5/search/%EC%98%AC%EB%A6%AC%EC%8A%A4%20%EC%B2%AD%EB%8B%B4" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Le Chamber (르챔버)：</b> 清潭洞，推開魔法書架暗門進入的奢華威士忌與調酒吧。<a href="https://map.naver.com/v5/search/%EB%A5%B4%EC%B1%94%EB%B2%84" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Cobbler (코블러 서촌)：</b> 西村傳統韓屋日式復古無酒單客製化雞尾酒吧。<a href="https://map.naver.com/v5/search/%EC%BD%94%EB%B8%94%EB%9F%AC%20%EC%84%9C%EC%B4%8C" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
       </div>
 
       <!-- Section 4: 濟州備用特色美食 -->
       <div class="panel-card">
         <h3 class="panel-card-title">🐟 濟州備用在地特色美食</h3>
-        <p class="event-p"><b>• 活青花魚刺身：</b> <a href="https://map.naver.com/v5/search/%EB%AF%B8%EC%98%81%EC%9D%B4%EB%84%A4%EC%8B%9D%EB%8B%B9" target="_blank" style="color:var(--color-celadon);">美英家 (미영이네식당)</a> (謨瑟浦港藍絲帶名店，活青花魚刺身附秘製紫菜飯與濃郁白魚湯)。</p>
-        <p class="event-p"><b>• 海螺刀削麵/粥：</b> 玉琳海螺刀削麵 (옥림보말칼국수)、大浦海螺刀削麵 (대포보말칼국수)。</p>
-        <p class="event-p"><b>• 醬燉海魚料理：</b> 頑固的石斑魚 (고집돌우럭)、鮮美食堂 (맛나식당 - 城山醬燉帶魚)。</p>
-        <p class="event-p"><b>• 必吃熟成黑豬肉：</b> 熟成到 (숙성도 蓮洞店/老衡店 - 桌邊代烤，下午 Catchtable 抽號)、豚似豚 (돈사돈 - GD愛店厚切炭火黑豬肉)、千吉谷 (천짓골식당 - 水煮白切肉名家)。</p>
-        <p class="event-p"><b>• 頂級刺身與鮑魚粥：</b> 藍景美樂 (남경미락 - 山房山野生鮮魚刺身)、攝支海女之家 (섭지해녀의집)。</p>
-        <p class="event-p"><b>• 鹽烤帶魚全席：</b> 滿足的商會 (만족한상회)、春心之家 (춘심이네 - 一公尺整條烤銀白帶魚)。</p>
+        <p class="event-p"><b>• 活青花魚刺身：</b> 美英家 (미영이네식당 · 謨瑟浦港藍絲帶名店，活青花魚附秘製紫菜飯) <a href="https://map.naver.com/v5/search/%EB%AF%B8%EC%98%81%EC%9D%B4%EB%84%A4%EC%8B%9D%EB%8B%B9" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• 海螺刀削麵/粥：</b> 玉琳海螺刀削麵 (옥림보말칼국수) <a href="https://map.naver.com/v5/search/%EC%98%A5%EB%A6%BC%EB%B3%B4%EB%A7%90%EC%BB%AC%EA%B5%AD%EC%88%98" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜ 大浦海螺刀削麵 (대포보말칼국수) <a href="https://map.naver.com/v5/search/%EB%8C%80%ED%8F%AC%EB%B3%B4%EB%A7%90%EC%BB%AC%EA%B5%AD%EC%88%98" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• 醬燉海魚料理：</b> 頑固的石斑魚 (고집돌우럭 中文店/咸德店) <a href="https://map.naver.com/v5/search/%EA%B3%A0%EC%A7%91%EB%8F%8C%EC%9A%B0%EB%9F%AD" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜ 鮮美食堂 (맛나식당 · 城山醬燉帶魚) <a href="https://map.naver.com/v5/search/%EB%A7%9B%EB%82%98%EC%8B%9D%EB%8B%B9%20%EC%84%B1%EC%82%B0" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• 必吃熟成黑豬肉：</b> 熟成到 (숙성도 蓮洞店/老衡店 · 桌邊代烤抽號) <a href="https://map.naver.com/v5/search/%EC%88%99%EC%84%B1%EB%8F%84%20%EB%85%B8%ED%98%95" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜ 豚似豚 (돈사돈 · GD愛店厚切炭火黑豬) <a href="https://map.naver.com/v5/search/%EB%8F%88%EC%82%AC%EB%8F%88" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜ 千吉谷 (천짓골식당 · 水煮白切肉名家) <a href="https://map.naver.com/v5/search/%EC%B2%9C%EC%A7%93%EA%B3%A8%EC%8B%9D%EB%8B%B9" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• 頂級刺身與鮑魚粥：</b> 藍景美樂 (남경미락 · 山房山野生海魚刺身) <a href="https://map.naver.com/v5/search/%EB%82%A8%EA%B2%BD%EB%AF%B8%EB%9D%BD" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜ 攝支海女之家 (섭지해녀의집) <a href="https://map.naver.com/v5/search/%EC%84%AD%EC%A7%80%ED%95%B4%EB%85%80%EC%9D%98%EC%A7%91" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• 鹽烤帶魚全席：</b> 滿足的商會 (만족한상회) <a href="https://map.naver.com/v5/search/%EB%A7%8C%EC%A1%B1%ED%95%9C%EC%83%81%ED%9A%8C" target="_blank" class="badge-naver">🗺️ Naver Map</a> ｜ 春心之家 (춘심이네 · 1公尺整條烤銀帶魚) <a href="https://map.naver.com/v5/search/%EC%B6%98%EC%8B%AC%EC%9D%B4%EB%84%A4%20%EB%B3%B8%EC%A0%90" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
       </div>
 
       <!-- Section 5: 濟州備用精品 Cafe & 甜品 -->
       <div class="panel-card">
         <h3 class="panel-card-title">🥐 濟州備用精品 Cafe ＆ 甜品</h3>
-        <p class="event-p"><b>• Coffee Temple (커피템플)：</b> 13 年藍絲帶認證，韓國傳奇咖啡師主理，必喝招牌「濟州特調柑橘拿鐵」。</p>
-        <p class="event-p"><b>• Jejudang Bakery Cafe (제주당 베이커리카페)：</b> 歐洲莊園大型自然植栽烘焙咖啡館，擬真水果與蔬菜造型麵包。</p>
-        <p class="event-p"><b>• Mamarron (마마롱)：</b> 西歸浦法式甜品名店，秋季限定手作栗子蒙布朗蛋糕。</p>
-        <p class="event-p"><b>• London Bagel Museum 濟州店：</b> 舊左邑絕美海景店，英倫復古貝果名店。</p>
+        <p class="event-p"><b>• Coffee Temple (커피템플)：</b> 13 年藍絲帶認證，韓國傳奇咖啡師主理，必喝「濟州特調柑橘拿鐵」。<a href="https://map.naver.com/v5/search/%EC%BB%A4%ED%94%BC%ED%85%9C%ED%94%8C" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Jejudang Bakery Cafe (제주당 베이커리카페)：</b> 歐洲莊園大型自然植栽烘焙咖啡館，擬真蔬菜造型麵包。<a href="https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%EB%8B%B9%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%EC%BA%90%ED%8E%98" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Mamarron (마마롱)：</b> 西歸浦法式甜品名店，秋季限定手作栗子蒙布朗蛋糕。<a href="https://map.naver.com/v5/search/%EB%A7%88%EB%A7%88%EB%A1%B1" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• London Bagel Museum 濟州店：</b> 舊左邑東海岸海景店，英倫復古人氣貝果。<a href="https://map.naver.com/v5/search/%EB%9F%B0%EB%8D%98%EB%B2%A0%EC%9D%B4%EA%B8%80%EB% relief%EC%A7%80%EC%97%84%20%EC%A0%9C%EC%A3%BC" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
       </div>
 
       <!-- Section 6: 濟州備用酒吧與在地精釀 -->
       <div class="panel-card">
         <h3 class="panel-card-title">🍺 濟州備用酒吧與在地精釀</h3>
-        <p class="event-p"><b>• The Booze Jeju (더부즈 제주)：</b> 濟州市蓮洞，隱藏在紅色英式電話亭後的秘密 Speakeasy 單一麥芽威士忌酒吧。</p>
-        <p class="event-p"><b>• Magpie Brewing Co. (맥파이 브루어리 제주)：</b> 濟州在地傳奇精釀啤酒釀造廠，新鮮生啤與窯烤披薩。</p>
-        <p class="event-p"><b>• Jeju Beer Brewery (제주맥주 양조장)：</b> 濟州特產柑橘艾爾小麥啤酒釀造所與體驗吧。</p>
-        <p class="event-p"><b>• Singing Turtle (노래하는 거북이)：</b> 挾才海灘海邊露天海景調酒吧，海浪與落日佐酒。</p>
-        <p class="event-p"><b>• Southbounder (사우스바운더)：</b> 中文觀光園區美式復古手工精釀啤酒與特色披薩餐酒館。</p>
+        <p class="event-p"><b>• The Booze Jeju (더부즈 제주)：</b> 濟州市蓮洞，隱藏在紅色英式電話亭後的秘密 Speakeasy 威士忌酒吧。<a href="https://map.naver.com/v5/search/%EB%8D%94%EB%B6%80%EC%A6%88%20%EC%A0%9C%EC%A3%BC" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Magpie Brewing Co. (맥파이 브루어리 제주)：</b> 濟州在地傳奇精釀啤酒釀造廠，新鮮生啤與窯烤披薩。<a href="https://map.naver.com/v5/search/%EB%A7%A5%ED%8C%8C%EC%9D%B4%20%EB%B8%8C%EB%A3%A8%EC%96%B4%EB%A6%AC%20%EC%A0%9C%EC%A3%BC" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Jeju Beer Brewery (제주맥주 양조장)：</b> 濟州特產柑橘艾爾小麥啤酒釀造所與觀光體驗吧。<a href="https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%EB%A7%A5%EC%A3%BC%20%EC%96%91%EC%A1%B0%EC%9E%A5" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Singing Turtle (노래하는 거북이)：</b> 挾才海灘海邊露天海景調酒吧，海浪與落日佐酒。<a href="https://map.naver.com/v5/search/%EB%85%B8%EB%9E%98%ED%95%98%EB%8A%94%20%EA%B1%B0%EB%B6%81%EC%9D%B4" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
+        <p class="event-p"><b>• Southbounder (사우스바운더)：</b> 中文觀光園區美式復古手工精釀啤酒與特色披薩餐酒館。<a href="https://map.naver.com/v5/search/%EC%82%AC%EC%9A%B0%EC%8A%A4%EB%B0%94%EC%9A%B4%EB%8D%94" target="_blank" class="badge-naver">🗺️ Naver Map</a></p>
       </div>
     </div>
-
-  
-    <!-- =========================================================
-         VIEW 6: PACKING & PRE-TRIP CHECKLIST (Packr / PackPoint Style)
-         ========================================================= -->
     <div class="tab-panel" id="view-packing">
       <div class="header-tracking-label">SMART PACKING CHECKLIST</div>
       <h1 class="main-hero-title">行前必備與行李智能檢查清單</h1>
@@ -3126,7 +3275,7 @@
       updateBottomNavActive(viewId);
 
       const sidebar = document.getElementById('appSidebar');
-      if (sidebar) sidebar.classList.remove('mobile-open');
+      toggleSidebar(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -3177,7 +3326,7 @@
       updateBottomNavActive('day');
 
       const sidebar = document.getElementById('appSidebar');
-      if (sidebar) sidebar.classList.remove('mobile-open');
+      toggleSidebar(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -3286,8 +3435,26 @@
     }
 
     // Mobile Sidebar
-    function toggleSidebar() {
-      document.getElementById('appSidebar').classList.toggle('mobile-open');
+    function toggleSidebar(forceState) {
+      const sidebar = document.getElementById('appSidebar');
+      const backdrop = document.getElementById('sidebarBackdrop');
+      if (!sidebar) return;
+
+      if (typeof forceState === 'boolean') {
+        if (forceState) {
+          sidebar.classList.add('mobile-open');
+          if (backdrop) backdrop.classList.add('active');
+        } else {
+          sidebar.classList.remove('mobile-open');
+          if (backdrop) backdrop.classList.remove('active');
+        }
+      } else {
+        const isOpen = sidebar.classList.toggle('mobile-open');
+        if (backdrop) {
+          if (isOpen) backdrop.classList.add('active');
+          else backdrop.classList.remove('active');
+        }
+      }
     }
 
     // Theme Toggle
