@@ -7,6 +7,13 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Lai’s Family Seoul & Jeju Trip 2026">
   <meta name="application-name" content="Lai’s Family Seoul & Jeju Trip 2026">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#121110">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Lai’s Family Seoul & Jeju Trip 2026">
+  <meta name="application-name" content="Lai’s Family Seoul & Jeju Trip 2026">
   <!-- Web App & iOS Home Screen Icons using cover.jpg -->
   <link rel="icon" type="image/jpeg" href="cover.jpg">
   <link rel="apple-touch-icon" href="cover.jpg">
@@ -2246,6 +2253,140 @@
         font-size: 0.8rem;
       }
     }
+
+    /* =========================================================
+       NATIVE MOBILE APP (PWA / iOS STANDALONE) OPTIMIZATIONS
+       ========================================================= */
+    :root {
+      --safe-top: env(safe-area-inset-top, 0px);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    /* Prevent accidental text selection / highlight on mobile touch */
+    * {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .editorial-header {
+      padding-top: max(var(--safe-top), 0px);
+    }
+
+    /* Mobile Bottom Navigation Dock (Native iOS App Style) */
+    .mobile-bottom-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: calc(56px + var(--safe-bottom));
+      padding-bottom: var(--safe-bottom);
+      background: rgba(18, 17, 16, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border-antique);
+      z-index: 1000;
+      justify-content: space-around;
+      align-items: center;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .bot-nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-family: var(--font-serif);
+      font-weight: 500;
+      cursor: pointer;
+      padding: 4px 4px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      flex: 1;
+      max-width: 56px;
+    }
+    .bot-nav-btn .icon {
+      font-size: 1.15rem;
+      line-height: 1;
+    }
+    .bot-nav-btn:active {
+      transform: scale(0.92);
+    }
+    .bot-nav-btn.active {
+      color: var(--color-gold-bright) !important;
+      font-weight: 700 !important;
+    }
+    .bot-nav-btn.active .icon {
+      filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.7));
+    }
+
+    @media (max-width: 820px) {
+      .mobile-bottom-nav {
+        display: flex;
+      }
+      .app-main {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        padding-top: 18px !important;
+        padding-bottom: calc(76px + var(--safe-bottom)) !important;
+      }
+      .fab-btn {
+        bottom: calc(70px + var(--safe-bottom)) !important;
+        right: 16px !important;
+      }
+      .header-top-ribbon {
+        display: none !important;
+      }
+      .header-main-bar {
+        padding: 10px 16px !important;
+      }
+      .header-site-title {
+        font-size: 1.05rem !important;
+      }
+      .header-site-subtitle {
+        display: none !important;
+      }
+      .header-avatar-frame {
+        width: 36px !important;
+        height: 36px !important;
+      }
+      .editorial-nav-dock {
+        display: none !important; /* Bottom nav handles primary navigation on mobile */
+      }
+      .stage-item {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        padding: 14px !important;
+      }
+      .stage-num {
+        display: none !important;
+      }
+      .stage-thumb-wrap {
+        width: 100% !important;
+        height: 180px !important;
+      }
+      .hero-cover-card {
+        height: 340px !important;
+      }
+      .day-poster-img-wrap {
+        height: 240px !important;
+      }
+      .countdown-timer-boxes {
+        gap: 6px !important;
+      }
+      .countdown-box {
+        padding: 8px 10px !important;
+      }
+      .countdown-num {
+        font-size: 1.25rem !important;
+      }
+    }
 </style>
 </head>
 <body>
@@ -3930,13 +4071,16 @@
 
     function showView(viewId) {
       document.querySelectorAll('.tab-panel, .day-detail-section').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.editorial-tab-btn, .side-nav-item').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.editorial-tab-btn, .side-nav-item, .bot-nav-btn').forEach(el => el.classList.remove('active'));
 
       const target = document.getElementById('view-' + viewId);
       if (target) target.classList.add('active');
 
       const navBtn = document.getElementById('btn-nav-' + viewId);
       if (navBtn) navBtn.classList.add('active');
+
+      const botBtn = document.getElementById('bot-nav-' + viewId);
+      if (botBtn) botBtn.classList.add('active');
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -4602,26 +4746,34 @@
   </div>
 
   <!-- 🌟 Mobile Bottom Navigation Bar -->
-  <nav class="mobile-bottom-nav">
+  <nav class="mobile-bottom-nav" id="mobileBottomNav">
     <button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index')">
-      <span class="icon">🔖</span>
+      <span class="icon">📖</span>
       <span>總覽</span>
     </button>
     <button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentDayNum || 1)">
-      <span class="icon">📅</span>
-      <span>每日</span>
+      <span class="icon">🗓️</span>
+      <span>日程</span>
+    </button>
+    <button class="bot-nav-btn" id="bot-nav-transit" onclick="showView('transit')">
+      <span class="icon">🚗</span>
+      <span>交通</span>
+    </button>
+    <button class="bot-nav-btn" id="bot-nav-food" onclick="showView('food')">
+      <span class="icon">🥢</span>
+      <span>美饌</span>
     </button>
     <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')">
-      <span class="icon">💰</span>
+      <span class="icon">💳</span>
       <span>分賬</span>
     </button>
     <button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')">
       <span class="icon">🎒</span>
-      <span>行李</span>
+      <span>備忘</span>
     </button>
     <button class="bot-nav-btn" id="bot-nav-phrases" onclick="showView('phrases')">
-      <span class="icon">💬</span>
-      <span>溝通卡</span>
+      <span class="icon">🗣️</span>
+      <span>韓語</span>
     </button>
   </nav>
 
