@@ -1876,111 +1876,282 @@
       text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
     }
 
-  </style>
+  
+    /* =========================================================
+       EDITORIAL TOP NAVIGATION HEADER (Award-Winning Magazine Layout)
+       ========================================================= */
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-serif);
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      letter-spacing: 0.01em;
+      transition: background 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .editorial-header {
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(18, 17, 16, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border-antique);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+    }
+
+    .header-top-ribbon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 4px 16px;
+      background: rgba(197, 160, 89, 0.08);
+      border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      color: var(--color-gold-bright);
+      text-align: center;
+    }
+    .ribbon-flourish {
+      color: var(--color-gold);
+      font-size: 0.75rem;
+    }
+
+    .header-main-bar {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .header-brand-group:hover {
+      opacity: 0.9;
+    }
+
+    .header-avatar-frame {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1.5px solid var(--color-gold);
+      box-shadow: 0 0 12px rgba(197, 160, 89, 0.35);
+      flex-shrink: 0;
+      background: #1C1B18;
+    }
+    .header-avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-site-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text-main);
+      margin: 0;
+      line-height: 1.2;
+    }
+    .header-site-subtitle {
+      font-family: var(--font-serif);
+      font-size: 0.76rem;
+      color: var(--color-gold);
+      margin-top: 3px;
+      letter-spacing: 0.05em;
+    }
+
+    .header-action-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-theme-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(197, 160, 89, 0.1);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      border-radius: 20px;
+      color: var(--color-gold-bright);
+      font-family: var(--font-serif);
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-theme-pill:hover {
+      background: rgba(197, 160, 89, 0.2);
+      border-color: var(--color-gold-bright);
+    }
+
+    .editorial-nav-dock {
+      width: 100%;
+      border-top: 1px solid rgba(197, 160, 89, 0.12);
+      background: rgba(22, 21, 19, 0.85);
+    }
+    .nav-dock-scroller {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 20px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-dock-scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .editorial-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-sub);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .editorial-tab-btn:hover {
+      background: rgba(197, 160, 89, 0.08);
+      color: var(--text-main);
+    }
+    .editorial-tab-btn.active {
+      background: rgba(197, 160, 89, 0.16) !important;
+      border: 1px solid rgba(197, 160, 89, 0.38) !important;
+      color: var(--color-gold-bright) !important;
+      box-shadow: 0 2px 12px rgba(197, 160, 89, 0.25) !important;
+    }
+    .editorial-tab-btn .tab-title {
+      font-family: var(--font-serif);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .editorial-tab-btn .tab-en {
+      font-family: var(--font-display);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: var(--color-gold);
+      opacity: 0.85;
+      margin-left: 2px;
+    }
+
+    .app-main {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 32px 24px 100px;
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hide legacy sidebar elements */
+    .app-sidebar, .sidebar-backdrop, .mobile-top-bar {
+      display: none !important;
+    }
+</style>
 </head>
 <body>
-
-  <!-- Mobile Top Bar -->
-  <div class="mobile-top-bar">
-    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
-    <div class="mobile-brand">
-      <span style="font-family:var(--font-display);font-size:0.95rem;font-weight:700;">Lai’s Family Seoul & Jeju Trip 2026</span>
-      <span class="brand-stamp">2026</span>
+  <!-- 🌟 Editorial Top Navigation Header (Bespoke Travel Magazine Layout) -->
+  <header class="editorial-header" id="editorialHeader">
+    <div class="header-top-ribbon">
+      <span class="ribbon-flourish">◈</span>
+      <span class="ribbon-text">LAI’S FAMILY AUTUMN VOYAGE ARCHIVE · EST. 2026 · SEOUL ✦ GAPYEONG ✦ JEJU</span>
+      <span class="ribbon-flourish">◈</span>
     </div>
-    <button class="btn-act" style="padding:4px 8px;" onclick="toggleTheme()">🌓</button>
-  </div>
+    
+    <div class="header-main-bar">
+      <div class="header-brand-group" onclick="showView('index')" role="button" tabindex="0">
+        <div class="header-avatar-frame">
+          <img src="cover.jpg" alt="Lai's Family Trip 2026" class="header-avatar-img" onerror="this.parentElement.style.display='none'">
+        </div>
+        <div class="header-title-box">
+          <h1 class="header-site-title">Lai’s Family Seoul & Jeju Trip 2026</h1>
+          <div class="header-site-subtitle">首爾・加平・濟州島 ｜ 九天八夜雙城自駕典藏手帳</div>
+        </div>
+      </div>
 
-  <!-- Left Sidebar (Matching reference image structure) -->
-  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar(false)"></div>
-  <aside class="app-sidebar" id="appSidebar">
-    <button class="sidebar-close-btn" onclick="toggleSidebar(false)">✕</button>
-    <div class="brand-section">
-      <div class="brand-year">VOYAGE ARCHIVE · 2026</div>
-      <div class="brand-title">Lai’s Family Seoul & Jeju Trip 2026</div>
-      <div class="brand-stamp">🍂 金秋手帳</div>
-    </div>
-
-    <!-- Quick Navigation: INFO & MONEY -->
-    <div class="sidebar-menu-row">
-      <button class="side-nav-item active" id="btn-nav-index" onclick="showView('index')">
-        <span class="icon">🔖</span>
-        <span>Index 行程總覽</span>
-      </button>
-      <button class="side-nav-item" id="btn-nav-info" onclick="showView('info')">
-        <span class="icon">ℹ️</span>
-        <span>INFO 旅程須知</span>
-      </button>
-      <button class="side-nav-item" id="btn-nav-money" onclick="showView('money')">
-        <span class="icon">💳</span>
-        <span>MONEY 匯率分賬</span>
-      </button>
-      <button class="side-nav-item" id="btn-nav-transit" onclick="showView('transit')">
-        <span class="icon">🚗</span>
-        <span>TRANSIT 交通住宿</span>
-      </button>
-      <button class="side-nav-item" id="btn-nav-food" onclick="showView('food')">
-        <span class="icon">🥢</span>
-        <span>FOOD 美食酒吧</span>
-      </button>
-      <button class="side-nav-item" id="btn-nav-packing" onclick="showView('packing')">
-        <span class="icon">🎒</span>
-        <span>PACK 行李清單</span>
-      </button>
-      <button class="side-nav-item" id="btn-nav-phrases" onclick="showView('phrases')">
-        <span class="icon">💬</span>
-        <span>TALK 韓文溝通</span>
-      </button>
+      <div class="header-action-group">
+        <button class="btn-theme-pill" onclick="toggleTheme()" title="切換日夜光影模式">
+          <span class="theme-icon">🌓</span>
+          <span class="theme-label">光影</span>
+        </button>
+      </div>
     </div>
 
-    <!-- Index Header -->
-    <div class="sidebar-heading">
-      <span class="idx-title">Index</span>
-      <span class="idx-sub">每日行程目錄</span>
-    </div>
-
-    <!-- 01 - 09 Vertical Day List -->
-    <div class="side-day-list" id="sideDayList">
-      <button class="side-day-btn" onclick="openDay(1)">
-        <span class="side-day-num">01</span>
-        <span class="side-day-date">OCT 16 · 五</span>
-      </button>
-      <button class="side-day-btn" onclick="openDay(2)">
-        <span class="side-day-num">02</span>
-        <span class="side-day-date">OCT 17 · 六</span>
-      </button>
-      <button class="side-day-btn" onclick="openDay(3)">
-        <span class="side-day-num">03</span>
-        <span class="side-day-date">OCT 18 · 日</span>
-      </button>
-      <button class="side-day-btn" onclick="openDay(4)">
-        <span class="side-day-num">04</span>
-        <span class="side-day-date">OCT 19 · 一</span>
-      </button>
-      <button class="side-day-btn" onclick="openDay(5)">
-        <span class="side-day-num">05</span>
-        <span class="side-day-date">OCT 20 · 二</span>
-      </button>
-      <button class="side-day-btn" onclick="openDay(6)">
-        <span class="side-day-num">06</span>
-        <span class="side-day-date">OCT 21 · 三</span>
-      </button>
-      <button class="side-day-btn" onclick="openDay(7)">
-        <span class="side-day-num">07</span>
-        <span class="side-day-date">OCT 22 · 四</span>
-      </button>
-      <button class="side-day-btn" onclick="openDay(8)">
-        <span class="side-day-num">08</span>
-        <span class="side-day-date">OCT 23 · 五</span>
-      </button>
-      <button class="side-day-btn" onclick="openDay(9)">
-        <span class="side-day-num">09</span>
-        <span class="side-day-date">OCT 24 · 六</span>
-      </button>
-    </div>
-  </aside>
-
-  <!-- Main Content Area -->
-  <main class="app-main">
+    <!-- 🌟 Horizontal Editorial Navigation Tabs -->
+    <nav class="editorial-nav-dock" id="editorialNavDock">
+      <div class="nav-dock-scroller">
+        <button class="editorial-tab-btn active" id="btn-nav-index" onclick="showView('index')">
+          <span class="tab-icon">📖</span>
+          <span class="tab-title">行程總覽</span>
+          <span class="tab-en">OVERVIEW</span>
+        </button>
+        <button class="editorial-tab-btn" id="btn-nav-day" onclick="openDay(currentDayNum || 1)">
+          <span class="tab-icon">🗓️</span>
+          <span class="tab-title">每日日程</span>
+          <span class="tab-en">CHRONICLE</span>
+        </button>
+        <button class="editorial-tab-btn" id="btn-nav-transit" onclick="showView('transit')">
+          <span class="tab-icon">🚗</span>
+          <span class="tab-title">交通住宿</span>
+          <span class="tab-en">TRANSIT</span>
+        </button>
+        <button class="editorial-tab-btn" id="btn-nav-food" onclick="showView('food')">
+          <span class="tab-icon">🥢</span>
+          <span class="tab-title">美饌品酩</span>
+          <span class="tab-en">GASTRONOMY</span>
+        </button>
+        <button class="editorial-tab-btn" id="btn-nav-money" onclick="showView('money')">
+          <span class="tab-icon">💳</span>
+          <span class="tab-title">公費分賬與即時匯率 (Finance & Currency)</span>
+          <span class="tab-en">TREASURY</span>
+        </button>
+        <button class="editorial-tab-btn" id="btn-nav-packing" onclick="showView('packing')">
+          <span class="tab-icon">🎒</span>
+          <span class="tab-title">行裝備忘</span>
+          <span class="tab-en">CHECKLIST</span>
+        </button>
+        <button class="editorial-tab-btn" id="btn-nav-phrases" onclick="showView('phrases')">
+          <span class="tab-icon">🗣️</span>
+          <span class="tab-title">實用韓語</span>
+          <span class="tab-en">PHRASES</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+<main class="app-main">
 
     <!-- ============================================== -->
     <!-- VIEW 1: INDEX / 總覽 (Matching reference image) -->
@@ -2041,12 +2212,12 @@
           <span class="metric-sub">9天8夜 · 首爾+加平+濟州</span>
         </div>
         <div class="metric-chip">
-          <span class="metric-label">🍁 金秋氣候</span>
+          <span class="metric-label">🍁 金秋天氣與穿著建議</span>
           <span class="metric-value">首爾 8~18°C ｜ 濟州 14~21°C</span>
           <span class="metric-sub">早晚溫差大，備防風薄羽絨</span>
         </div>
         <div class="metric-chip">
-          <span class="metric-label">🚗 自駕方案</span>
+          <span class="metric-label">🚗 自駕座駕與租車方案</span>
           <span class="metric-value">Staria ➔ IONIQ 9 純電</span>
           <span class="metric-sub">首爾商務車 + 濟州 7人純電車</span>
         </div>
@@ -2055,8 +2226,8 @@
       <!-- Progress Bar Section with Dynamic Counter -->
       <div class="progress-wrapper">
         <div class="progress-meta-row">
-          <span class="progress-label">旅程進度 Progress</span>
-          <span class="progress-status" id="progressStatusText">已打卡 0 / 28 個景點 (0%)</span>
+          <span class="progress-label">旅程造訪進度 (Progress)</span>
+          <span class="progress-status" id="progressStatusText">已造訪簽到 0 / 28 個景點 (0%)</span>
         </div>
         <div class="progress-track">
           <div class="progress-fill" id="progressBarFill"></div>
@@ -2071,27 +2242,27 @@
         <div class="quick-dock-grid">
           <div class="quick-pill-item">
             <span>首爾取車 PIN: <b>3410</b></span>
-            <button class="quick-copy-mini" onclick="copyValue('3410', '已複製首爾取車 PIN 3410')">複製</button>
+            <button class="quick-copy-mini" onclick="copyValue('3410', '已複製至剪貼簿首爾取車 PIN 3410')">複製</button>
           </div>
           <div class="quick-pill-item">
             <span>首爾租車電話: <b>+82-10-3212-6215</b></span>
-            <button class="quick-copy-mini" onclick="copyValue('+82-10-3212-6215', '已複製租車電話')">複製</button>
+            <button class="quick-copy-mini" onclick="copyValue('+82-10-3212-6215', '已複製至剪貼簿租車電話')">複製</button>
           </div>
           <div class="quick-pill-item">
             <span>濟州租車預約: <b>2622541225</b></span>
-            <button class="quick-copy-mini" onclick="copyValue('2622541225', '已複製濟州預約號')">複製</button>
+            <button class="quick-copy-mini" onclick="copyValue('2622541225', '已複製至剪貼簿濟州預約號')">複製</button>
           </div>
           <div class="quick-pill-item">
             <span>濟州樂天電話: <b>1588-1230</b></span>
-            <button class="quick-copy-mini" onclick="copyValue('1588-1230', '已複製樂天電話')">複製</button>
+            <button class="quick-copy-mini" onclick="copyValue('1588-1230', '已複製至剪貼簿樂天電話')">複製</button>
           </div>
         </div>
       </div>
 
       <!-- Itinerary List Section -->
       <div class="itinerary-section-header">
-        <div class="itinerary-sub-title">ITINERARY <span>/ 每日行程階段索引</span></div>
-        <span style="font-size:0.75rem;color:var(--text-muted);">點擊任何一天進入詳細時間軸</span>
+        <div class="itinerary-sub-title">ITINERARY <span>/ 每日行程分幕手帳 (Chronicle Index)</span></div>
+        <span style="font-size:0.75rem;color:var(--text-muted);">點擊任何一日查閱完整時間軸與輿圖導航</span>
       </div>
 
       <!-- The 9 Stages List matching reference image layout -->
@@ -2107,7 +2278,7 @@
             </div>
             <h2 class="stage-title">第一階段：都會夜色與自駕啟程</h2>
             <div class="stage-route">
-              <span>機場取車</span> <span class="arrow">➔</span>
+              <span>辦理入境並提取商務車</span> <span class="arrow">➔</span>
               <span>Staria 商務車</span> <span class="arrow">➔</span>
               <span>恩平 Ribbon Stay</span> <span class="arrow">➔</span>
               <span>專屬車位安睡</span>
@@ -2185,12 +2356,12 @@
               <span class="stage-date-badge">◈ 10.20 二 ◈</span>
               <span class="stage-region">首爾 · 漢南洞 / 馬場洞</span>
             </div>
-            <h2 class="stage-title">漢陽雅興：名店選豆、還車與頂級韓牛</h2>
+            <h2 class="stage-title">漢陽雅興：名店選豆、歸還車輛與頂級韓牛</h2>
             <div class="stage-route">
               <span>GML 世界選豆吧</span> <span class="arrow">➔</span>
               <span>MUTAN 松露炸醬麵</span> <span class="arrow">➔</span>
               <span>聖水洞甜點</span> <span class="arrow">➔</span>
-              <span>首爾站門市還車</span> <span class="arrow">➔</span>
+              <span>首爾站門市歸還車輛</span> <span class="arrow">➔</span>
               <span>馬場洞 1++ 雪花韓牛</span> <span class="arrow">➔</span>
               <span>Pine&Co 酒吧</span>
             </div>
@@ -2271,7 +2442,7 @@
               <span>挾才海景海女拉麵</span> <span class="arrow">➔</span>
               <span>東門市場採買伴手禮</span> <span class="arrow">➔</span>
               <span>三姓穴活章魚海鮮鍋</span> <span class="arrow">➔</span>
-              <span>19:00 機場還車</span> <span class="arrow">➔</span>
+              <span>19:00 機場歸還車輛</span> <span class="arrow">➔</span>
               <span>真航空 LJ713 返港</span>
             </div>
           </div>
@@ -2310,17 +2481,17 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- VIEW 3: INFO 旅程須知 -->
+    <!-- VIEW 3: INFO 旅程必讀須知 (Travel Essentials) -->
     <!-- ============================================== -->
     <div class="tab-panel" id="view-info">
       <div class="header-tracking-label">TRAVEL ESSENTIALS</div>
-      <h1 class="main-hero-title">旅程須知與自駕指南</h1>
+      <h1 class="main-hero-title">旅程必讀須知 (Travel Essentials)與自駕指南</h1>
 
       <div class="panel-card">
         <h3 class="panel-card-title">🚗 韓國自駕與導航重要規範</h3>
         <p class="event-p">• <b>導航系統：</b> 韓國境內 Google Maps 不支援駕車導航，必須使用 <b>Naver Map</b> 或 <b>Kakao Map</b>（App 內建一鍵直達按鈕）。</p>
         <p class="event-p">• <b>公路收費站：</b> 本車若無 Hi-Pass 感應卡，行駛高速公路收費站時請務必行駛 <b>藍色或灰色車道</b> (現金/信用卡通道)，切勿走 Hi-Pass 專用道。</p>
-        <p class="event-p">• <b>市區停車：</b> 首爾與濟州市民宿均已配備免費專屬停車位；市區外出行建議使用 Kakao Parking 或樂天 Outlets / 商場附屬停車場。</p>
+        <p class="event-p">• <b>市區停車：</b> 首爾與濟州市民宿均已配備免費專屬泊車位；市區外出行建議使用 Kakao Parking 或樂天 Outlets / 商場附屬停車場。</p>
       </div>
 
       <div class="panel-card">
@@ -2341,7 +2512,7 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- VIEW 4: MONEY 匯率分賬 -->
+    <!-- VIEW 4: MONEY 公費分賬與即時匯率 (Finance & Currency) -->
     <!-- ============================================== -->
         <div class="tab-panel" id="view-money">
       <div class="header-tracking-label">CURRENCY & EXPENSE SPLITTER</div>
@@ -2483,7 +2654,7 @@
         <h3 class="panel-card-title">🚗 自駕租車詳情 (Car Rentals)</h3>
         <p class="event-p"><b>首爾段 (10/16 - 10/20)：</b> Hyundai Staria 9人商務車<br>
         • 取車：10/16 22:30 仁川機場 T1 1樓 12號門 (GATE 12) ｜ 電話: +82-10-3212-6215<br>
-        • 還車：10/20 22:00前 首爾站門市 (서울 중구 한강대로 405)<br>
+        • 歸還車輛：10/20 22:00前 首爾站門市 (서울 중구 한강대로 405)<br>
         • 取車 PIN 碼：<b style="color:var(--color-gold);">3410</b> ｜ 按金約 KRW 100,000</p>
         <hr style="border:none;border-top:1px solid var(--border-subtle);margin:10px 0;">
         <p class="event-p"><b>濟州段 (10/21 - 10/24)：</b> IONIQ 9 4WD 純電 7人座<br>
@@ -2495,7 +2666,7 @@
       <div class="panel-card">
         <h3 class="panel-card-title">🏨 住宿安排 (Accommodations)</h3>
         <p class="event-p"><b>D1 首爾恩平：</b> Ribbon Stay (리본스테이)<br>
-        서울 은평구 연서로3길 8 ｜ 自帶免費專屬停車位 ｜ 電子密碼鎖自助入住</p>
+        서울 은평구 연서로3길 8 ｜ 自帶免費專屬泊車位 ｜ 電子密碼鎖自助入住</p>
         <hr style="border:none;border-top:1px solid var(--border-subtle);margin:8px 0;">
         <p class="event-p"><b>D2~D5 首爾延南：</b> MEMORYSTAY CASA Yeonnam<br>
         서울 마포구 연남로7길 26 ｜ 延南洞獨棟韓屋 ｜ 1樓提供行李寄存</p>
@@ -2509,7 +2680,7 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- VIEW 6: FOOD 美食酒吧 & 備用清單 (BACKUP LIST) -->
+    <!-- VIEW 6: FOOD 美饌與品酩 (Gastronomy & Bars) & 備用清單 (BACKUP LIST) -->
     <!-- ============================================== -->
         <div class="tab-panel" id="view-food">
       <div class="header-tracking-label">BACKUP CULINARY & BARS</div>
@@ -2816,7 +2987,7 @@
             <div class="phrase-pron">Gisa-nim, i juso-ro gajuseyo.</div>
             <div class="phrase-cn">司機大哥，請載我們到這個地址。</div>
           </div>
-          <div class="phrase-tag">🚕 搭乘的士 / 導航</div>
+          <div class="phrase-tag">🚕 乘搭的士 / 導航</div>
         </div>
 
         <!-- Card 2 -->
@@ -2846,7 +3017,7 @@
             <div class="phrase-pron">Jeohui daseot-myeong danche sajin han jang-man jjigeo-jusigesseoyo?</div>
             <div class="phrase-cn">請問可以幫我們 5 個人拍張合照嗎？</div>
           </div>
-          <div class="phrase-tag">📸 景點打卡 / 拍照求助</div>
+          <div class="phrase-tag">📸 景點造訪簽到 / 拍照求助</div>
         </div>
 
         <!-- Card 5 -->
@@ -2866,7 +3037,7 @@
             <div class="phrase-pron">Renteuka yeyak-haesseumnida.</div>
             <div class="phrase-cn">我們有預訂租車，這是我們的預訂確認單。</div>
           </div>
-          <div class="phrase-tag">🚗 機場租車 / 取還車</div>
+          <div class="phrase-tag">🚗 機場租車 / 取歸還車輛</div>
         </div>
 
         <!-- Card 7 -->
@@ -2895,7 +3066,7 @@
   </main>
 
   <!-- Floating Toast -->
-  <div id="antiqueToast">已複製至剪貼簿</div>
+  <div id="antiqueToast">已複製至剪貼簿至剪貼簿</div>
 
   <!-- Detailed Day Itinerary Data & Script -->
   <script>
@@ -2905,14 +3076,14 @@
         date: "10/16 星期五",
         region: "首爾仁川 · 恩平區",
         title: "第一階段：都會夜色與自駕啟程",
-        highlight: "✈️ UO626 抵達 ➔ 提取 Hyundai Staria ➔ 恩平 Ribbon Stay 自帶免費停車位",
+        highlight: "✈️ UO626 抵達 ➔ 提取 Hyundai Staria ➔ 恩平 Ribbon Stay 自帶免費專屬泊車位",
         events: [
           {
             time: "🛫 16:55 ➔ 21:35",
             cat: "FLIGHT",
             title: "香港國際機場 T2 ➔ 仁川國際機場 T1",
             hangul: "홍콩익스프레스 UO626 / 인천공항 T1",
-            desc: "搭乘香港快運 UO626 班機抵達仁川機場 T1。辦理入境手續並提取行李。",
+            desc: "乘搭香港快運 UO626 航班抵達仁川機場 T1。辦理入境手續並提取行李。",
             copyVal: "UO626"
           },
           {
@@ -2937,7 +3108,7 @@
             cat: "STAY",
             title: "入住首爾恩平區：Ribbon Stay (리본스테이)",
             hangul: "서울 은평구 연서로3길 8（鷹岩站步行7分）",
-            desc: "整套房源，電子密碼鎖自助入住。自帶【免費專屬停車位】，Staria 商務車可直接停泊！",
+            desc: "整套房源，電子密碼鎖自助入住。自帶【免費專屬泊車位】，Staria 商務車可直接停泊！",
             tip: "💡 守則：10/17 11:00 前退房；垃圾分類（廚餘放水槽紫色專用袋）；離房請關冷氣。",
             naver: "https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%9D%80%ED%8F%89%EA%B5%AC%20%EC%97%B0%EC%84%9C%EB%A1%9C3%EA%B8%B8%208",
             copyVal: "서울 은평구 연서로3길 8"
@@ -3196,8 +3367,8 @@
         num: 5,
         date: "10/20 星期二",
         region: "首爾 · 漢南洞 / 馬場洞",
-        title: "漢陽雅興：名店選豆、還車與頂級韓牛",
-        highlight: "☕ 漢南手沖巡禮 ➔ 🚗 首爾站門市還車 ➔ 🥩 馬場洞 1++ 炭火韓牛",
+        title: "漢陽雅興：名店選豆、歸還車輛與頂級韓牛",
+        highlight: "☕ 漢南手沖巡禮 ➔ 🚗 首爾站門市歸還車輛 ➔ 🥩 馬場洞 1++ 炭火韓牛",
         events: [
           {
             time: "☕ 09:30",
@@ -3219,12 +3390,12 @@
             desc: "招牌黑松露牛排炸醬麵、爆漿黃金麵包蝦（멘보샤）。"
           },
           {
-            transit: "🚗 自駕前往首爾站門市還車，行車約 25 分鐘"
+            transit: "🚗 自駕前往首爾站門市歸還車輛，行車約 25 分鐘"
           },
           {
             time: "🚗 18:30 ➔ 19:30",
             cat: "CAR RETURN",
-            title: "【首爾站門市】辦理還車（最晚 22:00 前）",
+            title: "【首爾站門市】辦理歸還車輛（最晚 22:00 前）",
             hangul: "서울 중구 한강대로 405 (首爾站門市 / 樂天Outlets旁)",
             desc: "直接於首爾站門市完成商務車歸還手續。順訪樂天 Outlets。",
             naver: "https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EA%B5%AC%20%ED%95%9C%EA%B0%95%EB%8C%80%EB%A1%9C%20405"
@@ -3263,10 +3434,10 @@
             cat: "FLIGHT",
             title: "金浦機場 (GMP) ➔ 濟州機場 (CJU)",
             hangul: "이스타항공 ZE207",
-            desc: "05:45 出發往金浦。搭乘易斯達航空 ZE207 抵達濟州機場領取行李。"
+            desc: "05:45 出發往金浦。乘搭易斯達航空 ZE207 抵達濟州機場領取行李。"
           },
           {
-            transit: "🚌 機場 5號門搭乘樂天免費接駁車約 8 分鐘"
+            transit: "🚌 機場 5號門乘搭樂天免費接駁車約 8 分鐘"
           },
           {
             time: "⚡ 09:30",
@@ -3421,7 +3592,7 @@
             time: "🍊 15:30",
             cat: "FARM",
             title: "西歸浦秋季親採新鮮柑橘農場體驗",
-            desc: "親手剪下秋季甜美多汁的濟州柑橘，果園內設有可愛拍照打卡場景。"
+            desc: "親手剪下秋季甜美多汁的濟州柑橘，果園內設有可愛拍照造訪簽到場景。"
           },
           {
             transit: "🚗 自駕約 15 分鐘至市中心"
@@ -3495,9 +3666,9 @@
           {
             time: "🚗 19:00",
             cat: "CAR RETURN",
-            title: "濟州 LOTTE Auto House 還車 ➔ 機場接駁",
+            title: "濟州 LOTTE Auto House 歸還車輛 ➔ 機場接駁",
             hangul: "롯데렌터카 오토하우스",
-            desc: "歸還純電車 IONIQ 9，搭乘免費接駁車前往濟州機場國際航廈，辦理退稅。"
+            desc: "歸還純電車 IONIQ 9，乘搭免費接駁車前往濟州機場國際航廈，辦理退稅。"
           },
           {
             transit: "🚶 辦理出境與 Tax Free 退稅手續"
@@ -3507,7 +3678,7 @@
             cat: "FLIGHT",
             title: "濟州機場 (CJU) ➔ 香港國際機場 T1",
             hangul: "진에어 LJ713",
-            desc: "搭乘真航空 LJ713 班機返回香港。平安滿載美好回憶返抵家門！"
+            desc: "乘搭真航空 LJ713 航班返回香港。平安滿載美好回憶返抵家門！"
           }
         ]
       }
@@ -3532,7 +3703,7 @@
         visitedSet.delete(key);
       } else {
         visitedSet.add(key);
-        showToast('已完成打卡 ✨');
+        showToast('已完成造訪簽到 ✨');
       }
       try {
         localStorage.setItem('korea_visited_items', JSON.stringify(Array.from(visitedSet)));
@@ -3543,7 +3714,7 @@
         card.classList.toggle('completed', visitedSet.has(key));
       }
       btn.classList.toggle('done', visitedSet.has(key));
-      btn.innerText = visitedSet.has(key) ? '已完成 ✓' : '打卡 ✓';
+      btn.innerText = visitedSet.has(key) ? '已完成 ✓' : '造訪簽到 ✓';
       updateProgressUI();
     }
 
@@ -3554,7 +3725,7 @@
       const fill = document.getElementById('progressBarFill');
       const text = document.getElementById('progressStatusText');
       if (fill) fill.style.width = pct + '%';
-      if (text) text.innerText = `已打卡 ${count} / ${totalCount} 個行程 (${pct}%)`;
+      if (text) text.innerText = `已造訪簽到 ${count} / ${totalCount} 個行程 (${pct}%)`;
     }
 
     // View Switching
@@ -3566,8 +3737,7 @@
 
     function showView(viewId) {
       document.querySelectorAll('.tab-panel, .day-detail-section').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.side-nav-item').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.side-day-btn').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.editorial-tab-btn, .side-nav-item').forEach(el => el.classList.remove('active'));
 
       const target = document.getElementById('view-' + viewId);
       if (target) target.classList.add('active');
@@ -3575,11 +3745,6 @@
       const navBtn = document.getElementById('btn-nav-' + viewId);
       if (navBtn) navBtn.classList.add('active');
 
-      // Update mobile bottom nav
-      updateBottomNavActive(viewId);
-
-      const sidebar = document.getElementById('appSidebar');
-      toggleSidebar(false);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -3677,10 +3842,10 @@
             ${ev.tip ? `<div class="event-tip">${ev.tip}</div>` : ''}
             <div class="event-actions-bar">
               ${ev.naver ? `<a class="btn-act naver" href="${ev.naver}" target="_blank">🧭 Naver 導航</a>` : ''}
-              ${ev.copyVal ? `<button class="btn-act" onclick="copyValue('${ev.copyVal}', '${ev.copyLabel || '已複製韓文內容'}')">📋 ${ev.copyLabel || '複製'}</button>` : ''}
+              ${ev.copyVal ? `<button class="btn-act" onclick="copyValue('${ev.copyVal}', '${ev.copyLabel || '已複製至剪貼簿韓文內容'}')">📋 ${ev.copyLabel || '複製'}</button>` : ''}
               ${ev.tel ? `<a class="btn-act" href="tel:${ev.tel}">📞 ${ev.tel}</a>` : ''}
               <button class="btn-act check ${isDone ? 'done' : ''}" onclick="toggleVisitItem('${itemKey}', this)">
-                ${isDone ? '已完成 ✓' : '打卡 ✓'}
+                ${isDone ? '已完成 ✓' : '造訪簽到 ✓'}
               </button>
             </div>
           </div>
@@ -3694,7 +3859,7 @@
     // Toast and Copy
     function copyValue(text, msg) {
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(() => showToast(msg || '已複製'));
+        navigator.clipboard.writeText(text).then(() => showToast(msg || '已複製至剪貼簿'));
       } else {
         const ta = document.createElement('textarea');
         ta.value = text;
@@ -3704,7 +3869,7 @@
         ta.select();
         document.execCommand('copy');
         document.body.removeChild(ta);
-        showToast(msg || '已複製');
+        showToast(msg || '已複製至剪貼簿');
       }
     }
 
@@ -4088,7 +4253,7 @@
       text += `\n📋 記賬項目共 ${expenses.length} 筆。`;
 
       copyValue(text);
-      showToast('已複製 WhatsApp 結算摘要！可以直接貼至群組 📲');
+      showToast('已複製至剪貼簿 WhatsApp 結算摘要！可以直接貼至群組 📲');
     }
 
     // 4. Smart Packing Checklist with LocalStorage
@@ -4142,10 +4307,10 @@
     }
 
     function resetChecklist() {
-      if (confirm('確定要重置行李清單勾選狀態嗎？')) {
+      if (confirm('確定要重置行裝備忘清單 (Packing Checklist)勾選狀態嗎？')) {
         document.querySelectorAll('.check-item').forEach(el => el.classList.remove('completed'));
         saveChecklist();
-        showToast('行李清單已重置');
+        showToast('行裝備忘清單 (Packing Checklist)已重置');
       }
     }
 
