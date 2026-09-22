@@ -4595,14 +4595,13 @@
       if (sEl) sEl.innerText = secs < 10 ? '0' + secs : secs;
     }
 
-    // 2. Bi-directional Currency Converter (KRW ⇄ HKD)
+    // 2. Bi-directional Currency Converter & Family Expense Ledger (NO 5-PERSON SPLIT)
     const KRW_TO_HKD_RATE = 0.0057;
 
     function convertFromKrw() {
       const elKrw = document.getElementById('calcKrwInput');
       const elHkd = document.getElementById('calcHkdInput');
       const elTotal = document.getElementById('resTotalConverted');
-      const elSplit = document.getElementById('resSplit5');
 
       if (!elKrw || !elHkd) return;
 
@@ -4610,39 +4609,35 @@
       if (krw === 0) {
         elHkd.value = '';
         if (elTotal) elTotal.innerText = 'HK$ 0';
-        if (elSplit) elSplit.innerText = 'HK$ 0 / 人';
         return;
       }
 
       const hkd = Math.round(krw * KRW_TO_HKD_RATE);
       elHkd.value = hkd;
       if (elTotal) elTotal.innerText = 'HK$ ' + hkd.toLocaleString();
-      if (elSplit) elSplit.innerText = 'HK$ ' + Math.round(hkd / 5).toLocaleString() + ' / 人';
     }
 
     function convertFromHkd() {
       const elKrw = document.getElementById('calcKrwInput');
       const elHkd = document.getElementById('calcHkdInput');
       const elTotal = document.getElementById('resTotalConverted');
-      const elSplit = document.getElementById('resSplit5');
 
       if (!elKrw || !elHkd) return;
 
       const hkd = parseFloat(elHkd.value) || 0;
       if (hkd === 0) {
         elKrw.value = '';
-        if (elTotal) elTotal.innerText = '₩ 0';
-        if (elSplit) elSplit.innerText = 'HK$ 0 / 人';
+        if (elTotal) elTotal.innerText = 'HK$ 0';
         return;
       }
 
       const krw = Math.round(hkd / KRW_TO_HKD_RATE);
       elKrw.value = krw;
-      if (elTotal) elTotal.innerText = '₩ ' + krw.toLocaleString();
-      if (elSplit) elSplit.innerText = 'HK$ ' + Math.round(hkd / 5).toLocaleString() + ' / 人';
+      if (elTotal) elTotal.innerText = 'HK$ ' + hkd.toLocaleString();
     }
 
     function addKrwPreset(amt) {
+      triggerHaptic('light');
       const el = document.getElementById('calcKrwInput');
       if (!el) return;
       const cur = parseFloat(el.value) || 0;
@@ -4651,24 +4646,22 @@
     }
 
     function clearCalcBi() {
+      triggerHaptic('light');
       const elKrw = document.getElementById('calcKrwInput');
       const elHkd = document.getElementById('calcHkdInput');
       const elTotal = document.getElementById('resTotalConverted');
-      const elSplit = document.getElementById('resSplit5');
 
       if (elKrw) elKrw.value = '';
       if (elHkd) elHkd.value = '';
       if (elTotal) elTotal.innerText = 'HK$ 0';
-      if (elSplit) elSplit.innerText = 'HK$ 0 / 人';
     }
 
-    // 3. Group Expense Splitter & Settlement Matrix
-    const GROUP_MEMBERS = ['Leung', 'Joyce', '同伴 A', '同伴 B', '同伴 C'];
+    // 3. Family Travel Expense Ledger (Clean, No Split)
     let expenses = [];
 
     function loadExpenses() {
       try {
-        const saved = localStorage.getItem('korea_expenses_v6');
+        const saved = localStorage.getItem('korea_expenses_v2026');
         if (saved) {
           expenses = JSON.parse(saved) || [];
         }
@@ -4679,179 +4672,128 @@
     }
 
     function addExpenseRecord() {
+      triggerHaptic('medium');
       const elName = document.getElementById('expName');
       const elAmount = document.getElementById('expAmount');
       const elCur = document.getElementById('expCurrency');
-      const elPayer = document.getElementById('expPayer');
       const elCat = document.getElementById('expCategory');
 
       if (!elName || !elAmount) return;
 
       const name = elName.value.trim();
       const amount = parseFloat(elAmount.value) || 0;
-      const cur = elCur ? elCur.value : 'KRW';
-      const payer = elPayer ? elPayer.value : 'Leung';
-      const cat = elCat ? elCat.value : '🍽️ 餐飲美食';
+      const currency = elCur ? elCur.value : 'KRW';
+      const category = elCat ? elCat.value : '🍽️ 餐飲美食';
 
-      if (!name || amount <= 0) {
-        showToast('請輸入項目名稱與有效金額！');
+      if (!name) {
+        showToast('請輸入開銷項目名稱！');
+        return;
+      }
+      if (amount <= 0) {
+        showToast('請輸入有效金額！');
         return;
       }
 
-      const hkdAmount = (cur === 'KRW') ? Math.round(amount * KRW_TO_HKD_RATE) : amount;
+      let hkdAmount = (currency === 'KRW') ? Math.round(amount * KRW_TO_HKD_RATE) : amount;
 
-      const record = {
+      const newExp = {
         id: Date.now(),
         name,
-        origAmount: amount,
-        currency: cur,
+        amount,
+        currency,
         hkdAmount,
-        payer,
-        cat,
-        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        category,
+        date: new Date().toLocaleTimeString('zh-HK', { hour: '2-digit', minute: '2-digit' })
       };
 
-      expenses.unshift(record);
+      expenses.unshift(newExp);
       saveExpenses();
+      renderExpenses();
+
       elName.value = '';
       elAmount.value = '';
-      showToast('已記錄支出：' + name);
+      showToast('已記錄開銷：' + name + ' (HK$ ' + hkdAmount.toLocaleString() + ')');
     }
 
     function deleteExpense(id) {
+      triggerHaptic('medium');
       expenses = expenses.filter(e => e.id !== id);
       saveExpenses();
-      showToast('已刪除支出項目');
+      renderExpenses();
+      showToast('已刪除開銷記錄');
     }
 
     function clearAllExpenses() {
-      if (expenses.length === 0) {
-        showToast('目前尚無記賬支出！');
-        return;
-      }
-      if (confirm('確定要清空所有支出記賬嗎？此操作不可還原。')) {
+      if (expenses.length === 0) return;
+      if (confirm('確定要清空所有旅程記賬嗎？')) {
+        triggerHaptic('medium');
         expenses = [];
         saveExpenses();
-        showToast('記賬已全部清空');
+        renderExpenses();
+        showToast('已清空所有記賬');
       }
     }
 
     function saveExpenses() {
       try {
-        localStorage.setItem('korea_expenses_v6', JSON.stringify(expenses));
-      } catch(e){}
-      renderExpenses();
+        localStorage.setItem('korea_expenses_v2026', JSON.stringify(expenses));
+      } catch(e) {}
     }
 
     function renderExpenses() {
       const container = document.getElementById('expenseListContainer');
-      const elTotal = document.getElementById('statTotalExpense');
-      const elAvg = document.getElementById('statAvgExpense');
-      const sContainer = document.getElementById('settlementList');
+      const statTotal = document.getElementById('statTotalExpense');
+      const statCount = document.getElementById('statExpenseCount');
 
-      if (!container) return;
+      if (!container || !statTotal || !statCount) return;
 
-      const totalHkd = expenses.reduce((sum, e) => sum + (e.hkdAmount || 0), 0);
-      const avgPerPerson = Math.round(totalHkd / 5);
+      let totalHkd = 0;
+      expenses.forEach(e => totalHkd += (e.hkdAmount || 0));
+      totalHkd = Math.round(totalHkd);
 
-      if (elTotal) elTotal.innerText = 'HK$ ' + totalHkd.toLocaleString();
-      if (elAvg) elAvg.innerText = 'HK$ ' + avgPerPerson.toLocaleString() + ' / 人';
+      statTotal.innerText = 'HK$ ' + totalHkd.toLocaleString();
+      statCount.innerText = expenses.length + ' 筆';
 
       if (expenses.length === 0) {
-        container.innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem;padding:16px;text-align:center;">尚無記賬記錄，填寫上方表單即可開始記賬！</div>';
-        if (sContainer) sContainer.innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem;">暫無記賬支出，請先新增項目。</div>';
+        container.innerHTML = '<div style="color:var(--text-muted);font-size:0.85rem;padding:12px;text-align:center;">暫無記賬支出，請在上方新增開銷項目。</div>';
         return;
       }
 
       let html = '';
       expenses.forEach(e => {
         html += `
-          <div class="expense-item">
+          <div class="expense-item" style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border-subtle);background:var(--bg-card);border-radius:6px;margin-bottom:8px;">
             <div>
-              <div class="expense-title">${e.cat || '支出'} · ${e.name}</div>
-              <div class="expense-meta">付款人：<b style="color:var(--color-celadon);">${e.payer}</b> ｜ ${e.time || ''}</div>
+              <div style="font-weight:600;font-size:0.92rem;color:var(--text-main);">${e.category} <b>${e.name}</b></div>
+              <div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px;">
+                原幣：${e.currency === 'KRW' ? '₩ ' : 'HK$ '}${e.amount.toLocaleString()} ｜ ${e.date}
+              </div>
             </div>
             <div style="display:flex;align-items:center;gap:12px;">
-              <div class="expense-amt">
-                <div>HK$ ${(e.hkdAmount || 0).toLocaleString()}</div>
-                ${e.currency === 'KRW' ? `<div style="font-size:0.7rem;color:var(--text-muted);">₩ ${(e.origAmount || 0).toLocaleString()}</div>` : ''}
-              </div>
-              <button class="expense-del-btn" onclick="deleteExpense(${e.id})" title="刪除">✕</button>
+              <span style="font-weight:700;color:var(--color-gold-bright);font-size:1rem;">HK$ ${Math.round(e.hkdAmount).toLocaleString()}</span>
+              <button onclick="deleteExpense(${e.id})" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1rem;" title="刪除">✕</button>
             </div>
           </div>
         `;
       });
       container.innerHTML = html;
-
-      calculateSettlement(totalHkd, avgPerPerson);
     }
 
-    function calculateSettlement(total, avg) {
-      let balances = {};
-      GROUP_MEMBERS.forEach(m => balances[m] = 0);
-
-      expenses.forEach(e => {
-        if (balances[e.payer] !== undefined) {
-          balances[e.payer] += (e.hkdAmount || 0);
-        } else {
-          balances[e.payer] = (e.hkdAmount || 0);
-        }
-      });
-
-      let debtors = [];
-      let creditors = [];
-
-      GROUP_MEMBERS.forEach(m => {
-        const net = balances[m] - avg;
-        if (net < -1) {
-          debtors.push({ name: m, amount: -net });
-        } else if (net > 1) {
-          creditors.push({ name: m, amount: net });
-        }
-      });
-
-      let settlements = [];
-      let dIdx = 0, cIdx = 0;
-      while (dIdx < debtors.length && cIdx < creditors.length) {
-        let deb = debtors[dIdx];
-        let cred = creditors[cIdx];
-        let minAmt = Math.min(deb.amount, cred.amount);
-
-        settlements.push({
-          from: deb.name,
-          to: cred.name,
-          amount: Math.round(minAmt)
-        });
-
-        deb.amount -= minAmt;
-        cred.amount -= minAmt;
-
-        if (deb.amount <= 1) dIdx++;
-        if (cred.amount <= 1) cIdx++;
+    function exportExpensesToWhatsApp() {
+      triggerHaptic('success');
+      if (expenses.length === 0) {
+        showToast('暫無記賬可複製');
+        return;
       }
-
-      const sContainer = document.getElementById('settlementList');
-      if (!sContainer) return;
-
-      if (settlements.length === 0) {
-        sContainer.innerHTML = '<div style="color:var(--color-celadon);font-size:0.85rem;">🎉 全員已平賬，互不相欠！</div>';
-      } else {
-        let sHtml = '';
-        settlements.forEach(s => {
-          sHtml += `
-            <div class="settlement-step">
-              <span style="color:#E5C378;font-weight:700;">${s.from}</span>
-              <span style="color:var(--text-muted);">應轉給</span>
-              <span style="color:var(--color-celadon);font-weight:700;">${s.to}</span>
-              <span style="font-family:'JetBrains Mono';font-weight:800;color:var(--color-gold-bright);margin-left:auto;">HK$ ${s.amount.toLocaleString()}</span>
-            </div>
-          `;
-        });
-        sContainer.innerHTML = sHtml;
-      }
+      let totalHkd = 0;
+      let text = '🍁【Lai’s Family Seoul & Jeju 2026】旅程開銷清單：\n';
+      expenses.forEach((e, idx) => {
+        totalHkd += (e.hkdAmount || 0);
+        text += `${idx + 1}. ${e.name} (${e.category}): HK$ ${Math.round(e.hkdAmount)} (${e.currency} ${e.amount})\n`;
+      });
+      text += `----------------------\n💰 累積總開銷：HK$ ${Math.round(totalHkd).toLocaleString()}`;
+      copyValue(text, '已複製開銷清單至剪貼簿');
     }
-
-    
 
     // 4. Smart Packing Checklist with LocalStorage
     function loadChecklist() {
