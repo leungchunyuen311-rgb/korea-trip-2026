@@ -10,6 +10,11 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="format-detection" content="telephone=no">
   <meta name="theme-color" content="#121110">
+  <link rel="icon" type="image/jpeg" href="cover.jpg">
+  <link rel="apple-touch-icon" href="cover.jpg">
+  <link rel="apple-touch-icon-precomposed" href="cover.jpg">
+  <link rel="shortcut icon" href="cover.jpg">
+  <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Lai’s Family Seoul & Jeju Trip 2026">
@@ -2255,14 +2260,13 @@
     }
 
     /* =========================================================
-       NATIVE MOBILE APP (PWA / iOS STANDALONE) OPTIMIZATIONS
+       LUXURY MOBILE APP ELEVATIONS & VOUCHERS
        ========================================================= */
     :root {
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
 
-    /* Prevent accidental text selection / highlight on mobile touch */
     * {
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
@@ -2272,7 +2276,274 @@
       padding-top: max(var(--safe-top), 0px);
     }
 
-    /* Mobile Bottom Navigation Dock (Native iOS App Style) */
+    /* 1. Fullscreen Luxury Photo Lightbox Gallery */
+    .photo-lightbox-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 10000;
+      background: rgba(8, 7, 6, 0.95);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .photo-lightbox-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox-close-btn {
+      position: absolute;
+      top: max(var(--safe-top), 20px);
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(197, 160, 89, 0.2);
+      border: 1px solid rgba(197, 160, 89, 0.45);
+      color: var(--color-gold-bright);
+      font-size: 1.4rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10001;
+      transition: all 0.2s;
+    }
+    .lightbox-close-btn:active {
+      transform: scale(0.92);
+      background: rgba(197, 160, 89, 0.35);
+    }
+    .lightbox-content-box {
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(197, 160, 89, 0.5);
+      outline: 3px double rgba(197, 160, 89, 0.3);
+      outline-offset: -6px;
+      background: #141311;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
+      animation: lightboxZoomIn 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes lightboxZoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .lightbox-img-frame {
+      width: 100%;
+      max-height: 70vh;
+      overflow: hidden;
+      background: #080706;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      display: block;
+    }
+    .lightbox-caption-bar {
+      width: 100%;
+      padding: 16px 20px;
+      background: #181715;
+      border-top: 1px solid rgba(197, 160, 89, 0.25);
+      text-align: center;
+    }
+    .lightbox-title {
+      font-family: var(--font-serif);
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--color-gold-bright);
+      margin-bottom: 4px;
+    }
+    .lightbox-sub {
+      font-family: var(--font-serif);
+      font-size: 0.85rem;
+      color: #D4C9B8;
+      letter-spacing: 0.02em;
+    }
+
+    /* 2. Photo Zoom Tip & Weather Pills on Day Hero Banner */
+    .day-poster-zoom-tip {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      z-index: 3;
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--color-gold-bright);
+      background: rgba(18, 17, 16, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(197, 160, 89, 0.35);
+      padding: 4px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .day-hero-poster-card:hover .day-poster-zoom-tip {
+      background: rgba(197, 160, 89, 0.25);
+      border-color: var(--color-gold-bright);
+    }
+    .day-poster-top-pills {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .day-weather-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-serif);
+      font-size: 0.74rem;
+      color: #F4EFEB;
+      background: rgba(197, 160, 89, 0.14);
+      border: 1px solid rgba(197, 160, 89, 0.32);
+      padding: 3px 10px;
+      border-radius: 4px;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    /* 3. Thumbnail Zoom Indicator on Stage Item */
+    .thumb-zoom-badge {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      font-size: 0.62rem;
+      font-family: var(--font-serif);
+      color: #FFFFFF;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 2px 6px;
+      border-radius: 3px;
+      pointer-events: none;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .stage-item:hover .thumb-zoom-badge {
+      opacity: 1;
+      background: rgba(197, 160, 89, 0.85);
+      color: #121110;
+      border-color: var(--color-gold-bright);
+    }
+
+    /* 4. Apple Wallet Style Pass Vouchers */
+    .quick-dock-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .quick-pill-item {
+      position: relative;
+      background: linear-gradient(135deg, #1C1B18 0%, #161513 100%);
+      border: 1px solid rgba(197, 160, 89, 0.32);
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+      transition: all 0.2s ease;
+      overflow: hidden;
+    }
+    .quick-pill-item:hover {
+      border-color: rgba(197, 160, 89, 0.6);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+    }
+    .quick-pill-item::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 3px; height: 100%;
+      background: linear-gradient(180deg, var(--color-gold-bright), var(--color-gold-dim));
+    }
+    .voucher-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .voucher-label {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+    }
+    .voucher-value {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.04em;
+    }
+
+    /* 5. Quick Currency Cheatsheet Bar */
+    .currency-cheatsheet-card {
+      margin-top: 18px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      background: rgba(197, 160, 89, 0.06);
+      border: 1px solid rgba(197, 160, 89, 0.22);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cheatsheet-title {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      color: var(--color-gold-bright);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cheatsheet-pills-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+    .cheatsheet-pills-row::-webkit-scrollbar {
+      display: none;
+    }
+    .krw-chip {
+      flex-shrink: 0;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: #1C1B18;
+      border: 1px solid rgba(197, 160, 89, 0.25);
+      font-family: var(--font-serif);
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .krw-chip:active {
+      transform: scale(0.95);
+      border-color: var(--color-gold);
+    }
+    .krw-chip b {
+      color: var(--color-gold-bright);
+    }
+
+    /* 6. Native Mobile App Bottom Nav Dock */
     .mobile-bottom-nav {
       display: none;
       position: fixed;
@@ -2290,7 +2561,6 @@
       align-items: center;
       box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.7);
     }
-
     .bot-nav-btn {
       display: flex;
       flex-direction: column;
@@ -2356,7 +2626,7 @@
         height: 36px !important;
       }
       .editorial-nav-dock {
-        display: none !important; /* Bottom nav handles primary navigation on mobile */
+        display: none !important;
       }
       .stage-item {
         flex-direction: column !important;
@@ -2473,7 +2743,7 @@
 
             <!-- 🌟 Hero Cover Poster Banner (cover.jpg) -->
       <div class="hero-cover-container" id="heroCoverContainer">
-        <div class="hero-cover-card">
+        <div class="hero-cover-card" onclick="openPhotoLightbox('cover.jpg', 'Lai’s Family Seoul & Jeju Trip 2026', '首爾・加平・濟州島 ｜ 九天八夜雙城自駕典藏封面海報')" style="cursor:pointer;">
           <!-- Direct loading of cover.jpg with automatic case/format fallbacks -->
           <img src="cover.jpg"
                alt="Lai’s Family Seoul & Jeju Trip 2026"
@@ -2544,24 +2814,50 @@
       <!-- Quick Action Logistics Dock (Online travel app best practice) -->
       <div class="quick-dock">
         <div class="quick-dock-title">
-          <span>📜 行程典藏密碼帖 (Archival Quick Directory)</span>
+          <span>🎫 核心自駕憑證與速查券 (Archival Credentials Vouchers)</span>
         </div>
         <div class="quick-dock-grid">
           <div class="quick-pill-item">
-            <span>首爾取車 PIN: <b>3410</b></span>
-            <button class="quick-copy-mini" onclick="copyValue('3410', '已複製至剪貼簿首爾取車 PIN 3410')">複製</button>
+            <div class="voucher-info-col">
+              <span class="voucher-label">首爾仁川自駕 · 取車 PIN</span>
+              <span class="voucher-value">3410</span>
+            </div>
+            <button class="quick-copy-mini" onclick="copyValue('3410', '已複製至剪貼簿：首爾取車 PIN 3410')">📋 複製代碼</button>
           </div>
           <div class="quick-pill-item">
-            <span>首爾租車電話: <b>+82-10-3212-6215</b></span>
-            <button class="quick-copy-mini" onclick="copyValue('+82-10-3212-6215', '已複製至剪貼簿租車電話')">複製</button>
+            <div class="voucher-info-col">
+              <span class="voucher-label">首爾租車 · 聯絡電話</span>
+              <span class="voucher-value">+82-10-3212-6215</span>
+            </div>
+            <button class="quick-copy-mini" onclick="copyValue('+82-10-3212-6215', '已複製至剪貼簿：首爾租車電話')">📋 複製電話</button>
           </div>
           <div class="quick-pill-item">
-            <span>濟州租車預約: <b>2622541225</b></span>
-            <button class="quick-copy-mini" onclick="copyValue('2622541225', '已複製至剪貼簿濟州預約號')">複製</button>
+            <div class="voucher-info-col">
+              <span class="voucher-label">濟州樂天租車 · 預約號碼</span>
+              <span class="voucher-value">2622541225</span>
+            </div>
+            <button class="quick-copy-mini" onclick="copyValue('2622541225', '已複製至剪貼簿：濟州預約號碼')">📋 複製號碼</button>
           </div>
           <div class="quick-pill-item">
-            <span>濟州樂天電話: <b>1588-1230</b></span>
-            <button class="quick-copy-mini" onclick="copyValue('1588-1230', '已複製至剪貼簿樂天電話')">複製</button>
+            <div class="voucher-info-col">
+              <span class="voucher-label">濟州樂天租車 · 服務熱線</span>
+              <span class="voucher-value">1588-1230</span>
+            </div>
+            <button class="quick-copy-mini" onclick="copyValue('1588-1230', '已複製至剪貼簿：濟州樂天熱線')">📋 複製電話</button>
+          </div>
+        </div>
+
+        <!-- 🌟 Quick Currency Cheatsheet Bar -->
+        <div class="currency-cheatsheet-card">
+          <div class="cheatsheet-title">
+            <span>💱 常用韓圓極速換算 (匯率 1 HKD ≈ 173 KRW)</span>
+          </div>
+          <div class="cheatsheet-pills-row">
+            <div class="krw-chip" onclick="showView('money')">₩5,000 ≈ <b>HK$29</b> (街頭小食)</div>
+            <div class="krw-chip" onclick="showView('money')">₩15,000 ≈ <b>HK$87</b> (一人午餐)</div>
+            <div class="krw-chip" onclick="showView('money')">₩30,000 ≈ <b>HK$173</b> (烤肉正餐)</div>
+            <div class="krw-chip" onclick="showView('money')">₩50,000 ≈ <b>HK$289</b> (雙人盛宴)</div>
+            <div class="krw-chip" onclick="showView('money')">₩100,000 ≈ <b>HK$578</b> (大額採購)</div>
           </div>
         </div>
       </div>
@@ -2578,8 +2874,9 @@
         <!-- 01 -->
         <div class="stage-item" onclick="openDay(1)">
           <div class="stage-num">I</div>
-          <div class="stage-thumb-wrap">
+          <div class="stage-thumb-wrap" onclick="event.stopPropagation(); openPhotoLightbox('DAY1.jpg', '第1幕 · 首爾仁川・南山首爾塔街景遠眺', '🌤️ 8°C ~ 18°C ｜ 金秋微涼')">
             <img src="DAY1.jpg" data-day="1" data-try="0" onerror="handleDayImgError(this, 1)" alt="Day 1" class="stage-thumb-img">
+            <span class="thumb-zoom-badge">🔍 放大</span>
           </div>
           <div class="stage-content">
             <div class="stage-top-meta">
@@ -2599,8 +2896,9 @@
         <!-- 02 -->
         <div class="stage-item" onclick="openDay(2)">
           <div class="stage-num">II</div>
-          <div class="stage-thumb-wrap">
+          <div class="stage-thumb-wrap" onclick="event.stopPropagation(); openPhotoLightbox('DAY2.jpg', '第2幕 · 首爾麻浦・延南洞新村招牌活力街景', '🍂 9°C ~ 19°C ｜ 秋高氣爽')">
             <img src="DAY2.jpg" data-day="2" data-try="0" onerror="handleDayImgError(this, 2)" alt="Day 2" class="stage-thumb-img">
+            <span class="thumb-zoom-badge">🔍 放大</span>
           </div>
           <div class="stage-content">
             <div class="stage-top-meta">
@@ -2623,8 +2921,9 @@
         <!-- 03 -->
         <div class="stage-item" onclick="openDay(3)">
           <div class="stage-num">III</div>
-          <div class="stage-thumb-wrap">
+          <div class="stage-thumb-wrap" onclick="event.stopPropagation(); openPhotoLightbox('DAY3.jpg', '第3幕 · 首爾鐘路・北村黑瓦韓屋俯瞰城市天際線', '🍁 7°C ~ 18°C ｜ 早晚溫差顯著')">
             <img src="DAY3.jpg" data-day="3" data-try="0" onerror="handleDayImgError(this, 3)" alt="Day 3" class="stage-thumb-img">
+            <span class="thumb-zoom-badge">🔍 放大</span>
           </div>
           <div class="stage-content">
             <div class="stage-top-meta">
@@ -2647,8 +2946,9 @@
         <!-- 04 -->
         <div class="stage-item" onclick="openDay(4)">
           <div class="stage-num">IV</div>
-          <div class="stage-thumb-wrap">
+          <div class="stage-thumb-wrap" onclick="event.stopPropagation(); openPhotoLightbox('DAY4.jpg', '第4幕 · 京畿道加平・南怡島水杉林火紅秋葉步道', '🍁 6°C ~ 16°C ｜ 山林清冽宜備薄羽絨')">
             <img src="DAY4.jpg" data-day="4" data-try="0" onerror="handleDayImgError(this, 4)" alt="Day 4" class="stage-thumb-img">
+            <span class="thumb-zoom-badge">🔍 放大</span>
           </div>
           <div class="stage-content">
             <div class="stage-top-meta">
@@ -2670,8 +2970,9 @@
         <!-- 05 -->
         <div class="stage-item" onclick="openDay(5)">
           <div class="stage-num">V</div>
-          <div class="stage-thumb-wrap">
+          <div class="stage-thumb-wrap" onclick="event.stopPropagation(); openPhotoLightbox('DAY5.jpg', '第5幕 · 漢南洞坡道與霓虹街景 ➔ 飛往濟州', '🌤️ 11°C ~ 19°C ｜ 跨海溫差適中')">
             <img src="DAY5.jpg" data-day="5" data-try="0" onerror="handleDayImgError(this, 5)" alt="Day 5" class="stage-thumb-img">
+            <span class="thumb-zoom-badge">🔍 放大</span>
           </div>
           <div class="stage-content">
             <div class="stage-top-meta">
@@ -2693,8 +2994,9 @@
         <!-- 06 -->
         <div class="stage-item" onclick="openDay(6)">
           <div class="stage-num">VI</div>
-          <div class="stage-thumb-wrap">
+          <div class="stage-thumb-wrap" onclick="event.stopPropagation(); openPhotoLightbox('DAY6.jpg', '第6幕 · 濟州西歸浦・柑橘體驗農場木牌', '🌊 14°C ~ 21°C ｜ 海風宜人舒爽')">
             <img src="DAY6.jpg" data-day="6" data-try="0" onerror="handleDayImgError(this, 6)" alt="Day 6" class="stage-thumb-img">
+            <span class="thumb-zoom-badge">🔍 放大</span>
           </div>
           <div class="stage-content">
             <div class="stage-top-meta">
@@ -2717,8 +3019,9 @@
         <!-- 07 -->
         <div class="stage-item" onclick="openDay(7)">
           <div class="stage-num">VII</div>
-          <div class="stage-thumb-wrap">
+          <div class="stage-thumb-wrap" onclick="event.stopPropagation(); openPhotoLightbox('DAY7.jpg', '第7幕 · 西歸浦・盛開洋紅山茶花樹林與花瓣步道', '🌺 15°C ~ 22°C ｜ 陽光明媚海風微徐')">
             <img src="DAY7.jpg" data-day="7" data-try="0" onerror="handleDayImgError(this, 7)" alt="Day 7" class="stage-thumb-img">
+            <span class="thumb-zoom-badge">🔍 放大</span>
           </div>
           <div class="stage-content">
             <div class="stage-top-meta">
@@ -2739,8 +3042,9 @@
         <!-- 08 -->
         <div class="stage-item" onclick="openDay(8)">
           <div class="stage-num">VIII</div>
-          <div class="stage-thumb-wrap">
+          <div class="stage-thumb-wrap" onclick="event.stopPropagation(); openPhotoLightbox('DAY8.jpg', '第8幕 · 濟州涯月・純淨藍綠珊瑚海灘與紅頂小屋', '☕ 14°C ~ 21°C ｜ 沿海風大宜著防風外套')">
             <img src="DAY8.jpg" data-day="8" data-try="0" onerror="handleDayImgError(this, 8)" alt="Day 8" class="stage-thumb-img">
+            <span class="thumb-zoom-badge">🔍 放大</span>
           </div>
           <div class="stage-content">
             <div class="stage-top-meta">
@@ -2762,8 +3066,9 @@
         <!-- 09 -->
         <div class="stage-item" onclick="openDay(9)">
           <div class="stage-num">IX</div>
-          <div class="stage-thumb-wrap">
+          <div class="stage-thumb-wrap" onclick="event.stopPropagation(); openPhotoLightbox('DAY9.jpg', '第9幕 · 濟州東門傳統市場・地道蔬果市集拱廊', '🛍️ 15°C ~ 22°C ｜ 秋陽朗照')">
             <img src="DAY9.jpg" data-day="9" data-try="0" onerror="handleDayImgError(this, 9)" alt="Day 9" class="stage-thumb-img">
+            <span class="thumb-zoom-badge">🔍 放大</span>
           </div>
           <div class="stage-content">
             <div class="stage-top-meta">
@@ -2848,15 +3153,18 @@
     <!-- ============================================== -->
     <!-- VIEW 4: MONEY 公費分賬與即時匯率 (Finance & Currency) -->
     <!-- ============================================== -->
-        <div class="tab-panel" id="view-money">
-      <div class="header-tracking-label">CURRENCY & EXPENSE SPLITTER</div>
-      <h1 class="main-hero-title">匯率快算與 5人同行記賬分賬 (Splitwise 模式)</h1>
+        <!-- ============================================== -->
+    <!-- VIEW 4: MONEY 匯率與旅行開銷記賬本 (NO 5-PERSON SPLITTING) -->
+    <!-- ============================================== -->
+    <div class="tab-panel" id="view-money">
+      <div class="header-tracking-label">CURRENCY & EXPENSE TRACKER</div>
+      <h1 class="main-hero-title">雙向即時匯率換算與旅程開銷記賬本</h1>
 
-      <!-- Part 1: 即時雙向匯率快算機 -->
+      <!-- Part 1: 即時雙向匯率換算機 -->
       <div class="panel-card">
-        <h3 class="panel-card-title">💱 雙向即時匯率快算 (韓元 KRW ⇄ 港幣 HKD)</h3>
-        <p class="event-p" style="margin-bottom:14px;font-size:0.82rem;color:var(--text-muted);">
-          預設參考匯率：1 HKD ≈ 175.4 KRW（1 KRW ≈ 0.0057 HKD）。支援韓元或港幣雙向即時對調，並自動換算 5 人平分每人金額。
+        <h3 class="panel-card-title">💱 雙向即時匯率換算 (韓元 KRW ⇄ 港幣 HKD)</h3>
+        <p class="event-p" style="margin-bottom:14px;font-size:0.84rem;color:var(--text-muted);">
+          預設參考匯率：1 HKD ≈ 175.4 KRW（1 KRW ≈ 0.0057 HKD）。支援韓元或港幣雙向即時對調計算。
         </p>
         <div class="calc-grid calc-grid-bi" style="grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
           <div class="form-group">
@@ -2879,29 +3187,25 @@
         </div>
 
         <div class="calc-grid">
-          <div class="calc-stat-box">
-            <div class="calc-stat-label">總金額折算</div>
-            <div class="calc-stat-val" id="resTotalConverted">HK$ 0</div>
-          </div>
-          <div class="calc-stat-box">
-            <div class="calc-stat-label">👥 5位成人平分 (每人應付)</div>
-            <div class="calc-stat-val" style="color:var(--color-gold-bright);" id="resSplit5">HK$ 0 / 人</div>
+          <div class="calc-stat-box" style="grid-column: 1 / -1;">
+            <div class="calc-stat-label">總金額折算 (Converted Amount)</div>
+            <div class="calc-stat-val" style="color:var(--color-gold-bright);font-size:1.6rem;" id="resTotalConverted">HK$ 0</div>
           </div>
         </div>
       </div>
 
-      <!-- Part 2: 5人同行記賬分賬系統 (Splitwise Style) -->
+      <!-- Part 2: 旅程開銷記賬本 (純粹記錄總開銷，無多人拆帳) -->
       <div class="panel-card" style="margin-top:20px;">
         <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
-          <h3 class="panel-card-title" style="margin:0;">📝 旅程共同支出記賬本 (自動平賬計算)</h3>
-          <button class="btn-secondary" onclick="exportExpensesToWhatsApp()">📲 複製結算摘要到 WhatsApp</button>
+          <h3 class="panel-card-title" style="margin:0;">📝 旅程開銷記賬本 (Trip Expense Ledger)</h3>
+          <button class="btn-secondary" onclick="exportExpensesToWhatsApp()">📋 複製開銷清單</button>
         </div>
-        <p class="event-p" style="margin-bottom:14px;font-size:0.82rem;color:var(--text-muted);">
-          支援記錄餐飲、租車加油、門票住宿等代付款項。系統自動為 5 人精準計算代付額、應付額與「最少轉賬次數平賬方案」，資料自動保存在本機瀏覽器。
+        <p class="event-p" style="margin-bottom:14px;font-size:0.84rem;color:var(--text-muted);">
+          記下旅程中的各項支出（餐飲、加油、門票、購物等），系統自動折算為港幣並累計總花費，資料安全保存在手機瀏覽器。
         </p>
 
-        <!-- New Expense Form -->
-        <div class="split-form-grid">
+        <!-- New Expense Form (No Payer selection) -->
+        <div class="split-form-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
           <div class="form-group">
             <label>項目名稱</label>
             <input type="text" class="form-control" id="expName" placeholder="例如：Camello 午餐 / 租車加油">
@@ -2917,50 +3221,30 @@
             </div>
           </div>
           <div class="form-group">
-            <label>付款人 (Who Paid?)</label>
-            <select class="form-control" id="expPayer">
-              <option value="Leung">Leung (主駕駛)</option>
-              <option value="Joyce">Joyce</option>
-              <option value="同伴 A">同伴 A</option>
-              <option value="同伴 B">同伴 B</option>
-              <option value="同伴 C">同伴 C</option>
-            </select>
-          </div>
-          <div class="form-group">
             <label>消費類別</label>
             <select class="form-control" id="expCategory">
               <option value="🍽️ 餐飲美食">🍽️ 餐飲美食</option>
-              <option value="🚗 交通租車">🚗 交通租車/加油</option>
+              <option value="🚗 交通加油">🚗 交通租車/加油</option>
               <option value="🏨 住宿費用">🏨 住宿費用</option>
               <option value="🎟️ 門票活動">🎟️ 門票活動/體驗</option>
-              <option value="🛍️ 共同購物">🛍️ 超市採購/雜支</option>
+              <option value="🛍️ 購物手信">🛍️ 購物/手信雜項</option>
             </select>
           </div>
         </div>
-        <div style="display:flex;gap:10px;">
+        <div style="display:flex;gap:10px;margin-top:10px;">
           <button class="btn-action" onclick="addExpenseRecord()">➕ 加入這筆支出</button>
           <button class="btn-secondary" onclick="clearAllExpenses()">清空記賬</button>
         </div>
 
         <!-- Expense Summary Cards -->
-        <div class="calc-grid" style="margin-top:20px;">
+        <div class="calc-grid" style="margin-top:20px;grid-template-columns: 1fr 1fr;">
           <div class="calc-stat-box">
             <div class="calc-stat-label">累積總開銷 (折算 HKD)</div>
-            <div class="calc-stat-val" id="statTotalExpense">HK$ 0</div>
+            <div class="calc-stat-val" style="color:var(--color-gold-bright);" id="statTotalExpense">HK$ 0</div>
           </div>
           <div class="calc-stat-box">
-            <div class="calc-stat-label">5 人平均每人支出</div>
-            <div class="calc-stat-val" style="color:var(--color-celadon);" id="statAvgExpense">HK$ 0 / 人</div>
-          </div>
-        </div>
-
-        <!-- Settlement Optimal Matrix -->
-        <div class="settlement-card" id="settlementBox">
-          <div style="font-size:0.95rem;font-weight:700;color:var(--color-gold-bright);margin-bottom:10px;display:flex;align-items:center;gap:6px;">
-            <span>⚖️ 最佳平賬轉賬解法 (誰該給誰多少錢)</span>
-          </div>
-          <div id="settlementList">
-            <div style="color:var(--text-muted);font-size:0.85rem;">暫無記賬支出，請先新增支出項目。</div>
+            <div class="calc-stat-label">記錄項目總數</div>
+            <div class="calc-stat-val" id="statExpenseCount">0 筆</div>
           </div>
         </div>
 
@@ -2973,6 +3257,7 @@
         </div>
       </div>
     </div>
+
     <div class="tab-panel" id="view-transit">
       <div class="header-tracking-label">LOGISTICS OVERVIEW</div>
       <h1 class="main-hero-title">交通航班與住宿一覽</h1>
@@ -3411,6 +3696,9 @@
         region: "首爾仁川 · 恩平區",
         title: "第一階段：都會夜色與自駕啟程",
         highlight: "✈️ UO626 抵達 ➔ 提取 Hyundai Staria ➔ 恩平 Ribbon Stay 自帶免費專屬泊車位",
+        weather: "🌤️ 8°C ~ 18°C ｜ 金秋微涼",
+        goldenHour: "🌇 首爾落日 17:54 (金光暮色)",
+        photoCaption: "首爾仁川・南山首爾塔街景遠眺",
         events: [
           {
             time: "🛫 16:55 ➔ 21:35",
@@ -3455,6 +3743,9 @@
         region: "首爾麻浦 · 延南洞 / 梨泰院",
         title: "延南漫步：文創、手沖、秋鰤魚 ＆ Namsan Sool Club",
         highlight: "🐟 排隊厚切秋鰤魚 ➔ ☕ 2022 冠軍虹吸 ➔ 🍶 安氏生馬格利 ➔ 🥃 Namsan Sool Club 品酒",
+        weather: "🍂 9°C ~ 19°C ｜ 秋高氣爽",
+        goldenHour: "🌇 延南林蔭落日 17:53 (漫步夜色)",
+        photoCaption: "首爾麻浦・延南洞新村招牌活力街景",
         events: [
           {
             time: "⏰ 10:45 ➔ 11:15",
@@ -3552,6 +3843,9 @@
         region: "首爾鐘路 · 北村 / 西村",
         title: "第二階段：韓屋古風與亞洲頂級酒吧",
         highlight: "👘 韓服景福宮 ➔ ☕ 黑瓦露台 Green Mile ➔ 🍸 亞洲50大 #33 Bar Cham",
+        weather: "🍁 7°C ~ 18°C ｜ 早晚溫差顯著",
+        goldenHour: "🌇 北村韓屋落日 17:51 (黑瓦晚霞)",
+        photoCaption: "首爾鐘路・北村黑瓦韓屋俯瞰城市天際線",
         events: [
           {
             time: "👘 09:00",
@@ -3631,6 +3925,9 @@
         region: "京畿道 · 加平秋楓自駕",
         title: "加平秘境：雲端飛索與南怡島賞楓",
         highlight: "⚡ 80米高空飛索 ➔ 🍁 水杉大道金黃銀杏 ➔ 🍲 東大門陳玉華一隻雞",
+        weather: "🍁 6°C ~ 16°C ｜ 山林清冽宜備薄羽絨",
+        goldenHour: "🌅 晨曦微光 06:42 ｜ 🌇 南怡島夕照 17:50",
+        photoCaption: "京畿道加平・南怡島水杉林火紅秋葉步道",
         events: [
           {
             time: "⚡ 08:30 / 09:00",
@@ -3689,7 +3986,7 @@
             title: "Bar Zest (제스트) ＆ M+MS bar (엠엠에스)",
             hangul: "서울 강남구 도산대로55길 26 (Zest) ｜ 도산공원 부근 (M+MS)",
             desc: "【江南清潭/島山頂級酒吧雙絕】：\n1. 🌟 Bar Zest (제스트)：榮獲 2024「亞洲 50 最佳酒吧」第 2 名（世界 50 大第 18）！極致零浪費（Zero-Waste）永續調酒神殿，必點自家精餾杜松子酒調製的招牌 Zest G&T 與濟州柑橘特調。\n2. 🍸 M+MS bar (엠엠에스 Dosan)：亞洲 50 最佳酒吧第 42 名，距離 Zest 步行僅約 6 分鐘（約 500 公尺），兩家可依候位狀況安排雙連訪或二選一！",
-            tip: "💡 候位與預約攻略：Zest 建議提早於 Catchtable 預訂或現場 20:30 前取號候位（5人同行可分 2+3 人或入座桌席）；若 Zest 需候位可先至旁邊 M+MS bar 享用首杯！",
+            tip: "💡 候位與預約攻略：Zest 建議提早於 Catchtable 預訂或現場 20:30 前取號候位（多人同行可分 2+3 人或入座桌席）；若 Zest 需候位可先至旁邊 M+MS bar 享用首杯！",
             naver: "https://map.naver.com/v5/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4",
             copyVal: "서울 강남구 도산대로55길 26",
             copyLabel: "複製 Zest 地址",
@@ -3703,6 +4000,9 @@
         region: "首爾 · 漢南洞 / 馬場洞",
         title: "漢陽雅興：名店選豆、歸還車輛與頂級韓牛",
         highlight: "☕ 漢南手沖巡禮 ➔ 🚗 首爾站門市歸還車輛 ➔ 🥩 馬場洞 1++ 炭火韓牛",
+        weather: "🌤️ 11°C ~ 19°C ｜ 跨海溫差適中",
+        goldenHour: "🌇 濟州海岸落日 17:55 (餘暉染海)",
+        photoCaption: "漢南洞坡道與霓虹街景 ➔ 飛往濟州",
         events: [
           {
             time: "☕ 09:30",
@@ -3762,6 +4062,9 @@
         region: "金浦飛濟州 ➔ 濟州市蓮洞",
         title: "第三階段：耽羅仙境、純電自駕與黑豬肉",
         highlight: "✈️ ZE207 晨飛 ➔ ⚡ 取 IONIQ 9 純電車 ➔ 🥩 熟成到代烤黑豬肉",
+        weather: "🌊 14°C ~ 21°C ｜ 海風宜人舒爽",
+        goldenHour: "🌅 城山日出 06:36 ｜ 🌇 牛島珊瑚海落日 17:56",
+        photoCaption: "濟州西歸浦・柑橘體驗農場木牌",
         events: [
           {
             time: "🛫 07:35 ➔ 08:50",
@@ -3843,6 +4146,9 @@
         region: "濟州南岸 · 西歸浦",
         title: "壯麗南岸：整條烤帶魚與全景海景別墅",
         highlight: "🐟 一公尺整條烤帶魚 ➔ 🌸 山茶花丘粉黛草 ➔ 🏨 西歸浦全景海景別墅 (連住2晚)",
+        weather: "🌺 15°C ~ 22°C ｜ 陽光明媚海風微徐",
+        goldenHour: "🌇 正房瀑布落日 17:57 (夕陽映浪)",
+        photoCaption: "西歸浦・盛開洋紅山茶花樹林與花瓣步道",
         events: [
           {
             time: "🌊 11:00",
@@ -3900,6 +4206,9 @@
         region: "濟州東部 · 牛島跳島",
         title: "牛島碧海：珊瑚白沙、名產石鍋與親採蜜柑",
         highlight: "⛵ 牛島三輪電動車 ➔ 🦪 藍絲帶銘珍鮑魚 ➔ 🍊 親摘甜美濟州蜜柑",
+        weather: "☕ 14°C ~ 21°C ｜ 沿海風大宜著防風外套",
+        goldenHour: "🌇 涯月海景咖啡落日 17:58 (絕美落霞)",
+        photoCaption: "濟州涯月・純淨藍綠珊瑚海灘與紅頂小屋",
         events: [
           {
             time: "⛵ 08:00 ➔ 13:00",
@@ -3955,6 +4264,9 @@
         region: "西歸浦 ➔ 機場返港",
         title: "鮮味尾聲：直入大海瀑布與澎湃海鮮鍋",
         highlight: "🌊 正房瀑布 ➔ 🍲 三姓穴活章魚海鮮鍋 ➔ ✈️ LJ713 返港",
+        weather: "🛍️ 15°C ~ 22°C ｜ 秋陽朗照",
+        goldenHour: "🛫 濟州直航返港 ｜ 暮色歸航",
+        photoCaption: "濟州東門傳統市場・地道蔬果市集拱廊",
         events: [
           {
             time: "🌊 09:30",
@@ -4029,7 +4341,7 @@
           visitedSet = new Set(JSON.parse(saved));
         }
       } catch (e) {}
-      updateProgressUI();
+      triggerHaptic('medium'); updateProgressUI();
     }
 
     function toggleVisitItem(key, btn) {
@@ -4049,7 +4361,7 @@
       }
       btn.classList.toggle('done', visitedSet.has(key));
       btn.innerText = visitedSet.has(key) ? '已完成 ✓' : '造訪簽到 ✓';
-      updateProgressUI();
+      triggerHaptic('medium'); updateProgressUI();
     }
 
     function updateProgressUI() {
@@ -4086,55 +4398,7 @@
     }
 
     // Open Specific Day (1 - 9)
-    function openDay(num) {
-      num = parseInt(num, 10);
-      if (isNaN(num) || num < 1) num = 1;
-      if (num > 9) num = 9;
-      currentDayNum = num;
-
-      document.querySelectorAll('.tab-panel, .day-detail-section').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.side-nav-item').forEach(el => el.classList.remove('active'));
-
-      // Highlight sidebar day buttons
-      const dayBtns = document.querySelectorAll('.side-day-btn');
-      dayBtns.forEach((b, idx) => {
-        if (idx === num - 1) b.classList.add('active');
-        else b.classList.remove('active');
-      });
-
-      // Highlight day pills in day detail view
-      document.querySelectorAll('.day-pill-btn').forEach((b, idx) => {
-        if (idx === num - 1) {
-          b.classList.add('active');
-          // Scroll pill into view smoothly
-          try { b.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); } catch(e){}
-        } else {
-          b.classList.remove('active');
-        }
-      });
-
-      renderDayDetail(num);
-      const detailView = document.getElementById('view-day-detail');
-      if (detailView) detailView.classList.add('active');
-
-      const prevBtn = document.getElementById('prevDayBtn');
-      const nextBtn = document.getElementById('nextDayBtn');
-      if (prevBtn) {
-        prevBtn.disabled = (num === 1);
-        prevBtn.style.opacity = (num === 1) ? '0.4' : '1';
-      }
-      if (nextBtn) {
-        nextBtn.disabled = (num === 9);
-        nextBtn.style.opacity = (num === 9) ? '0.4' : '1';
-      }
-
-      // Update mobile bottom nav to 'day'
-      updateBottomNavActive('day');
-
-      const sidebar = document.getElementById('appSidebar');
-      toggleSidebar(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    
 
     function stepDay(delta) {
       const next = currentDayNum + delta;
@@ -4148,8 +4412,10 @@
       const d = allDaysData.find(item => item.num === num);
       if (!d) return;
 
+      const weatherText = d.weather ? `<span class="day-weather-pill">${d.weather} ｜ ${d.goldenHour}</span>` : '';
+
       let html = `
-        <div class="day-hero-poster-card">
+        <div class="day-hero-poster-card" onclick="openPhotoLightbox('DAY${d.num}.jpg', 'DAY 0${d.num} · ${d.title}', '${d.photoCaption || d.region}')">
           <div class="day-poster-img-wrap">
             <img src="DAY${d.num}.jpg" 
                  alt="Day ${d.num} 圖片" 
@@ -4158,8 +4424,12 @@
                  data-try="0"
                  onerror="handleDayImgError(this, ${d.num})">
             <div class="day-poster-gradient"></div>
+            <div class="day-poster-zoom-tip">🔍 點擊全螢幕賞析</div>
             <div class="day-poster-overlay-meta">
-              <div class="day-poster-badge">◈ ACT 0${d.num} · ${d.date} · ${d.region} ◈</div>
+              <div class="day-poster-top-pills">
+                <span class="day-poster-badge">◈ ACT 0${d.num} · ${d.date} · ${d.region} ◈</span>
+                ${weatherText}
+              </div>
               <h2 class="day-poster-title">${d.title}</h2>
               <div class="day-poster-desc">${d.highlight}</div>
             </div>
@@ -4581,28 +4851,7 @@
       }
     }
 
-    function exportExpensesToWhatsApp() {
-      if (expenses.length === 0) {
-        showToast('尚無支出可匯出！');
-        return;
-      }
-      const total = expenses.reduce((sum, e) => sum + (e.hkdAmount || 0), 0);
-      const avg = Math.round(total / 5);
-
-      let text = `🇰🇷 韓國9天8夜 旅費結算明細\n`;
-      text += `💰 全團總支出：HK$ ${total.toLocaleString()}\n`;
-      text += `👥 5人平分每人應負擔：HK$ ${avg.toLocaleString()}\n\n`;
-      text += `⚖️ 【平賬轉賬清單】：\n`;
-
-      const steps = document.querySelectorAll('.settlement-step');
-      steps.forEach(step => {
-        text += `• ${step.innerText.replace(/\s+/g, ' ')}\n`;
-      });
-      text += `\n📋 記賬項目共 ${expenses.length} 筆。`;
-
-      copyValue(text);
-      showToast('已複製至剪貼簿 WhatsApp 結算摘要！可以直接貼至群組 📲');
-    }
+    
 
     // 4. Smart Packing Checklist with LocalStorage
     function loadChecklist() {
@@ -4693,41 +4942,141 @@
 
   
     // Day Images Automatic Case & Fallback Handler (DAY1.jpg to DAY9.jpg)
-    // Day Images Bulletproof Fast Loader (Guaranteed 100% display, no browser loop lock)
     function handleDayImgError(img, dayNum) {
       const tries = parseInt(img.getAttribute('data-try') || '0', 10);
-      dayNum = parseInt(dayNum, 10) || 1;
-
-      // Curated verified autumn high-res destination fallbacks
-      const fallbacks = {
-        1: 'https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=1200&q=80',
-        2: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80',
-        3: 'https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=1200&q=80',
-        4: 'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=1200&q=80',
-        5: 'https://images.unsplash.com/photo-1508672019048-805b876b67e2?auto=format&fit=crop&w=1200&q=80',
-        6: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1200&q=80',
-        7: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80',
-        8: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1200&q=80',
-        9: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80'
-      };
-
-      if (tries === 0) {
-        // Try lowercase day{n}.jpg
-        img.setAttribute('data-try', '1');
-        img.src = 'day' + dayNum + '.jpg';
-      } else if (tries === 1) {
-        // Try uppercase iPhone extension DAY{n}.JPG
-        img.setAttribute('data-try', '2');
-        img.src = 'DAY' + dayNum + '.JPG';
-      } else if (tries === 2) {
-        // Try day{n}.jpeg
-        img.setAttribute('data-try', '3');
-        img.src = 'DAY' + dayNum + '.jpeg';
+      const variants = [
+        `DAY${dayNum}.jpg`,
+        `day${dayNum}.jpg`,
+        `Day${dayNum}.jpg`,
+        `DAY${dayNum}.jpeg`,
+        `day${dayNum}.jpeg`,
+        `DAY${dayNum}.JPG`,
+        `day${dayNum}.JPG`,
+        `DAY${dayNum}.png`,
+        `day${dayNum}.png`
+      ];
+      if (tries < variants.length) {
+        img.setAttribute('data-try', tries + 1);
+        img.src = variants[tries];
       } else {
-        // Stop retrying to avoid browser abort, immediately set high-res verified photo
+        // High quality curated autumn Korea destination fallbacks
+        const fallbacks = {
+          1: 'https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=1200&q=80',
+          2: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80',
+          3: 'https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=1200&q=80',
+          4: 'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=1200&q=80',
+          5: 'https://images.unsplash.com/photo-1508672019048-805b876b67e2?auto=format&fit=crop&w=1200&q=80',
+          6: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1200&q=80',
+          7: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80',
+          8: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1200&q=80',
+          9: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80'
+        };
         img.onerror = null;
         img.src = fallbacks[dayNum] || 'cover.jpg';
       }
+    }
+
+    // Haptic Vibration Feedback Helper (iOS / Android)
+    function triggerHaptic(type) {
+      if (window.navigator && window.navigator.vibrate) {
+        try {
+          if (type === 'light') window.navigator.vibrate(8);
+          else if (type === 'medium') window.navigator.vibrate(18);
+          else if (type === 'success') window.navigator.vibrate([12, 35, 15]);
+        } catch (e) {}
+      }
+    }
+
+    // Photo Lightbox Controls
+    function openPhotoLightbox(src, title, sub) {
+      triggerHaptic('light');
+      const modal = document.getElementById('photoLightbox');
+      const img = document.getElementById('lightboxImg');
+      const titleEl = document.getElementById('lightboxTitle');
+      const subEl = document.getElementById('lightboxSub');
+
+      if (!modal || !img) return;
+
+      img.src = src;
+      img.onerror = function() {
+        const dMatch = src.match(/DAY(\d+)/i);
+        const dNum = dMatch ? dMatch[1] : 1;
+        const fallbacks = {
+          1: 'https://images.unsplash.com/photo-1548115184-bc6544d06a58?auto=format&fit=crop&w=1200&q=80',
+          2: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80',
+          3: 'https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=1200&q=80',
+          4: 'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=1200&q=80',
+          5: 'https://images.unsplash.com/photo-1508672019048-805b876b67e2?auto=format&fit=crop&w=1200&q=80',
+          6: 'https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1200&q=80',
+          7: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80',
+          8: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1200&q=80',
+          9: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80'
+        };
+        img.onerror = null;
+        img.src = fallbacks[dNum] || 'cover.jpg';
+      };
+
+      if (titleEl) titleEl.innerText = title || '';
+      if (subEl) subEl.innerText = sub || '';
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePhotoLightbox(e) {
+      if (e) e.stopPropagation();
+      triggerHaptic('light');
+      const modal = document.getElementById('photoLightbox');
+      if (modal) modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Clean openDay with auto-centering scroll
+    function openDay(num) {
+      num = parseInt(num, 10);
+      if (isNaN(num) || num < 1) num = 1;
+      if (num > 9) num = 9;
+      currentDayNum = num;
+
+      document.querySelectorAll('.tab-panel, .day-detail-section').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.editorial-tab-btn, .side-nav-item, .bot-nav-btn').forEach(el => el.classList.remove('active'));
+
+      const navBtn = document.getElementById('btn-nav-day');
+      if (navBtn) navBtn.classList.add('active');
+
+      const botBtn = document.getElementById('bot-nav-day');
+      if (botBtn) botBtn.classList.add('active');
+
+      const detailView = document.getElementById('view-day-detail');
+      if (detailView) detailView.classList.add('active');
+
+      // Highlight day pills and auto-center scroll into view
+      const pills = document.querySelectorAll('.day-pill-btn');
+      pills.forEach((p, idx) => {
+        if (idx === num - 1) {
+          p.classList.add('active');
+          try {
+            p.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          } catch(e) {}
+        } else {
+          p.classList.remove('active');
+        }
+      });
+
+      renderDayDetail(num);
+
+      const prevBtn = document.getElementById('prevDayBtn');
+      const nextBtn = document.getElementById('nextDayBtn');
+      if (prevBtn) {
+        prevBtn.disabled = (num === 1);
+        prevBtn.style.opacity = (num === 1) ? '0.4' : '1';
+      }
+      if (nextBtn) {
+        nextBtn.disabled = (num === 9);
+        nextBtn.style.opacity = (num === 9) ? '0.4' : '1';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
 
@@ -4746,36 +5095,42 @@
   </div>
 
   <!-- 🌟 Mobile Bottom Navigation Bar -->
-  <nav class="mobile-bottom-nav" id="mobileBottomNav">
+  <nav class="mobile-bottom-nav">
     <button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index')">
-      <span class="icon">📖</span>
+      <span class="icon">🔖</span>
       <span>總覽</span>
     </button>
     <button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentDayNum || 1)">
-      <span class="icon">🗓️</span>
-      <span>日程</span>
-    </button>
-    <button class="bot-nav-btn" id="bot-nav-transit" onclick="showView('transit')">
-      <span class="icon">🚗</span>
-      <span>交通</span>
-    </button>
-    <button class="bot-nav-btn" id="bot-nav-food" onclick="showView('food')">
-      <span class="icon">🥢</span>
-      <span>美饌</span>
+      <span class="icon">📅</span>
+      <span>每日</span>
     </button>
     <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')">
-      <span class="icon">💳</span>
+      <span class="icon">💰</span>
       <span>分賬</span>
     </button>
     <button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')">
       <span class="icon">🎒</span>
-      <span>備忘</span>
+      <span>行李</span>
     </button>
     <button class="bot-nav-btn" id="bot-nav-phrases" onclick="showView('phrases')">
-      <span class="icon">🗣️</span>
-      <span>韓語</span>
+      <span class="icon">💬</span>
+      <span>溝通卡</span>
     </button>
   </nav>
 
+
+  <!-- 🌟 Fullscreen Luxury Photo Lightbox Gallery -->
+  <div class="photo-lightbox-modal" id="photoLightbox" onclick="closePhotoLightbox(event)">
+    <button class="lightbox-close-btn" onclick="closePhotoLightbox(event)" aria-label="關閉放大相片">✕</button>
+    <div class="lightbox-content-box" onclick="event.stopPropagation()">
+      <div class="lightbox-img-frame">
+        <img src="" alt="行程相片" class="lightbox-img" id="lightboxImg">
+      </div>
+      <div class="lightbox-caption-bar">
+        <div class="lightbox-title" id="lightboxTitle"></div>
+        <div class="lightbox-sub" id="lightboxSub"></div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
