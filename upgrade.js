@@ -68,8 +68,13 @@
   }
   window.jumpToToday = function () {
     var day = getTripDayNumber(new Date());
-    if (day >= 1 && day <= 9 && typeof openDay === 'function') openDay(day);
-    else if (typeof showView === 'function') showView('index');
+    if (day >= 1 && day <= 9 && typeof openDay === 'function') {
+      openDay(day);
+      // Highlight the Today button instead of "每日" when showing today's page
+      document.querySelectorAll('.bot-nav-btn').forEach(function (b) { b.classList.remove('active'); });
+      var t = document.getElementById('bot-nav-today');
+      if (t) t.classList.add('active');
+    } else if (typeof showView === 'function') showView('index');
   };
   async function loadLiveWeather() {
     try {
