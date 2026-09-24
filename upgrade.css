@@ -93,7 +93,12 @@ button, a, input, textarea { touch-action: manipulation; }
   .bot-nav-btn { min-height: 44px; }
 }
 
+/* Even out hero title line breaks (avoid a lone "2026" line) */
+.main-hero-title { text-wrap: balance; }
+
 @media (max-width: 560px) {
   .voyage-ribbon-grid { grid-template-columns: 1fr !important; }
+  /* Stack progress label above status so neither side wraps */
+  .progress-meta-row { flex-direction: column !important; align-items: flex-start !important; gap: 4px; }
   .main-hero-title { font-size: 1.28rem !important; }
 }
