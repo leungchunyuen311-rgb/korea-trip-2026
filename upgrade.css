@@ -14,7 +14,7 @@ button, a, input, textarea { touch-action: manipulation; }
 }
 .voyage-ribbon-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; }
 .vr-chip { background: var(--bg-card-subtle); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px 14px; min-height: 92px; }
-.vr-kicker { display: block; font-size: .64rem; letter-spacing: .14em; color: var(--color-gold); font-family: var(--font-display); margin-bottom: 6px; }
+.vr-kicker { display: block; font-size: 0.75rem; letter-spacing: .14em; color: var(--color-gold); font-family: var(--font-display); margin-bottom: 6px; }
 .vr-value { display: block; font-family: var(--font-editorial); font-size: 1.18rem; font-weight: 700; color: var(--text-main); line-height: 1.25; word-break: break-word; }
 .vr-sub, .vr-weather-row { margin-top: 6px; color: var(--text-muted); font-size: .75rem; }
 .vr-weather-row { display: flex; flex-direction: column; gap: 4px; color: var(--text-sub); }
@@ -25,19 +25,19 @@ button, a, input, textarea { touch-action: manipulation; }
   font-family: var(--font-serif); cursor: pointer;
 }
 .voyage-search-btn { flex: 1; display: flex; align-items: center; justify-content: space-between; color: var(--text-sub); text-align: left; }
-.voyage-search-btn kbd { border: 1px solid var(--border-antique); border-radius: 6px; padding: 1px 7px; font-size: .72rem; color: var(--color-gold); }
+.voyage-search-btn kbd { border: 1px solid var(--border-antique); border-radius: 6px; padding: 1px 7px; font-size: 0.75rem; color: var(--color-gold); }
 .voyage-today-btn { font-weight: 700; color: var(--color-gold-bright); white-space: nowrap; }
 
 .overlay-sheet { display: none; position: fixed; inset: 0; z-index: 90; background: rgba(8,7,6,.72); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); align-items: flex-start; justify-content: center; padding: max(8vh, env(safe-area-inset-top)) 16px calc(24px + env(safe-area-inset-bottom)); }
 .overlay-sheet.open { display: flex; }
 .overlay-panel { width: min(720px,100%); max-height: 84vh; overflow: auto; -webkit-overflow-scrolling: touch; background: var(--bg-card); border: 1px solid var(--border-antique); border-radius: 18px; padding: 18px; }
 .overlay-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
-.overlay-kicker { font-size: .66rem; letter-spacing: .18em; color: var(--color-gold); }
+.overlay-kicker { font-size: 0.75rem; letter-spacing: .18em; color: var(--color-gold); }
 .overlay-head h3 { margin: 4px 0 0; font-family: var(--font-editorial); font-size: 1.4rem; }
 .overlay-close { padding: 6px 12px; color: var(--text-sub); }
 .omni-input { width: 100%; border: 1px solid var(--border-antique); background: var(--bg-canvas); color: var(--text-main); border-radius: 12px; padding: 12px 14px; font-size: 16px; font-family: var(--font-serif); margin-bottom: 12px; }
 .omni-results { display: flex; flex-direction: column; gap: 8px; }
-.omni-hint, .omni-empty { color: var(--text-muted); font-size: .86rem; padding: 8px 2px; }
+.omni-hint, .omni-empty { color: var(--text-muted); font-size: 0.875rem; padding: 8px 2px; }
 .omni-item { text-align: left; border: 1px solid var(--border-subtle); background: var(--bg-card-subtle); color: var(--text-main); border-radius: 12px; padding: 12px; cursor: pointer; font-family: inherit; }
 .omni-item small { display: block; color: var(--text-muted); margin-top: 3px; }
 .sos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -45,10 +45,10 @@ button, a, input, textarea { touch-action: manipulation; }
 .sos-card span { color: var(--color-gold); font-size: .78rem; }
 .sos-note { margin-top: 12px; color: var(--text-muted); font-size: .78rem; line-height: 1.55; }
 .day-tools { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 8px; }
-.day-tools button, .day-tools a { padding: 8px 12px; font-size: .8rem; text-decoration: none; min-height: 44px; }
+.day-tools button, .day-tools a { padding: 8px 12px; font-size: 0.875rem; text-decoration: none; min-height: 44px; }
 .day-note-box { margin: 8px 0 18px; padding: 12px; border: 1px dashed var(--border-antique); border-radius: 14px; }
 .day-note-box textarea { width: 100%; min-height: 88px; margin-top: 8px; border-radius: 12px; border: 1px solid var(--border-subtle); background: var(--bg-card-subtle); color: var(--text-main); padding: 10px 12px; font-family: var(--font-serif); font-size: 16px; resize: vertical; }
-.today-chip { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--color-gold); color: var(--color-gold-bright); font-size: .68rem; }
+.today-chip { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--color-gold); color: var(--color-gold-bright); font-size: 0.75rem; }
 
 @media (max-width: 900px) {
   .header-top-ribbon { display: none !important; }
@@ -61,11 +61,8 @@ button, a, input, textarea { touch-action: manipulation; }
   .header-site-title {
     font-size: 0 !important; line-height: 0 !important;
   }
-  .header-site-title::after {
-    content: "Lai's Korea 2026";
-    font-size: .95rem; line-height: 1.2; letter-spacing: 0;
-    color: var(--text-main); font-weight: 700; white-space: nowrap;
-  }
+  /* Full trip name is rendered by upgrade.js; no short-name suffix */
+  .header-site-title::after { content: none !important; }
   .header-site-subtitle { display: none !important; }
   .header-action-group { display: flex !important; flex: 0 0 auto; gap: 4px !important; }
   .btn-theme-pill { width: 40px; height: 40px; min-width: 40px; min-height: 40px; padding: 0 !important; justify-content: center; border-radius: 12px !important; }
@@ -75,8 +72,8 @@ button, a, input, textarea { touch-action: manipulation; }
   .main-hero-title { font-size: 1.4rem !important; line-height: 1.25 !important; letter-spacing: 0 !important; }
   .hero-cover-cities { display: none !important; }
   .hero-cover-card { height: 280px !important; }
-  .hero-cover-tag { font-size: .62rem !important; }
-  .hero-cover-sub { font-size: .8rem !important; }
+  .hero-cover-tag { font-size: 0.75rem !important; }
+  .hero-cover-sub { font-size: 0.875rem !important; }
 
   .countdown-bar { display: flex !important; flex-direction: column !important; align-items: stretch !important; gap: 10px !important; }
   .countdown-timer-boxes { display: grid !important; grid-template-columns: repeat(4,1fr) !important; width: 100%; }
