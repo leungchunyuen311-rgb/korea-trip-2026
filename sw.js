@@ -43,13 +43,13 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Own files: serve saved copy instantly, refresh it in the background.
+  // Own files: always try the network first so a new version shows up as soon as the phone is online;
+  // use the saved copy only when offline.
   if (url.origin === self.location.origin) {
     event.respondWith(
-      caches.open(CACHE_VERSION).then((c) => c.match(req, { ignoreSearch: true }).then((hit) => {
-        const net = fetch(req).then((res) => { if (res.ok) c.put(req, res.clone()); return res; }).catch(() => hit);
-        return hit || net;
-      }))
+      fetch(req)
+        .then((res) => { if (res.ok) { const copy = res.clone(); caches.open(CACHE_VERSION).then((c) => c.put(req, copy)); } return res; })
+        .catch(() => caches.match(req, { ignoreSearch: true }))
     );
   }
   // Everything else (weather, exchange rate, maps) goes straight to the network.
