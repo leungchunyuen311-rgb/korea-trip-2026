@@ -1,5 +1,6 @@
 /* Lai's Family Korea 2026 voyage upgrade */
 (function () {
+  var FULL_NAME = "Lai's Family Seoul & Jeju Trip 2026";
   function injectPhoneCss() {
     if (document.getElementById('voyage-phone-css')) return;
     var s = document.createElement('style');
@@ -7,47 +8,41 @@
     s.textContent = [
       'html{-webkit-text-size-adjust:100%;text-size-adjust:100%}',
       'button,a,input,textarea{touch-action:manipulation}',
+      '.header-site-title,.main-hero-title,.hero-cover-sub{letter-spacing:0!important}',
       '@media (max-width:900px){',
-      '.header-top-ribbon,.editorial-nav-dock,.header-site-subtitle,.header-tracking-label,.hero-cover-cities,.hero-cover-tag{display:none!important}',
-      '.header-main-bar{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;padding:calc(10px + env(safe-area-inset-top,0px)) 12px 10px!important}',
-      '.header-brand-group{min-width:0;flex:1;display:flex!important;align-items:center!important;gap:10px!important}',
+      '.header-top-ribbon,.editorial-nav-dock,.header-site-subtitle,.hero-cover-cities,.hero-cover-tag{display:none!important}',
+      '.header-main-bar{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;padding:calc(8px + env(safe-area-inset-top,0px)) 10px 8px!important}',
+      '.header-brand-group{min-width:0;flex:1;display:flex!important;align-items:center!important;gap:8px!important}',
       '.header-title-box{min-width:0;flex:1}',
-      '.header-site-title{font-size:17px!important;line-height:1.2!important;letter-spacing:0!important;white-space:nowrap!important;font-weight:800!important}',
-      '.header-avatar-frame,.header-avatar-img{width:34px!important;height:34px!important;border-radius:50%}',
-      '.header-action-group{display:flex!important;gap:6px!important}',
-      '.btn-theme-pill{width:42px!important;height:42px!important;min-width:42px!important;padding:0!important;border-radius:14px!important;justify-content:center}',
-      '.header-action-group .theme-label,.btn-today-mobile{display:none!important}',
-      '.main-hero-title{display:none!important}',
+      '.header-site-title{font-size:13px!important;line-height:1.25!important;letter-spacing:0!important;font-weight:800!important;display:-webkit-box!important;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden!important;white-space:normal!important}',
+      '.header-avatar-frame,.header-avatar-img{width:34px!important;height:34px!important;border-radius:50%;flex-shrink:0}',
+      '.header-action-group{display:flex!important;gap:5px!important;flex-shrink:0}',
+      '.btn-theme-pill{width:38px!important;height:38px!important;min-width:38px!important;padding:0!important;border-radius:12px!important;justify-content:center}',
+      '.header-action-group .theme-label{display:none!important}',
+      '.main-hero-title{font-size:1.35rem!important;line-height:1.25!important;letter-spacing:0!important}',
       '.hero-cover-card{height:220px!important;border-radius:16px}',
       '.hero-cover-sub{font-size:13px!important}',
       '.countdown-bar{display:flex!important;flex-direction:column!important;gap:8px!important;padding:14px!important}',
-      '.countdown-label{font-size:13px!important}',
-      '.countdown-sub{font-size:12px!important}',
       '.countdown-timer-boxes{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:6px!important;width:100%}',
       '.countdown-box{min-width:0!important;padding:10px 0!important}',
       '.countdown-num{font-size:20px!important}',
-      '.trip-metrics-bar{display:flex!important;flex-direction:column!important;gap:8px!important}',
-      '.metric-chip{padding:12px!important}',
       '.voyage-ribbon-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}',
       '.vr-chip{min-height:0!important;padding:10px!important}',
       '.vr-value{font-size:15px!important}',
       '.app-main,main{padding:12px 12px calc(100px + env(safe-area-inset-bottom,0px))!important}',
       '.mobile-bottom-nav{padding:6px 6px calc(8px + env(safe-area-inset-bottom,0px))!important}',
-      '.bot-nav-btn{min-height:48px;font-size:11px}',
-      '.day-pills-bar{display:flex!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch;gap:8px!important;padding:4px 0 10px}',
-      '.day-poster-top-pills,.day-poster-badge,.day-weather-pill{white-space:normal!important;line-height:1.35!important}',
-      '.event-card{padding:14px!important}',
-      '.event-heading{font-size:17px!important}',
-      '.event-actions-bar{display:flex!important;flex-wrap:wrap!important;gap:8px!important}',
-      '.btn-act{min-height:44px;padding:10px 12px!important}',
+      '.bot-nav-btn{min-height:48px}',
+      '.day-pills-bar{display:flex!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch;gap:8px!important}',
       '}',
       '@media (max-width:560px){.voyage-ribbon-grid{grid-template-columns:1fr!important}}'
     ].join('');
     document.head.appendChild(s);
   }
-  function compactHeaderTitle() {
-    var el = document.querySelector('.header-site-title');
-    if (el && window.innerWidth <= 900) el.textContent = '\u97d3\u570b\u884c\u7a0b';
+  function setOfficialName() {
+    var header = document.querySelector('.header-site-title');
+    if (header) header.textContent = FULL_NAME;
+    var hero = document.querySelector('.main-hero-title');
+    if (hero) hero.textContent = FULL_NAME;
   }
   const TRIP_START = new Date('2026-10-16T00:00:00+09:00');
   const TRIP_END = new Date('2026-10-24T23:59:59+09:00');
@@ -112,7 +107,7 @@
     var days = window.allDaysData || [];
     var d = days.find(function (item) { return item.num === num; });
     if (!d) return '';
-    var lines = ['Korea 2026 Day ' + d.num, d.date + ' ' + d.region, d.title];
+    var lines = [FULL_NAME + ' Day ' + d.num, d.date + ' ' + d.region, d.title];
     (d.events || []).forEach(function (ev) {
       lines.push(ev.transit || ((ev.time || '') + ' ' + (ev.title || '')));
     });
@@ -123,7 +118,7 @@
   };
   window.shareDay = function (num) {
     var text = daySummaryText(num);
-    if (navigator.share) navigator.share({ title: 'Day ' + num, text: text }).catch(function () { window.copyDaySummary(num); });
+    if (navigator.share) navigator.share({ title: FULL_NAME + ' Day ' + num, text: text }).catch(function () { window.copyDaySummary(num); });
     else window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
   };
   function buildSearchIndex() {
@@ -202,7 +197,7 @@
     var orig = window.renderDayDetail;
     window.renderDayDetail = function (num) {
       orig(num);
-      compactHeaderTitle();
+      setOfficialName();
       var wrap = document.getElementById('dayDetailContainer');
       if (!wrap || wrap.querySelector('.day-note-box')) return;
       wrap.insertAdjacentHTML('beforeend', '<div class="day-tools"><button onclick="shareDay(' + num + ')">\u5206\u4eab\u4eca\u65e5</button><button onclick="copyDaySummary(' + num + ')">\u8907\u88fd\u6458\u8981</button></div><div class="day-note-box"><textarea id="dayNoteField" placeholder="\u7576\u65e5\u624b\u8a18" oninput="saveDayNote(' + num + ', this.value)"></textarea></div>');
@@ -212,7 +207,7 @@
   }
   function boot() {
     injectPhoneCss();
-    compactHeaderTitle();
+    setOfficialName();
     injectHeaderButtons();
     injectRibbon();
     injectOverlays();
@@ -221,7 +216,6 @@
     setInterval(tickClocks, 1000);
     loadLiveFx();
     loadLiveWeather();
-    window.addEventListener('resize', compactHeaderTitle);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
