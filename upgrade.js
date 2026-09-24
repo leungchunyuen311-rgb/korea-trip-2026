@@ -1,5 +1,42 @@
 /* Lai's Family Korea 2026 voyage upgrade */
 (function () {
+  function injectPhoneCss() {
+    if (document.getElementById('voyage-phone-css')) return;
+    var s = document.createElement('style');
+    s.id = 'voyage-phone-css';
+    s.textContent = [
+      '@media (max-width: 900px){',
+      '.header-top-ribbon{display:none!important}',
+      '.header-main-bar{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;padding:calc(8px + env(safe-area-inset-top,0px)) 10px 8px!important}',
+      '.header-brand-group{min-width:0;flex:1 1 auto;display:flex!important;align-items:center!important;gap:8px!important}',
+      '.header-title-box{min-width:0;flex:1}',
+      '.header-site-title{font-size:15px!important;line-height:1.2!important;letter-spacing:0!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;max-width:42vw!important}',
+      '.header-site-subtitle{display:none!important}',
+      '.header-action-group{display:flex!important;flex:0 0 auto;gap:4px!important}',
+      '.btn-theme-pill{width:40px!important;height:40px!important;min-width:40px!important;min-height:40px!important;padding:0!important;justify-content:center!important;border-radius:12px!important}',
+      '.header-action-group .theme-label{display:none!important}',
+      '.header-avatar-frame,.header-avatar-img{width:36px!important;height:36px!important}',
+      '.editorial-nav-dock{display:none!important}',
+      '.hero-cover-cities{display:none!important}',
+      '.hero-cover-card{height:260px!important}',
+      '.main-hero-title{font-size:1.35rem!important;letter-spacing:0!important}',
+      '.countdown-bar{display:flex!important;flex-direction:column!important;gap:10px!important}',
+      '.countdown-timer-boxes{display:grid!important;grid-template-columns:repeat(4,1fr)!important;width:100%}',
+      '.mobile-bottom-nav{padding-bottom:calc(8px + env(safe-area-inset-bottom,0px))!important}',
+      '.app-main,main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))!important}',
+      '.voyage-ribbon-grid{grid-template-columns:1fr 1fr!important}',
+      '.vr-chip{min-height:0!important}',
+      '}',
+      '@media (max-width:560px){.voyage-ribbon-grid{grid-template-columns:1fr!important}}'
+    ].join('');
+    document.head.appendChild(s);
+  }
+  function compactHeaderTitle() {
+    var el = document.querySelector('.header-site-title');
+    if (!el) return;
+    if (window.innerWidth <= 900) el.textContent = "Lai's Korea 2026";
+  }
+
   const TRIP_START = new Date('2026-10-16T00:00:00+09:00');
   const TRIP_END = new Date('2026-10-24T23:59:59+09:00');
   const NOTE_KEY = 'korea_trip_day_notes_v1';
@@ -31,76 +68,45 @@
   window.jumpToToday = function () {
     const day = getTripDayNumber(new Date());
     if (day >= 1 && day <= 9 && typeof openDay === 'function') {
-      openDay(day); toast('\u5df2\u958b\u555f\u7b2c ' + day + ' \u65e5\u884c\u7a0b');
+      openDay(day); toast('opened day ' + day);
     } else if (typeof showView === 'function') {
       showView('index');
-      toast(day === 0 ? '\u65c5\u7a0b\u5c1a\u672a\u51fa\u767c\uff0c\u986f\u793a\u7e3d\u89bd\u5012\u6578' : '\u65c5\u7a0b\u5df2\u7d50\u675f\uff0c\u8fd4\u56de\u5178\u85cf\u7e3d\u89bd');
     }
   };
   function wxIcon(code) {
-    if (code === 0) return '\u2600\ufe0f';
-    if (code <= 3) return '\u26c5';
-    if (code <= 48) return '\ud83c\udf2b\ufe0f';
-    if (code <= 67) return '\ud83c\udf27\ufe0f';
-    if (code <= 77) return '\ud83c\udf28\ufe0f';
-    if (code <= 82) return '\ud83c\udf26\ufe0f';
-    return '\u26c8\ufe0f';
+    if (code === 0) return 'sun';
+    if (code <= 3) return 'cloud';
+    if (code <= 67) return 'rain';
+    return 'storm';
   }
   async function loadLiveWeather() {
-    const url = 'https://api.open-meteo.com/v1/forecast?latitude=37.57,33.50&longitude=126.98,126.53&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FSeoul';
     try {
-      const res = await fetch(url);
+      const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=37.57,33.50&longitude=126.98,126.53&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FSeoul');
       const data = await res.json();
       const rows = Array.isArray(data) ? data : [data];
       const seoul = rows[0];
       const jeju = rows[1] || rows[0];
       const sEl = document.getElementById('wxSeoul');
       const jEl = document.getElementById('wxJeju');
-      if (sEl && seoul && seoul.current) {
-        sEl.textContent = wxIcon(seoul.current.weather_code) + ' ' + Math.round(seoul.current.temperature_2m) + '\u00b0C  (' +
-          Math.round(seoul.daily.temperature_2m_min[0]) + '\u2013' + Math.round(seoul.daily.temperature_2m_max[0]) + '\u00b0)';
-      }
-      if (jEl && jeju && jeju.current) {
-        jEl.textContent = wxIcon(jeju.current.weather_code) + ' ' + Math.round(jeju.current.temperature_2m) + '\u00b0C  (' +
-          Math.round(jeju.daily.temperature_2m_min[0]) + '\u2013' + Math.round(jeju.daily.temperature_2m_max[0]) + '\u00b0)';
-      }
-      const meta = document.getElementById('wxMeta');
-      if (meta) meta.textContent = '\u5373\u6642\u6c23\u6eab \u00b7 Open-Meteo \u00b7 \u97d3\u570b\u6642\u9593';
-    } catch (err) {
-      const meta = document.getElementById('wxMeta');
-      if (meta) meta.textContent = '\u5929\u6c23\u66ab\u6642\u672a\u80fd\u66f4\u65b0';
-    }
+      if (sEl && seoul && seoul.current) sEl.textContent = Math.round(seoul.current.temperature_2m) + 'C';
+      if (jEl && jeju && jeju.current) jEl.textContent = Math.round(jeju.current.temperature_2m) + 'C';
+    } catch (err) {}
   }
   function applyFxRate(krwPerHkd) {
     if (!krwPerHkd || !isFinite(krwPerHkd) || krwPerHkd < 100) return;
     try { if (typeof KRW_TO_HKD_RATE !== 'undefined') KRW_TO_HKD_RATE = 1 / krwPerHkd; } catch (e) {}
-    window.KRW_TO_HKD_RATE = 1 / krwPerHkd;
     const pretty = Math.round(krwPerHkd);
-    const title = document.querySelector('.cheatsheet-title span');
-    if (title) title.textContent = '\ud83d\udcb1 \u5e38\u7528\u97d3\u5713\u6975\u901f\u63db\u7b97 (\u5373\u6642 1 HKD \u2248 ' + pretty + ' KRW)';
     const ribbon = document.getElementById('fxRibbonRate');
-    if (ribbon) ribbon.textContent = '1 HKD \u2248 ' + pretty + ' KRW';
-    document.querySelectorAll('.krw-chip').forEach((el) => {
-      const m = el.textContent.match(/\u20a9([\d,]+)/);
-      if (!m) return;
-      const krw = parseInt(m[1].replace(/,/g, ''), 10);
-      const hkd = Math.round(krw / krwPerHkd);
-      el.innerHTML = el.innerHTML.replace(/HK\$\d+/, 'HK$' + hkd);
-    });
-    if (typeof convertFromKrw === 'function') convertFromKrw();
+    if (ribbon) ribbon.textContent = '1 HKD ~ ' + pretty + ' KRW';
+    const title = document.querySelector('.cheatsheet-title span');
+    if (title) title.textContent = 'FX 1 HKD ~ ' + pretty + ' KRW';
   }
   async function loadLiveFx() {
-    const meta = document.getElementById('fxRibbonMeta');
     try {
       const res = await fetch('https://open.er-api.com/v6/latest/HKD');
       const data = await res.json();
-      const krw = data && data.rates && data.rates.KRW;
-      if (!krw) throw new Error('no KRW');
-      applyFxRate(krw);
-      if (meta) meta.textContent = '\u4e2d\u9593\u50f9 \u00b7 ' + (data.time_last_update_utc || 'live');
-    } catch (err) {
-      if (meta) meta.textContent = '\u6cbf\u7528\u53c3\u8003\u532f\u7387 173';
-    }
+      if (data && data.rates && data.rates.KRW) applyFxRate(data.rates.KRW);
+    } catch (err) {}
   }
   function loadDayNote(num) {
     try { return JSON.parse(localStorage.getItem(NOTE_KEY) || '{}')[String(num)] || ''; }
@@ -122,12 +128,10 @@
       if (ev.transit) lines.push(ev.transit);
       else lines.push((ev.time || '') + ' ' + (ev.title || ''));
     });
-    const note = loadDayNote(num);
-    if (note) lines.push(note);
     return lines.join('\n');
   }
   window.copyDaySummary = function (num) {
-    if (typeof copyValue === 'function') copyValue(daySummaryText(num), 'copied day ' + num);
+    if (typeof copyValue === 'function') copyValue(daySummaryText(num), 'copied');
   };
   window.shareDay = function (num) {
     const text = daySummaryText(num);
@@ -138,17 +142,17 @@
     const items = [];
     const days = window.allDaysData || [];
     days.forEach(d => {
-      items.push({ label: 'DAY ' + d.num + ' | ' + d.date + ' | ' + d.title, hint: d.region, hay: (d.title + d.region + d.highlight + d.date).toLowerCase(), go: () => openDay(d.num) });
+      items.push({ label: 'DAY ' + d.num + ' | ' + d.title, hint: d.region, hay: (d.title + d.region + d.highlight + d.date).toLowerCase(), go: () => openDay(d.num) });
       (d.events || []).forEach(ev => {
         if (!ev.title) return;
-        items.push({ label: ev.title, hint: 'Day ' + d.num + ' ' + (ev.time || ''), hay: ((ev.title||'') + (ev.hangul||'') + (ev.desc||'')).toLowerCase(), go: () => openDay(d.num) });
+        items.push({ label: ev.title, hint: 'Day ' + d.num, hay: ((ev.title||'')+(ev.hangul||'')+(ev.desc||'')).toLowerCase(), go: () => openDay(d.num) });
       });
     });
-    items.push({ label: 'Treasury', hint: 'FX', hay: 'money fx krw hkd', go: () => showView('money') });
-    items.push({ label: 'Transit', hint: 'flights', hay: 'flight car hotel staria ioniq', go: () => showView('transit') });
-    items.push({ label: 'Food', hint: 'bars', hay: 'food bar pork coffee zest cham', go: () => showView('food') });
+    items.push({ label: 'Treasury', hint: 'FX', hay: 'money fx krw', go: () => showView('money') });
+    items.push({ label: 'Transit', hint: 'flights', hay: 'flight car hotel', go: () => showView('transit') });
+    items.push({ label: 'Food', hint: 'bars', hay: 'food bar pork coffee', go: () => showView('food') });
     items.push({ label: 'Packing', hint: 'list', hay: 'passport adapter', go: () => showView('packing') });
-    items.push({ label: 'Phrases', hint: 'korean', hay: 'korean toilet bill', go: () => showView('phrases') });
+    items.push({ label: 'Phrases', hint: 'korean', hay: 'korean toilet', go: () => showView('phrases') });
     return items;
   }
   let SEARCH_INDEX = null;
@@ -159,8 +163,7 @@
     if (!SEARCH_INDEX) SEARCH_INDEX = buildSearchIndex();
     if (!query) { box.innerHTML = '<div class="omni-hint">Yeonnam / Udo / Staria / Bar Cham</div>'; return; }
     const hits = SEARCH_INDEX.filter(it => it.hay.includes(query) || it.label.toLowerCase().includes(query)).slice(0, 12);
-    if (!hits.length) { box.innerHTML = '<div class="omni-empty">No results</div>'; return; }
-    box.innerHTML = hits.map(it => '<button class="omni-item"><b>' + it.label + '</b><small>' + it.hint + '</small></button>').join('');
+    box.innerHTML = hits.map(it => '<button class="omni-item"><b>' + it.label + '</b><small>' + it.hint + '</small></button>').join('') || '<div class="omni-empty">No results</div>';
     box.querySelectorAll('.omni-item').forEach((btn, i) => btn.addEventListener('click', () => { closeSearchModal(); hits[i].go(); }));
   };
   window.openSearchModal = function () {
@@ -173,21 +176,13 @@
   window.closeSearchModal = function () { const el = document.getElementById('searchOverlay'); if (el) el.classList.remove('open'); };
   window.openSosSheet = function () { const el = document.getElementById('sosOverlay'); if (el) el.classList.add('open'); };
   window.closeSosSheet = function () { const el = document.getElementById('sosOverlay'); if (el) el.classList.remove('open'); };
-  function fixBrandTitles() {
-    document.querySelectorAll('.header-site-title, .main-hero-title, .hero-cover-sub').forEach((el) => {
-      if (el.querySelector('.brand-apos')) return;
-      el.innerHTML = el.innerHTML.replace(/Lai[\u2019']\s*s/g, 'Lai<span class="brand-apos">\u2019</span>s');
-    });
-    const vp = document.querySelector('meta[name="viewport"]');
-    if (vp) vp.setAttribute('content', 'width=device-width, initial-scale=1.0, viewport-fit=cover');
-  }
   function injectHeaderButtons() {
     const group = document.querySelector('.header-action-group');
     if (!group || group.querySelector('[data-upgrade-btn]')) return;
     group.insertAdjacentHTML('afterbegin',
-      '<button class="btn-theme-pill" data-upgrade-btn="1" onclick="openSearchModal()"><span class="theme-icon">\ud83d\udd0d</span><span class="theme-label">\u641c\u5c0b</span></button>' +
-      '<button class="btn-theme-pill" data-upgrade-btn="1" onclick="jumpToToday()"><span class="theme-icon">\ud83d\udcc5</span><span class="theme-label">\u4eca\u65e5</span></button>' +
-      '<button class="btn-theme-pill" data-upgrade-btn="1" onclick="openSosSheet()"><span class="theme-icon">\ud83c\udd98</span><span class="theme-label">\u7dca\u6025</span></button>'
+      '<button class="btn-theme-pill" data-upgrade-btn="1" onclick="openSearchModal()"><span class="theme-icon">S</span></button>' +
+      '<button class="btn-theme-pill" data-upgrade-btn="1" onclick="jumpToToday()"><span class="theme-icon">T</span></button>' +
+      '<button class="btn-theme-pill" data-upgrade-btn="1" onclick="openSosSheet()"><span class="theme-icon">!</span></button>'
     );
   }
   function injectRibbon() {
@@ -196,27 +191,22 @@
     if (!metrics) return;
     metrics.insertAdjacentHTML('afterend',
       '<div class="voyage-ribbon" id="voyageRibbon"><div class="voyage-ribbon-grid">' +
-      '<div class="vr-chip"><span class="vr-kicker">HONG KONG \u00b7 HKT</span><span class="vr-value" id="clockHkt">--:--</span><span class="vr-sub">UTC+8</span></div>' +
-      '<div class="vr-chip"><span class="vr-kicker">SEOUL / JEJU \u00b7 KST</span><span class="vr-value" id="clockKst">--:--</span><span class="vr-sub">UTC+9</span></div>' +
-      '<div class="vr-chip"><span class="vr-kicker">LIVE FX</span><span class="vr-value" id="fxRibbonRate">1 HKD \u2248 173 KRW</span><span class="vr-sub" id="fxRibbonMeta">loading</span></div>' +
-      '<div class="vr-chip"><span class="vr-kicker">LIVE WEATHER</span><div class="vr-weather-row"><div><b>Seoul</b> <span id="wxSeoul">...</span></div><div><b>Jeju</b> <span id="wxJeju">...</span></div></div><span class="vr-sub" id="wxMeta">Open-Meteo</span></div>' +
-      '</div><div class="voyage-search-row"><button class="voyage-search-btn" onclick="openSearchModal()">Search itinerary / restaurant / hotel <kbd>/</kbd></button><button class="voyage-today-btn" onclick="jumpToToday()">Today</button></div></div>'
+      '<div class="vr-chip"><span class="vr-kicker">HKT</span><span class="vr-value" id="clockHkt">--:--</span></div>' +
+      '<div class="vr-chip"><span class="vr-kicker">KST</span><span class="vr-value" id="clockKst">--:--</span></div>' +
+      '<div class="vr-chip"><span class="vr-kicker">FX</span><span class="vr-value" id="fxRibbonRate">1 HKD ~ 173 KRW</span></div>' +
+      '<div class="vr-chip"><span class="vr-kicker">WEATHER</span><div class="vr-weather-row"><div>Seoul <span id="wxSeoul">...</span></div><div>Jeju <span id="wxJeju">...</span></div></div></div>' +
+      '</div></div>'
     );
   }
   function injectOverlays() {
     if (document.getElementById('searchOverlay')) return;
     document.body.insertAdjacentHTML('beforeend',
-      '<div class="overlay-sheet" id="searchOverlay" onclick="if(event.target===this)closeSearchModal()"><div class="overlay-panel"><div class="overlay-head"><div><div class="overlay-kicker">INDEX</div><h3>Search</h3></div><button class="overlay-close" onclick="closeSearchModal()">Close</button></div><input id="omnisearchInput" class="omni-input" type="search" placeholder="place / flight / phrase" oninput="runOmnisearch(this.value)"/><div id="omnisearchResults" class="omni-results"></div></div></div>' +
-      '<div class="overlay-sheet" id="sosOverlay" onclick="if(event.target===this)closeSosSheet()"><div class="overlay-panel"><div class="overlay-head"><div><div class="overlay-kicker">SOS</div><h3>Emergency</h3></div><button class="overlay-close" onclick="closeSosSheet()">Close</button></div><div class="sos-grid">' +
-      '<a class="sos-card" href="tel:112"><span>112</span><b>Police</b></a>' +
-      '<a class="sos-card" href="tel:119"><span>119</span><b>Fire / Ambulance</b></a>' +
-      '<a class="sos-card" href="tel:1330"><span>1330</span><b>Tourist hotline</b></a>' +
-      '<a class="sos-card" href="tel:+82-10-3212-6215"><span>Seoul car</span><b>+82-10-3212-6215</b></a>' +
-      '<a class="sos-card" href="tel:1588-1230"><span>Jeju Lotte</span><b>1588-1230</b></a>' +
-      '<button class="sos-card" onclick="copyValue(\'3410\',\'PIN 3410\')"><span>Seoul PIN</span><b>3410</b></button>' +
-      '<button class="sos-card" onclick="copyValue(\'2622541225\',\'Jeju booking\')"><span>Jeju booking</span><b>2622541225</b></button>' +
-      '<a class="sos-card" href="https://map.naver.com" target="_blank" rel="noopener"><span>Map</span><b>Naver Map</b></a>' +
-      '</div><p class="sos-note">Use Naver / Kakao for driving, not Google Maps.</p></div></div>'
+      '<div class="overlay-sheet" id="searchOverlay" onclick="if(event.target===this)closeSearchModal()"><div class="overlay-panel"><div class="overlay-head"><h3>Search</h3><button class="overlay-close" onclick="closeSearchModal()">Close</button></div><input id="omnisearchInput" class="omni-input" oninput="runOmnisearch(this.value)"/><div id="omnisearchResults" class="omni-results"></div></div></div>' +
+      '<div class="overlay-sheet" id="sosOverlay" onclick="if(event.target===this)closeSosSheet()"><div class="overlay-panel"><div class="overlay-head"><h3>Emergency</h3><button class="overlay-close" onclick="closeSosSheet()">Close</button></div><div class="sos-grid">' +
+      '<a class="sos-card" href="tel:112"><b>112 Police</b></a><a class="sos-card" href="tel:119"><b>119 Fire</b></a>' +
+      '<a class="sos-card" href="tel:1330"><b>1330 Tourist</b></a><a class="sos-card" href="tel:+82-10-3212-6215"><b>Seoul car</b></a>' +
+      '<a class="sos-card" href="tel:1588-1230"><b>Jeju Lotte</b></a>' +
+      '<button class="sos-card" onclick="copyValue(\'3410\',\'PIN\')"><b>PIN 3410</b></button></div></div></div>'
     );
   }
   function enhanceDayView() {
@@ -224,35 +214,26 @@
     const orig = window.renderDayDetail;
     window.renderDayDetail = function (num) {
       orig(num);
+      compactHeaderTitle();
       const wrap = document.getElementById('dayDetailContainer');
       if (!wrap || wrap.querySelector('.day-note-box')) return;
-      wrap.insertAdjacentHTML('beforeend',
-        '<div class="day-tools"><button type="button" onclick="shareDay(' + num + ')">Share day</button><button type="button" onclick="copyDaySummary(' + num + ')">Copy summary</button></div>' +
-        '<div class="day-note-box"><div class="vr-kicker">DAY NOTES</div><textarea id="dayNoteField" oninput="saveDayNote(' + num + ', this.value)"></textarea></div>'
-      );
+      wrap.insertAdjacentHTML('beforeend', '<div class="day-tools"><button onclick="shareDay(' + num + ')">Share</button><button onclick="copyDaySummary(' + num + ')">Copy</button></div><div class="day-note-box"><textarea id="dayNoteField" oninput="saveDayNote(' + num + ', this.value)"></textarea></div>');
       const noteEl = document.getElementById('dayNoteField');
       if (noteEl) noteEl.value = loadDayNote(num);
     };
   }
-  function markTodayOnIndex() {
-    const day = getTripDayNumber(new Date());
-    if (day < 1 || day > 9) return;
-    document.querySelectorAll('[onclick*="openDay"]').forEach(el => {
-      const attr = el.getAttribute('onclick') || '';
-      if (attr.indexOf('openDay(' + day + ')') >= 0 && !el.querySelector('.today-chip')) {
-        const chip = document.createElement('span');
-        chip.className = 'today-chip'; chip.textContent = 'TODAY'; el.appendChild(chip);
-      }
-    });
-  }
-  document.addEventListener('keydown', (e) => {
-    const tag = (e.target && e.target.tagName) || '';
-    if (e.key === '/' && tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); openSearchModal(); }
-    if (e.key === 'Escape') { closeSearchModal(); closeSosSheet(); }
-  });
   function boot() {
-    fixBrandTitles(); injectHeaderButtons(); injectRibbon(); injectOverlays(); enhanceDayView(); markTodayOnIndex();
-    tickClocks(); setInterval(tickClocks, 1000); loadLiveFx(); loadLiveWeather();
+    injectPhoneCss();
+    compactHeaderTitle();
+    injectHeaderButtons();
+    injectRibbon();
+    injectOverlays();
+    enhanceDayView();
+    tickClocks();
+    setInterval(tickClocks, 1000);
+    loadLiveFx();
+    loadLiveWeather();
+    window.addEventListener('resize', compactHeaderTitle);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
