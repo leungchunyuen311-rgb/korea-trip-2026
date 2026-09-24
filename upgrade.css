@@ -102,3 +102,44 @@ button, a, input, textarea { touch-action: manipulation; }
   .progress-meta-row { flex-direction: column !important; align-items: flex-start !important; gap: 4px; }
   .main-hero-title { font-size: 1.28rem !important; }
 }
+
+/* ===== Offline notice & last-updated labels ===== */
+.offline-bar { display: none; margin: 0 0 12px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--border-antique); background: var(--color-gold-bg); color: var(--color-gold-bright); font-size: 0.8125rem; text-align: center; }
+.vr-stale { display: block; margin-top: 2px; font-size: 0.75rem; color: var(--text-muted); }
+
+/* ===== Today: raised gold button in bottom nav ===== */
+.bot-nav-btn.bot-nav-today { position: relative; overflow: visible; justify-content: flex-end; color: var(--color-gold-bright); font-weight: 700; }
+.today-orb {
+  position: absolute; left: 50%; top: -26px; transform: translateX(-50%);
+  width: 58px; height: 58px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; line-height: 1;
+  background: #C5A059; border: 4px solid #121110;
+  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.45);
+}
+.bot-nav-btn.bot-nav-today:active .today-orb { transform: translateX(-50%) scale(0.94); }
+.bot-nav-btn.bot-nav-today > span:last-child { margin-top: 30px; }
+
+/* ===== Today: card at top of overview during the trip ===== */
+.today-card {
+  display: flex; flex-direction: column; gap: 4px; width: 100%; margin: 0 0 16px; padding: 14px 16px;
+  text-align: left; cursor: pointer; font-family: var(--font-serif); color: var(--text-main);
+  background: var(--bg-card); border: 1px solid var(--color-gold); border-radius: 14px;
+  box-shadow: 0 0 0 3px var(--color-gold-bg);
+}
+.today-card-kicker { font-size: 0.75rem; letter-spacing: .16em; color: var(--color-gold-bright); font-weight: 700; }
+.today-card-meta { font-size: 0.8125rem; color: var(--text-sub); }
+.today-card-title { font-size: 1.1rem; font-weight: 900; line-height: 1.35; }
+
+/* ===== Packing entry card on overview ===== */
+.pack-entry {
+  display: flex; align-items: center; gap: 12px; width: 100%; margin: 0 0 24px; padding: 14px;
+  text-align: left; cursor: pointer; font-family: var(--font-serif); color: var(--text-main);
+  background: var(--bg-card); border: 1px solid rgba(197, 160, 89, 0.32); border-radius: 12px;
+}
+.pack-entry-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.pack-entry-title { font-weight: 700; font-size: 1rem; }
+.pack-entry-progress { font-size: 0.875rem; font-weight: 700; color: var(--color-gold-bright); }
+.pack-entry-track { display: block; height: 6px; border-radius: 3px; background: rgba(197, 160, 89, 0.15); overflow: hidden; }
+.pack-entry-fill { display: block; height: 100%; width: 0; border-radius: 3px; background: linear-gradient(90deg, #8E6F38, #E5C378); transition: width .3s ease; }
+.pack-entry-arrow { font-size: 1.6rem; line-height: 1; color: var(--color-gold); }

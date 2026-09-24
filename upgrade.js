@@ -80,7 +80,16 @@
       var jEl = document.getElementById('wxJeju');
       if (sEl && rows[0] && rows[0].current) sEl.textContent = Math.round(rows[0].current.temperature_2m) + '\u00b0C';
       if (jEl && rows[1] && rows[1].current) jEl.textContent = Math.round(rows[1].current.temperature_2m) + '\u00b0C';
-    } catch (e) {}
+      if (sEl && jEl) saveLive('wx', { s: sEl.textContent, j: jEl.textContent });
+      markUpdated('wx', null);
+    } catch (e) {
+      var last = loadLive('wx');
+      if (!last) return;
+      var s2 = document.getElementById('wxSeoul'), j2 = document.getElementById('wxJeju');
+      if (s2) s2.textContent = last.v.s;
+      if (j2) j2.textContent = last.v.j;
+      markUpdated('wx', last.t);
+    }
   }
   async function loadLiveFx() {
     try {
@@ -91,7 +100,36 @@
       try { if (typeof KRW_TO_HKD_RATE !== 'undefined') KRW_TO_HKD_RATE = 1 / data.rates.KRW; } catch (e) {}
       var ribbon = document.getElementById('fxRibbonRate');
       if (ribbon) ribbon.textContent = '1 HKD \u2248 ' + pretty;
-    } catch (e) {}
+      saveLive('fx', data.rates.KRW);
+      markUpdated('fx', null);
+    } catch (e) {
+      var last = loadLive('fx');
+      if (!last) return;
+      try { if (typeof KRW_TO_HKD_RATE !== 'undefined') KRW_TO_HKD_RATE = 1 / last.v; } catch (e2) {}
+      var rb = document.getElementById('fxRibbonRate');
+      if (rb) rb.textContent = '1 HKD \u2248 ' + Math.round(last.v);
+      markUpdated('fx', last.t);
+    }
+  }
+  /* ===== Offline helpers: remember last live weather / FX ===== */
+  var LIVE_KEY = 'korea_trip_live_cache_v1';
+  function saveLive(kind, value) {
+    try { var all = JSON.parse(localStorage.getItem(LIVE_KEY) || '{}'); all[kind] = { v: value, t: Date.now() }; localStorage.setItem(LIVE_KEY, JSON.stringify(all)); } catch (e) {}
+  }
+  function loadLive(kind) {
+    try { return JSON.parse(localStorage.getItem(LIVE_KEY) || '{}')[kind] || null; } catch (e) { return null; }
+  }
+  function markUpdated(kind, time) {
+    var anchor = document.getElementById(kind === 'fx' ? 'fxRibbonRate' : 'wxSeoul');
+    if (!anchor) return;
+    var chip = anchor.closest('.vr-chip');
+    if (!chip) return;
+    var note = chip.querySelector('.vr-stale');
+    if (!time) { if (note) note.remove(); return; }
+    var d = new Date(time);
+    var label = '\u4e0a\u6b21\u66f4\u65b0 ' + (d.getMonth() + 1) + '/' + d.getDate() + ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+    if (!note) { note = document.createElement('span'); note.className = 'vr-stale'; chip.appendChild(note); }
+    note.textContent = label;
   }
   function loadDayNote(num) {
     try { return JSON.parse(localStorage.getItem(NOTE_KEY) || '{}')[String(num)] || ''; } catch (e) { return ''; }
@@ -205,6 +243,96 @@
       if (noteEl) noteEl.value = loadDayNote(num);
     };
   }
+  /* ===== Offline banner ===== */
+  function updateOnlineState() {
+    var bar = document.getElementById('offlineBar');
+    if (!bar) {
+      var main = document.querySelector('.app-main') || document.body;
+      main.insertAdjacentHTML('afterbegin', '<div class="offline-bar" id="offlineBar" role="status">\u76ee\u524d\u96e2\u7dda\uff0c\u6b63\u5728\u986f\u793a\u5df2\u5132\u5b58\u7684\u884c\u7a0b</div>');
+      bar = document.getElementById('offlineBar');
+    }
+    bar.style.display = navigator.onLine ? 'none' : 'block';
+  }
+  /* ===== Service worker (offline copy) ===== */
+  var OFFLINE_FLAG = 'korea_trip_offline_ready_v1';
+  function registerOffline() {
+    if (!('serviceWorker' in navigator) || location.protocol === 'file:') return;
+    navigator.serviceWorker.register('sw.js').then(function (reg) {
+      var sw = reg.installing || reg.waiting;
+      if (!sw) return;
+      sw.addEventListener('statechange', function () {
+        if (sw.state === 'activated' && !localStorage.getItem(OFFLINE_FLAG)) {
+          localStorage.setItem(OFFLINE_FLAG, '1');
+          if (typeof showToast === 'function') showToast('\u5df2\u5132\u5b58\u96e2\u7dda\u7248\u672c\uff0c\u6c92\u6709\u7db2\u7d61\u4e5f\u80fd\u958b\u555f');
+        }
+      });
+    }).catch(function () {});
+  }
+  /* ===== Today: bottom button, overview card, auto-open during trip ===== */
+  function tripDays() {
+    try { return allDaysData; } catch (e) { return []; }
+  }
+  function injectTodayButton() {
+    var nav = document.querySelector('.mobile-bottom-nav');
+    if (!nav || document.getElementById('bot-nav-today')) return;
+    var day = getTripDayNumber(new Date());
+    var label = (day >= 1 && day <= 9) ? 'Day ' + day : '\u4eca\u65e5';
+    var btn = document.createElement('button');
+    btn.className = 'bot-nav-btn bot-nav-today';
+    btn.id = 'bot-nav-today';
+    btn.setAttribute('aria-label', '\ud83d\udccd \u4eca\u65e5');
+    btn.onclick = function () { window.jumpToToday(); };
+    btn.innerHTML = '<span class="today-orb">\ud83d\udccd</span><span>' + label + '</span>';
+    var slot = document.getElementById('bot-nav-money');
+    nav.insertBefore(btn, slot || null);
+  }
+  function injectTodayCard() {
+    var day = getTripDayNumber(new Date());
+    if (day < 1 || day > 9 || document.getElementById('todayCard')) return;
+    var d = tripDays().find(function (x) { return x.num === day; });
+    var panel = document.getElementById('view-index');
+    if (!d || !panel) return;
+    panel.insertAdjacentHTML('afterbegin',
+      '<button class="today-card" id="todayCard" onclick="jumpToToday()">' +
+      '<span class="today-card-kicker">\u4eca\u65e5\u884c\u7a0b</span>' +
+      '<span class="today-card-meta">Day ' + d.num + ' \u00b7 ' + d.date + ' \u00b7 ' + d.region + '</span>' +
+      '<span class="today-card-title">' + d.title + '</span></button>');
+  }
+  /* ===== Packing: entry card on overview (bottom tab removed) ===== */
+  function syncPackEntry() {
+    var src = document.getElementById('packProgressText');
+    var bar = document.getElementById('packProgressBar');
+    var txt = document.getElementById('packEntryText');
+    var fill = document.getElementById('packEntryFill');
+    if (src && txt) txt.textContent = src.textContent;
+    if (bar && fill) fill.style.width = bar.style.width || '0%';
+  }
+  function injectPackEntry() {
+    if (document.getElementById('packEntry')) return;
+    var anchor = document.querySelector('#view-index .progress-wrapper');
+    if (!anchor) return;
+    anchor.insertAdjacentHTML('afterend',
+      '<button class="pack-entry" id="packEntry" onclick="showView(\'packing\')">' +
+      '<span class="pack-entry-main"><span class="pack-entry-title">\ud83c\udf92 \u884c\u674e</span>' +
+      '<span class="pack-entry-progress" id="packEntryText"></span>' +
+      '<span class="pack-entry-track"><span class="pack-entry-fill" id="packEntryFill"></span></span></span>' +
+      '<span class="pack-entry-arrow" aria-hidden="true">\u203a</span></button>');
+    var packView = document.getElementById('view-packing');
+    if (packView && !packView.querySelector('.back-to-index-btn')) {
+      packView.insertAdjacentHTML('afterbegin', '<button class="back-to-index-btn" onclick="showView(\'index\')">\u2190 \u8fd4\u56de\u884c\u7a0b\u7e3d\u89bd Index</button>');
+    }
+    if (typeof window.updatePackingProgress === 'function') {
+      var orig = window.updatePackingProgress;
+      window.updatePackingProgress = function () { orig.apply(this, arguments); syncPackEntry(); };
+      window.updatePackingProgress();
+    } else {
+      syncPackEntry();
+    }
+  }
+  function autoOpenToday() {
+    var day = getTripDayNumber(new Date());
+    if (day >= 1 && day <= 9 && !location.hash) window.jumpToToday();
+  }
   function boot() {
     injectPhoneCss();
     setOfficialName();
@@ -216,6 +344,14 @@
     setInterval(tickClocks, 1000);
     loadLiveFx();
     loadLiveWeather();
+    updateOnlineState();
+    window.addEventListener('online', function () { updateOnlineState(); loadLiveFx(); loadLiveWeather(); });
+    window.addEventListener('offline', updateOnlineState);
+    injectTodayButton();
+    injectPackEntry();
+    injectTodayCard();
+    autoOpenToday();
+    registerOffline();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
