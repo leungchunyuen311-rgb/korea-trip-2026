@@ -88,9 +88,7 @@ button, a, input, textarea { touch-action: manipulation; }
   .voyage-search-btn kbd { display: none; }
 
   .editorial-nav-dock { display: none !important; }
-  .mobile-bottom-nav { padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)) !important; padding-top: 6px !important; height: auto !important; min-height: 56px; display: flex !important; flex-wrap: nowrap !important; justify-content: flex-start !important; gap: 2px; overflow-x: auto !important; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .mobile-bottom-nav::-webkit-scrollbar { display: none; }
-  .bot-nav-btn { flex: 0 0 auto !important; min-width: 64px !important; padding: 0 6px !important; }
+  .mobile-bottom-nav { padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)) !important; padding-top: 6px !important; height: auto !important; min-height: 56px; overflow: visible !important; }
   .app-main, main { padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px)) !important; }
   .bot-nav-btn { min-height: 44px; }
 }
@@ -110,7 +108,7 @@ button, a, input, textarea { touch-action: manipulation; }
 .vr-stale { display: block; margin-top: 2px; font-size: 0.75rem; color: var(--text-muted); }
 
 /* ===== Today: raised gold button in bottom nav ===== */
-.bot-nav-btn.bot-nav-today { position: relative; overflow: visible; justify-content: flex-end; color: var(--color-gold-bright); font-weight: 700; }
+.bot-nav-btn.bot-nav-today { position: relative; overflow: visible !important; justify-content: flex-end; color: var(--color-gold-bright); font-weight: 700; max-width: none !important; flex: 1.15 !important; z-index: 2; }
 .today-orb {
   position: absolute; left: 50%; top: -26px; transform: translateX(-50%);
   width: 58px; height: 58px; border-radius: 50%;
