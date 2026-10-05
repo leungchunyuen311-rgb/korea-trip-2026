@@ -322,6 +322,17 @@
       '<span class="pack-entry-progress" id="packEntryText"></span>' +
       '<span class="pack-entry-track"><span class="pack-entry-fill" id="packEntryFill"></span></span></span>' +
       '<span class="pack-entry-arrow" aria-hidden="true">\u203a</span></button>');
+    var packBtn = document.getElementById('packEntry');
+    if (packBtn && !document.getElementById('shopEntry')) {
+      packBtn.insertAdjacentHTML('afterend',
+        '<button class="pack-entry shop-entry" id="shopEntry" onclick="showView(\'shop\')">' +
+        '<span class="pack-entry-main"><span class="pack-entry-title">\ud83d\udecd\ufe0f \u8cfc\u7269\u624b\u4fe1</span></span>' +
+        '<span class="pack-entry-arrow" aria-hidden="true">\u203a</span></button>');
+    }
+    var shopView = document.getElementById('view-shop');
+    if (shopView && !shopView.querySelector('.back-to-index-btn')) {
+      shopView.insertAdjacentHTML('afterbegin', '<button class="back-to-index-btn" onclick="showView(\'index\')">\u2190 \u8fd4\u56de\u884c\u7a0b\u7e3d\u89bd Index</button>');
+    }
     var packView = document.getElementById('view-packing');
     if (packView && !packView.querySelector('.back-to-index-btn')) {
       packView.insertAdjacentHTML('afterbegin', '<button class="back-to-index-btn" onclick="showView(\'index\')">\u2190 \u8fd4\u56de\u884c\u7a0b\u7e3d\u89bd Index</button>');
