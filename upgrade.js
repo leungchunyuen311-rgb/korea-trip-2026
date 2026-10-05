@@ -333,7 +333,7 @@
     if (shopBtn && !document.getElementById('foodEntry')) {
       shopBtn.insertAdjacentHTML('afterend',
         '<button class="pack-entry shop-entry" id="foodEntry" onclick="showView(\'food\')">' +
-        '<span class="pack-entry-main"><span class="pack-entry-title">\ud83e\udd62 \u7f8e\u98df\u6309\u5730\u5340</span></span>' +
+        '<span class="pack-entry-main"><span class="pack-entry-title">\ud83c\udf71 \u7f8e\u98df\u6309\u5730\u5340</span></span>' +
         '<span class="pack-entry-arrow" aria-hidden="true">\u203a</span></button>');
     }
     var foodBtn = document.getElementById('foodEntry');
@@ -345,17 +345,17 @@
     }
     var shopView = document.getElementById('view-shop');
     if (shopView && !shopView.querySelector('.back-to-index-btn')) {
-      shopView.insertAdjacentHTML('afterbegin', '<button class="back-to-index-btn" onclick="showView(\'index\')">\u2190 \u8fd4\u56de\u884c\u7a0b\u7e3d\u89bd Index</button>');
+      shopView.insertAdjacentHTML('afterbegin', '<button class="back-to-index-btn" onclick="showView(\'index\')">\u2190 \u8fd4\u56de\u884c\u7a0b\u7e3d\u89bd</button>');
     }
     ['food','transit'].forEach(function (id) {
       var v = document.getElementById('view-' + id);
       if (v && !v.querySelector('.back-to-index-btn')) {
-        v.insertAdjacentHTML('afterbegin', '<button class="back-to-index-btn" onclick="showView(\'index\')">\u2190 \u8fd4\u56de\u884c\u7a0b\u7e3d\u89bd Index</button>');
+        v.insertAdjacentHTML('afterbegin', '<button class="back-to-index-btn" onclick="showView(\'index\')">\u2190 \u8fd4\u56de\u884c\u7a0b\u7e3d\u89bd</button>');
       }
     });
     var packView = document.getElementById('view-packing');
     if (packView && !packView.querySelector('.back-to-index-btn')) {
-      packView.insertAdjacentHTML('afterbegin', '<button class="back-to-index-btn" onclick="showView(\'index\')">\u2190 \u8fd4\u56de\u884c\u7a0b\u7e3d\u89bd Index</button>');
+      packView.insertAdjacentHTML('afterbegin', '<button class="back-to-index-btn" onclick="showView(\'index\')">\u2190 \u8fd4\u56de\u884c\u7a0b\u7e3d\u89bd</button>');
     }
     if (typeof window.updatePackingProgress === 'function') {
       var orig = window.updatePackingProgress;

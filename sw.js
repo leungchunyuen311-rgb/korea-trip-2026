@@ -1,5 +1,5 @@
 /* Offline support for Lai's Trip. Bump CACHE_VERSION on every deploy that changes cached files. */
-const CACHE_VERSION = 'lais-trip-v9';
+const CACHE_VERSION = 'lais-trip-v10';
 const FONT_CACHE = 'lais-trip-fonts-v1';
 const PRECACHE = [
   './', 'index.html', 'upgrade.css', 'upgrade.js', 'manifest.json',
