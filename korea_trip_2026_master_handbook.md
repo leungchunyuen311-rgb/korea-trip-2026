@@ -90,54 +90,58 @@
 
 * **23:30** 車輛停妥於專屬私人車位，密碼鎖自助入住休息。
 
-### ◈ Day 2 (10/17 六) ｜ 延南漫步 ➔ 汝矣島 The Hyundai 首爾 ＆ 漢江晚霞 ➔ 經理團路傳統酒
-
-* **10:45** 退房開車前往延南洞，抵達 [延南洞 Airbnb](https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EB%A7%88%ED%8F%AC%EA%B5%AC%20%EC%97%B0%EB%82%A8%EB%A1%9C7%EA%B8%B8%2026) 1樓寄存行李（**Staria 泊民宿，全天步行**）。
-
-* **11:30** 午餐：[Camello Yeonnam (카멜로연남)](https://map.naver.com/p/search/%EC%B9%B4%EB%A9%9C%EB%A1%9C%EC%97%B0%EB%82%A8) 義式白汁牛排意粉。
-
-* **13:30** 漫步京義線森林鐵道林蔭大道、探訪延南獨立選物店。
-
-* **15:00** 咖啡時光：2022 冠軍虹吸名店 [Default Value (디폴트밸류)](https://map.naver.com/p/search/%EB%94%94%ED%8F%B4%ED%8A%B8%EB%B0%B8%EB%A5%98)；或步行至延禧洞 [Pouring Out (포어링아웃)](https://map.naver.com/p/search/%ED%8F%AC%EC%96%B4%EB%A7%81%EC%95%84%EC%9B%83) 暗黑木質調聽黑膠點歌、吃招牌烤伯爵果醬吐司。
-
-* **16:30** 晚餐：[Bada Sarang 2號店 (바다회사랑 2호점)](https://map.naver.com/p/search/%EB%B0%94%EB%8B%A4%ED%9A%8C%EC%82%AC%EB%9E%91%202%ED%98%B8%EC%A0%90) 當季厚切秋大鰤魚刺身（*長者不吃生食熟食備選：延禧洞奶奶家現烤魚定食 或 延南刀削麵*）。
-
-* **17:45–20:15** 跨過麻浦大橋（12分）直達 [**The Hyundai Seoul (더현대 서울)**](https://map.naver.com/p/search/%EB%8D%94%ED%98%84%EB%8C%80%20%EC%84%9C%EC%9A%B8)（5樓室內空中森林，週六營業至 20:30）＋ 漫步汝矣島漢江公園看漢江大橋落日晚霞（17:53）。
-
-* **20:30–23:30** 計程車走元曉路直達梨泰院（15分）➔ [安氏馬格利 (안씨막걸리)](https://map.naver.com/p/search/%ED%95%9C%EA%B5%AD%EC%88%A0%EC%A7%91%20%EC%95%88%EC%94%A8%EB%A7%89%EA%B1%B8%EB%A6%AC) ➔ [Namsan Sool Club](https://map.naver.com/p/search/%EB%82%A8%EC%82%B0%EC%88%A0%ED%81%B4%EB%9F%BD) 傳統酒品酩。
-
-### ◈ Day 3 (10/18 日) ｜ 景福宮韓服 ➔ 北村黑瓦露台 ➔ 廣藏市場 ➔ 西村亞洲50大酒吧
-
-* **09:00** [景福宮](https://map.naver.com/p/search/%EA%B2%BD%EB%B3%B5%EA%B6%81) 免票韓服攝影體驗 ➔ 北村韓屋村漫步。
-
-* **11:30** 咖啡：[Green Mile Coffee 北村店](https://map.naver.com/p/search/%EA%B7%B8%EB%A6%B0%EB%A7%88%EC%9D%BC%EC%BB%A4%ED%94%BC%20%EB%B6%81%EC%B4%8C%EC%A0%90)（登上 3 樓天台俯瞰北村傳統黑瓦全景）。
-
-* **12:45** 午餐：廣藏市場 [富村生牛肉 本店](https://map.naver.com/p/search/%EB%B6%80%EC%B4%8C%EC%8C%A4%ED%9A%8C%20%EB%B3%B8%EC%A0%90)（交代「파 빼주세요」去蔥，退回牛肝百葉）配順熙家綠豆煎餅。
-
-* **15:00** 下午茶：益善洞 [清水堂 (청수당)](https://map.naver.com/p/search/%EC%B2%AD%EC%88%98%EB%8B%B9) 竹林流水舒芙蕾。
-
-* **17:00–19:00** 晚餐：[On 6.5 (온6.5)](https://map.naver.com/p/search/%EC%98%A86.5) 現代泡菜餐酒館（**已確認預約 17:00**，入座出示飲食過敏卡）。
-
-* **19:15–21:30** 酒吧：亞洲 50 最佳酒吧第 33 名 [Bar Cham (바 참)](https://map.naver.com/p/search/%EB%B0%94%EC%B0%B8)（17:00 前往 On 6.5 前或 18:30 先行登記候位，餐後 19:15 順暢前往入座）＆ 順訪隔壁韓屋酒吧 [Gong-Gan (공간)](https://map.naver.com/p/search/%EA%B3%B5%EA%B0%84)。
-
-* **22:00** 宵夜：[孝道炸雞 光化門店](https://map.naver.com/p/search/%ED%9A%A8%EB%8F%84%EC%B9%98%ED%82%A8%20%EA%B4%91%ED%99%94%EB%AC%B8%EC%A0%90)。
-
-### ◈ Day 4 (10/19 一) ｜ 加平南怡島飛索賞楓 ➔ 聖水洞潮流巡禮 ➔ 東大門一隻雞 ➔ 江南 Bar Zest
-
+### ◈ Day 2 (10/17 六) ｜ 延南文創潮鋪 ➔ 汝矣島 The Hyundai ＆ 漢江晚霞 ➔ 經理團路傳統酒
+* **10:45** 恩平退房，開車前往延南洞 Airbnb（서울 마포구 연남로7길 26）1樓寄存行李（**Staria 泊民宿專屬車位，全天步行＋計程車**）。
+* **11:30 午餐：[Camello Yeonnam (카멜로연남)](https://map.naver.com/p/search/%EC%B9%B4%EB%A9%9C%EB%A1%9C%EC%97%B0%EB%82%A8)**
+  * 招牌辣番茄燉飯、白汁牛排義大利麵。
+* **13:00–16:30 【延南洞 ＆ 弘大文創與潮流選物店深度巡禮】**
+  * 🚶 **京義線森林鐵道林蔭步道**：舊鐵道改建綠色長廊，兩側滿布銀杏與特色小鋪。
+  * 🛍️ **[Object 弘大旗艦店 (오브젝트 서교점)](https://map.naver.com/p/search/%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8%20%EC%84%9C%EA%B5%90%EC%A0%90)**：全首爾手帳、原創插畫周邊、文具雜貨天花板（整棟四層樓，每層有不同獨立插畫家展售）。
+  * 🛍️ **[Musinsa Standard 弘大旗艦店 (무신사 스탠다드 홍대)](https://map.naver.com/p/search/%EB%AC%B4%EC%8B%A0%EC%82%AC%EC%8A%A4%ED%83%A0%EB%8B%A4%EB%93%9C%20%ED%99%8D%EB%8C%80)**：韓國最火紅剪裁俐落極簡機能服飾，性價比極高。
+  * 🛍️ **[Visual Garden 香氛選品] ＆ 延南獨立古著買手店**。
+  * ☕ **職人咖啡雙選**：
+    * 2022 冠軍虹吸名店 [Default Value (디폴트밸류)](https://map.naver.com/p/search/%EB%94%94%ED%8F%B4%ED%8A%B8%EB%B0%B8%EB%A5%98)；
+    * 或延禧洞暗黑系聽歌空間 [Pouring Out (포어링아웃)](https://map.naver.com/p/search/%ED%8F%AC%EC%96%B4%EB%A7%81%EC%95%84%EC%9B%83) 慢品手沖配熱烤伯爵茶果醬吐司。
+* **16:30 晚餐：[Bada Sarang 2號店 (바다회사랑 2호점)](https://map.naver.com/p/search/%EB%B0%94%EB%8B%A4%ED%9A%8C%EC%82%AC%EB%9E%91%202%ED%98%B8%EC%A0%90)**
+  * 當季厚切秋大鰤魚刺身（*長者不吃生食熟食備選：延禧洞奶奶家現烤魚定食 或 延南刀削麵*）。
+* **17:45–20:15 【汝矣島 The Hyundai Seoul 旗艦潮牌 ＆ 漢江公園落日】**
+  * 🚗 自駕或計程車跨越麻浦大橋僅 12 分鐘直達 **[The Hyundai Seoul (더현대 서울)](https://map.naver.com/p/search/%EB%8D%94%ED%98%84%EB%8C%80%20%EC%84%9C%EC%9A%B8)**（週六營業至 20:30）。
+  * 🛍️ **B2 Creative Ground 核心店鋪**：[Matin Kim] 金屬搭扣短皮夾/帽子、[Stand Oil] 經典法棍包、[Depound] 韓系法式帆布袋、[Thisisneverthat] 街頭潮流。
+  * 🌳 **5F Sounds Forest**：室內挑高穹頂自然採光與大型綠植室內花園（6樓俯拍天花板打卡角度）。
+  * 🌅 步行 5 分鐘至汝矣島漢江公園看漢江大橋落日晚霞（17:53）。
+* **20:30–23:30 計程車走元曉路直達梨泰院經理團路（15分）**
+  * 21:00 [安氏馬格利 (안씨막걸리)](https://map.naver.com/p/search/%ED%95%9C%EA%B5%AD%EC%88%A0%EC%A7%91%20%EC%95%88%EC%94%A8%EB%A7%89%EA%B1%B8%EB%A6%AC) 米芝蓮現代生馬格利餐酒館 ➔ 22:30 [Namsan Sool Club](https://map.naver.com/p/search/%EB%82%A8%EC%82%B0%EC%88%A0%ED%81%B4%EB%9F%BD) 全韓獨立微型酒造珍稀地酒 Tasting。
+### ◈ Day 3 (10/18 日) ｜ 景福宮韓服 ➔ 北村黑瓦香氛 ➔ 廣藏市場 ➔ 西村亞洲50大酒吧
+* **09:00** [景福宮](https://map.naver.com/p/search/%EA%B2%BD%EB%B3%B5%EA%B6%81) 免票韓服攝影體驗（慶會樓水岸與香遠亭）。
+* **11:00–12:30 【北村韓屋村 ＆ 三清洞文藝街區散步】**
+  * ☕ **[Green Mile Coffee 北村店](https://map.naver.com/p/search/%EA%B7%B8%EB%A6%B0%EB%A7%88%EC%9D%BC%EC%BB%A4%ED%94%BC%20%EB%B6%81%EC%B4%8C%EC%A0%90)**：登上 3 樓天台俯瞰北村傳統黑瓦全景。
+  * 🌿 **[Granhand 北村旗艦店 (그랑핸드 북촌)](https://map.naver.com/p/search/%EA%B7%B8%EB%9E%91%ED%95%B8%EB%93%9C%20%EB%B6%81%EC%B4%8C)**：隱藏在韓屋內的天然木質調香氛，麻布標籤可即場免費客製蓋印英文字母！
+  * 🌿 **[Tamburins 三清旗艦店 (탬버린즈 삼청)](https://map.naver.com/p/search/%ED%83%AC%EB%B2%84%EB%A6%B0%EC%A6%88%20%EC%82%BC%EC%B2%AD)**：藝術雕塑與香水展示空間；順訪隔壁 [雪花秀之屋 北村 (설화수 북촌)](https://map.naver.com/p/search/%EC%84%A4%ED%99%94%EC%88%98%20%EB%B6%81%EC%B4%8C)。
+* **12:45 午餐：廣藏市場 [富村生牛肉 本店](https://map.naver.com/p/search/%EB%B6%80%EC%B4%8C%EC%8C%A4%ED%9A%8C%20%EB%B3%B8%EC%A0%90)**
+  * 交代「파 빼주세요」去蔥，退回牛肝百葉；同場加購順熙家現煎香脆綠豆煎餅。
+* **14:30–16:30 【益善洞韓屋村潮流小巷】**
+  * 漫步古樸狹窄的韓屋巷弄，探訪特色古著店、手作皮具店與復古射擊遊戲館。
+  * 🎋 **[清水堂 (청수당)](https://map.naver.com/p/search/%EC%B2%AD%EC%88%98%EB%8B%B9)**：流水竹林與紅燈籠庭園，滴漏咖啡配熱烤舒芙蕾；或順訪旁邊 [Mil Toast (밀토스트)](https://map.naver.com/p/search/%EB%B0%80%ED%86%A0%EC%8A%A4%ED%8A%B8) 的熱騰騰竹籠蒸吐司。
+* **17:00–19:00 晚餐：[On 6.5 (온6.5)](https://map.naver.com/p/search/%EC%98%A86.5) 現代泡菜餐酒館**
+  * **已確認預約 17:00**，入座出示飲食過敏卡。
+* **19:15–21:30 酒吧：亞洲 50 最佳酒吧第 33 名 [Bar Cham (바 참)](https://map.naver.com/p/search/%EB%B0%94%EC%B0%B8)**
+  * 17:00 前往 On 6.5 前或 18:30 先行登記候位，吃完 19:15 順暢前往入座；順訪隔壁韓屋酒吧 [Gong-Gan (공간)](https://map.naver.com/p/search/%EA%B3%B5%EA%B0%84)。
+* **22:00 宵夜：[孝道炸雞 光化門店](https://map.naver.com/p/search/%ED%9A%A8%EB%8F%84%EC%B9%98%ED%82%A8%20%EA%B4%91%ED%99%94%EB%AC%B8%EC%A0%90)**。
+### ◈ Day 4 (10/19 一) ｜ 加平南怡島飛索賞楓 ➔ 聖水洞潮流旗艦巡禮 ➔ 東大門一隻雞 ➔ 江南 Bar Zest
 * **06:45（準時出發）** 自駕出城避開週一晨間通勤大塞車，開車約 1 小時 35 分直達加平碼頭。
-
 * **08:30/09:00** [南怡島高空飛索 (남이섬 짚와이어)](https://map.naver.com/p/search/%EB%82%A8%EC%9D%B4%EC%84%AC%20%EC%A7%9A%EC%99%80%EC%9D%B4%EC%96%B4) 極速入島 ➔ 漫步水杉大道與金黃銀杏長廊。
-
 * **12:30** 午餐：加平碼頭春川炒雞排（交代「양파, 대파 빼주세요」去洋蔥大蔥，只炒雞肉與高麗菜）。
-
 * **13:45** 啟程返回首爾（**避開傍晚進城大塞車**）➔ **15:15 直達聖水洞**（Staria 停首爾林公營停車場）。
-
-* **15:15–18:15** 聖水洞潮流街區：打卡 [Dior Seongsu (디올 성수)](https://map.naver.com/p/search/%EB%94%94%EC%98%AC%20%EC%84%B1%EC%88%98)、Ader Error 2.0、Tamburins，喝 [Center Coffee](https://map.naver.com/p/search/%EC%84%BC%ED%84%B0%EC%BB%A4%ED%94%BC) 或 [Lowkey](https://map.naver.com/p/search/%EB%A1%9C%EC%9A%B0%ED%82%A4) 手沖。
-
-* **19:00** 晚餐：[東大門 陳玉華一隻雞](https://map.naver.com/p/search/%EC%A7%84%EC%98%A5%ED%99%94%ED%95%A0%EB%A7%A4%EC%9B%90%EC%A1%B0%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC)（開火剪雞時第一時間夾出厚切京蔥，純享蒜香高蛋白清雞湯）。
-
-* **21:00** 酒吧：江南清潭洞 [**Bar Zest**](https://map.naver.com/p/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4)**（亞洲第 2 名）** ＆ **M+MS bar**（第 42 名）。
-
+* **15:15–18:15 【聖水洞 3 小時國際潮流與美學旗艦店深度巡禮】**
+  * 🏛️ **[Dior Seongsu (디올 성수)](https://map.naver.com/p/search/%EB%94%94%EC%98%AC%20%EC%84%B1%EC%88%98)**：金屬網格雕花與玻璃宮殿外觀，時尚地標 45 度角打卡。
+  * 📚 **[Point of View (포인트오브뷰 성수)](https://map.naver.com/p/search/%ED%8F%AC%EC%9D%B8%ED%8A%B8%EC%98%A4%EB%B8%8C%EB%B7%B0)**：整棟三層樓的復古歐洲文具生活博物館，從金屬書籤、古典羽毛筆到手工信紙，聖水洞必逛第一名！
+  * 🛸 **[Ader Error Space 2.0 (아더에러 성수)](https://map.naver.com/p/search/%EC%95%84%EB%8D%94%EC%97%90%EB%9F%AC%20%EC%84%B1%EC%88%98)**：宇宙飛船與重力裝置沉浸式概念店，潮流服飾與配件。
+  * 👟 **[Kith Seoul (키스 서울)](https://map.naver.com/p/search/kith%20seoul)**：紐約頂級潮流品牌首爾旗艦，精選球鞋與街頭服飾，1樓附設 Kith Treats 穀物冰淇淋。
+  * 👜 **[Stand Oil 聖水旗艦 (스탠드오일)](https://map.naver.com/p/search/%EC%8A%A4%ED%83%A0%EB%93%9C%EC%98%A4%EC%9D%BC%20%EC%84%B1%EC%88%98)** ＆ **[Rockfish Weatherwear 聖水店](https://map.naver.com/p/search/%EB%9D%BD%ED%94%BC%EC%89%AC%EC%9B%A8%EB%8D%94%EC%9B%A8%EC%96%B4%20%EC%84%B1%EC%88%98)**。
+  * ☕ **咖啡休息**：首爾林旁 [Center Coffee (센터커피)](https://map.naver.com/p/search/%EC%84%BC%ED%84%B0%EC%BB%A4%ED%94%BC) 喝英國手沖冠軍淺焙單品，或地下室經典烘豆所 [Lowkey (로우키 성수)](https://map.naver.com/p/search/%EB%A1%9C%EC%9A%B0%ED%82%A4)。
+* **19:00 晚餐：[東大門 陳玉華一隻雞 (진옥화할매원조닭한마리)](https://map.naver.com/p/search/%EC%A7%84%EC%98%A5%ED%99%94%ED%95%A0%EB%A7%A4%EC%9B%90%EC%A1%B0%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC)**
+  * 開火剪雞時第一時間夾出厚切京蔥，純享蒜香高蛋白清雞湯，最後煮手工刀削麵。
+* **21:00 酒吧：江南清潭洞 [Bar Zest (제스트)](https://map.naver.com/p/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4)（亞洲第 2 名）** ＆ **M+MS bar**（第 42 名）。
 ### ◈ Day 5 (10/20 二) ｜ 漢南洞深度潮流美學漫遊 ➔ MUTAN 炸醬麵 ➔ 首爾站還車 ➔ 馬場洞 1++ 韓牛
 
 * **10:00–14:30 【漢南洞 4.5 小時深度漫遊與選豆巡禮】**
