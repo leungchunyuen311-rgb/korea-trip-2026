@@ -102,7 +102,7 @@ button, a, input, textarea { touch-action: manipulation; }
     background: rgba(18, 17, 16, 0.98) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
-    border-top: 1px solid rgba(212, 175, 55, 0.35) !important;
+    border-top: 1px solid rgba(197, 160, 89, 0.35) !important;
     z-index: 99999 !important;
     justify-content: space-around !important;
     align-items: center !important;
@@ -110,11 +110,7 @@ button, a, input, textarea { touch-action: manipulation; }
   }
   .bot-nav-btn {
     flex: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 44px !important;
+    max-width: none !important;
   }
   .app-main, main { padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px)) !important; }
   .bot-nav-btn { min-height: 44px; }
@@ -172,7 +168,7 @@ button, a, input, textarea { touch-action: manipulation; }
 .pack-entry-fill { display: block; height: 100%; width: 0; border-radius: 3px; background: linear-gradient(90deg, #8E6F38, #E5C378); transition: width .3s ease; }
 .pack-entry-arrow { font-size: 1.6rem; line-height: 1; color: var(--color-gold); }
 
-/* Hide duplicate overview cards (resolved '上面又有下面又有') */
+/* Hide duplicate overview cards globally */
 #packEntry, #shopEntry, #foodEntry, #transitEntry {
   display: none !important;
 }

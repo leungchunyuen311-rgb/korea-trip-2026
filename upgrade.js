@@ -30,7 +30,7 @@
       '.vr-chip{min-height:0!important;padding:10px!important}',
       '.vr-value{font-size:15px!important}',
       '.app-main,main{padding:12px 12px calc(100px + env(safe-area-inset-bottom,0px))!important}',
-      '.mobile-bottom-nav{display:flex!important;flex-direction:row!important;position:fixed!important;bottom:0!important;left:0!important;right:0!important;width:100%!important;z-index:99999!important;justify-content:space-around!important;align-items:center!important;padding:6px 6px calc(8px + env(safe-area-inset-bottom,0px))!important}',
+      '.mobile-bottom-nav{padding:6px 6px calc(8px + env(safe-area-inset-bottom,0px))!important}',
       '.bot-nav-btn{min-height:48px}',
       '.day-pills-bar{display:flex!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch;gap:8px!important}',
       '}',
@@ -369,7 +369,22 @@
     var day = getTripDayNumber(new Date());
     if (day >= 1 && day <= 9 && !location.hash) window.jumpToToday();
   }
+  
+  /* ===== Forcefully ensure Food button is present in bottom nav ===== */
+  function ensureFoodButton() {
+    var nav = document.querySelector('.mobile-bottom-nav');
+    if (!nav || document.getElementById('bot-nav-food')) return;
+    var btn = document.createElement('button');
+    btn.className = 'bot-nav-btn';
+    btn.id = 'bot-nav-food';
+    btn.onclick = function() { showView('food'); };
+    btn.innerHTML = '<span class="icon">🍴</span><span>美食</span>';
+    var money = document.getElementById('bot-nav-money');
+    nav.insertBefore(btn, money || null);
+  }
+
   function boot() {
+    ensureFoodButton();
     injectPhoneCss();
     setOfficialName();
     injectHeaderButtons();

@@ -2577,7 +2577,7 @@
       border-radius: 6px;
       transition: all 0.2s ease;
       flex: 1;
-      max-width: 56px;
+      max-width: none; flex: 1;
     }
     .bot-nav-btn .icon {
       font-size: 1.15rem;
@@ -4408,25 +4408,31 @@
       const weatherText = d.weather ? `<span class="day-weather-pill">${d.weather} ｜ ${d.goldenHour}</span>` : '';
 
       let html = `
-        <div class="day-hero-poster-card" onclick="openPhotoLightbox('DAY${d.num}.jpg', 'DAY 0${d.num} · ${d.title}', '${d.photoCaption || d.region}')">
-          <div class="day-poster-img-wrap">
-            <img src="DAY${d.num}.jpg" 
-                 alt="Day ${d.num} 圖片" 
-                 class="day-poster-img"
-                 data-day="${d.num}"
-                 data-try="0"
-                 onerror="handleDayImgError(this, ${d.num})">
-            <div class="day-poster-gradient"></div>
-            <div class="day-poster-zoom-tip">🔍 點擊全螢幕賞析</div>
-            <div class="day-poster-overlay-meta">
-              <div class="day-poster-top-pills">
-                <span class="day-poster-badge">◈ ACT 0${d.num} · ${d.date} · ${d.region} ◈</span>
-                ${weatherText}
-              </div>
-              <h2 class="day-poster-title">${d.title}</h2>
-              <div class="day-poster-desc">${d.highlight}</div>
+        <!-- 🌟 重新排版：圖文分離，相片乾淨大氣，文字舒展大方 (徹底告別擁擠) 🌟 -->
+        <div class="day-hero-poster-card" style="margin-bottom: 22px; border-radius: 16px; overflow: hidden; background: #141311; border: 1px solid rgba(197,160,89,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.65);">
+          <!-- 1. 純淨高清相片區 (Clean Image Banner) -->
+          <div style="position: relative; width: 100%; height: 220px; overflow: hidden; cursor: pointer;" onclick="openPhotoLightbox('DAY${d.num}.jpg', 'DAY 0${d.num} · ${d.title}', '${d.photoCaption || d.region}')">
+            <img src="DAY${d.num}.jpg" alt="Day ${d.num}" class="day-poster-img" style="width: 100%; height: 100%; object-fit: cover;" onerror="handleDayImgError(this, ${d.num})">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 40%, rgba(20,19,17,0.85) 100%); pointer-events: none;"></div>
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(18,17,16,0.85); border: 1px solid rgba(197,160,89,0.4); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; color: #D4AF37; font-weight: 700;">
+              ◈ Day 0${d.num} · ${d.date} · ${d.region} ◈
+            </span>
+            <span style="position: absolute; top: 12px; right: 12px; background: rgba(18,17,16,0.85); border: 1px solid rgba(255,255,255,0.25); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; color: #F5F2EB;">
+              🔍 點擊全屏賞析
+            </span>
+          </div>
+
+          <!-- 2. 獨立文字資訊區 (Spacious Content Below Image) -->
+          <div style="padding: 18px 20px;">
+            ${weatherText ? `<div style="margin-bottom: 10px;">${weatherText}</div>` : ''}
+            <h2 style="font-size: 1.25rem; font-weight: 800; color: #F5F2EB; margin: 0 0 10px; line-height: 1.35; letter-spacing: -0.01em;">
+              ${d.title}
+            </h2>
+            <div style="font-size: 0.88rem; color: #C5BFB0; line-height: 1.55; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08);">
+              ${d.highlight}
             </div>
           </div>
+        </div>
         </div>
         <!-- 每日自駕地圖與路線總覽卡 (DAY ROUTE MAP CARD) -->
         <div class="day-route-map-card" style="margin-bottom: 24px; padding: 20px; border-radius: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(212,175,55,0.25); box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
@@ -5081,6 +5087,10 @@
 <button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentDayNum || 1)">
 <span class="icon">📅</span>
 <span>每日</span>
+</button>
+<button class="bot-nav-btn" id="bot-nav-food" onclick="showView('food')">
+<span class="icon">🍴</span>
+<span>美食</span>
 </button>
 <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')">
 <span class="icon">💰</span>
