@@ -106,13 +106,11 @@
 
   * 🛍️ [**Musinsa Standard 弘大旗艦店 (무신사 스탠다드 홍대)**](https://map.naver.com/p/search/%EB%AC%B4%EC%8B%A0%EC%82%AC%EC%8A%A4%ED%83%A0%EB%8B%A4%EB%93%9C%20%ED%99%8D%EB%8C%80)：韓國最火紅剪裁俐落極簡機能服飾，性價比極高。
 
-  * 🛍️ 
+  * 🛍️
 
-    $$
-    Visual Garden 香氛選品
-    $$
+    \$$     Visual Garden 香氛選品     $$
 
-     ＆ 延南獨立古著買手店。
+    ＆ 延南獨立古著買手店。
 
   * ☕ **職人咖啡雙選**：
 
@@ -134,25 +132,25 @@
     Matin Kim
     $$
 
-     金屬搭扣短皮夾/帽子、
+    金屬搭扣短皮夾/帽子、
 
     $$
     Stand Oil
     $$
 
-     經典法棍包、
+    經典法棍包、
 
     $$
     Depound
     $$
 
-     韓系法式帆布袋、
+    韓系法式帆布袋、
 
     $$
     Thisisneverthat
     $$
 
-     街頭潮流。
+    街頭潮流。
 
   * 🌳 **5F Sounds Forest**：室內挑高穹頂自然採光與大型綠植室內花園（6樓俯拍天花板打卡角度）。
 
