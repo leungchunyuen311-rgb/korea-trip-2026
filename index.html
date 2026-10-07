@@ -5073,27 +5073,34 @@
 </div>
 </div>
 <!-- 🌟 Mobile Bottom Navigation Bar -->
-<nav class="mobile-bottom-nav">
-<button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index')">
-<span class="icon">🔖</span>
-<span>總覽</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentDayNum || 1)">
-<span class="icon">📅</span>
-<span>每日</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')">
-<span class="icon">💰</span>
-<span>分賬</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')">
-<span class="icon">🎒</span>
-<span>行李</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-phrases" onclick="showView('phrases')">
-<span class="icon">💬</span>
-<span>溝通卡</span>
-</button>
+<nav class="bot-nav">
+  <button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index')">
+    <span class="icon">🔖</span>
+    <span>總覽</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentDayNum || 1)">
+    <span class="icon">📅</span>
+    <span>每日</span>
+  </button>
+
+  <!-- 🌟 在這裡加入「美食」 🌟 -->
+  <button class="bot-nav-btn" id="bot-nav-food" onclick="showView('food')">
+    <span class="icon">🍴</span>
+    <span>美食</span>
+  </button>
+
+  <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')">
+    <span class="icon">💰</span>
+    <span>分賬</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')">
+    <span class="icon">🎒</span>
+    <span>行李</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-phrases" onclick="showView('phrases')">
+    <span class="icon">💬</span>
+    <span>溝通卡</span>
+  </button>
 </nav>
 <!-- 🌟 Fullscreen Luxury Photo Lightbox Gallery -->
 <div class="photo-lightbox-modal" id="photoLightbox" onclick="closePhotoLightbox(event)">
