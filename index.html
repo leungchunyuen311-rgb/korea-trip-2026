@@ -2667,7 +2667,7 @@
 <span class="ribbon-flourish">◈</span>
 </div>
 <div class="header-main-bar">
-<div class="header-brand-group" onclick="showView('index')" role="button" tabindex="0">
+<div class="header-brand-group" onclick="triggerHaptic('light'); showView('index');" role="button" tabindex="0">
 <div class="header-avatar-frame">
 <img alt="Lai's Family Trip 2026" class="header-avatar-img" onerror="this.parentElement.style.display='none'" src="cover.jpg"/>
 </div>
@@ -2686,7 +2686,7 @@
 <!-- 🌟 Horizontal Editorial Navigation Tabs -->
 <nav class="editorial-nav-dock" id="editorialNavDock">
 <div class="nav-dock-scroller">
-<button class="editorial-tab-btn active" id="btn-nav-index" onclick="showView('index')">
+<button class="editorial-tab-btn active" id="btn-nav-index" onclick="triggerHaptic('light'); showView('index');">
 <span class="tab-icon">📖</span>
 <span class="tab-title">行程總覽</span>
 <span class="tab-en">OVERVIEW</span>
@@ -2701,17 +2701,17 @@
 <span class="tab-title">交通住宿</span>
 <span class="tab-en">TRANSIT</span>
 </button>
-<button class="editorial-tab-btn" id="btn-nav-food" onclick="showView('food')">
+<button class="editorial-tab-btn" id="btn-nav-food" onclick="triggerHaptic('light'); showView('food');">
 <span class="tab-icon">🥢</span>
 <span class="tab-title">美饌品酩</span>
 <span class="tab-en">GASTRONOMY</span>
 </button>
-<button class="editorial-tab-btn" id="btn-nav-money" onclick="showView('money')">
+<button class="editorial-tab-btn" id="btn-nav-money" onclick="triggerHaptic('light'); showView('money');">
 <span class="tab-icon">💳</span>
 <span class="tab-title">公費分賬與即時匯率 (Finance &amp; Currency)</span>
 <span class="tab-en">TREASURY</span>
 </button>
-<button class="editorial-tab-btn" id="btn-nav-packing" onclick="showView('packing')">
+<button class="editorial-tab-btn" id="btn-nav-packing" onclick="triggerHaptic('light'); showView('packing');">
 <span class="tab-icon">🎒</span>
 <span class="tab-title">行裝備忘</span>
 <span class="tab-en">CHECKLIST</span>
@@ -2836,11 +2836,11 @@
 <span>💱 常用韓圓極速換算 (匯率 1 HKD ≈ 173 KRW)</span>
 </div>
 <div class="cheatsheet-pills-row">
-<div class="krw-chip" onclick="showView('money')">₩5,000 ≈ <b>HK$29</b> (街頭小食)</div>
-<div class="krw-chip" onclick="showView('money')">₩15,000 ≈ <b>HK$87</b> (一人午餐)</div>
-<div class="krw-chip" onclick="showView('money')">₩30,000 ≈ <b>HK$173</b> (烤肉正餐)</div>
-<div class="krw-chip" onclick="showView('money')">₩50,000 ≈ <b>HK$289</b> (雙人盛宴)</div>
-<div class="krw-chip" onclick="showView('money')">₩100,000 ≈ <b>HK$578</b> (大額採購)</div>
+<div class="krw-chip" onclick="triggerHaptic('light'); showView('money');">₩5,000 ≈ <b>HK$29</b> (街頭小食)</div>
+<div class="krw-chip" onclick="triggerHaptic('light'); showView('money');">₩15,000 ≈ <b>HK$87</b> (一人午餐)</div>
+<div class="krw-chip" onclick="triggerHaptic('light'); showView('money');">₩30,000 ≈ <b>HK$173</b> (烤肉正餐)</div>
+<div class="krw-chip" onclick="triggerHaptic('light'); showView('money');">₩50,000 ≈ <b>HK$289</b> (雙人盛宴)</div>
+<div class="krw-chip" onclick="triggerHaptic('light'); showView('money');">₩100,000 ≈ <b>HK$578</b> (大額採購)</div>
 </div>
 </div>
 </div>
@@ -3034,7 +3034,7 @@
 <button class="day-pill-btn" id="pill-d9" onclick="openDay(9)"><span class="pill-d">Day 09</span><span class="pill-sub">10/24 六</span></button>
 </div>
 <div class="back-btn-row">
-<button class="back-to-index-btn" onclick="showView('index')">← 返回行程總覽 Index</button>
+<button class="back-to-index-btn" onclick="triggerHaptic('light'); showView('index');">← 返回行程總覽 Index</button>
 <div style="display:flex;gap:6px;">
 <button class="btn-act" id="prevDayBtn" onclick="stepDay(-1)">← 上一天</button>
 <button class="btn-act" id="nextDayBtn" onclick="stepDay(1)">下一天 →</button>
@@ -3280,6 +3280,10 @@
 <!-- Section 3: 首爾備用頂級人氣酒吧 -->
 <div class="panel-card">
 <h3 class="panel-card-title">🍸 首爾備用人氣酒吧 (Asia's 50 Best &amp; Speakeasy)</h3>
+<p class="event-p"><b>• 블러드앤샌드 (BLOOD&amp;SAND)：</b> 麻浦西橋洞/合井，西班牙風 Vermouth 與波本威士忌 Tasting Course 專門酒吧。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B8%94%EB%9F%AC%EB%93%9C%EC%95%A4%EC%83%8C%EB%93%9C" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• 바 토트 (tott seoul)：</b> 麻浦合井，5/5 滿分極高評價巷弄調酒吧，極致細膩蔬果香草風味特調。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B0%94%20%ED%86%A0%ED%8A%B8" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• 바 키안 (Bar Kian)：</b> 麻浦合井，黑膠唱片 LP 音樂雞尾酒吧，昏黃放鬆的聽膠品酩空間。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B0%94%20%ED%82%A4%EC%95%88" target="_blank">🗺️ Naver Map</a></p>
+
 <p class="event-p"><b>• Zest (제스트)：</b> 江南清潭洞，<b>亞洲 50 最佳酒吧 #2 / 世界 50 大 #18</b>，極致零浪費（Zero-Waste）永續調酒神殿，自家精餾杜松子酒與濟州柑橘特調（近 M+MS bar 步行 6 分）。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4" target="_blank">🗺️ Naver Map</a></p>
 <p class="event-p"><b>• Bar Cham (바 참)：</b> 西村老韓屋，<b>亞洲 50 最佳酒吧 #33</b>，融合傳統燒酎與地道食材（建議拆 2+3 人入座最快，現場平板 Catchtable 取號）。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%B0%94%EC%B0%B8" target="_blank">🗺️ Naver Map</a></p>
 <p class="event-p"><b>• M+MS bar (엠엠에스 Dosan)：</b> 江南島山公園，<b>亞洲 50 最佳酒吧 #42</b>，摩登現代調酒藝術。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%97%A0%EC%97%A0%EC%97%90%EC%8A%A4%20%EB%8F%84%EC%82%B0" target="_blank">🗺️ Naver Map</a></p>
@@ -4374,6 +4378,16 @@
             <div style="font-size: 0.88rem; color: #C5BFB0; line-height: 1.55; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08);">
               ${d.highlight}
             </div>
+
+            <!-- 📲 WhatsApp 一鍵「今日總結匯報」按鈕 -->
+            <div style="margin-top: 14px; padding-top: 12px; border-top: 1px dashed rgba(212,175,55,0.25); display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+              <span style="font-size: 0.78rem; color: var(--color-gold, #D4AF37); font-weight: 600;">
+                👈 左右滑動切換天數 👉
+              </span>
+              <button onclick="shareTodayWhatsApp(${d.num})" style="background: rgba(37, 211, 102, 0.15); border: 1px solid #25D366; color: #25D366; font-weight: 700; font-size: 0.8rem; padding: 7px 14px; border-radius: 20px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;">
+                <span>📲</span> <span>發送今日行程到 WhatsApp</span>
+              </button>
+            </div>
           </div>
         </div>
         </div>
@@ -5006,6 +5020,114 @@
         </a>${arrow}`;
       }).join(' ');
     }
+  
+    // =========================================================
+    // 📱 NATIVE APP UPGRADES: HAPTIC FEEDBACK, SWIPE GESTURES, WHATSAPP REPORT
+    // =========================================================
+
+    // 1. Tactile Micro-Vibration Haptic Feedback (8ms~35ms)
+    function triggerHaptic(type = 'light') {
+      if (typeof window !== 'undefined' && window.navigator && window.navigator.vibrate) {
+        try {
+          if (type === 'light') window.navigator.vibrate(10);
+          else if (type === 'medium') window.navigator.vibrate(20);
+          else if (type === 'success') window.navigator.vibrate([12, 35, 18]);
+        } catch (e) {}
+      }
+    }
+
+    // 2. WhatsApp One-Tap Daily Family Report Generator
+    function shareTodayWhatsApp(num) {
+      triggerHaptic('success');
+      const d = allDaysData.find(item => item.num === num);
+      if (!d) return;
+
+      let lines = [
+        `🍁【Lai’s Family Seoul & Jeju 2026】Day 0${d.num} 行程簡報`,
+        `📅 日期：${d.date} ｜ 📍 區域：${d.region}`,
+        `🌤️ 天氣：${d.weather || '秋高氣爽'}`,
+        `---------------------------`,
+        `📌 今日重點活動：`
+      ];
+
+      (d.events || []).forEach(ev => {
+        if (ev.title) {
+          const t = ev.time ? `${ev.time} ` : '• ';
+          lines.push(`${t}${ev.title}`);
+        } else if (ev.transit) {
+          lines.push(`   └ ${ev.transit}`);
+        }
+      });
+
+      lines.push(`---------------------------`);
+      if (d.num <= 5) {
+        lines.push(`🚗 今日座駕：Hyundai Staria 9人車 (注意過路費走現金車道)`);
+      } else {
+        lines.push(`⚡ 今日座駕：IONIQ 9 純電車 (滿電 500km 無里程焦慮)`);
+      }
+      lines.push(`⚠️ 點餐提醒：去蔥、洋蔥、韭菜、內臟、生蠔！`);
+      lines.push(`
+📱 隨身手帳：https://leungchunyuen311-rgb.github.io/index.html`);
+
+      const text = lines.join('\n');
+      
+      // Try Web Share API first for seamless WhatsApp selection
+      if (navigator.share) {
+        navigator.share({
+          title: `Day 0${d.num} 行程簡報 - Lai's Family Trip`,
+          text: text
+        }).catch(() => {
+          window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
+        });
+      } else {
+        copyValue(text, '已複製今日 WhatsApp 行程簡報！');
+        window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
+      }
+    }
+
+    // 3. Touch Swipe Gesture (Left = Next Day, Right = Prev Day)
+    (function setupSwipeGesture() {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchEndX = 0;
+      let touchEndY = 0;
+
+      window.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      window.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+      }, { passive: true });
+
+      function handleSwipe() {
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        // Only trigger when on day detail view and horizontal swipe dominates
+        const dayView = document.getElementById('view-day-detail');
+        if (!dayView || !dayView.classList.contains('active')) return;
+
+        if (Math.abs(deltaX) > 65 && Math.abs(deltaX) > Math.abs(deltaY) * 1.5) {
+          if (deltaX < 0) {
+            // Swiped LEFT -> Next Day
+            if (currentDayNum < 9) {
+              triggerHaptic('medium');
+              stepDay(1);
+            }
+          } else {
+            // Swiped RIGHT -> Prev Day
+            if (currentDayNum > 1) {
+              triggerHaptic('medium');
+              stepDay(-1);
+            }
+          }
+        }
+      }
+    })();
+
   </script>
 
 <!-- 🌟 Fullscreen Korean Survival Phrase Modal -->
@@ -5024,7 +5146,7 @@
 <!-- 🌟 Mobile Bottom Navigation Bar -->
 <!-- 🌟 Mobile Bottom Navigation Bar (5 大核心功能，已移除韓語卡，美食居中！) 🌟 -->
 <nav class="mobile-bottom-nav" style="display: flex !important; flex-direction: row !important; position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; height: calc(58px + env(safe-area-inset-bottom, 0px)) !important; padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)) !important; padding-top: 6px !important; background: rgba(18, 17, 16, 0.98) !important; border-top: 1px solid rgba(197, 160, 89, 0.35) !important; z-index: 99999 !important; justify-content: space-around !important; align-items: center !important; margin: 0 !important; padding-left: 8px !important; padding-right: 8px !important; backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important;">
-  <button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index')" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #D4AF37 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
+  <button class="bot-nav-btn active" id="bot-nav-index" onclick="triggerHaptic('light'); showView('index');" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #D4AF37 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
     <span class="icon" style="font-size: 1.25rem !important; margin-bottom: 2px;">🔖</span>
     <span>總覽</span>
   </button>
@@ -5032,15 +5154,15 @@
     <span class="icon" style="font-size: 1.25rem !important; margin-bottom: 2px;">📅</span>
     <span>每日</span>
   </button>
-  <button class="bot-nav-btn" id="bot-nav-food" onclick="showView('food')" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #9E9A90 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
+  <button class="bot-nav-btn" id="bot-nav-food" onclick="triggerHaptic('light'); showView('food');" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #9E9A90 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
     <span class="icon" style="font-size: 1.25rem !important; margin-bottom: 2px;">🍴</span>
     <span>美食</span>
   </button>
-  <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #9E9A90 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
+  <button class="bot-nav-btn" id="bot-nav-money" onclick="triggerHaptic('light'); showView('money');" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #9E9A90 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
     <span class="icon" style="font-size: 1.25rem !important; margin-bottom: 2px;">💰</span>
     <span>分賬</span>
   </button>
-  <button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #9E9A90 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
+  <button class="bot-nav-btn" id="bot-nav-packing" onclick="triggerHaptic('light'); showView('packing');" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #9E9A90 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
     <span class="icon" style="font-size: 1.25rem !important; margin-bottom: 2px;">🎒</span>
     <span>行李</span>
   </button>
