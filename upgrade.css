@@ -88,7 +88,34 @@ button, a, input, textarea { touch-action: manipulation; }
   .voyage-search-btn kbd { display: none; }
 
   .editorial-nav-dock { display: none !important; }
-  .mobile-bottom-nav { padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)) !important; padding-top: 6px !important; height: auto !important; min-height: 56px; overflow: visible !important; }
+  .mobile-bottom-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: calc(58px + env(safe-area-inset-bottom, 0px)) !important;
+    padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)) !important;
+    padding-top: 6px !important;
+    background: rgba(18, 17, 16, 0.98) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-top: 1px solid rgba(212, 175, 55, 0.35) !important;
+    z-index: 99999 !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    overflow: visible !important;
+  }
+  .bot-nav-btn {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+  }
   .app-main, main { padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px)) !important; }
   .bot-nav-btn { min-height: 44px; }
 }
@@ -145,6 +172,7 @@ button, a, input, textarea { touch-action: manipulation; }
 .pack-entry-fill { display: block; height: 100%; width: 0; border-radius: 3px; background: linear-gradient(90deg, #8E6F38, #E5C378); transition: width .3s ease; }
 .pack-entry-arrow { font-size: 1.6rem; line-height: 1; color: var(--color-gold); }
 
-@media (min-width: 901px) {
-  #packEntry, #shopEntry, #foodEntry, #transitEntry { display: none !important; }
+/* Hide duplicate overview cards (resolved '上面又有下面又有') */
+#packEntry, #shopEntry, #foodEntry, #transitEntry {
+  display: none !important;
 }

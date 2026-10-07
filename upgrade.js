@@ -30,7 +30,7 @@
       '.vr-chip{min-height:0!important;padding:10px!important}',
       '.vr-value{font-size:15px!important}',
       '.app-main,main{padding:12px 12px calc(100px + env(safe-area-inset-bottom,0px))!important}',
-      '.mobile-bottom-nav{padding:6px 6px calc(8px + env(safe-area-inset-bottom,0px))!important}',
+      '.mobile-bottom-nav{display:flex!important;flex-direction:row!important;position:fixed!important;bottom:0!important;left:0!important;right:0!important;width:100%!important;z-index:99999!important;justify-content:space-around!important;align-items:center!important;padding:6px 6px calc(8px + env(safe-area-inset-bottom,0px))!important}',
       '.bot-nav-btn{min-height:48px}',
       '.day-pills-bar{display:flex!important;overflow-x:auto!important;-webkit-overflow-scrolling:touch;gap:8px!important}',
       '}',
