@@ -5022,31 +5022,28 @@
 </div>
 </div>
 <!-- 🌟 Mobile Bottom Navigation Bar -->
-<nav class="mobile-bottom-nav">
-<button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index')">
-<span class="icon">🔖</span>
-<span>總覽</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentDayNum || 1)">
-<span class="icon">📅</span>
-<span>每日</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-food" onclick="showView('food')">
-<span class="icon">🍴</span>
-<span>美食</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')">
-<span class="icon">💰</span>
-<span>分賬</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')">
-<span class="icon">🎒</span>
-<span>行李</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-phrases" onclick="showView('phrases')">
-<span class="icon">💬</span>
-<span>溝通卡</span>
-</button>
+<!-- 🌟 Mobile Bottom Navigation Bar (5 大核心功能，已移除韓語卡，美食居中！) 🌟 -->
+<nav class="mobile-bottom-nav" style="display: flex !important; flex-direction: row !important; position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; height: calc(58px + env(safe-area-inset-bottom, 0px)) !important; padding-bottom: calc(6px + env(safe-area-inset-bottom, 0px)) !important; padding-top: 6px !important; background: rgba(18, 17, 16, 0.98) !important; border-top: 1px solid rgba(197, 160, 89, 0.35) !important; z-index: 99999 !important; justify-content: space-around !important; align-items: center !important; margin: 0 !important; padding-left: 8px !important; padding-right: 8px !important; backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important;">
+  <button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index')" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #D4AF37 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
+    <span class="icon" style="font-size: 1.25rem !important; margin-bottom: 2px;">🔖</span>
+    <span>總覽</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentDayNum || 1)" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #9E9A90 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
+    <span class="icon" style="font-size: 1.25rem !important; margin-bottom: 2px;">📅</span>
+    <span>每日</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-food" onclick="showView('food')" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #9E9A90 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
+    <span class="icon" style="font-size: 1.25rem !important; margin-bottom: 2px;">🍴</span>
+    <span>美食</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #9E9A90 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
+    <span class="icon" style="font-size: 1.25rem !important; margin-bottom: 2px;">💰</span>
+    <span>分賬</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')" style="flex: 1 !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; background: none !important; border: none !important; color: #9E9A90 !important; font-size: 0.72rem !important; cursor: pointer !important; padding: 4px 0 !important;">
+    <span class="icon" style="font-size: 1.25rem !important; margin-bottom: 2px;">🎒</span>
+    <span>行李</span>
+  </button>
 </nav>
 <!-- 🌟 Fullscreen Luxury Photo Lightbox Gallery -->
 <div class="photo-lightbox-modal" id="photoLightbox" onclick="closePhotoLightbox(event)">
