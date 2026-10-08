@@ -1866,15 +1866,26 @@
     }
     .hero-cover-cities {
       font-family: var(--font-serif);
-      font-size: 1.85rem;
+      font-size: clamp(1.15rem, 4.6vw, 1.85rem) !important;
       font-weight: 900;
       color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      letter-spacing: 0.05em;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      letter-spacing: 0.02em !important;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
       margin-bottom: 6px;
+      white-space: nowrap !important;
+      flex-wrap: nowrap !important;
+    }
+    .hero-cover-cities span {
+      white-space: nowrap !important;
+      display: inline-block !important;
+    }
+    .hero-cover-cities .city-sep {
+      color: #E5C378 !important;
+      font-size: 0.95rem !important;
+      flex-shrink: 0 !important;
     }
     .hero-cover-cities .city-sep {
       color: #E5C378;
@@ -2930,6 +2941,206 @@
       }
     }
 
+  
+    /* 📱 Native Mobile Polish & Anti-Glitch Overrides 📱 */
+    html, body {
+      width: 100% !important;
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+    }
+    * {
+      box-sizing: border-box !important;
+    }
+
+    /* Fixed Bottom Navigation Dock */
+    .mobile-bottom-nav {
+      display: none;
+      position: fixed !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      height: calc(56px + env(safe-area-inset-bottom, 0px)) !important;
+      padding: 4px 4px calc(4px + env(safe-area-inset-bottom, 0px)) !important;
+      background: rgba(18, 17, 16, 0.98) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border-top: 1px solid rgba(212, 175, 55, 0.25) !important;
+      z-index: 99999 !important;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.85) !important;
+      flex-direction: row !important;
+      justify-content: space-around !important;
+      align-items: center !important;
+      margin: 0 !important;
+    }
+    @media (max-width: 900px) {
+      .mobile-bottom-nav {
+        display: flex !important;
+      }
+      .editorial-nav-dock {
+        display: none !important;
+      }
+      .header-top-ribbon {
+        display: none !important;
+      }
+      .header-main-bar {
+        padding: calc(6px + env(safe-area-inset-top, 0px)) 12px 6px !important;
+      }
+      .header-site-title {
+        font-size: 1.05rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .header-site-subtitle {
+        font-size: 0.72rem !important;
+      }
+      .app-main {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        padding-top: 12px !important;
+        padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important;
+        max-width: 100% !important;
+      }
+      .main-hero-title {
+        font-size: 1.25rem !important;
+        margin: 6px 0 10px !important;
+      }
+      .hero-cover-card {
+        height: 240px !important;
+        border-radius: 14px !important;
+      }
+      .hero-cover-meta {
+        padding: 16px 14px !important;
+      }
+      .hero-cover-sub {
+        font-size: 0.78rem !important;
+      }
+      .countdown-bar {
+        padding: 12px 14px !important;
+        border-radius: 14px !important;
+      }
+      .countdown-timer-boxes {
+        gap: 6px !important;
+      }
+      .countdown-box {
+        padding: 6px 4px !important;
+      }
+      .countdown-num {
+        font-size: 1.15rem !important;
+      }
+      .countdown-unit {
+        font-size: 0.65rem !important;
+      }
+      .trip-metrics-bar {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+      }
+      .metric-chip {
+        padding: 10px 14px !important;
+      }
+      .quick-dock-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .stage-thumb-wrap {
+        width: 105px !important;
+        height: 75px !important;
+      }
+      .stage-title {
+        font-size: 0.95rem !important;
+      }
+      .stage-item {
+        padding: 12px 10px !important;
+        gap: 10px !important;
+      }
+      .back-btn-row {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 6px !important;
+        margin-bottom: 14px !important;
+      }
+      .back-to-index-btn {
+        font-size: 0.75rem !important;
+        padding: 6px 10px !important;
+        white-space: nowrap !important;
+      }
+      .back-btn-row .btn-act {
+        font-size: 0.75rem !important;
+        padding: 6px 8px !important;
+        white-space: nowrap !important;
+      }
+      .day-pills-bar {
+        padding: 4px 0 10px !important;
+        gap: 6px !important;
+      }
+      .day-pill-btn {
+        min-width: 66px !important;
+        padding: 6px 8px !important;
+      }
+      .pill-d {
+        font-size: 0.76rem !important;
+      }
+      .pill-sub {
+        font-size: 0.65rem !important;
+      }
+      .day-hero-poster-card {
+        border-radius: 14px !important;
+        margin-bottom: 16px !important;
+      }
+      .day-hero-poster-card > div:first-child {
+        height: 180px !important;
+      }
+      .day-route-map-card {
+        padding: 14px 12px !important;
+        border-radius: 14px !important;
+        margin-bottom: 16px !important;
+      }
+      .route-stops-flow {
+        padding: 8px !important;
+        gap: 6px !important;
+      }
+    }
+
+    .bot-nav-btn {
+      flex: 1 1 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 3px !important;
+      background: transparent !important;
+      border: none !important;
+      color: #9E9A90 !important;
+      font-size: 0.72rem !important;
+      font-family: var(--font-sans) !important;
+      font-weight: 500 !important;
+      cursor: pointer !important;
+      padding: 4px 0 !important;
+      height: 100% !important;
+      max-width: none !important;
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      user-select: none !important;
+      -webkit-tap-highlight-color: transparent !important;
+    }
+    .bot-nav-btn .icon {
+      font-size: 1.25rem !important;
+      line-height: 1 !important;
+      display: inline-block !important;
+    }
+    .bot-nav-btn:active {
+      transform: scale(0.9) !important;
+    }
+    .bot-nav-btn.active {
+      color: #D4AF37 !important;
+      font-weight: 700 !important;
+    }
+    .bot-nav-btn.active .icon {
+      filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.7)) !important;
+      animation: botNavBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+
   </style>
 </head>
 <body>
@@ -3006,7 +3217,7 @@
 <!-- Tracking Header -->
 <div class="header-tracking-label">AUTUMN VOYAGE CHRONICLE · 2026</div>
 <h1 class="main-hero-title">
-<span>Lai’s Family Seoul &amp; Jeju Trip 2026</span>
+<span>首爾 ＆ 濟州島 9天8夜自駕手帳</span>
 </h1>
 <!-- 🌟 Hero Cover Poster Banner (cover.jpg) -->
 <div class="hero-cover-container" id="heroCoverContainer">
@@ -3017,9 +3228,9 @@
 <div class="hero-cover-meta">
 <div class="hero-cover-tag">◈ VOYAGE MEMOIR · AUTUMN 2026 ◈</div>
 <div class="hero-cover-cities">
-<span>SEOUL 서울</span>
+<span style="white-space:nowrap;">SEOUL 서울</span>
 <span class="city-sep">✦</span>
-<span>JEJU 제주</span>
+<span style="white-space:nowrap;">JEJU 제주</span>
 </div>
 <div class="hero-cover-sub">Lai’s Family Seoul &amp; Jeju Trip 2026 ｜ 9天8夜雙城自駕典藏手帳</div>
 </div>
@@ -5594,6 +5805,10 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
 <span class="icon">📅</span>
 <span>每日</span>
 </button>
+<button class="bot-nav-btn" id="bot-nav-food" onclick="showView('food')">
+<span class="icon">🍴</span>
+<span>美食</span>
+</button>
 <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')">
 <span class="icon">💰</span>
 <span>分賬</span>
@@ -5601,10 +5816,6 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
 <button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')">
 <span class="icon">🎒</span>
 <span>行李</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-food" onclick="showView('food')">
-<span class="icon">🍴</span>
-<span>美食</span>
 </button>
 </nav>
 <!-- 🌟 Fullscreen Luxury Photo Lightbox Gallery -->
