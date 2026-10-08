@@ -3043,10 +3043,7 @@
       .quick-dock-grid {
         grid-template-columns: 1fr !important;
       }
-      .stage-thumb-wrap {
-        width: 105px !important;
-        height: 75px !important;
-      }
+      /* stage-thumb-wrap handled by full width card */
       .stage-title {
         font-size: 0.95rem !important;
       }
@@ -3089,9 +3086,7 @@
         border-radius: 14px !important;
         margin-bottom: 16px !important;
       }
-      .day-hero-poster-card > div:first-child {
-        height: 180px !important;
-      }
+      /* day-hero-poster-card handled by 280px rule */
       .day-route-map-card {
         padding: 14px 12px !important;
         border-radius: 14px !important;
@@ -3324,7 +3319,188 @@
       margin-left: 8px !important;
     }
 
-  </style>
+  
+    /* ========================================================= */
+    /* 🌟 V25 MOBILE OPTIMIZATIONS (ALL 5 USER FEEDBACK FIXES) 🌟 */
+    /* ========================================================= */
+
+    /* 1. Header Two-Row Mobile Layout (放落一格，完整顯示手帳名) */
+    @media (max-width: 680px) {
+      .header-main-bar {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 16px !important;
+        gap: 6px 0 !important;
+      }
+      .header-brand-group {
+        display: contents !important;
+      }
+      .header-avatar-frame {
+        order: 1 !important;
+        width: 38px !important;
+        height: 38px !important;
+        border: 1.5px solid var(--color-gold) !important;
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.4) !important;
+      }
+      .header-action-group {
+        order: 2 !important;
+        display: flex !important;
+        gap: 8px !important;
+        align-items: center !important;
+      }
+      .header-title-box {
+        order: 3 !important;
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        padding-top: 6px !important;
+        border-top: 1px solid rgba(212, 175, 55, 0.2) !important;
+        margin-top: 4px !important;
+      }
+      .header-site-title {
+        font-size: 1.18rem !important;
+        white-space: normal !important;
+        line-height: 1.28 !important;
+        color: #FFF2CC !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.01em !important;
+      }
+      .header-site-subtitle {
+        display: block !important;
+        font-size: 0.74rem !important;
+        color: #D4AF37 !important;
+        margin-top: 3px !important;
+        opacity: 0.95 !important;
+      }
+    }
+
+    /* 2. Theme Toggle Pill Button (高反差設計感按鈕) */
+    .btn-theme-pill {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      padding: 6px 13px !important;
+      border-radius: 20px !important;
+      border: 1.5px solid rgba(212, 175, 55, 0.6) !important;
+      background: rgba(26, 24, 20, 0.92) !important;
+      color: #FFF2CC !important;
+      font-size: 0.8rem !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      transition: all 0.25s ease !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45) !important;
+    }
+    .btn-theme-pill:active {
+      transform: scale(0.95) !important;
+    }
+    [data-theme="light"] .btn-theme-pill {
+      background: #FFF9EE !important;
+      border-color: #9A7528 !important;
+      color: #382A12 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+    }
+
+    /* 3. Stage Cards on Overview Page (雜誌封面式大圖設計感卡片) */
+    @media (max-width: 680px) {
+      .stage-item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 0 !important;
+        gap: 0 !important;
+        border-radius: 16px !important;
+        overflow: hidden !important;
+        background: #161513 !important;
+        border: 1.5px solid rgba(212, 175, 55, 0.35) !important;
+        margin-bottom: 22px !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65) !important;
+        cursor: pointer !important;
+      }
+      .stage-num {
+        display: none !important;
+      }
+      .stage-thumb-wrap {
+        width: 100% !important;
+        height: 195px !important;
+        border-radius: 0 !important;
+        border: none !important;
+        position: relative !important;
+        overflow: hidden !important;
+        cursor: pointer !important;
+      }
+      .stage-thumb-img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        transition: transform 0.4s ease !important;
+      }
+      .stage-item:active .stage-thumb-img {
+        transform: scale(1.03) !important;
+      }
+      .thumb-zoom-badge {
+        position: absolute !important;
+        bottom: 12px !important;
+        right: 12px !important;
+        z-index: 2 !important;
+        background: rgba(18, 17, 16, 0.85) !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.35) !important;
+        padding: 4px 10px !important;
+        border-radius: 20px !important;
+        font-size: 0.72rem !important;
+        color: #F5F2EB !important;
+      }
+      .stage-content {
+        padding: 16px 18px 20px !important;
+        background: linear-gradient(180deg, rgba(22, 21, 19, 0.98) 0%, rgba(18, 17, 16, 0.98) 100%) !important;
+      }
+      .stage-top-meta {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        margin-bottom: 6px !important;
+      }
+      .stage-date-badge {
+        font-size: 0.8rem !important;
+        color: #D4AF37 !important;
+        font-weight: 700 !important;
+      }
+      .stage-region {
+        font-size: 0.78rem !important;
+        color: #C5A059 !important;
+      }
+      .stage-title {
+        font-size: 1.18rem !important;
+        font-weight: 800 !important;
+        color: #FFF2CC !important;
+        margin: 4px 0 10px !important;
+        line-height: 1.35 !important;
+      }
+      .stage-route {
+        font-size: 0.86rem !important;
+        color: #D5CEBE !important;
+        line-height: 1.6 !important;
+      }
+    }
+
+    /* 4. Day Detail Hero Poster (280px 高清大氣視野，徹底告別文字遮擋) */
+    .day-hero-poster-card {
+      margin-bottom: 24px !important;
+      border-radius: 18px !important;
+      overflow: hidden !important;
+      background: #141311 !important;
+      border: 1.5px solid rgba(212, 175, 55, 0.4) !important;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.75) !important;
+    }
+    @media (max-width: 680px) {
+      .day-hero-poster-card > div:first-child {
+        height: 280px !important;
+      }
+    }
+
+</style>
 </head>
 <body>
 <!-- 🍁 Ambient Autumn Leaves Thematic Animation -->
@@ -3346,10 +3522,10 @@
 <div class="header-site-subtitle">首爾・加平・濟州島 ｜ 九天八夜雙城自駕典藏手帳</div>
 </div>
 </div>
-<div class="header-action-group" style="display:flex; gap:6px; align-items:center;">
-<button class="btn-theme-pill" onclick="toggleTheme()" title="切換日夜光影模式">
-<span class="theme-icon">🌓</span>
-<span class="theme-label">光影</span>
+<div class="header-action-group">
+<button class="btn-theme-pill" id="themeToggleBtn" onclick="toggleTheme()" title="切換日間/夜間模式">
+<span class="theme-icon" id="themeIcon">☀️</span>
+<span class="theme-label" id="themeLabel">淺色</span>
 </button>
 <button class="btn-theme-pill" id="leavesToggleBtn" onclick="toggleAutumnLeaves()" title="切換金秋落葉動態特效">
 <span class="theme-icon">🍁</span>
@@ -5123,50 +5299,37 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
       const weatherText = d.weather ? `<span class="day-weather-pill">${d.weather} ｜ ${d.goldenHour}</span>` : '';
 
       let html = `
-        <!-- 🌟 重新排版：圖文分離，相片乾淨大氣，文字舒展大方 (徹底告別擁擠) 🌟 -->
-        <div class="day-hero-poster-card" style="margin-bottom: 22px; border-radius: 16px; overflow: hidden; background: #141311; border: 1px solid rgba(212,175,55,0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.65);">
-          <!-- 1. 純淨高清相片區 (Clean Image Banner) -->
-          <div style="position: relative; width: 100%; height: 220px; overflow: hidden; cursor: pointer;" onclick="openPhotoLightbox('DAY${d.num}.jpg', 'DAY 0${d.num} · ${d.title}', '${d.photoCaption || d.region}')">
+        <!-- 🌟 1. 280px 高清全景大氣相片卡 (圖文徹底分離，相片清爽無遮擋) 🌟 -->
+        <div class="day-hero-poster-card" style="margin-bottom: 22px; border-radius: 18px; overflow: hidden; background: #141311; border: 1.5px solid rgba(212,175,55,0.4); box-shadow: 0 12px 36px rgba(0,0,0,0.75);">
+          <!-- 純淨相片視窗 (280px Cinematic Image Viewport) -->
+          <div style="position: relative; width: 100%; height: 280px; overflow: hidden; cursor: pointer;" onclick="openPhotoLightbox('DAY${d.num}.jpg', 'DAY 0${d.num} · ${d.title}', '${d.photoCaption || d.region}')">
             <img src="DAY${d.num}.jpg" alt="Day ${d.num}" class="day-poster-img" style="width: 100%; height: 100%; object-fit: cover;" onerror="handleDayImgError(this, ${d.num})">
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 40%, rgba(20,19,17,0.85) 100%);"></div>
-            <span style="position: absolute; top: 12px; left: 12px; max-width: calc(100% - 24px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: rgba(18,17,16,0.88); border: 1px solid rgba(212,175,55,0.45); padding: 4px 12px; border-radius: 20px; font-size: 0.74rem; color: #D4AF37; font-weight: 700; z-index: 2;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 70%, rgba(20,19,17,0.85) 100%); pointer-events: none;"></div>
+            
+            <!-- 頂部日期徽章 (Frosted Glass Badge) -->
+            <span style="position: absolute; top: 14px; left: 14px; max-width: calc(100% - 28px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: rgba(18,17,16,0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.5); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; color: #D4AF37; font-weight: 700; z-index: 2; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
               ◈ Day 0${d.num} · ${d.date} · ${d.region} ◈
             </span>
-            <span style="position: absolute; bottom: 12px; right: 12px; background: rgba(18,17,16,0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.3); padding: 4px 10px; border-radius: 20px; font-size: 0.72rem; color: #F5F2EB; z-index: 2;">
-              🔍 放大賞析
+            
+            <!-- 右下角放大賞析標籤 -->
+            <span style="position: absolute; bottom: 14px; right: 14px; background: rgba(18,17,16,0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.35); padding: 5px 12px; border-radius: 20px; font-size: 0.74rem; color: #F5F2EB; z-index: 2; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+              🔍 全屏高清賞析
             </span>
           </div>
 
-          <!-- 2. 獨立文字資訊區 (Spacious Content Below Image) -->
-          <div style="padding: 18px 20px;">
-            ${weatherText ? `<div style="margin-bottom: 10px;">${weatherText}</div>` : ''}
-            <h2 style="font-size: 1.25rem; font-weight: 800; color: #F5F2EB; margin: 0 0 10px; line-height: 1.35; letter-spacing: -0.01em;">
+          <!-- 獨立文字區 (Spacious Luxury Editorial Typography Below Image) -->
+          <div style="padding: 20px 22px; background: linear-gradient(180deg, rgba(24,22,19,0.98) 0%, rgba(18,17,16,0.98) 100%);">
+            ${weatherText ? `<div style="margin-bottom: 12px;">${weatherText}</div>` : ''}
+            <h2 style="font-size: 1.35rem; font-weight: 800; color: #FFF2CC; margin: 0 0 10px; line-height: 1.35; letter-spacing: -0.01em;">
               ${d.title}
             </h2>
-            <div style="font-size: 0.88rem; color: #C5BFB0; line-height: 1.55; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08);">
+            <div style="font-size: 0.92rem; color: #D5CEBE; line-height: 1.6; padding-top: 12px; border-top: 1px solid rgba(212,175,55,0.18);">
               ${d.highlight}
             </div>
           </div>
         </div>
-        </div>
-        <!-- 每日自駕地圖與路線總覽卡 (DAY ROUTE MAP CARD) -->
-        <div class="day-route-map-card" style="margin-bottom: 24px; padding: 20px; border-radius: 16px; background: rgba(255,255,255,0.04); border: 1px solid rgba(212,175,55,0.25); box-shadow: 0 4px 20px rgba(0,0,0,0.2);">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-            <div style="font-weight:700; font-size:1.1rem; color:var(--gold-primary, #D4AF37); display:flex; align-items:center; gap:8px;">
-              <span>🗺️</span> <span>當日自駕路徑與地理動線 (Route & Map Navigation)</span>
-            </div>
-            <span style="display:inline-flex; align-items:center; gap:6px; padding:5px 12px; border-radius:16px; background:rgba(212,175,55,0.15); border:1px solid rgba(212,175,55,0.4); color:#D4AF37; font-size:0.82rem; font-weight:600;">
-              <span>⚠️</span> <span>韓國境內請使用 Naver Map 導航 (點擊下方 🗺️ 即達)</span>
-            </span>
-          </div>
-          <div class="route-stops-flow" style="display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:12px; background:rgba(0,0,0,0.2); border-radius:12px; font-size:0.9rem;">
-            ${renderRouteStops(d)}
-          </div>
-          <button class="btn-whatsapp-report" onclick="shareDayWhatsApp(${d.num})">
-            <span>💬</span> <span>WhatsApp 一鍵匯報今日行程</span>
-          </button>
-        </div>
 
+        <!-- 🌟 2. 當日行程時間軸直接展開 (移走頂部重複冗餘卡片，即刻睇到時間) 🌟 -->
         <div class="timeline-wrap">
       `;
 
@@ -5202,7 +5365,28 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
         `;
       });
 
-      html += `</div>`;
+      html += `
+        </div>
+
+        <!-- 🌟 3. 底部當日自駕總結與 WhatsApp 快捷匯報 (放喺最底，不阻頂部閱讀) 🌟 -->
+        <div class="day-bottom-summary-card" style="margin-top: 28px; margin-bottom: 40px; padding: 20px; border-radius: 16px; background: rgba(24,22,19,0.95); border: 1.5px solid rgba(212,175,55,0.3); box-shadow: 0 8px 24px rgba(0,0,0,0.55);">
+          <!-- WhatsApp 一鍵匯報行程 -->
+          <button class="btn-whatsapp-report" onclick="shareDayWhatsApp(${d.num})" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border-radius: 12px; font-size: 0.98rem; font-weight: 700; background: linear-gradient(135deg, #128C7E 0%, #25D366 100%); color: #FFF; border: none; box-shadow: 0 4px 16px rgba(37,211,102,0.3); cursor: pointer; margin-bottom: 14px; transition: transform 0.2s;">
+            <span>💬</span> <span>WhatsApp 一鍵匯報今日行程給同行家人</span>
+          </button>
+
+          <!-- 備用自駕導航站點折疊速查 (按需展開) -->
+          <details style="text-align: left; cursor: pointer;">
+            <summary style="font-size: 0.88rem; color: #D4AF37; font-weight: 600; padding: 6px 0; outline: none; display: flex; align-items: center; justify-content: space-between;">
+              <span>🗺️ 點擊展開當日自駕導航站點速查 (Naver Map)</span>
+              <span style="font-size: 0.78rem; color: #A89F91;">展開 ▾</span>
+            </summary>
+            <div class="route-stops-flow" style="display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding-top:12px;">
+              ${renderRouteStops(d)}
+            </div>
+          </details>
+        </div>
+      `;
       const container = document.getElementById('dayDetailContainer');
       if (container) {
         container.innerHTML = html;
@@ -5290,11 +5474,25 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
 
     // Theme Toggle
     function toggleTheme() {
-      const cur = document.documentElement.getAttribute('data-theme');
+      const cur = document.documentElement.getAttribute('data-theme') || 'dark';
       const next = (cur === 'light') ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('korea_mature_theme', next);
-      showToast(next === 'light' ? '已切換為青瓷米白日景 ☀️' : '已切換為墨松丹青夜景 🌙');
+      updateThemeUI(next);
+      showToast(next === 'light' ? '已切換為青瓷米白日間 ☀️' : '已切換為墨松金秋夜景 🌙');
+    }
+
+    function updateThemeUI(theme) {
+      const cur = theme || document.documentElement.getAttribute('data-theme') || 'dark';
+      const icon = document.getElementById('themeIcon');
+      const label = document.getElementById('themeLabel');
+      if (cur === 'light') {
+        if (icon) icon.textContent = '🌙';
+        if (label) label.textContent = '深色';
+      } else {
+        if (icon) icon.textContent = '☀️';
+        if (label) label.textContent = '淺色';
+      }
     }
 
     window.addEventListener('DOMContentLoaded', () => {
