@@ -3122,7 +3122,7 @@
       max-width: none !important;
       transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
       user-select: none !important;
-      -webkit-tap-highlight-color: transparent !important;
+      -webkit-tap-highlight-color: #FFF2CC !important;
     }
     .bot-nav-btn .icon {
       font-size: 1.25rem !important;
@@ -3209,7 +3209,7 @@
     .shimmer-text {
       background: linear-gradient(90deg, #D4AF37 0%, #FFF5D6 25%, #E5C378 50%, #D4AF37 75%, #FFF5D6 100%);
       background-size: 200% auto;
-      color: transparent !important;
+      color: #FFF2CC !important;
       -webkit-background-clip: text !important;
       background-clip: text !important;
       animation: goldFoilShimmer 6s linear infinite;
@@ -3256,7 +3256,7 @@
 
     /* 5. Mobile & Touch Screen Ergonomics */
     button, a {
-      -webkit-tap-highlight-color: transparent !important;
+      -webkit-tap-highlight-color: #FFF2CC !important;
       touch-action: manipulation;
     }
     .btn-act, .badge-naver, .btn-action, .btn-whatsapp-report, .food-filter-chip, .btn-theme-pill {
@@ -3299,6 +3299,29 @@
     @keyframes indicatorExpand {
       from { transform: scaleX(0); opacity: 0; }
       to { transform: scaleX(1); opacity: 1; }
+    }
+
+  
+    /* Header Brand Group Truncation Fix */
+    .header-brand-group {
+      min-width: 0 !important;
+      flex: 1 1 auto !important;
+      overflow: hidden !important;
+    }
+    .header-title-box {
+      min-width: 0 !important;
+      flex: 1 1 auto !important;
+      overflow: hidden !important;
+    }
+    .header-site-title {
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      max-width: 100% !important;
+    }
+    .header-action-group {
+      flex-shrink: 0 !important;
+      margin-left: 8px !important;
     }
 
   </style>
@@ -5106,11 +5129,11 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
           <div style="position: relative; width: 100%; height: 220px; overflow: hidden; cursor: pointer;" onclick="openPhotoLightbox('DAY${d.num}.jpg', 'DAY 0${d.num} · ${d.title}', '${d.photoCaption || d.region}')">
             <img src="DAY${d.num}.jpg" alt="Day ${d.num}" class="day-poster-img" style="width: 100%; height: 100%; object-fit: cover;" onerror="handleDayImgError(this, ${d.num})">
             <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 40%, rgba(20,19,17,0.85) 100%);"></div>
-            <span style="position: absolute; top: 12px; left: 12px; background: rgba(18,17,16,0.8); border: 1px solid rgba(212,175,55,0.4); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; color: #D4AF37; font-weight: 700;">
+            <span style="position: absolute; top: 12px; left: 12px; max-width: calc(100% - 24px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: rgba(18,17,16,0.88); border: 1px solid rgba(212,175,55,0.45); padding: 4px 12px; border-radius: 20px; font-size: 0.74rem; color: #D4AF37; font-weight: 700; z-index: 2;">
               ◈ Day 0${d.num} · ${d.date} · ${d.region} ◈
             </span>
-            <span style="position: absolute; top: 12px; right: 12px; background: rgba(18,17,16,0.8); border: 1px solid rgba(255,255,255,0.25); padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; color: #F5F2EB;">
-              🔍 點擊全屏賞析
+            <span style="position: absolute; bottom: 12px; right: 12px; background: rgba(18,17,16,0.85); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.3); padding: 4px 10px; border-radius: 20px; font-size: 0.72rem; color: #F5F2EB; z-index: 2;">
+              🔍 放大賞析
             </span>
           </div>
 
@@ -5967,7 +5990,7 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
         const fallDuration = Math.random() * 7 + 8; // 8s to 15s
         const swayDuration = Math.random() * 2 + 3; // 3s to 5s
         const delay = Math.random() * 10; // 0s to 10s
-        const opacity = Math.random() * 0.45 + 0.45; // 0.45 to 0.9
+        const opacity = Math.random() * 0.3 + 0.4; // 0.45 to 0.9
 
         leaf.style.fontSize = `${size}px`;
         leaf.style.left = `${left}%`;
