@@ -3141,9 +3141,171 @@
       animation: botNavBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
     }
 
+  
+    /* =========================================================
+       🍁 THEMATIC AUTUMN ANIMATIONS & MOBILE POLISH (iOS & Android)
+       ========================================================= */
+
+    /* 1. Ambient Floating Autumn Leaves Effect */
+    .autumn-leaves-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+      opacity: 0.85;
+      transition: opacity 0.5s ease;
+    }
+    .autumn-leaves-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .autumn-leaf {
+      position: absolute;
+      top: -45px;
+      user-select: none;
+      pointer-events: none;
+      animation-name: leafFall, leafSway;
+      animation-timing-function: linear, ease-in-out;
+      animation-iteration-count: infinite, infinite;
+      will-change: transform, opacity;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    }
+    @keyframes leafFall {
+      0% {
+        top: -45px;
+        opacity: 0;
+      }
+      12% {
+        opacity: 0.85;
+      }
+      85% {
+        opacity: 0.85;
+      }
+      100% {
+        top: 105vh;
+        opacity: 0;
+      }
+    }
+    @keyframes leafSway {
+      0%, 100% {
+        transform: translateX(0) rotate(0deg);
+      }
+      25% {
+        transform: translateX(28px) rotate(45deg);
+      }
+      50% {
+        transform: translateX(-18px) rotate(90deg);
+      }
+      75% {
+        transform: translateX(22px) rotate(140deg);
+      }
+    }
+
+    /* 2. Gold Foil Shimmer Animation */
+    .shimmer-text {
+      background: linear-gradient(90deg, #D4AF37 0%, #FFF5D6 25%, #E5C378 50%, #D4AF37 75%, #FFF5D6 100%);
+      background-size: 200% auto;
+      color: transparent !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      animation: goldFoilShimmer 6s linear infinite;
+      display: inline-block;
+    }
+    @keyframes goldFoilShimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* 3. Golden Hour Sunset Breathing Glow */
+    .day-weather-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(255, 140, 0, 0.15) 100%) !important;
+      border: 1px solid rgba(212, 175, 55, 0.4) !important;
+      color: #F2E3B8 !important;
+      box-shadow: 0 2px 10px rgba(255, 140, 0, 0.15) !important;
+      animation: sunsetGlow 3s ease-in-out infinite;
+    }
+    @keyframes sunsetGlow {
+      0%, 100% { box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2); border-color: rgba(212, 175, 55, 0.4); }
+      50% { box-shadow: 0 3px 14px rgba(255, 140, 0, 0.35); border-color: rgba(255, 180, 50, 0.7); }
+    }
+
+    /* 4. Timeline Node Gold Pulse */
+    .event-node-dot {
+      position: relative;
+    }
+    .event-node-dot::after {
+      content: "";
+      position: absolute;
+      top: -3px; left: -3px; right: -3px; bottom: -3px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(212, 175, 55, 0.5);
+      animation: nodePulse 2.6s ease-out infinite;
+    }
+    @keyframes nodePulse {
+      0% { transform: scale(0.85); opacity: 0.85; }
+      70% { transform: scale(1.65); opacity: 0; }
+      100% { transform: scale(1.65); opacity: 0; }
+    }
+
+    /* 5. Mobile & Touch Screen Ergonomics */
+    button, a {
+      -webkit-tap-highlight-color: transparent !important;
+      touch-action: manipulation;
+    }
+    .btn-act, .badge-naver, .btn-action, .btn-whatsapp-report, .food-filter-chip, .btn-theme-pill {
+      transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+    }
+    .btn-act:active, .badge-naver:active, .btn-action:active, .btn-whatsapp-report:active, .btn-theme-pill:active {
+      transform: scale(0.93) !important;
+    }
+
+    /* 6. Card Glassmorphic Elevation & Press */
+    .stage-item, .panel-card, .event-card, .day-route-map-card {
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease !important;
+    }
+    .stage-item:active {
+      transform: scale(0.978) !important;
+    }
+
+    /* 7. Bottom Navigation Dock Frosted Polish */
+    .mobile-bottom-nav {
+      background: rgba(18, 17, 16, 0.94) !important;
+      backdrop-filter: blur(24px) !important;
+      -webkit-backdrop-filter: blur(24px) !important;
+      border-top: 1px solid rgba(212, 175, 55, 0.25) !important;
+      box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.85) !important;
+    }
+    .bot-nav-btn {
+      position: relative;
+    }
+    .bot-nav-btn.active::after {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      width: 16px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #D4AF37, #E5C378);
+      box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+      animation: indicatorExpand 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    @keyframes indicatorExpand {
+      from { transform: scaleX(0); opacity: 0; }
+      to { transform: scaleX(1); opacity: 1; }
+    }
+
   </style>
 </head>
 <body>
+<!-- 🍁 Ambient Autumn Leaves Thematic Animation -->
+<div id="autumnLeavesContainer" class="autumn-leaves-overlay" aria-hidden="true"></div>
 <!-- 🌟 Editorial Top Navigation Header (Bespoke Travel Magazine Layout) -->
 <header class="editorial-header" id="editorialHeader">
 <div class="header-top-ribbon">
@@ -3161,10 +3323,14 @@
 <div class="header-site-subtitle">首爾・加平・濟州島 ｜ 九天八夜雙城自駕典藏手帳</div>
 </div>
 </div>
-<div class="header-action-group">
+<div class="header-action-group" style="display:flex; gap:6px; align-items:center;">
 <button class="btn-theme-pill" onclick="toggleTheme()" title="切換日夜光影模式">
 <span class="theme-icon">🌓</span>
 <span class="theme-label">光影</span>
+</button>
+<button class="btn-theme-pill" id="leavesToggleBtn" onclick="toggleAutumnLeaves()" title="切換金秋落葉動態特效">
+<span class="theme-icon">🍁</span>
+<span class="theme-label">金秋</span>
 </button>
 </div>
 </div>
@@ -3228,9 +3394,9 @@
 <div class="hero-cover-meta">
 <div class="hero-cover-tag">◈ VOYAGE MEMOIR · AUTUMN 2026 ◈</div>
 <div class="hero-cover-cities">
-<span style="white-space:nowrap;">SEOUL 서울</span>
+<span class="shimmer-text" style="white-space:nowrap;">SEOUL 서울</span>
 <span class="city-sep">✦</span>
-<span style="white-space:nowrap;">JEJU 제주</span>
+<span class="shimmer-text" style="white-space:nowrap;">JEJU 제주</span>
 </div>
 <div class="hero-cover-sub">Lai’s Family Seoul &amp; Jeju Trip 2026 ｜ 9天8夜雙城自駕典藏手帳</div>
 </div>
@@ -5779,6 +5945,58 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
         navigator.serviceWorker.register('./sw.js').catch(() => {});
       });
     }
+
+  
+    // 🍁 Ambient Autumn Golden Leaves Particle System
+    let leavesEnabled = true;
+    function initAutumnLeaves() {
+      const container = document.getElementById('autumnLeavesContainer');
+      if (!container) return;
+
+      const leafIcons = ['🍁', '🍂', '🌾', '✨'];
+      const totalLeaves = window.innerWidth < 600 ? 12 : 18;
+
+      container.innerHTML = '';
+      for (let i = 0; i < totalLeaves; i++) {
+        const leaf = document.createElement('div');
+        leaf.className = 'autumn-leaf';
+        leaf.innerText = leafIcons[Math.floor(Math.random() * leafIcons.length)];
+
+        const size = Math.random() * 12 + 14; // 14px to 26px
+        const left = Math.random() * 96; // 0% to 96%
+        const fallDuration = Math.random() * 7 + 8; // 8s to 15s
+        const swayDuration = Math.random() * 2 + 3; // 3s to 5s
+        const delay = Math.random() * 10; // 0s to 10s
+        const opacity = Math.random() * 0.45 + 0.45; // 0.45 to 0.9
+
+        leaf.style.fontSize = `${size}px`;
+        leaf.style.left = `${left}%`;
+        leaf.style.animationDuration = `${fallDuration}s, ${swayDuration}s`;
+        leaf.style.animationDelay = `${delay}s, ${delay * 0.5}s`;
+        leaf.style.opacity = opacity;
+
+        container.appendChild(leaf);
+      }
+    }
+
+    function toggleAutumnLeaves() {
+      triggerHaptic('light');
+      leavesEnabled = !leavesEnabled;
+      const container = document.getElementById('autumnLeavesContainer');
+      const btn = document.getElementById('leavesToggleBtn');
+
+      if (container) {
+        container.classList.toggle('hidden', !leavesEnabled);
+      }
+      if (btn) {
+        btn.style.opacity = leavesEnabled ? '1' : '0.45';
+      }
+      showToast(leavesEnabled ? '🍁 已開啟金秋落葉光影動態' : '🍂 已暫停金秋落葉動態');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initAutumnLeaves();
+    });
 
   </script>
 

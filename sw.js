@@ -1,5 +1,5 @@
-// Service Worker for Lai's Family Seoul & Jeju Trip 2026 PWA (V22 Mobile Polish)
-const CACHE_NAME = 'lais-trip-v27';
+// Service Worker for Lai's Family Seoul & Jeju Trip 2026 PWA (V23 Thematic Animations)
+const CACHE_NAME = 'lais-trip-v28';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
