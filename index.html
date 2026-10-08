@@ -617,10 +617,10 @@
     /* Detailed Day View */
     .day-detail-section {
       display: none;
-      animation: fadeIn 0.25s ease;
     }
     .day-detail-section.active {
       display: block;
+      animation: viewSlideFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
     @keyframes fadeIn {
@@ -871,10 +871,10 @@
     /* Other Panels: INFO, MONEY, TRANSIT, FOOD */
     .tab-panel {
       display: none;
-      animation: fadeIn 0.25s ease;
     }
     .tab-panel.active {
       display: block;
+      animation: viewSlideFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
 
     .panel-card {
@@ -2740,6 +2740,196 @@
       box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
     }
 
+  
+    /* 🌟 Native App Fluid Animations & Transitions 🌟 */
+    @keyframes viewSlideFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Day Switching Slide Animations */
+    .anim-slide-right {
+      animation: slideInFromRight 0.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .anim-slide-left {
+      animation: slideInFromLeft 0.34s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .anim-fade-in {
+      animation: dayContentFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes slideInFromRight {
+      from {
+        opacity: 0;
+        transform: translateX(42px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideInFromLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-42px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes dayContentFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.99);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Timeline Event Cards Staggered Waterfall */
+    .event-card {
+      animation: cardEntrance 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: calc(var(--card-idx, 0) * 0.045s);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    @keyframes cardEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Day Hero Poster Animation */
+    .day-hero-poster-card {
+      animation: posterCardZoom 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    @keyframes posterCardZoom {
+      from {
+        opacity: 0;
+        transform: scale(0.97) translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Overview Stage Items Staggered Fade & Hover/Touch */
+    .stage-item {
+      animation: stageItemFadeIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) both;
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+    .stage-item:nth-child(1) { animation-delay: 0.04s; }
+    .stage-item:nth-child(2) { animation-delay: 0.08s; }
+    .stage-item:nth-child(3) { animation-delay: 0.12s; }
+    .stage-item:nth-child(4) { animation-delay: 0.16s; }
+    .stage-item:nth-child(5) { animation-delay: 0.20s; }
+    .stage-item:nth-child(6) { animation-delay: 0.24s; }
+    .stage-item:nth-child(7) { animation-delay: 0.28s; }
+    .stage-item:nth-child(8) { animation-delay: 0.32s; }
+    .stage-item:nth-child(9) { animation-delay: 0.36s; }
+    @keyframes stageItemFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .stage-item:active {
+      transform: scale(0.975);
+    }
+    @media (hover: hover) {
+      .stage-item:hover {
+        transform: translateY(-2px);
+        border-color: rgba(212, 175, 55, 0.5);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    /* Bottom Nav Icon Spring Bounce */
+    .bot-nav-btn {
+      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .bot-nav-btn:active {
+      transform: scale(0.9);
+    }
+    .bot-nav-btn.active .icon {
+      animation: botNavBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes botNavBounce {
+      0% { transform: scale(1); }
+      35% { transform: scale(1.3) translateY(-3px); }
+      70% { transform: scale(0.92) translateY(1px); }
+      100% { transform: scale(1) translateY(0); }
+    }
+
+    /* Day Pill Pop Animation */
+    .day-pill-btn {
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .day-pill-btn:active {
+      transform: scale(0.92);
+    }
+    .day-pill-btn.active {
+      animation: pillPop 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes pillPop {
+      0% { transform: scale(0.94); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+
+    /* Checkmark Celebratory Pop */
+    .btn-act.check.done {
+      animation: checkPop 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+      background: rgba(37, 211, 102, 0.2) !important;
+      border-color: #25D366 !important;
+      color: #25D366 !important;
+    }
+    @keyframes checkPop {
+      0% { transform: scale(0.88); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    /* Action Buttons Tactile Touch Feedback */
+    .btn-act, .badge-naver, .btn-action, .btn-whatsapp-report, .food-filter-chip {
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-act:active, .badge-naver:active, .btn-whatsapp-report:active, .btn-action:active {
+      transform: scale(0.94);
+    }
+
+    /* Toast Notification Mobile Centering & Spring */
+    @media (max-width: 600px) {
+      #antiqueToast {
+        left: 50% !important;
+        right: auto !important;
+        bottom: 84px !important;
+        transform: translate(-50%, 15px) !important;
+        max-width: 90vw !important;
+        text-align: center !important;
+      }
+      #antiqueToast.show {
+        transform: translate(-50%, 0) !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -4520,12 +4710,13 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
     function stepDay(delta) {
       const next = currentDayNum + delta;
       if (next >= 1 && next <= 9) {
-        openDay(next);
+        const dir = delta > 0 ? 'right' : 'left';
+        openDay(next, dir);
       }
     }
 
     // Render detailed timeline cards (Mature, Photo-free, Transit-aware)
-    function renderDayDetail(num) {
+    function renderDayDetail(num, dir) {
       const d = allDaysData.find(item => item.num === num);
       if (!d) return;
 
@@ -4589,7 +4780,7 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
         const isDone = visitedSet.has(itemKey);
 
         html += `
-          <div class="event-card ${isDone ? 'completed' : ''}">
+          <div class="event-card ${isDone ? 'completed' : ''}" style="--card-idx: ${idx};">
             <div class="event-node-dot"></div>
             <div class="event-top-meta">
               <span class="event-time">${ev.time}</span>
@@ -4612,7 +4803,19 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
       });
 
       html += `</div>`;
-      document.getElementById('dayDetailContainer').innerHTML = html;
+      const container = document.getElementById('dayDetailContainer');
+      if (container) {
+        container.innerHTML = html;
+        container.classList.remove('anim-slide-right', 'anim-slide-left', 'anim-fade-in');
+        void container.offsetWidth; // trigger reflow for smooth animation replay
+        if (dir === 'right') {
+          container.classList.add('anim-slide-right');
+        } else if (dir === 'left') {
+          container.classList.add('anim-slide-left');
+        } else {
+          container.classList.add('anim-fade-in');
+        }
+      }
     }
 
     // Toast and Copy
@@ -5115,10 +5318,18 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
     }
 
     // Clean openDay with auto-centering scroll
-    function openDay(num) {
+    function openDay(num, dir) {
+      const prevNum = currentDayNum;
       num = parseInt(num, 10);
       if (isNaN(num) || num < 1) num = 1;
       if (num > 9) num = 9;
+
+      if (!dir && typeof prevNum === 'number') {
+        if (num > prevNum) dir = 'right';
+        else if (num < prevNum) dir = 'left';
+        else dir = 'fade';
+      }
+
       currentDayNum = num;
 
       document.querySelectorAll('.tab-panel, .day-detail-section').forEach(el => el.classList.remove('active'));
@@ -5146,7 +5357,7 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
         }
       });
 
-      renderDayDetail(num);
+      renderDayDetail(num, dir);
 
       const prevBtn = document.getElementById('prevDayBtn');
       const nextBtn = document.getElementById('nextDayBtn');
