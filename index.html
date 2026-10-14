@@ -4971,6 +4971,143 @@
       background: rgba(154, 117, 40, 0.1);
     }
 
+
+    /* ========================================================= */
+    /* 🌟 V42 PERFECT CENTERING, CONTAINMENT & DAY VIEW FIXES 🌟 */
+    /* ========================================================= */
+
+    /* 1. True Horizontal & Vertical Centering for Hero Cover Title Block */
+    .v39-hero-scrim {
+      background: radial-gradient(circle at center, rgba(14,13,12,0.55) 0%, rgba(14,13,12,0.82) 100%) !important;
+    }
+    .hero-cover-meta.v39-hero-meta {
+      position: absolute !important;
+      top: 0 !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      padding: 16px 14px !important;
+      margin: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+      box-sizing: border-box !important;
+      gap: 8px !important;
+    }
+    .v39-hero-pill {
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+    .v39-hero-cities {
+      width: 100% !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+      font-size: clamp(1.25rem, 5.2vw, 1.65rem) !important;
+      margin: 2px 0 !important;
+    }
+    .v39-hero-sub {
+      width: 100% !important;
+      text-align: center !important;
+      white-space: normal !important;
+      line-height: 1.35 !important;
+      font-size: 0.78rem !important;
+    }
+
+    /* 2. Full Text Visibility in Countdown Card Header (Zero Cut-off) */
+    .v39-cd-header {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 10px !important;
+      margin-bottom: 12px !important;
+    }
+    .v39-cd-title-wrap {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+      min-width: 0 !important;
+      flex: 1 !important;
+    }
+    .v39-cd-top-line {
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+    .v39-cd-main-lbl {
+      font-size: 0.82rem !important;
+      font-weight: 800 !important;
+      color: var(--text-main) !important;
+    }
+    .v39-cd-sub-line {
+      font-size: 0.76rem !important;
+      font-weight: 600 !important;
+      color: var(--color-gold-bright) !important;
+      padding-left: 14px !important;
+    }
+    html[data-theme="light"] .v39-cd-sub-line {
+      color: #785A1D !important;
+    }
+
+    /* 3. Strict Box Containment for 2x2 Bento Grid (Zero Text Flying Out) */
+    .v39-bento-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 10px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .v39-bento-box {
+      width: 100% !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+      padding: 12px !important;
+      border-radius: 18px !important;
+    }
+    .v39-bento-top {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 4px !important;
+      width: 100% !important;
+      margin-bottom: 6px !important;
+      flex-wrap: nowrap !important;
+    }
+    .v39-bento-tag {
+      font-size: 0.72rem !important;
+      font-weight: 700 !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      min-width: 0 !important;
+    }
+    .v39-bento-badge, .v39-bento-copy {
+      font-size: 0.65rem !important;
+      padding: 2px 7px !important;
+      border-radius: 999px !important;
+      white-space: nowrap !important;
+      flex-shrink: 0 !important;
+    }
+    .v39-bento-main {
+      font-size: 0.98rem !important;
+      font-weight: 800 !important;
+      white-space: normal !important;
+      word-break: keep-all !important;
+      line-height: 1.25 !important;
+      margin-bottom: 4px !important;
+    }
+    .v39-bento-sub {
+      font-size: 0.72rem !important;
+      white-space: normal !important;
+      line-height: 1.3 !important;
+    }
+
 </style>
 </head>
 <body>
@@ -5067,14 +5204,16 @@
     </div>
   </div>
 </div>
-</div>
 
 <!-- 🌟 Full-Width 4-Column Departure Countdown Card -->
 <div class="v39-countdown-card">
   <div class="v39-cd-header">
-    <div class="v39-cd-title-left">
-      <span class="v39-pulse-dot"></span>
-      <span>啟航倒數 · 10月16日 (五) 16:55 HKG ➔ 21:35 ICN</span>
+    <div class="v39-cd-title-wrap">
+      <div class="v39-cd-top-line">
+        <span class="v39-pulse-dot"></span>
+        <span class="v39-cd-main-lbl">啟航倒數 · 10月16日 (星期五)</span>
+      </div>
+      <div class="v39-cd-sub-line">香港 HKG 16:55 ➔ 仁川 ICN 21:35</div>
     </div>
     <span class="v39-flight-pill">✈️ UO626</span>
   </div>
@@ -5102,26 +5241,26 @@
       <span class="v39-bento-tag">🌡️ 金秋氣溫</span>
       <span class="v39-bento-badge">洋蔥穿搭</span>
     </div>
-    <div class="v39-bento-main">8–18° <small style="font-size:0.78rem;opacity:0.75;">/ 濟州 14–21°</small></div>
-    <div class="v39-bento-sub">早晚微涼 · 備防風薄羽絨</div>
+    <div class="v39-bento-main">首爾 8–18°C</div>
+    <div class="v39-bento-sub">濟州 14–21°C · 備薄羽絨</div>
   </div>
 
   <div class="v39-bento-box clickable" onclick="copyValue('3410', '已複製首爾 Staria 取車 PIN: 3410')">
     <div class="v39-bento-top">
-      <span class="v39-bento-tag">🚐 首爾自駕 (D1–D5)</span>
+      <span class="v39-bento-tag">🚐 首爾自駕</span>
       <span class="v39-bento-copy">PIN 3410 📋</span>
     </div>
     <div class="v39-bento-main">Staria 9人車</div>
-    <div class="v39-bento-sub">仁川 T1 12號門 ➔ 首爾站</div>
+    <div class="v39-bento-sub">D1–D5 · 仁川 T1 取車</div>
   </div>
 
   <div class="v39-bento-box clickable" onclick="copyValue('2622541225', '已複製濟州樂天預約號: 2622541225')">
     <div class="v39-bento-top">
-      <span class="v39-bento-tag">⚡ 濟州自駕 (D6–D9)</span>
-      <span class="v39-bento-copy">複製預約號 📋</span>
+      <span class="v39-bento-tag">⚡ 濟州自駕</span>
+      <span class="v39-bento-copy">複製編號 📋</span>
     </div>
     <div class="v39-bento-main">IONIQ 9 純電</div>
-    <div class="v39-bento-sub">樂天 #2622541225 · 山茶花7折</div>
+    <div class="v39-bento-sub">D6–D9 · 樂天 #2622541225</div>
   </div>
 </div>
 
@@ -5519,6 +5658,7 @@
     </div>
   </div>
 </details>
+</div>
 </div>
 
 <div class="tab-panel" id="view-transit">
@@ -7872,6 +8012,7 @@
       const rateEl = document.getElementById('customRateInput');
       if (rateEl) rateEl.value = currentHkdToKrw;
       loadParkingSpot();
+      renderDayDetail(1, 'fade');
     });
 
 </script>
