@@ -3500,6 +3500,838 @@
       }
     }
 
+
+    /* ========================================================= */
+    /* 📱 V38 NATIVE iOS 18 / AIRBNB LUXE APP UI OVERHAUL 📱     */
+    /* ========================================================= */
+
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang HK", "PingFang TC", "Helvetica Neue", sans-serif !important;
+    }
+
+    body {
+      font-family: var(--font-sans) !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* 1. Sleek App Route Pills on Home Overview Cards */
+    .app-route-pills-wrap {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+      margin-top: 8px !important;
+    }
+    .app-route-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+    [data-theme="light"] .app-route-pill {
+      background: rgba(154, 117, 40, 0.08);
+      border-color: rgba(154, 117, 40, 0.28);
+      color: #2C2519;
+    }
+
+    /* 2. Native App Hero Card in Day Detail */
+    .app-elevated-hero {
+      border-radius: 24px !important;
+      overflow: hidden !important;
+      background: var(--bg-card) !important;
+      border: 1px solid rgba(212, 175, 55, 0.32) !important;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5) !important;
+      margin-bottom: 22px !important;
+    }
+    .app-hero-img-box {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .app-hero-scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.65) 100%);
+      pointer-events: none;
+    }
+    .app-hero-top-badges {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      z-index: 2;
+    }
+    .app-hero-bottom-bar {
+      position: absolute;
+      bottom: 12px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+    .app-glass-pill {
+      background: rgba(18, 17, 16, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #F5F2EB;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .app-glass-pill.gold {
+      border-color: rgba(212, 175, 55, 0.6);
+      color: #FFE49E;
+    }
+    .app-glass-pill.mini {
+      padding: 4px 10px;
+      font-size: 0.72rem;
+    }
+    .app-hero-body {
+      padding: 18px 20px 20px;
+      background: var(--bg-card);
+    }
+    .app-hero-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0 0 8px;
+      line-height: 1.35;
+      letter-spacing: -0.015em;
+    }
+    .app-hero-highlight {
+      font-size: 0.86rem;
+      color: var(--text-sub);
+      line-height: 1.55;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* 3. Native App Timeline Cards & Transit Pills */
+    .app-event-card {
+      border-radius: 20px !important;
+      padding: 18px 18px 16px !important;
+      background: var(--bg-card) !important;
+      border: 1px solid rgba(212, 175, 55, 0.22) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
+      margin-bottom: 14px !important;
+    }
+    [data-theme="light"] .app-event-card {
+      background: #FFFFFF !important;
+      border-color: rgba(154, 117, 40, 0.22) !important;
+      box-shadow: 0 6px 20px rgba(36, 32, 26, 0.06) !important;
+    }
+    .app-card-meta {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 8px !important;
+      margin-bottom: 10px !important;
+    }
+    .app-time-chip {
+      font-family: var(--font-sans) !important;
+      font-variant-numeric: tabular-nums;
+      font-size: 0.82rem !important;
+      font-weight: 800 !important;
+      color: var(--color-gold-bright) !important;
+      background: rgba(212, 175, 55, 0.12);
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+    [data-theme="light"] .app-time-chip {
+      color: #785A1D !important;
+      background: rgba(154, 117, 40, 0.12);
+    }
+    .app-cat-chip {
+      font-family: var(--font-sans) !important;
+      font-size: 0.7rem !important;
+      font-weight: 800 !important;
+      padding: 3px 10px !important;
+      border-radius: 999px !important;
+      letter-spacing: 0.04em !important;
+    }
+    .app-card-title {
+      font-family: var(--font-sans) !important;
+      font-size: 1.08rem !important;
+      font-weight: 800 !important;
+      line-height: 1.38 !important;
+      margin-bottom: 8px !important;
+      color: var(--text-main) !important;
+    }
+    .app-card-desc {
+      font-size: 0.9rem !important;
+      line-height: 1.62 !important;
+      color: var(--text-sub) !important;
+      margin-bottom: 12px !important;
+    }
+    .app-card-tip {
+      border-radius: 12px !important;
+      padding: 10px 13px !important;
+      font-size: 0.82rem !important;
+      background: rgba(212, 175, 55, 0.08) !important;
+      border-left: 3px solid var(--color-gold) !important;
+      margin-bottom: 12px !important;
+    }
+    .app-transit-step {
+      margin: 8px 0 12px 6px !important;
+      padding: 4px 0 4px 14px !important;
+      border-left: 2px dashed rgba(212, 175, 55, 0.38) !important;
+      background: transparent !important;
+    }
+    .app-transit-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--color-gold-light);
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.24);
+    }
+    [data-theme="light"] .app-transit-pill {
+      color: #5C4312;
+      background: rgba(154, 117, 40, 0.1);
+    }
+
+    /* 4. Tactile App Action Buttons on Cards */
+    .app-card-actions {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 8px !important;
+      padding-top: 10px !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+    }
+    [data-theme="light"] .app-card-actions {
+      border-top-color: rgba(0, 0, 0, 0.06) !important;
+    }
+    .app-btn-primary {
+      background: linear-gradient(135deg, #2EA043 0%, #238636 100%) !important;
+      color: #FFFFFF !important;
+      border: none !important;
+      border-radius: 12px !important;
+      padding: 8px 14px !important;
+      font-size: 0.82rem !important;
+      font-weight: 700 !important;
+      box-shadow: 0 4px 12px rgba(46, 160, 67, 0.28) !important;
+    }
+    .app-btn-ghost {
+      border-radius: 12px !important;
+      padding: 8px 12px !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+    }
+    .app-btn-check {
+      margin-left: auto !important;
+      border-radius: 12px !important;
+      padding: 8px 14px !important;
+      font-size: 0.8rem !important;
+      font-weight: 700 !important;
+    }
+
+    /* 5. True Native Mobile App Layout (@media max-width: 768px) */
+    @media (max-width: 768px) {
+      /* Hide Web-style Top Ribbon & Top Horizontal Tab Bar on Mobile (Use Floating Bottom App Dock instead!) */
+      .header-top-ribbon,
+      .editorial-nav-dock,
+      #view-index > .header-tracking-label,
+      #view-index > .main-hero-title {
+        display: none !important;
+      }
+
+      /* Sleek iOS Single-Row Frosted App Bar */
+      .editorial-header {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+        background: rgba(18, 17, 16, 0.82) !important;
+        backdrop-filter: blur(24px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.18) !important;
+      }
+      [data-theme="light"] .editorial-header {
+        background: rgba(248, 245, 238, 0.86) !important;
+        border-bottom-color: rgba(154, 117, 40, 0.18) !important;
+      }
+      .header-main-bar {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 14px !important;
+        gap: 10px !important;
+      }
+      .header-brand-group {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+      }
+      .header-avatar-frame {
+        order: unset !important;
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 10px !important;
+        flex-shrink: 0 !important;
+      }
+      .header-title-box {
+        order: unset !important;
+        width: auto !important;
+        flex: 1 1 auto !important;
+        padding-top: 0 !important;
+        border-top: none !important;
+        margin-top: 0 !important;
+        min-width: 0 !important;
+      }
+      .header-site-title {
+        font-family: var(--font-sans) !important;
+        font-size: 0.98rem !important;
+        font-weight: 800 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        color: var(--text-main) !important;
+      }
+      .header-site-subtitle {
+        font-size: 0.68rem !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        margin-top: 1px !important;
+        color: var(--color-gold) !important;
+      }
+      .header-action-group {
+        order: unset !important;
+        gap: 6px !important;
+      }
+      .btn-theme-pill {
+        padding: 5px 10px !important;
+        border-radius: 999px !important;
+        font-size: 0.74rem !important;
+      }
+
+      /* App Main Content Padding for Floating Dock */
+      .app-main {
+        padding: 12px 14px 110px !important;
+      }
+
+      /* Sticky Segmented Day Pills Bar under App Header */
+      .day-pills-bar {
+        position: sticky !important;
+        top: 57px !important;
+        z-index: 950 !important;
+        margin: -12px -14px 14px -14px !important;
+        padding: 10px 14px !important;
+        background: rgba(18, 17, 16, 0.86) !important;
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.16) !important;
+        border-radius: 0 !important;
+      }
+      [data-theme="light"] .day-pills-bar {
+        background: rgba(248, 245, 238, 0.9) !important;
+      }
+      .day-pill-btn {
+        border-radius: 14px !important;
+        padding: 6px 13px !important;
+      }
+      .day-pill-btn.active {
+        background: linear-gradient(135deg, #D4AF37 0%, #B38646 100%) !important;
+        color: #121110 !important;
+        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35) !important;
+      }
+      .day-pill-btn.active .pill-d,
+      .day-pill-btn.active .pill-sub {
+        color: #121110 !important;
+        font-weight: 800 !important;
+      }
+
+      /* Hero Cover Card on Home Screen */
+      .hero-cover-container {
+        margin-top: 2px !important;
+        margin-bottom: 14px !important;
+      }
+      .hero-cover-card {
+        border-radius: 24px !important;
+        height: 230px !important;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55) !important;
+      }
+
+      /* Bento Grid for Metrics & Vouchers on Mobile */
+      .trip-metrics-bar {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+        margin-bottom: 14px !important;
+      }
+      .trip-metrics-bar .metric-chip:first-child {
+        grid-column: 1 / -1 !important;
+      }
+      .metric-chip {
+        border-radius: 18px !important;
+        padding: 12px 14px !important;
+      }
+      .quick-dock-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+      }
+      .quick-pill-item {
+        border-radius: 16px !important;
+        padding: 12px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+      }
+      .quick-copy-mini {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        border-radius: 10px !important;
+        padding: 6px 10px !important;
+      }
+
+      /* Stage Cards (Home 9 Days) — Sleek App Feed Cards */
+      .stage-item {
+        border-radius: 22px !important;
+        margin-bottom: 18px !important;
+        border: 1px solid rgba(212, 175, 55, 0.28) !important;
+        background: var(--bg-card) !important;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45) !important;
+      }
+      [data-theme="light"] .stage-item {
+        background: #FFFFFF !important;
+        box-shadow: 0 8px 24px rgba(36, 32, 26, 0.08) !important;
+      }
+      .stage-thumb-wrap {
+        height: 175px !important;
+      }
+      .stage-content {
+        padding: 16px !important;
+        background: var(--bg-card) !important;
+      }
+      [data-theme="light"] .stage-content {
+        background: #FFFFFF !important;
+      }
+      .stage-title {
+        font-family: var(--font-sans) !important;
+        font-size: 1.08rem !important;
+        color: var(--text-main) !important;
+        margin: 4px 0 8px !important;
+      }
+
+      /* 🌟 iOS 18 Floating Glass Pill Bottom Navigation Dock 🌟 */
+      .mobile-bottom-nav {
+        position: fixed !important;
+        left: 12px !important;
+        right: 12px !important;
+        bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+        height: 64px !important;
+        padding: 6px 8px !important;
+        border-radius: 24px !important;
+        background: rgba(22, 20, 18, 0.88) !important;
+        backdrop-filter: blur(28px) saturate(200%) !important;
+        -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+        border: 1px solid rgba(212, 175, 55, 0.32) !important;
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+        display: flex !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        z-index: 1000 !important;
+      }
+      [data-theme="light"] .mobile-bottom-nav {
+        background: rgba(255, 252, 245, 0.9) !important;
+        border-color: rgba(154, 117, 40, 0.28) !important;
+        box-shadow: 0 10px 30px rgba(36, 32, 26, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+      }
+      .bot-nav-btn {
+        flex: 1 !important;
+        height: 50px !important;
+        border-radius: 16px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 2px !important;
+        font-family: var(--font-sans) !important;
+        font-size: 0.68rem !important;
+        font-weight: 600 !important;
+        color: var(--text-muted) !important;
+        transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      }
+      .bot-nav-btn .icon {
+        font-size: 1.2rem !important;
+        line-height: 1 !important;
+      }
+      .bot-nav-btn.active {
+        background: rgba(212, 175, 55, 0.16) !important;
+        color: #FFE49E !important;
+        font-weight: 800 !important;
+      }
+      [data-theme="light"] .bot-nav-btn.active {
+        background: rgba(154, 117, 40, 0.14) !important;
+        color: #785A1D !important;
+      }
+      .bot-nav-btn.active::after {
+        display: none !important;
+      }
+    }
+
+
+    /* 🌟 iOS Live Activity Widget & Apple Wallet Boarding Passes CSS 🌟 */
+    .app-live-widget {
+      margin: 14px 0 22px;
+      padding: 16px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(28, 26, 22, 0.95) 0%, rgba(18, 17, 15, 0.98) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.38);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    [data-theme="light"] .app-live-widget {
+      background: linear-gradient(145deg, #FFFFFF 0%, #F7F2E7 100%);
+      border-color: rgba(154, 117, 40, 0.3);
+      box-shadow: 0 8px 24px rgba(36, 32, 26, 0.07);
+    }
+    .app-live-widget-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .app-live-dot-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .app-live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #3FB950;
+      box-shadow: 0 0 10px #3FB950;
+      animation: nodePulse 2s infinite;
+    }
+    .app-live-tag {
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--color-gold-bright);
+    }
+    .app-live-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .app-pill-cta {
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--text-main);
+      cursor: pointer;
+    }
+    .app-pill-cta.gold {
+      background: linear-gradient(135deg, #D4AF37 0%, #B38646 100%);
+      color: #121110;
+      border: none;
+      font-weight: 800;
+    }
+    .app-weather-strip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      padding-top: 10px;
+      border-top: 1px solid rgba(212, 175, 55, 0.16);
+      scrollbar-width: none;
+    }
+    .app-weather-strip::-webkit-scrollbar { display: none; }
+    .app-weather-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .app-weather-chip {
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(212, 175, 55, 0.24);
+    }
+    [data-theme="light"] .app-weather-chip {
+      background: rgba(154, 117, 40, 0.08);
+      color: #2C2519;
+    }
+
+    /* Boarding Passes & Car Cards */
+    .app-section-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--color-gold);
+      margin: 8px 0 12px 4px;
+    }
+    .app-passes-grid, .app-stays-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .app-boarding-pass, .app-car-card, .app-stay-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    [data-theme="light"] .app-boarding-pass,
+    [data-theme="light"] .app-car-card,
+    [data-theme="light"] .app-stay-card {
+      background: #FFFFFF;
+      box-shadow: 0 6px 20px rgba(36, 32, 26, 0.06);
+    }
+    .pass-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .pass-airline {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+    .pass-badge {
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      background: rgba(92, 184, 255, 0.16);
+      color: #8CCBFF;
+      border: 1px solid rgba(92, 184, 255, 0.35);
+    }
+    [data-theme="light"] .pass-badge {
+      color: #0969DA;
+      background: rgba(9, 105, 218, 0.1);
+    }
+    .pass-route-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      margin-bottom: 12px;
+      border-bottom: 1.5px dashed rgba(212, 175, 55, 0.28);
+    }
+    .pass-code {
+      font-size: 1.65rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      line-height: 1.1;
+    }
+    .pass-city {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .pass-airport.right { text-align: right; }
+    .pass-flight-mid {
+      text-align: center;
+      flex: 1;
+      padding: 0 8px;
+    }
+    .pass-duration {
+      font-size: 0.72rem;
+      color: var(--color-gold);
+      font-weight: 700;
+    }
+    .pass-plane-line {
+      font-size: 0.75rem;
+      color: var(--color-gold);
+      margin: 2px 0;
+      letter-spacing: -1px;
+    }
+    .pass-date {
+      font-size: 0.72rem;
+      color: var(--text-sub);
+      font-weight: 600;
+    }
+    .pass-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .pass-meta-lbl {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+    .pass-meta-val {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--text-main);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Car Rental Card */
+    .car-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .car-stage-tag {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--color-gold);
+      letter-spacing: 0.04em;
+    }
+    .car-model-title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 2px;
+    }
+    .car-specs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .car-spec-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.82rem;
+    }
+    .car-spec-item .lbl {
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .car-spec-item .val {
+      color: var(--text-main);
+      font-weight: 600;
+      text-align: right;
+    }
+
+    /* Stay Cards */
+    .stay-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .stay-night-pill {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--color-gold-bright);
+      background: rgba(212, 175, 55, 0.14);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    [data-theme="light"] .stay-night-pill {
+      color: #785A1D;
+    }
+    .stay-parking-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #8CE99A;
+    }
+    [data-theme="light"] .stay-parking-tag {
+      color: #1A7F37;
+    }
+    .stay-name {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .stay-desc {
+      font-size: 0.84rem;
+      color: var(--text-sub);
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+
+    /* MapCode Grid */
+    .app-mapcode-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+    }
+    .mapcode-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 14px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(212, 175, 55, 0.22);
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    [data-theme="light"] .mapcode-item {
+      background: rgba(154, 117, 40, 0.05);
+    }
+    .mapcode-item:active {
+      transform: scale(0.97);
+    }
+    .mc-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .mc-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .mc-num {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--color-gold-bright);
+      background: rgba(212, 175, 55, 0.12);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+    [data-theme="light"] .mc-num {
+      color: #785A1D;
+    }
+    .app-parking-status-box {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(212, 175, 55, 0.08);
+      border: 1px dashed rgba(212, 175, 55, 0.38);
+      font-size: 0.86rem;
+      color: var(--text-main);
+    }
+
 </style>
 </head>
 <body>
@@ -3566,11 +4398,7 @@
 <span class="tab-title">行裝備忘</span>
 <span class="tab-en">CHECKLIST</span>
 </button>
-<button class="editorial-tab-btn" id="btn-nav-phrases" onclick="showView('phrases')">
-<span class="tab-icon">🗣️</span>
-<span class="tab-title">實用韓語</span>
-<span class="tab-en">PHRASES</span>
-</button>
+
 </div>
 </nav>
 </header>
@@ -3593,9 +4421,9 @@
 <div class="hero-cover-meta">
 <div class="hero-cover-tag">◈ VOYAGE MEMOIR · AUTUMN 2026 ◈</div>
 <div class="hero-cover-cities">
-<span class="shimmer-text" style="white-space:nowrap;">SEOUL 서울</span>
+<span class="shimmer-text" style="white-space:nowrap;">SEOUL 首爾</span>
 <span class="city-sep">✦</span>
-<span class="shimmer-text" style="white-space:nowrap;">JEJU 제주</span>
+<span class="shimmer-text" style="white-space:nowrap;">JEJU 濟州</span>
 </div>
 <div class="hero-cover-sub">Lai’s Family Seoul &amp; Jeju Trip 2026 ｜ 9天8夜雙城自駕典藏手帳</div>
 </div>
@@ -3695,6 +4523,26 @@
 </div>
 </div>
 <!-- Itinerary List Section -->
+<!-- 🌟 iOS Live Activity Style Smart Widget -->
+<div class="app-live-widget">
+  <div class="app-live-widget-top">
+    <div class="app-live-dot-wrap">
+      <span class="app-live-dot"></span>
+      <span class="app-live-tag">SMART TRIP ASSISTANT · 實時行程與自駕助手</span>
+    </div>
+    <div class="app-live-actions">
+      <button class="app-pill-cta gold" onclick="jumpToCurrentSchedule()">📍 當前站點</button>
+      <button class="app-pill-cta" onclick="showView('transit')">🅿️ 泊車位記憶</button>
+    </div>
+  </div>
+  <div class="app-weather-strip">
+    <span class="app-weather-label">🌤️ 實時天氣：</span>
+    <a href="https://weather.naver.com/today/09140104" target="_blank" class="app-weather-chip">🏙️ 首爾</a>
+    <a href="https://weather.naver.com/today/02820310" target="_blank" class="app-weather-chip">🍁 加平南怡島</a>
+    <a href="https://weather.naver.com/today/14110137" target="_blank" class="app-weather-chip">🌴 濟州市/牛島</a>
+    <a href="https://weather.naver.com/today/14130116" target="_blank" class="app-weather-chip">🌊 西歸浦</a>
+  </div>
+</div>
 <div class="itinerary-section-header">
 <div class="itinerary-sub-title">ITINERARY <span>/ 每日行程分幕手帳 (Chronicle Index)</span></div>
 <span style="font-size:0.75rem;color:var(--text-muted);">點擊任何一日查閱完整時間軸與輿圖導航</span>
@@ -3714,12 +4562,7 @@
 <span class="stage-region">首爾仁川 · 恩平區</span>
 </div>
 <h2 class="stage-title">第一階段：都會夜色與自駕啟程</h2>
-<div class="stage-route">
-<span>辦理入境並提取商務車</span> <span class="arrow">➔</span>
-<span>Staria 商務車</span> <span class="arrow">➔</span>
-<span>恩平 Ribbon Stay</span> <span class="arrow">➔</span>
-<span>專屬車位安睡</span>
-</div>
+<div class="stage-route app-route-pills-wrap"><span class="app-route-pill">辦理入境並提取商務車</span><span class="app-route-pill">Staria 商務車</span><span class="app-route-pill">恩平 Ribbon Stay</span><span class="app-route-pill">專屬車位安睡</span></div>
 </div>
 </div>
 <!-- 02 -->
@@ -3735,7 +4578,7 @@
 <span class="stage-region">首爾麻浦 · 延南洞 / 梨泰院</span>
 </div>
 <h2 class="stage-title">延南漫步、秋鰤魚 ➔ 汝矣島 The Hyundai 首爾 ＆ Namsan Sool Club</h2>
-<div class="stage-route"><span>麻浦天空公園紫芒(可選)</span><span class="arrow"> ➔ </span><span>진청유점 現代韓食</span><span class="arrow"> ➔ </span><span>延南文創 ＆ Default Value 手沖</span><span class="arrow"> ➔ </span><span>16:00 Bada Sarang 厚切大鰤魚</span><span class="arrow"> ➔ </span><span>17:45 汝矣島 The Hyundai ＆ 漢江夜景</span><span class="arrow"> ➔ </span><span>安氏馬格利 ＆ Namsan Sool Club</span></div>
+<div class="stage-route app-route-pills-wrap"><span class="app-route-pill">麻浦天空公園紫芒(可選)</span><span class="app-route-pill">延南磨坊韓食 Jincheongyujeom 現代韓食</span><span class="app-route-pill">延南文創 ＆ Default Value 手沖</span><span class="app-route-pill">16:00 Bada Sarang 厚切大鰤魚</span><span class="app-route-pill">17:45 汝矣島 The Hyundai ＆ 漢江夜景</span><span class="app-route-pill">安氏馬格利 ＆ Namsan Sool Club</span></div>
 </div>
 </div>
 <!-- 03 -->
@@ -3751,15 +4594,7 @@
 <span class="stage-region">首爾鐘路 · 北村 / 西村</span>
 </div>
 <h2 class="stage-title">第二階段：韓屋古風與亞洲頂級酒吧</h2>
-<div class="stage-route">
-<span>景福宮韓服 (2.5h)</span> <span class="arrow">➔</span>
-<span>廣藏市場生牛肉</span> <span class="arrow">➔</span>
-<span>益善洞清水堂</span> <span class="arrow">➔</span>
-<span>北村三清洞＆黑瓦天台</span> <span class="arrow">➔</span>
-<span>On 6.5 泡菜餐酒</span> <span class="arrow">➔</span>
-<span>Bar Cham (亞洲50大 #33)</span> <span class="arrow">➔</span>
-<span>孝道炸雞</span>
-</div>
+<div class="stage-route app-route-pills-wrap"><span class="app-route-pill">景福宮韓服 (2.5h)</span><span class="app-route-pill">廣藏市場生牛肉</span><span class="app-route-pill">益善洞清水堂</span><span class="app-route-pill">北村三清洞＆黑瓦天台</span><span class="app-route-pill">On 6.5 泡菜餐酒</span><span class="app-route-pill">Bar Cham (亞洲50大 #33)</span><span class="app-route-pill">孝道炸雞</span></div>
 </div>
 </div>
 <!-- 04 -->
@@ -3775,7 +4610,7 @@
 <span class="stage-region">京畿道 · 加平秋楓自駕</span>
 </div>
 <h2 class="stage-title">加平秘境：南怡島賞楓 ➔ 聖水洞潮流巡禮 ➔ 東大門陳玉華一隻雞</h2>
-<div class="stage-route"><span>南怡島 80米飛索</span><span class="arrow"> ➔ </span><span>水杉大道金黃銀杏</span><span class="arrow"> ➔ </span><span>正宗春川炒雞排</span><span class="arrow"> ➔ </span><span>提早返市區避開塞車</span><span class="arrow"> ➔ </span><span>聖水洞潮流街區 ＆ Dior</span><span class="arrow"> ➔ </span><span>東大門陳玉華一隻雞</span><span class="arrow"> ➔ </span><span>Bar Zest (#2) / M+MS bar (#42)</span></div>
+<div class="stage-route app-route-pills-wrap"><span class="app-route-pill">南怡島 80米飛索</span><span class="app-route-pill">水杉大道金黃銀杏</span><span class="app-route-pill">正宗春川炒雞排</span><span class="app-route-pill">提早返市區避開塞車</span><span class="app-route-pill">聖水洞潮流街區 ＆ Dior</span><span class="app-route-pill">東大門陳玉華一隻雞</span><span class="app-route-pill">Bar Zest (#2) / M+MS bar (#42)</span></div>
 </div>
 </div>
 <!-- 05 -->
@@ -3791,7 +4626,7 @@
 <span class="stage-region">首爾 · 漢南洞 / 馬場洞</span>
 </div>
 <h2 class="stage-title">漢陽雅興：名店選豆、歸還車輛與頂級韓牛</h2>
-<div class="stage-route"><span>GML 選豆吧 ＆ 漢南洞潮牌/三星美術館</span> <span class="arrow">➔</span> <span>14:30 MUTAN 松露炸醬麵</span> <span class="arrow">➔</span> <span>狎鷗亭 HAUS DOSAN</span> <span class="arrow">➔</span> <span>17:40 COEX 星空圖書館</span> <span class="arrow">➔</span> <span>19:00 自駕馬場洞 1++ 韓牛</span> <span class="arrow">➔</span> <span>22:00 首爾站還車</span> <span class="arrow">➔</span> <span>慶功酒吧</span></div>
+<div class="stage-route app-route-pills-wrap"><span class="app-route-pill">GML 選豆吧 ＆ 漢南洞潮牌/三星美術館</span><span class="app-route-pill">14:30 MUTAN 松露炸醬麵</span><span class="app-route-pill">狎鷗亭 HAUS DOSAN</span><span class="app-route-pill">17:40 COEX 星空圖書館</span><span class="app-route-pill">19:00 自駕馬場洞 1++ 韓牛</span><span class="app-route-pill">22:00 首爾站還車</span><span class="app-route-pill">慶功酒吧</span></div>
 </div>
 </div>
 <!-- 06 -->
@@ -3807,7 +4642,7 @@
 <span class="stage-region">金浦飛濟州 ➔ 濟州市蓮洞</span>
 </div>
 <h2 class="stage-title">耽羅仙境：純電自駕、Arte Museum 光影 ＆ 熟成到黑豬肉</h2>
-<div class="stage-route"><span>ZE207 晨飛濟州</span><span class="arrow"> ➔ </span><span>LOTTE 取純電 IONIQ 9</span><span class="arrow"> ➔ </span><span>彩虹海岸兜風路過</span><span class="arrow"> ➔ </span><span>姊妹麵條</span><span class="arrow"> ➔ </span><span>Arte Museum 巨幅光影</span><span class="arrow"> ➔ </span><span>郭支海灘 ＆ Umu布丁</span><span class="arrow"> ➔ </span><span>熟成到代烤黑豬肉</span><span class="arrow"> ➔ </span><span>蓮洞庭院民宿</span></div>
+<div class="stage-route app-route-pills-wrap"><span class="app-route-pill">ZE207 晨飛濟州</span><span class="app-route-pill">LOTTE 取純電 IONIQ 9</span><span class="app-route-pill">彩虹海岸兜風路過</span><span class="app-route-pill">姊妹麵條</span><span class="app-route-pill">Arte Museum 巨幅光影</span><span class="app-route-pill">郭支海灘 ＆ Umu布丁</span><span class="app-route-pill">熟成到代烤黑豬肉</span><span class="app-route-pill">蓮洞庭院民宿</span></div>
 </div>
 </div>
 <!-- 07 -->
@@ -3823,7 +4658,7 @@
 <span class="stage-region">濟州南岸 · 西歸浦</span>
 </div>
 <h2 class="stage-title">壯麗南岸：海膽海帶湯、整條烤帶魚、綠茶 ＆ 別墅私人露台 BBQ 派對</h2>
-<div class="stage-route"><span>純玉家金黃海膽湯</span><span class="arrow"> ➔ </span><span>山房山龍頭海岸</span><span class="arrow"> ➔ </span><span>一公尺烤帶魚全席</span><span class="arrow"> ➔ </span><span>Osulloc 綠茶 ＆ 濟州堂麵包同區連逛</span><span class="arrow"> ➔ </span><span>山茶花丘粉黛亂子草</span><span class="arrow"> ➔ </span><span>E-Mart 採購食材</span><span class="arrow"> ➔ </span><span>別墅海景露台炭火BBQ ＆ Jacuzzi</span></div>
+<div class="stage-route app-route-pills-wrap"><span class="app-route-pill">純玉家金黃海膽湯</span><span class="app-route-pill">山房山龍頭海岸</span><span class="app-route-pill">一公尺烤帶魚全席</span><span class="app-route-pill">Osulloc 綠茶 ＆ 濟州堂麵包同區連逛</span><span class="app-route-pill">山茶花丘粉黛亂子草</span><span class="app-route-pill">E-Mart 採購食材</span><span class="app-route-pill">別墅海景露台炭火BBQ ＆ Jacuzzi</span></div>
 </div>
 </div>
 <!-- 08 -->
@@ -3839,7 +4674,7 @@
 <span class="stage-region">濟州東部 · 牛島跳島</span>
 </div>
 <h2 class="stage-title">牛島碧海：別墅高蛋白晨光輕食、城山日出峰、銘珍鮑魚 ＆ 芒草海</h2>
-<div class="stage-route"><span>別墅海景晨光輕食</span><span class="arrow"> ➔ </span><span>牛島跳島 ＆ 珊瑚白沙</span><span class="arrow"> ➔ </span><span>城山日出峰海景步道</span><span class="arrow"> ➔ </span><span>銘珍鮑魚石鍋/香煎</span><span class="arrow"> ➔ </span><span>月汀里風車白沙灘</span><span class="arrow"> ➔ </span><span>山君不離 10月金色芒草海</span><span class="arrow"> ➔ </span><span>西歸浦親採柑橘</span><span class="arrow"> ➔ </span><span>每日偶來夜市 ＆ Jacuzzi</span></div>
+<div class="stage-route app-route-pills-wrap"><span class="app-route-pill">別墅海景晨光輕食</span><span class="app-route-pill">牛島跳島 ＆ 珊瑚白沙</span><span class="app-route-pill">城山日出峰海景步道</span><span class="app-route-pill">銘珍鮑魚石鍋/香煎</span><span class="app-route-pill">月汀里風車白沙灘</span><span class="app-route-pill">山君不離 10月金色芒草海</span><span class="app-route-pill">西歸浦親採柑橘</span><span class="app-route-pill">每日偶來夜市 ＆ Jacuzzi</span></div>
 </div>
 </div>
 <!-- 09 -->
@@ -3855,7 +4690,7 @@
 <span class="stage-region">西歸浦 ➔ 機場返港</span>
 </div>
 <h2 class="stage-title">鮮味尾聲：挾才海灘、涯月韓屋海景咖啡 ＆ 澎湃海鮮鍋</h2>
-<div class="stage-route"><span>海景別墅悠閒退房</span><span class="arrow"> ➔ </span><span>挾才海女海鮮拉麵</span><span class="arrow"> ➔ </span><span>涯月해지개韓屋咖啡 ＆ Kaymak</span><span class="arrow"> ➔ </span><span>東門市場手信採買</span><span class="arrow"> ➔ </span><span>三姓穴活章魚海鮮鍋</span><span class="arrow"> ➔ </span><span>19:00 機場歸還車輛</span><span class="arrow"> ➔ </span><span>真航空 LJ713 返港</span></div>
+<div class="stage-route app-route-pills-wrap"><span class="app-route-pill">海景別墅悠閒退房</span><span class="app-route-pill">挾才海女海鮮拉麵</span><span class="app-route-pill">涯月海地開 Haejigae韓屋咖啡 ＆ Kaymak</span><span class="app-route-pill">東門市場手信採買</span><span class="app-route-pill">三姓穴活章魚海鮮鍋</span><span class="app-route-pill">19:00 機場歸還車輛</span><span class="app-route-pill">真航空 LJ713 返港</span></div>
 </div>
 </div>
 </div>
@@ -3986,7 +4821,7 @@
 <div class="split-form-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
 <div class="form-group">
 <label>項目名稱</label>
-<input class="form-control" id="expName" placeholder="例如：진청유점 午餐 / 租車加油" type="text"/>
+<input class="form-control" id="expName" placeholder="例如：延南磨坊韓食 Jincheongyujeom 午餐 / 租車加油" type="text"/>
 </div>
 <div class="form-group">
 <label>金額與幣種</label>
@@ -4122,147 +4957,276 @@
 </div>
 </div>
 <div class="tab-panel" id="view-transit">
-<div class="header-tracking-label">LOGISTICS OVERVIEW</div>
-<h1 class="main-hero-title">交通航班與住宿一覽</h1>
-<div class="panel-card">
-<h3 class="panel-card-title">✈️ 航班資訊 (Flights)</h3>
-<p class="event-p"><b>去程：</b> 香港快運 UO626 ｜ 10/16 (五) 16:55 HKG T2 ➔ 21:35 仁川 ICN T1</p>
-<p class="event-p"><b>內陸：</b> 易斯達航空 ZE207 ｜ 10/21 (三) 07:35 金浦 GMP ➔ 08:50 濟州 CJU</p>
-<p class="event-p"><b>回程：</b> 真航空 LJ713 ｜ 10/24 (六) 21:30 濟州 CJU ➔ 23:35 香港 HKG T1</p>
-</div>
-<div class="panel-card">
-<h3 class="panel-card-title">🚗 自駕租車詳情 (Car Rentals)</h3>
-<p class="event-p"><b>首爾段 (10/16 - 10/20)：</b> Hyundai Staria 9人商務車<br/>
-        • 取車：10/16 22:30 仁川機場 T1 1樓 12號門 (GATE 12) ｜ 電話: +82-10-3212-6215<br/>
-        • 歸還車輛：10/20 22:00前 首爾站門市 (서울 중구 한강대로 405)<br/>
-        • 取車 PIN 碼：<b style="color:var(--color-gold);">3410</b> ｜ 按金約 KRW 100,000</p>
-<hr style="border:none;border-top:1px solid var(--border-subtle);margin:10px 0;"/>
-<p class="event-p"><b>濟州段 (10/21 - 10/24)：</b> IONIQ 9 4WD 純電 7人座<br/>
-        • 取還地點：LOTTE rent-a-car 濟州 Auto House (92, Yonghae-ro, Jeju-si) ｜ 電話: 1588-1230<br/>
-        • 預約編號：<b style="color:var(--color-celadon);">2622541225</b><br/>
-        • 福利：出示車鑰匙享山茶花丘門票 30% 折扣！</p>
-</div>
-<div class="panel-card">
-<h3 class="panel-card-title">🏨 住宿安排 (Accommodations)</h3>
-<p class="event-p"><b>D1 首爾恩平：</b> Ribbon Stay (리본스테이)<br/>
-        서울 은평구 연서로3길 8 ｜ 自帶免費專屬泊車位 ｜ 電子密碼鎖自助入住</p>
-<hr style="border:none;border-top:1px solid var(--border-subtle);margin:8px 0;"/>
-<p class="event-p"><b>D2~D5 首爾延南：</b> MEMORYSTAY CASA Yeonnam<br/>
-        서울 마포구 연남로7길 26 ｜ 延南洞獨棟韓屋 ｜ 1樓提供行李寄存</p>
-<hr style="border:none;border-top:1px solid var(--border-subtle);margin:8px 0;"/>
-<p class="event-p"><b>D6 濟州蓮洞：</b> 도심 속 전원주택 'Been' (Airbnb)<br/>
-        제주특별자치도 제주시 신대로17길 7 ｜ 前院獨立免費車位 ｜ 3房5床2衛</p>
-<hr style="border:none;border-top:1px solid var(--border-subtle);margin:8px 0;"/>
-<p class="event-p"><b>D7~D8 濟州西歸浦：</b> 全景海景奢華別墅 (Airbnb)<br/>
-        제주특별자치도 서귀포시 지장샘로182번길 25 ｜ 3間獨立套房3衛浴 ｜ 按摩浴池 Jacuzzi ＆ 洗脫烘</p>
-</div>
-<!-- 🅿️ V37 新增：自駕泊車位記憶器 (Parking Slot Saver) -->
-<div class="panel-card" style="margin-top:20px;border:1.5px solid rgba(212,175,55,0.45);">
-  <h3 class="panel-card-title">🅿️ 自駕泊車位置記憶卡 (Parking Spot Saver)</h3>
-  <p class="event-p" style="font-size:0.84rem;color:var(--text-muted);margin-bottom:12px;">
-    揸 Staria 或 IONIQ 9 入大型商場/公營停車場（如首爾林、COEX、東門市場），泊好車即刻記低樓層與柱號，行完街一秒搵返車！
+<div class="header-tracking-label">FLIGHTS · CAR RENTALS · STAYS</div>
+<h1 class="main-hero-title">航班登機證、自駕憑證與住宿導航</h1>
+
+<!-- 🅿️ 1. 自駕泊車位置記憶卡 (iOS Widget Style) -->
+<div class="panel-card app-wallet-card" style="margin-bottom:18px;border:1.5px solid rgba(212,175,55,0.42);">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+    <h3 class="panel-card-title" style="margin:0;">🅿️ 泊車位置記憶器 (Parking Spot Saver)</h3>
+    <span class="app-cat-chip" style="background:rgba(80,200,120,0.16);color:#8CE99A;border:1px solid rgba(80,200,120,0.35);">Staria / IONIQ 9</span>
+  </div>
+  <p class="event-p" style="font-size:0.83rem;color:var(--text-muted);margin-bottom:12px;">
+    泊好車即刻記低商場或公營停車場嘅樓層與柱號（例如：COEX B2 藍區 H-14），行完街一秒搵返部車。
   </p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:12px;">
-    <input id="parkLocInput" class="form-control" type="text" placeholder="車場名稱 (如: COEX 商場 / 首爾林)"/>
-    <input id="parkSpotInput" class="form-control" type="text" placeholder="樓層與柱號 (如: B2 藍區 H-14)"/>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+    <input id="parkLocInput" class="form-control" type="text" placeholder="車場名 (如: COEX / 首爾林)"/>
+    <input id="parkSpotInput" class="form-control" type="text" placeholder="樓層柱號 (如: B2 H-14)"/>
   </div>
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
-    <button class="btn-action" onclick="saveParkingSpot()">💾 記低當前泊車位</button>
-    <button class="btn-secondary" onclick="clearParkingSpot()">🗑️ 清除記錄</button>
+  <div style="display:flex;gap:8px;margin-bottom:12px;">
+    <button class="btn-action" style="flex:2;border-radius:12px;" onclick="saveParkingSpot()">💾 儲存泊車位</button>
+    <button class="btn-secondary" style="flex:1;border-radius:12px;" onclick="clearParkingSpot()">清除</button>
   </div>
-  <div id="savedParkingDisplay" style="padding:12px 14px;border-radius:12px;background:rgba(212,175,55,0.1);border:1px dashed rgba(212,175,55,0.4);font-size:0.9rem;color:#FFF2CC;">
+  <div id="savedParkingDisplay" class="app-parking-status-box">
     尚未記錄泊車位置（泊車後可於上方輸入樓層與車位編號）。
   </div>
 </div>
 
-<!-- 🔢 V37 新增：韓國車機電話導航碼 (Phone Map Code) 速查表 -->
-<div class="panel-card" style="margin-top:20px;">
+<!-- ✈️ 2. Apple Wallet 風格航班登機證 (3 Flights) -->
+<div class="app-section-label">✈️ 航班電子登機證 (FLIGHT PASSES)</div>
+<div class="app-passes-grid">
+  <!-- Flight 1 -->
+  <div class="app-boarding-pass">
+    <div class="pass-top-row">
+      <span class="pass-airline">HK Express · 香港快運</span>
+      <span class="pass-badge">UO626</span>
+    </div>
+    <div class="pass-route-row">
+      <div class="pass-airport">
+        <div class="pass-code">HKG</div>
+        <div class="pass-city">香港 T2</div>
+      </div>
+      <div class="pass-flight- mid">
+        <div class="pass-duration">3h 40m</div>
+        <div class="pass-plane-line">────── ✈️ ──────</div>
+        <div class="pass-date">2026.10.16 (五)</div>
+      </div>
+      <div class="pass-airport right">
+        <div class="pass-code">ICN</div>
+        <div class="pass-city">仁川 T1</div>
+      </div>
+    </div>
+    <div class="pass-bottom-row">
+      <div><span class="pass-meta-lbl">起飛時間</span><span class="pass-meta-val">16:55</span></div>
+      <div><span class="pass-meta-lbl">抵達時間</span><span class="pass-meta-val">21:35</span></div>
+      <div><span class="pass-meta-lbl">後續銜接</span><span class="pass-meta-val">T1 12號門取車</span></div>
+    </div>
+  </div>
+
+  <!-- Flight 2 -->
+  <div class="app-boarding-pass">
+    <div class="pass-top-row">
+      <span class="pass-airline">Eastar Jet · 易斯達航空</span>
+      <span class="pass-badge">ZE207</span>
+    </div>
+    <div class="pass-route-row">
+      <div class="pass-airport">
+        <div class="pass-code">GMP</div>
+        <div class="pass-city">首爾金浦</div>
+      </div>
+      <div class="pass-flight-mid">
+        <div class="pass-duration">1h 15m</div>
+        <div class="pass-plane-line">────── ✈️ ──────</div>
+        <div class="pass-date">2026.10.21 (三)</div>
+      </div>
+      <div class="pass-airport right">
+        <div class="pass-code">CJU</div>
+        <div class="pass-city">濟州國際</div>
+      </div>
+    </div>
+    <div class="pass-bottom-row">
+      <div><span class="pass-meta-lbl">起飛時間</span><span class="pass-meta-val">07:35</span></div>
+      <div><span class="pass-meta-lbl">抵達時間</span><span class="pass-meta-val">08:50</span></div>
+      <div><span class="pass-meta-lbl">後續銜接</span><span class="pass-meta-val">5號門樂天接駁車</span></div>
+    </div>
+  </div>
+
+  <!-- Flight 3 -->
+  <div class="app-boarding-pass">
+    <div class="pass-top-row">
+      <span class="pass-airline">Jin Air · 真航空</span>
+      <span class="pass-badge">LJ713</span>
+    </div>
+    <div class="pass-route-row">
+      <div class="pass-airport">
+        <div class="pass-code">CJU</div>
+        <div class="pass-city">濟州國際</div>
+      </div>
+      <div class="pass-flight-mid">
+        <div class="pass-duration">3h 05m</div>
+        <div class="pass-plane-line">────── ✈️ ──────</div>
+        <div class="pass-date">2026.10.24 (六)</div>
+      </div>
+      <div class="pass-airport right">
+        <div class="pass-code">HKG</div>
+        <div class="pass-city">香港 T1</div>
+      </div>
+    </div>
+    <div class="pass-bottom-row">
+      <div><span class="pass-meta-lbl">起飛時間</span><span class="pass-meta-val">21:30</span></div>
+      <div><span class="pass-meta-lbl">抵達時間</span><span class="pass-meta-val">23:35</span></div>
+      <div><span class="pass-meta-lbl">退稅與還車</span><span class="pass-meta-val">19:00 Auto House</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 🚗 3. 雙城自駕電子憑證卡 (Car Rental Key Passes) -->
+<div class="app-section-label" style="margin-top:24px;">🚗 雙城自駕電子取車憑證 (CAR RENTAL VOUCHERS)</div>
+<div class="app-passes-grid">
+  <!-- Seoul Car -->
+  <div class="app-car-card">
+    <div class="car-card-header">
+      <div>
+        <div class="car-stage-tag">STAGE 1 · 首爾與加平段 (10/16 – 10/20)</div>
+        <div class="car-model-title">🚐 Hyundai Staria 9人商務車</div>
+      </div>
+      <button class="app-pill-cta gold" onclick="copyValue('3410','已複製取車 PIN 3410')">PIN: 3410 📋</button>
+    </div>
+    <div class="car-specs-grid">
+      <div class="car-spec-item"><span class="lbl">取車時間與地點</span><span class="val">10/16 22:30 · 仁川 T1 1樓 12號門</span></div>
+      <div class="car-spec-item"><span class="lbl">還車時間與地點</span><span class="val">10/20 22:00前 · 首爾站門市 (漢江大路405)</span></div>
+      <div class="car-spec-item"><span class="lbl">訂單號 (Trip.com)</span><span class="val">#1359047919213593 (按金 ₩100,000)</span></div>
+      <div class="car-spec-item"><span class="lbl">限高與收費站提醒</span><span class="val">車高 2m 泊平面場 ｜ 收費站行藍色現金/卡道</span></div>
+    </div>
+    <div class="app-card-actions" style="margin-top:10px;">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EA%B5%AC%20%ED%95%9C%EA%B0%95%EB%8C%80%EB%A1%9C%20405" target="_blank">🧭 導航去首爾站還車</a>
+      <a class="btn-act app-btn-ghost" href="tel:+82-10-3212-6215">📞 致電專員</a>
+    </div>
+  </div>
+
+  <!-- Jeju Car -->
+  <div class="app-car-card">
+    <div class="car-card-header">
+      <div>
+        <div class="car-stage-tag">STAGE 2 · 濟州環島段 (10/21 – 10/24)</div>
+        <div class="car-model-title">⚡ IONIQ 9 4WD 純電 7人車</div>
+      </div>
+      <button class="app-pill-cta gold" onclick="copyValue('2622541225','已複製樂天預約號 2622541225')">預約號: 2622541225 📋</button>
+    </div>
+    <div class="car-specs-grid">
+      <div class="car-spec-item"><span class="lbl">取車時間與接駁</span><span class="val">10/21 09:30 · 濟州機場 5號門樂天接駁車</span></div>
+      <div class="car-spec-item"><span class="lbl">還車時間與地點</span><span class="val">10/24 19:00前 · 樂天 Auto House</span></div>
+      <div class="car-spec-item"><span class="lbl">滿電續航與測速</span><span class="val">續航逾 500km 免找充電樁 ｜ 注意 50km/h 區間測速</span></div>
+      <div class="car-spec-item"><span class="lbl">租車專屬福利</span><span class="val">出示樂天車匙享「山茶花丘」門票 7 折優惠</span></div>
+    </div>
+    <div class="app-card-actions" style="margin-top:10px;">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank">🧭 導航去樂天 Auto House</a>
+      <a class="btn-act app-btn-ghost" href="tel:1588-1230">📞 1588-1230</a>
+    </div>
+  </div>
+</div>
+
+<!-- 🏨 4. 四大旅居別墅與韓屋導航卡 (Airbnb Stay Cards) -->
+<div class="app-section-label" style="margin-top:24px;">🏨 四大旅居住宿與一鍵返宿導航 (ACCOMMODATIONS)</div>
+<div class="app-stays-grid">
+  <div class="app-stay-card">
+    <div class="stay-header">
+      <span class="stay-night-pill">Day 1 (10/16–17 · 1晚)</span>
+      <span class="stay-parking-tag">🅿️ 免費專屬車位</span>
+    </div>
+    <h4 class="stay-name">首爾恩平區 · Ribbon Stay</h4>
+    <p class="stay-desc">整套 3~4 樓房源，電子密碼鎖自助入住，深夜抵達直接泊入私人車位。</p>
+    <div class="app-card-actions">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EC%9D%80%ED%8F%89%EA%B5%AC%20%EC%97%B0%EC%84%9C%EB%A1%9C3%EA%B8%B8%208" target="_blank">🧭 Naver 導航返民宿</a>
+    </div>
+  </div>
+
+  <div class="app-stay-card">
+    <div class="stay-header">
+      <span class="stay-night-pill">Day 2–5 (10/17–21 · 4晚)</span>
+      <span class="stay-parking-tag">🏡 獨棟3房韓屋＋車位</span>
+    </div>
+    <h4 class="stay-name">首爾延南洞 · MEMORYSTAY CASA Yeonnam</h4>
+    <p class="stay-desc">弘大延南洞核心區獨棟韓屋度假風，3房5床大客廳，1樓可寄存行李，周邊文創餐廳步行即達。</p>
+    <div class="app-card-actions">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EB%A7%88%ED%8F%AC%EA%B5%AC%20%EC%97%B0%EB%82%A8%EB%A1%9C7%EA%B8%B8%2026" target="_blank">🧭 Naver 導航返民宿</a>
+    </div>
+  </div>
+
+  <div class="app-stay-card">
+    <div class="stay-header">
+      <span class="stay-night-pill">Day 6 (10/21–22 · 1晚)</span>
+      <span class="stay-parking-tag">🅿️ 前院獨立車位</span>
+    </div>
+    <h4 class="stay-name">濟州市蓮洞 · 庭院別墅 'Been'</h4>
+    <p class="stay-desc">4.98 高分旅人至愛，獨享 2~3 樓與私家庭院露台，3房5床2衛，距熟成到僅 3 分鐘車程。</p>
+    <div class="app-card-actions">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%8B%A0%EB%8C%80%EB%A1%9C17%EA%B8%B8%207" target="_blank">🧭 Naver 導航返民宿</a>
+    </div>
+  </div>
+
+  <div class="app-stay-card">
+    <div class="stay-header">
+      <span class="stay-night-pill">Day 7–8 (10/22–24 · 2晚)</span>
+      <span class="stay-parking-tag">♨️ 海景BBQ＋Jacuzzi</span>
+    </div>
+    <h4 class="stay-name">濟州西歸浦 · 全景海景奢華別墅</h4>
+    <p class="stay-desc">懸崖全海景露台別墅，3間獨立套房3衛浴，配備私人炭火 BBQ 烤爐、星空按摩浴池與洗脫烘衣機。</p>
+    <div class="app-card-actions">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EC%8B%9C%20%EC%A7%80%EC%9E%A5%EC%83%98%EB%A1%9C182%EB%B2%88%EA%B8%B8%2025" target="_blank">🧭 Naver 導航返別墅</a>
+    </div>
+  </div>
+</div>
+
+<!-- 🔢 5. 韓國車機電話導航碼 (Phone Map Code) 速查表 -->
+<div class="panel-card" style="margin-top:22px;">
   <h3 class="panel-card-title">🔢 韓國車機「電話號碼導航 (Map Code)」一鍵速查</h3>
-  <p class="event-p" style="font-size:0.84rem;color:var(--text-muted);margin-bottom:12px;">
-    💡 韓國自駕秘技：喺 Staria 或 IONIQ 9 原廠車機輸入<b>電話號碼</b>，比打韓文地址快 10 倍且直達停車場入口！
+  <p class="event-p" style="font-size:0.83rem;color:var(--text-muted);margin-bottom:12px;">
+    💡 韓國自駕秘技：於車機輸入以下景點或車場<b>電話號碼</b>，即可一秒定準停車場入口。
   </p>
-  <div style="overflow-x:auto;">
-    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;color:#E8E2D5;">
-      <thead>
-        <tr style="border-bottom:1.5px solid rgba(212,175,55,0.4);text-align:left;color:#D4AF37;">
-          <th style="padding:8px;">日程 / 站點</th>
-          <th style="padding:8px;">車機導航電話 / 地址</th>
-          <th style="padding:8px;">泊車貼士 (Staria 限高 2m)</th>
-          <th style="padding:8px;">操作</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-          <td style="padding:8px;font-weight:bold;">D2 麻浦天空公園</td>
-          <td style="padding:8px;color:#98E4B0;">02-300-5501</td>
-          <td style="padding:8px;">停 난지천공원戶外平面停車場</td>
-          <td style="padding:8px;"><button class="btn-act" onclick="copyValue('02-300-5501','已複製天空公園車機電話')">📋 複製</button></td>
-        </tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-          <td style="padding:8px;font-weight:bold;">D4 南怡島飛索/碼頭</td>
-          <td style="padding:8px;color:#98E4B0;">031-580-8114</td>
-          <td style="padding:8px;">停南怡島 1號大型戶外平面車場</td>
-          <td style="padding:8px;"><button class="btn-act" onclick="copyValue('031-580-8114','已複製南怡島車場電話')">📋 複製</button></td>
-        </tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-          <td style="padding:8px;font-weight:bold;">D4 首爾林/聖水洞</td>
-          <td style="padding:8px;color:#98E4B0;">02-460-2905</td>
-          <td style="padding:8px;">停「서울숲 공영주차장」戶外平面場</td>
-          <td style="padding:8px;"><button class="btn-act" onclick="copyValue('서울 성동구 성수동1가 643','已複製首爾林停車場地址')">📋 複製</button></td>
-        </tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-          <td style="padding:8px;font-weight:bold;">D4 東大門 DDP 車場</td>
-          <td style="padding:8px;color:#98E4B0;">02-2153-0000</td>
-          <td style="padding:8px;">陳玉華步行8分，車位極闊</td>
-          <td style="padding:8px;"><button class="btn-act" onclick="copyValue('02-2153-0000','已複製 DDP 電話')">📋 複製</button></td>
-        </tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-          <td style="padding:8px;font-weight:bold;">D5 江南 COEX 商場</td>
-          <td style="padding:8px;color:#98E4B0;">02-6002-5300</td>
-          <td style="padding:8px;">星空圖書館正下方，限高 2.1m</td>
-          <td style="padding:8px;"><button class="btn-act" onclick="copyValue('02-6002-5300','已複製 COEX 電話')">📋 複製</button></td>
-        </tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-          <td style="padding:8px;font-weight:bold;">D5 馬場洞西門車場</td>
-          <td style="padding:8px;color:#98E4B0;">02-2281-4400</td>
-          <td style="padding:8px;">停「마장축산물시장 서문주차장」平面場</td>
-          <td style="padding:8px;"><button class="btn-act" onclick="copyValue('서울 성동구 마장동 510-3','已複製馬場洞西門車場地址')">📋 複製</button></td>
-        </tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-          <td style="padding:8px;font-weight:bold;">D6 濟州 Arte Museum</td>
-          <td style="padding:8px;color:#98E4B0;">1899-5008</td>
-          <td style="padding:8px;">館外超大免費平面停車場</td>
-          <td style="padding:8px;"><button class="btn-act" onclick="copyValue('1899-5008','已複製 Arte Museum 電話')">📋 複製</button></td>
-        </tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-          <td style="padding:8px;font-weight:bold;">D7 龍頭海岸 / 山房山</td>
-          <td style="padding:8px;color:#98E4B0;">064-794-2940</td>
-          <td style="padding:8px;">09:00 先打呢個電話確認潮汐開放</td>
-          <td style="padding:8px;"><button class="btn-act" onclick="copyValue('064-794-2940','已複製龍頭海岸電話')">📋 複製</button></td>
-        </tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-          <td style="padding:8px;font-weight:bold;">D7 西歸浦 E-Mart</td>
-          <td style="padding:8px;color:#98E4B0;">064-797-1114</td>
-          <td style="padding:8px;">採買別墅 BBQ 韓牛與黑豬肉</td>
-          <td style="padding:8px;"><button class="btn-act" onclick="copyValue('064-797-1114','已複製西歸浦 E-Mart 電話')">📋 複製</button></td>
-        </tr>
-        <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-          <td style="padding:8px;font-weight:bold;">D8 牛島渡輪 城山浦港</td>
-          <td style="padding:8px;color:#98E4B0;">064-782-5671</td>
-          <td style="padding:8px;">停港口大型收費平面車場</td>
-          <td style="padding:8px;"><button class="btn-act" onclick="copyValue('064-782-5671','已複製城山浦港電話')">📋 複製</button></td>
-        </tr>
-        <tr>
-          <td style="padding:8px;font-weight:bold;">D8 山君不離芒草海</td>
-          <td style="padding:8px;color:#98E4B0;">064-783-9900</td>
-          <td style="padding:8px;">園區門口大型免費平面車場</td>
-          <td style="padding:8px;"><button class="btn-act" onclick="copyValue('064-783-9900','已複製山君不離電話')">📋 複製</button></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="app-mapcode-grid">
+    <div class="mapcode-item" onclick="copyValue('02-300-5501','已複製麻浦天空公園電話')">
+      <div><div class="mc-name">D2 麻浦天空公園</div><div class="mc-sub">戶外平面車場</div></div>
+      <span class="mc-num">02-300-5501 📋</span>
+    </div>
+    <div class="mapcode-item" onclick="copyValue('031-580-8114','已複製南怡島碼頭電話')">
+      <div><div class="mc-name">D4 南怡島飛索/碼頭</div><div class="mc-sub">1號大型平面車場</div></div>
+      <span class="mc-num">031-580-8114 📋</span>
+    </div>
+    <div class="mapcode-item" onclick="copyValue('02-460-2905','已複製首爾林公營車場電話')">
+      <div><div class="mc-name">D4 首爾林/聖水洞</div><div class="mc-sub">首爾林公營平面場</div></div>
+      <span class="mc-num">02-460-2905 📋</span>
+    </div>
+    <div class="mapcode-item" onclick="copyValue('02-2153-0000','已複製東大門 DDP 電話')">
+      <div><div class="mc-name">D4 東大門 DDP 車場</div><div class="mc-sub">陳玉華步行 5 分鐘</div></div>
+      <span class="mc-num">02-2153-0000 📋</span>
+    </div>
+    <div class="mapcode-item" onclick="copyValue('02-6002-5300','已複製江南 COEX 電話')">
+      <div><div class="mc-name">D5 江南 COEX 星空圖書館</div><div class="mc-sub">商場大型停車場</div></div>
+      <span class="mc-num">02-6002-5300 📋</span>
+    </div>
+    <div class="mapcode-item" onclick="copyValue('02-2281-4400','已複製馬場洞西門車場電話')">
+      <div><div class="mc-name">D5 馬場洞韓牛市場</div><div class="mc-sub">西門公營平面車場</div></div>
+      <span class="mc-num">02-2281-4400 📋</span>
+    </div>
+    <div class="mapcode-item" onclick="copyValue('1899-5008','已複製 Arte Museum 電話')">
+      <div><div class="mc-name">D6 濟州 Arte Museum</div><div class="mc-sub">免費大型平面車場</div></div>
+      <span class="mc-num">1899-5008 📋</span>
+    </div>
+    <div class="mapcode-item" onclick="copyValue('064-794-2940','已複製龍頭海岸電話')">
+      <div><div class="mc-name">D7 龍頭海岸 / 山房山</div><div class="mc-sub">09:00 致電確認潮汐</div></div>
+      <span class="mc-num">064-794-2940 📋</span>
+    </div>
+    <div class="mapcode-item" onclick="copyValue('064-797-1114','已複製西歸浦 E-Mart 電話')">
+      <div><div class="mc-name">D7 西歸浦 E-Mart</div><div class="mc-sub">採買別墅 BBQ 韓牛</div></div>
+      <span class="mc-num">064-797-1114 📋</span>
+    </div>
+    <div class="mapcode-item" onclick="copyValue('064-782-5671','已複製牛島城山浦港電話')">
+      <div><div class="mc-name">D8 牛島渡輪 城山浦港</div><div class="mc-sub">港口大型平面車場</div></div>
+      <span class="mc-num">064-782-5671 📋</span>
+    </div>
+    <div class="mapcode-item" onclick="copyValue('064-783-9900','已複製山君不離電話')">
+      <div><div class="mc-name">D8 山君不離芒草海</div><div class="mc-sub">免費大型平面車場</div></div>
+      <span class="mc-num">064-783-9900 📋</span>
+    </div>
+    <div class="mapcode-item" onclick="copyValue('064-752-3001','已複製東門市場電話')">
+      <div><div class="mc-name">D9 濟州東門傳統市場</div><div class="mc-sub">市場公營停車場</div></div>
+      <span class="mc-num">064-752-3001 📋</span>
+    </div>
   </div>
 </div>
 </div>
+
 <!-- ============================================== -->
 <!-- VIEW 6: FOOD 美饌與品酩 (Gastronomy & Bars) & 備用清單 (BACKUP LIST) -->
 <!-- ============================================== -->
@@ -4297,35 +5261,35 @@
 
 <p class="event-p" style="color:var(--color-gold);font-weight:700;margin-top:10px;">◈ 鐘路 / 安國 / 益善洞 (Day 3 備選) ◈</p>
 <p class="event-p">
-• <b>Parole & Langue (파롤앤랑그 延南店)：</b> 首爾派塔天花板！招牌炙烤粟米塔 (옥수수) & 秋季栗子蒙布朗塔 <a class="badge-naver" href="https://map.naver.com/p/search/%ED%8C%8C%EB%A1%A4%EC%95%A4%EB%9E%91%EA%B7%B8" target="_blank">🗺️ Naver Map</a><br/>
-• <b>萬洞製菓 (만동제과 延南店)：</b> 在地人天天排隊的大蒜法包 (마늘바게트)，蒜香牛油爆漿濕潤 <a class="badge-naver" href="https://map.naver.com/p/search/%EB%A7%8C%EB%8F%99%EC%A0%9C%EA%B3%BC%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Jo & Dawson (조앤도슨 延南店)：</b> 全首爾最強焦糖法式吐司 (French Toast)，布丁般軟嫩沾海鹽 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%A1%B0%EC%95%A4%EB%8F%84%EC%8A%A8" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Artist Bakery (아티스트 베이커리 安國店)：</b> 全首爾鹽麵包天花板！松露/明太子/大蒜鹽麵包 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%95%84%ED%8B%B0%EC%8A%A4%ED%8A%B8%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%20%EC%95%88%EA%B5%AD" target="_blank">🗺️ Naver Map</a><br/>
-• <b>自然島鹽麵包 (자연도소금빵 益善洞店)：</b> 1 袋 4 個剛出爐純牛油海鹽麵包，紙袋麻繩包裝 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%9E%90%EC%97%B0%EB%8F%84%EC%86%8C%EA%B8%88%EB%B9%B5%20%EC%9D%B5%EC%84%A0%EB%8F%99" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Perment Bakeshop (퍼먼트 안국)：</b> 北村安國人氣法式可頌與酥皮糕點 <a class="badge-naver" href="https://map.naver.com/p/search/%ED%8D%BC%EB%A8%BC%ED%8A%B8%20%EC%95%88%EA%B5%AD" target="_blank">🗺️ Naver Map</a>
+• <b>Parole & Langue ( 延南店)：</b>首爾派塔天花板！招牌炙烤粟米塔 & 秋季栗子蒙布朗塔<a class="badge-naver" href="https://map.naver.com/p/search/%ED%8C%8C%EB%A1%A4%EC%95%A4%EB%9E%91%EA%B7%B8" target="_blank">🗺️ Naver Map</a><br/>
+• <b>萬洞製菓 ( 延南店)：</b>在地人天天排隊的大蒜法包 ，蒜香牛油爆漿濕潤<a class="badge-naver" href="https://map.naver.com/p/search/%EB%A7%8C%EB%8F%99%EC%A0%9C%EA%B3%BC%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank">🗺️ Naver Map</a><br/>
+• <b>Jo & Dawson ( 延南店)：</b> 全首爾最強焦糖法式吐司 (French Toast)，布丁般軟嫩沾海鹽 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%A1%B0%EC%95%A4%EB%8F%84%EC%8A%A8" target="_blank">🗺️ Naver Map</a><br/>
+• <b>Artist Bakery ( 安國店)：</b> 全首爾鹽麵包天花板！松露/明太子/大蒜鹽麵包 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%95%84%ED%8B%B0%EC%8A%A4%ED%8A%B8%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%20%EC%95%88%EA%B5%AD" target="_blank">🗺️ Naver Map</a><br/>
+• <b>自然島鹽麵包 ( 益善洞店)：</b> 1 袋 4 個剛出爐純牛油海鹽麵包，紙袋麻繩包裝 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%9E%90%EC%97%B0%EB%8F%84%EC%86%8C%EA%B8%88%EB%B9%B5%20%EC%9D%B5%EC%84%A0%EB%8F%99" target="_blank">🗺️ Naver Map</a><br/>
+• <b>Perment Bakeshop ：</b> 北村安國人氣法式可頌與酥皮糕點 <a class="badge-naver" href="https://map.naver.com/p/search/%ED%8D%BC%EB%A8%BC%ED%8A%B8%20%EC%95%88%EA%B5%AD" target="_blank">🗺️ Naver Map</a>
 </p>
 
 <p class="event-p" style="color:var(--color-gold);font-weight:700;margin-top:10px;">◈ 聖水洞潮流區 (Day 4 備選) ◈</p>
 <p class="event-p">
-• <b>Cafe Onion 聖水店 (어니언 성수)：</b> 工業廢棄工廠改建鼻祖，招牌雪山糖霜麵包 (Pandoro) <a class="badge-naver" href="https://map.naver.com/p/search/%EC%96%B4%EB%8B%88%EC%96%B8%20%EC%84%B1%EC%88%98" target="_blank">🗺️ Naver Map</a><br/>
-• <b>大象貝果 (코끼리베이글 聖水店)：</b> 柴火窯爐現烤柴燒貝果，外脆內煙韌 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%BD%94%EB%81%BC%EB%A6%AC%EB%B2%A0%EC%9D%B4%EA%B8%80%20%EC%84%B1%EC%88%98" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Standard Bread (스탠다드브레드 聖水)：</b> 現烤生吐司與布里歐麵包名所 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%8A%A4%ED%83%A0%EB%93%9C%EB%B8%8C%EB%A0%88%EB%93%9C%20%EC%84%B1%EC%88%98" target="_blank">🗺️ Naver Map</a>
+• <b>Cafe Onion 聖水店 ：</b> 工業廢棄工廠改建鼻祖，招牌雪山糖霜麵包 (Pandoro) <a class="badge-naver" href="https://map.naver.com/p/search/%EC%96%B4%EB%8B%88%EC%96%B8%20%EC%84%B1%EC%88%98" target="_blank">🗺️ Naver Map</a><br/>
+• <b>大象貝果 ( 聖水店)：</b> 柴火窯爐現烤柴燒貝果，外脆內煙韌 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%BD%94%EB%81%BC%EB%A6%AC%EB%B2%A0%EC%9D%B4%EA%B8%80%20%EC%84%B1%EC%88%98" target="_blank">🗺️ Naver Map</a><br/>
+• <b>Standard Bread ( 聖水)：</b> 現烤生吐司與布里歐麵包名所 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%8A%A4%ED%83%A0%EB%93%9C%EB%B8%8C%EB%A0%88%EB%93%9C%20%EC%84%B1%EC%88%98" target="_blank">🗺️ Naver Map</a>
 </p>
 
 <p class="event-p" style="color:var(--color-gold);font-weight:700;margin-top:10px;">◈ 漢南洞 / 梨泰院 (Day 5 備選) ◈</p>
 <p class="event-p">
-• <b>五月之鐘 (Maybell Bakery 오월의종 本店)：</b> 傳奇天然酵母無花果全麥歐包，上午11:00開賣 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%98%A4%EC%9B%94%EC%9D%98%EC%87%A1%20%EC%9D%B4%ED%83%9C%EC%9B%90" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Teddy Beurre House (테디뵈르하우스)：</b> 法式泰迪熊主題牛角包專門店，招牌開心果牛角酥 <a class="badge-naver" href="https://map.naver.com/p/search/%ED%85%8C%EB%94%94%EB%B5%88%EB%A5%B4%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Artisan Bakers 漢南 (아티장베이커스)：</b> 德式酸種麵包、法棍與鹹牛油蝴蝶餅 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%95%84%ED%8B%B0%EC%9E%A5%EB%B2%A0%EC%9D%B4%EC%BB%A4%EC%8A%A4%20%ED%95%9C%EB%82%A8" target="_blank">🗺️ Naver Map</a>
+• <b>五月之鐘 (Maybell Bakery 本店)：</b> 傳奇天然酵母無花果全麥歐包，上午11:00開賣 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%98%A4%EC%9B%94%EC%9D%98%EC%87%A1%20%EC%9D%B4%ED%83%9C%EC%9B%90" target="_blank">🗺️ Naver Map</a><br/>
+• <b>Teddy Beurre House ：</b> 法式泰迪熊主題牛角包專門店，招牌開心果牛角酥 <a class="badge-naver" href="https://map.naver.com/p/search/%ED%85%8C%EB%94%94%EB%B5%88%EB%A5%B4%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank">🗺️ Naver Map</a><br/>
+• <b>Artisan Bakers 漢南 ：</b> 德式酸種麵包、法棍與鹹牛油蝴蝶餅 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%95%84%ED%8B%B0%EC%9E%A5%EB%B2%A0%EC%9D%B4%EC%BB%A4%EC%8A%A4%20%ED%95%9C%EB%82%A8" target="_blank">🗺️ Naver Map</a>
 </p>
 </div>
 
 
 <p class="event-p" style="color:var(--color-gold);font-weight:700;margin-top:10px;">◈ 西村 / 景福宮旁 小眾皮具與文創 (Day 3 備選) ◈</p>
 <p class="event-p">
-• <b>TOUT Y EST (투티에 西村旗艦店)：</b> 全韓最火紅法式復古牛皮包！經典帆船包與手提醫生包 <a class="badge-naver" href="https://map.naver.com/p/search/%ED%88%AC%ED%8B%B0%EC%97%90" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Ofr. Seoul (오에프알 서울 西村店)：</b> 法國巴黎傳奇獨立書店老宅店，必買刺繡字母帆布袋與古董飾品 <a class="badge-naver" href="https://map.naver.com/p/search/ofr%20seoul" target="_blank">🗺️ Naver Map</a><br/>
-• <b>車喝庭園 (차마시는뜰)：</b> 北村百年月景韓屋茶室，俯瞰黑瓦喝五味子花茶配熱蒸南瓜年糕 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%B0%A8%EB%A7%88%EC%8B%9C%EB%8A%94%EB%96%B3" target="_blank">🗺️ Naver Map</a>
+• <b>TOUT Y EST ( 西村旗艦店)：</b> 全韓最火紅法式復古牛皮包！經典帆船包與手提醫生包 <a class="badge-naver" href="https://map.naver.com/p/search/%ED%88%AC%ED%8B%B0%EC%97%90" target="_blank">🗺️ Naver Map</a><br/>
+• <b>Ofr. Seoul ( 西村店)：</b> 法國巴黎傳奇獨立書店老宅店，必買刺繡字母帆布袋與古董飾品 <a class="badge-naver" href="https://map.naver.com/p/search/ofr%20seoul" target="_blank">🗺️ Naver Map</a><br/>
+• <b>車喝庭園 ：</b> 北村百年月景韓屋茶室，俯瞰黑瓦喝五味子花茶配熱蒸南瓜年糕 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%B0%A8%EB%A7%88%EC%8B%9C%EB%8A%94%EB%96%B3" target="_blank">🗺️ Naver Map</a>
 </p>
 
 <!-- Section: 濟州人氣烘焙與特色麵包備選 -->
@@ -4335,9 +5299,9 @@
 <p class="event-p">
 • <b>London Bagel Museum 濟州店：</b> 全韓第一貝果神店海景店，馬鈴薯起司貝果 (Catchtable線上候位) <a class="badge-naver" href="https://map.naver.com/p/search/%EB%9F%B0%EB%8D%98%EB%B2%A0%EC%9D%B4%EA%B8%80%EB%AE%A4%EC%A7%80%EC%97%84%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a><br/>
 • <b>Cafe Layered 濟州店：</b> 英式復古鄉村司康與果醬蛋糕 (London Bagel 隔壁) <a class="badge-naver" href="https://map.naver.com/p/search/%EB%A0%88%EC%9D%B4%EC%96%B4%EB%93%9C%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a><br/>
-• <b>濟州堂 (제주당 베이커리카페)：</b> 歐洲溫室莊園，招牌擬真柑橘/紫薯麵包 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EB%8B%B9%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%EC%BA%90%ED%8E%98" target="_blank">🗺️ Naver Map</a><br/>
-• <b>siso kaymak (시소 카이막 涯月店)：</b> 現烤熱歐包沾抹土耳其水牛凝脂奶油與野花蜂蜜 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%8B%9C%EC%86%8C%20%EC%B9%B4%EC%9D%B4%EB%A7%89" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Abebe Bakery (아베베 베이커리 濟州東門市場本店)：</b> 濟州第一名爆漿年糕甜甜圈手信！ <a class="badge-naver" href="https://map.naver.com/p/search/%EC%95%84%EB%B2%A0%EB%B2%A0%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC" target="_blank">🗺️ Naver Map</a>
+• <b>濟州堂 ：</b> 歐洲溫室莊園，招牌擬真柑橘/紫薯麵包 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EB%8B%B9%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%EC%BA%90%ED%8E%98" target="_blank">🗺️ Naver Map</a><br/>
+• <b>siso kaymak ( 涯月店)：</b> 現烤熱歐包沾抹土耳其水牛凝脂奶油與野花蜂蜜 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%8B%9C%EC%86%8C%20%EC%B9%B4%EC%9D%B4%EB%A7%89" target="_blank">🗺️ Naver Map</a><br/>
+• <b>Abebe Bakery ( 濟州東門市場本店)：</b> 濟州第一名爆漿年糕甜甜圈手信！ <a class="badge-naver" href="https://map.naver.com/p/search/%EC%95%84%EB%B2%A0%EB%B2%A0%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC" target="_blank">🗺️ Naver Map</a>
 </p>
 </div>
 
@@ -4345,53 +5309,29 @@
 <div class="panel-card" data-cat="seoul seoul-food">
 <h3 class="panel-card-title">🦀 首爾備用必吃美食 (點擊直接開 Naver Map 導航)</h3>
 <p class="event-p">
-<b>• 頂級醬油蟹：</b>
-          真味食堂 (진미식당 · 米芝蓮推薦麻浦名店) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A7%84%EB%AF%B8%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a> ｜
-          元祖馬山醬蟹 (원조마산할매아구찜) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9B%90%EC%A1%B0%EB%A7%88%EC%82%B0%ED%95%A0%EB%A7%A4%EC%95%84%EA%B5%AC%EC%A7%90" target="_blank">🗺️ Naver Map</a> ｜
-          一味醬蟹 (일미간장게장) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9D%BC%EB%AF%B8%EA%B0%84%EC%9E%A5%EA%B2%8C%EC%9E%A5" target="_blank">🗺️ Naver Map</a> ｜
-          烏達里家 (오다리집 明洞) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%98%A4%EB%8B%A4%EB%A6%AC%EC%A7%91%20%EB%AA%85%EB%8F%99" target="_blank">🗺️ Naver Map</a>
+<b>• 頂級醬油蟹：</b>真味食堂 (米芝蓮推薦麻浦名店)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A7%84%EB%AF%B8%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a>元祖馬山醬蟹<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9B%90%EC%A1%B0%EB%A7%88%EC%82%B0%ED%95%A0%EB%A7%A4%EC%95%84%EA%B5%AC%EC%A7%90" target="_blank">🗺️ Naver Map</a>一味醬蟹<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9D%BC%EB%AF%B8%EA%B0%84%EC%9E%A5%EA%B2%8C%EC%9E%A5" target="_blank">🗺️ Naver Map</a>烏達里家 ( 明洞)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%98%A4%EB%8B%A4%EB%A6%AC%EC%A7%91%20%EB%AA%85%EB%8F%99" target="_blank">🗺️ Naver Map</a>
 </p>
 <p class="event-p">
-<b>• 濃郁排骨湯：</b>
-          傳聞中的聖水馬鈴薯排骨湯 (소문난성수감자탕 · 24小時) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%86%8C%EB%AC%B8%EB%82%9C%EC%84%B1%EC%88%98%EA%B0%90%EC%9E%90%ED%83%95" target="_blank">🗺️ Naver Map</a> ｜
-          東廟 24小時馬鈴薯排骨湯 (동묘 감자탕) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8F%99%EB%AC%98%20%EA%B0%90%EC%9E%90%ED%83%95" target="_blank">🗺️ Naver Map</a>
+<b>• 濃郁排骨湯：</b>傳聞中的聖水馬鈴薯排骨湯 (24小時)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%86%8C%EB%AC%B8%EB%82%9C%EC%84%B1%EC%88%98%EA%B0%90%EC%9E%90%ED%83%95" target="_blank">🗺️ Naver Map</a>東廟 24小時馬鈴薯排骨湯<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8F%99%EB%AC%98%20%EA%B0%90%EC%9E%90%ED%83%95" target="_blank">🗺️ Naver Map</a>
 </p>
 <p class="event-p">
-<b>• 暖胃參雞湯：</b>
-          土俗村參雞湯 (토속촌 삼계탕 · 景福宮百年韓屋) <a class="badge-naver" href="https://map.naver.com/v5/search/%ED%86%A0%EC%86%8D%EC%B4%8C%20%EC%82%BC%EA%B3%84%ED%83%95" target="_blank">🗺️ Naver Map</a> ｜
-          百年土種參雞湯 (백년토종삼계탕 · 弘大米芝蓮) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%B0%B1%EB%85%84%ED%86%A0%EC%8 species%82%BC%EA%B3%84%ED%83%95" target="_blank">🗺️ Naver Map</a>
+<b>• 暖胃參雞湯：</b>土俗村參雞湯 (景福宮百年韓屋)<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%86%A0%EC%86%8D%EC%B4%8C%20%EC%82%BC%EA%B3%84%ED%83%95" target="_blank">🗺️ Naver Map</a>百年土種參雞湯 (弘大米芝蓮)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%B0%B1%EB%85%84%ED%86%A0%EC%8 species%82%BC%EA%B3%84%ED%83%95" target="_blank">🗺️ Naver Map</a>
 </p>
 <p class="event-p">
-<b>• 韓牛雪濃湯：</b>
-          里門雪濃湯 (이문설농탕 · 百年老店米芝蓮) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9D%B4%EB%AC%B8%EC%84%A4%EB%86%8D%ED%83%95" target="_blank">🗺️ Naver Map</a> ｜
-          河東館 (하동관 明洞本店 · 80年牛骨清湯) <a class="badge-naver" href="https://map.naver.com/v5/search/%ED%95%98%EB%8F%99%EA%B4%80%20%EB%AA%85%EB%8F%99%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a>
+<b>• 韓牛雪濃湯：</b>里門雪濃湯 (百年老店米芝蓮)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9D%B4%EB%AC%B8%EC%84%A4%EB%86%8D%ED%83%95" target="_blank">🗺️ Naver Map</a>河東館 ( 明洞本店 · 80年牛骨清湯)<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%95%98%EB%8F%99%EA%B4%80%20%EB%AA%85%EB%8F%99%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a>
 </p>
 <p class="event-p">
 <b>• 烤肉與韓牛：</b>
-          望遠洞 뿔 (bbul · 1++熟成韓牛日式炭火，近延南洞帶車位) <a class="badge-naver" href="https://map.naver.com/p/entry/place/1563382529" target="_blank">🗺️ Naver Map</a> ｜
-          金豬食堂 (금돼지식당 · 米芝蓮必比登/BTS愛店) <a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B8%88%EB%8F%BC%EC%A7%80%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a> ｜
-          肉典食堂 (육전식당 · 專人代烤厚切梅花肉) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9C%A1%EC%A0%84%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a> ｜
-          馬場洞畜產物市場 (마장동축산물시장 · 1++ 韓牛炭火現烤) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%88%EC%9E%A5%EB%8F%99%EC%B6%95%EC%82%B0%EB%AC%BC%EC%8B%9C%EC%9E%A5" target="_blank">🗺️ Naver Map</a>
+          望遠洞 Bbul (1++韓牛 · 1++熟成韓牛日式炭火，近延南洞帶車位) <a class="badge-naver" href="https://map.naver.com/p/entry/place/1563382529" target="_blank">🗺️ Naver Map</a>金豬食堂 (米芝蓮必比登/BTS愛店)<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B8%88%EB%8F%BC%EC%A7%80%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a>肉典食堂 (專人代烤厚切梅花肉)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9C%A1%EC%A0%84%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a>馬場洞畜產物市場 (1++ 韓牛炭火現烤)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%88%EC%9E%A5%EB%8F%99%EC%B6%95%EC%82%B0%EB%AC%BC%EC%8B%9C%EC%9E%A5" target="_blank">🗺️ Naver Map</a>
 </p>
 <p class="event-p">
-<b>• 傳統蹄膀與牛腸：</b>
-          滿足五香豬腳 (만족오향족발 市廳本店 · 米芝蓮必比登) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%8C%EC%A1%B1%EC%98%A4%ED%96%A5%EC%A1%B1%EB%B0%9C%20%EC%8B%9C%EC%B2%AD%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a> ｜
-          Myth 豬腳 (미쓰족발 弘大本店 · 蒜味沙律豬腳) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%AF%B8%EC%93%B0%EC%A1%B1%EB%B0%9C%20%ED%99%8D%EB%8C%80%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a> ｜
-          君子大韓烤腸 (대한곱창) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8C%80%ED%95%9C%EA%B3%B1%EC%B0%BD" target="_blank">🗺️ Naver Map</a> ｜
-          風川鰻魚 (풍천장어 延南店 · 現烤炭火活鰻) <a class="badge-naver" href="https://map.naver.com/v5/search/%ED%92%8D%EC%B2%9C%EC%9E%A5%EC%96%B4%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank">🗺️ Naver Map</a>
+<b>• 傳統蹄膀與牛腸：</b>滿足五香豬腳 ( 市廳本店 · 米芝蓮必比登)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%8C%EC%A1%B1%EC%98%A4%ED%96%A5%EC%A1%B1%EB%B0%9C%20%EC%8B%9C%EC%B2%AD%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a>Myth 豬腳 ( 弘大本店 · 蒜味沙律豬腳)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%AF%B8%EC%93%B0%EC%A1%B1%EB%B0%9C%20%ED%99%8D%EB%8C%80%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a>君子大韓烤腸<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8C%80%ED%95%9C%EA%B3%B1%EC%B0%BD" target="_blank">🗺️ Naver Map</a>風川鰻魚 ( 延南店 · 現烤炭火活鰻)<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%92%8D%EC%B2%9C%EC%9E%A5%EC%96%B4%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank">🗺️ Naver Map</a>
 </p>
 <p class="event-p">
-<b>• 韓式炸雞與麵點：</b>
-          Puradak Chicken (푸라닭 · 黑蒜醬油頂級炸雞) <a class="badge-naver" href="https://map.naver.com/v5/search/%ED%91%B8%EB%9D%BC%EB%8B%AD" target="_blank">🗺️ Naver Map</a> ｜
-          BHC 炸雞 (BHC치킨 · 芝士起司炸雞) <a class="badge-naver" href="https://map.naver.com/v5/search/BHC%EC%B9%98%ED%82%A8" target="_blank">🗺️ Naver Map</a> ｜
-          橋村炸雞 (교촌치킨 · 蜂蜜經典炸雞) <a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B5%90%EC%B4%8C%EC%B9%98%ED%82%A8" target="_blank">🗺️ Naver Map</a> ｜
-          黃生家刀削麵 (황생가칼국수 · 三清洞米芝蓮) <a class="badge-naver" href="https://map.naver.com/v5/search/%ED%99%A9%EC%83%9D%EA%B0%80%EC%B0%A8%EA%B5%AD%EC%88%98" target="_blank">🗺️ Naver Map</a>
+<b>• 韓式炸雞與麵點：</b>Puradak Chicken (黑蒜醬油頂級炸雞)<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%91%B8%EB%9D%BC%EB%8B%AD" target="_blank">🗺️ Naver Map</a>BHC 炸雞 (BHC · 芝士起司炸雞)<a class="badge-naver" href="https://map.naver.com/v5/search/BHC%EC%B9%98%ED%82%A8" target="_blank">🗺️ Naver Map</a>橋村炸雞 (蜂蜜經典炸雞)<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B5%90%EC%B4%8C%EC%B9%98%ED%82%A8" target="_blank">🗺️ Naver Map</a>黃生家刀削麵 (三清洞米芝蓮)<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%99%A9%EC%83%9D%EA%B0%80%EC%B0%A8%EA%B5%AD%EC%88%98" target="_blank">🗺️ Naver Map</a>
 </p>
 <p class="event-p">
-<b>• 人氣烘焙早午餐：</b>
-          London Bagel Museum (런던베이글뮤지엄 安國/島山) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%9F%B0%EB%8D%98%EB%B2%A0%EC%9D%B4%EA%B8%80%EB% relief%EC%A7%80%EC%97%84" target="_blank">🗺️ Naver Map</a> ｜
-          Egg Drop (에그드랍 弘大/明洞) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%97%90%EA%B7%B8%EB%93%9C%EB%9E%8D" target="_blank">🗺️ Naver Map</a> ｜
-          Isaac Toast (이삭토스트) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9D%B4%EC%82%AD%ED%86%A0%EC%8A%A4%ED%8A%B8" target="_blank">🗺️ Naver Map</a>
+<b>• 人氣烘焙早午餐：</b>London Bagel Museum ( 安國/島山)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%9F%B0%EB%8D%98%EB%B2%A0%EC%9D%B4%EA%B8%80%EB% relief%EC%A7%80%EC%97%84" target="_blank">🗺️ Naver Map</a>Egg Drop ( 弘大/明洞)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%97%90%EA%B7%B8%EB%93%9C%EB%9E%8D" target="_blank">🗺️ Naver Map</a>Isaac Toast<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9D%B4%EC%82%AD%ED%86%A0%EC%8A%A4%ED%8A%B8" target="_blank">🗺️ Naver Map</a>
 </p>
 </div>
 <!-- Section 1B: Day 2 晚餐長者/同行不吃生食之延南洞全熟熱食備選 -->
@@ -4401,77 +5341,71 @@
 ⚠️ 原定 16:30 之 Bada Sarang 主打厚切生魚刺身。若長者不習慣生食，可在延南洞原區無縫替換以下全熟名店：
 </p>
 <p class="event-p">
-<b>• 後備 A（現烤魚定食）：</b>
-延禧洞奶奶家 (연희동할머니네 · 麻浦區城山路100 · 現點現烤秋刀魚與青花魚，附熱湯熱白飯，全熟健康)
-<a class="badge-naver" href="https://map.naver.com/p/search/%EC%97%B0%ED%9D%AC%EB%8F%99%ED%95%A0%EB%A8%B8%EB%8B%88%EB%84%A4" target="_blank" data-query="연희동할머니네">🗺️ Naver Map 📱</a>
+<b>• 後備 A（現烤魚定食）：</b>延禧洞奶奶家 (麻浦區城山路100 · 現點現烤秋刀魚與青花魚，附熱湯熱白飯，全熟健康)<a class="badge-naver" href="https://map.naver.com/p/search/%EC%97%B0%ED%9D%AC%EB%8F%99%ED%95%A0%EB%A8%B8%EB%8B%88%EB%84%A4" target="_blank" data-query="연희동할머니네">🗺️ Naver Map 📱</a>
 </p>
 <p class="event-p">
-<b>• 後備 B（暖胃清雞湯/海鮮麵）：</b>
-延南刀削麵 (연남칼국수 · 麻浦區延南路19 · 熱騰騰現煮清雞湯或鮮蜆刀削麵，全熟無生食，暖胃舒服)
-<a class="badge-naver" href="https://map.naver.com/p/search/%EC%97%B0%EB%82%A8%EC%B9%BC%EA%B5%AD%EC%88%98" target="_blank" data-query="연남칼국수">🗺️ Naver Map 📱</a>
+<b>• 後備 B（暖胃清雞湯/海鮮麵）：</b>延南刀削麵 (麻浦區延南路19 · 熱騰騰現煮清雞湯或鮮蜆刀削麵，全熟無生食，暖胃舒服)<a class="badge-naver" href="https://map.naver.com/p/search/%EC%97%B0%EB%82%A8%EC%B9%BC%EA%B5%AD%EC%88%98" target="_blank" data-query="연남칼국수">🗺️ Naver Map 📱</a>
 </p>
 <p class="event-p">
-<b>• 後備 C（全熟熱石鍋飯）：</b>
-Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品牛排石鍋飯，上桌滋滋作響配熱高湯)
-<a class="badge-naver" href="https://map.naver.com/p/search/%EC%86%94%EC%86%A5%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank" data-query="솔솥 연남점">🗺️ Naver Map 📱</a>
+<b>• 後備 C（全熟熱石鍋飯）：</b>Solsot 延南店 (麻浦區東橋路38街35 · 全熟極品牛排石鍋飯，上桌滋滋作響配熱高湯)<a class="badge-naver" href="https://map.naver.com/p/search/%EC%86%94%EC%86%A5%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank" data-query="솔솥 연남점">🗺️ Naver Map 📱</a>
 </p>
 </div>
 
 <!-- Section 2: 首爾備用精品手沖與冠軍咖啡 -->
 <div class="panel-card" data-cat="seoul coffee">
 <h3 class="panel-card-title">☕ 首爾備用精品咖啡與手沖名店</h3>
-<p class="event-p"><b>• Pouring Out (포어링아웃)：</b> 延禧洞極具質感的暗黑木質調氛圍名店，細膩單品手沖濾滴、高音質點歌音樂空間 ＆ 招牌熱烤伯爵茶果醬吐司。<a class="badge-naver" href="https://map.naver.com/p/search/%ED%8F%AC%EC%96%B4%EB%A7%81%EC%95%84%EC%9B%83" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Default Value (디폴트밸류)：</b> 延禧洞/延南洞，2022 韓國咖啡師冠軍申昌浩，純白極簡虹吸名店。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%94%94%ED%8F%B4%ED%8A%B8%EB%B0%B8%EB%A5%98" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• GML Seoul (지엠엘)：</b> 漢南洞，全球名廠咖啡豆選品店 ＆ 職人單品手沖吧。<a class="badge-naver" href="https://map.naver.com/v5/search/gml%20seoul" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Unpage (언페이지)：</b> 漢南洞，極簡手沖濾滴與咖啡調酒概念吧檯。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%96%B8%ED%8E%98%EC%9D%B4%EC%A7%80%20%ED%95%9C%EB%82%A8" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Doduk&amp;Kyubum (도덕과규범)：</b> 麻浦上水/弘大，黑膠唱片 LP 復古手沖烘焙所。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8F%84%EB%8D%95%EA%B3%BC%EA%B7%9C%EB%B2%94" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Bunker Company Apgujeong (벙커컴퍼니 압구정점)：</b> 狎鷗亭獨棟復古工業風，冠軍烘豆師創意特調咖啡與甜點。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%B2%99%EC%BB%A4%EC%BB%B4%ED%8D%BC%EB%8B%88%20%EC%95%95%EA%B5%AC%EC%A0%95" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Lounge Clarimento (라운지 클라리멘토)：</b> 麻浦合井，精緻手沖單品與沉靜氛圍。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%9D%BC%EC%9A%B4%EC%A7%80%20%ED%81%B4%EB%9D%BC%EB%A6%AC%EB%A9%98%ED%86%A0" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Green Mile Coffee Bukchon (그린마일커피 북촌점)：</b> 北村韓屋村 3 樓露台，俯瞰黑瓦韓屋頂全景。<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B7%B8%EB%A6%B0%EB%A7%88%EC%9D%BC%EC%BB%A4%ED%94%BC%20%EB%B6%81%EC%B4%8C%EC%A0%90" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Pouring Out ：</b> 延禧洞極具質感的暗黑木質調氛圍名店，細膩單品手沖濾滴、高音質點歌音樂空間 ＆ 招牌熱烤伯爵茶果醬吐司。<a class="badge-naver" href="https://map.naver.com/p/search/%ED%8F%AC%EC%96%B4%EB%A7%81%EC%95%84%EC%9B%83" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Default Value ：</b> 延禧洞/延南洞，2022 韓國咖啡師冠軍申昌浩，純白極簡虹吸名店。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%94%94%ED%8F%B4%ED%8A%B8%EB%B0%B8%EB%A5%98" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• GML Seoul ：</b> 漢南洞，全球名廠咖啡豆選品店 ＆ 職人單品手沖吧。<a class="badge-naver" href="https://map.naver.com/v5/search/gml%20seoul" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Unpage ：</b> 漢南洞，極簡手沖濾滴與咖啡調酒概念吧檯。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%96%B8%ED%8E%98%EC%9D%B4%EC%A7%80%20%ED%95%9C%EB%82%A8" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Doduk&amp;Kyubum ：</b> 麻浦上水/弘大，黑膠唱片 LP 復古手沖烘焙所。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8F%84%EB%8D%95%EA%B3%BC%EA%B7%9C%EB%B2%94" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Bunker Company Apgujeong ：</b> 狎鷗亭獨棟復古工業風，冠軍烘豆師創意特調咖啡與甜點。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%B2%99%EC%BB%A4%EC%BB%B4%ED%8D%BC%EB%8B%88%20%EC%95%95%EA%B5%AC%EC%A0%95" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Lounge Clarimento ：</b> 麻浦合井，精緻手沖單品與沉靜氛圍。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%9D%BC%EC%9A%B4%EC%A7%80%20%ED%81%B4%EB%9D%BC%EB%A6%AC%EB%A9%98%ED%86%A0" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Green Mile Coffee Bukchon ：</b> 北村韓屋村 3 樓露台，俯瞰黑瓦韓屋頂全景。<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B7%B8%EB%A6%B0%EB%A7%88%EC%9D%BC%EC%BB%A4%ED%94%BC%20%EB%B6%81%EC%B4%8C%EC%A0%90" target="_blank">🗺️ Naver Map</a></p>
 </div>
 <!-- Section 3: 首爾備用頂級人氣酒吧 -->
 <div class="panel-card" data-cat="seoul seoul-bars">
 <h3 class="panel-card-title">🍸 首爾備用人氣酒吧 (Asia's 50 Best &amp; Speakeasy)</h3>
-<p class="event-p"><b>• Zest (제스트)：</b> 江南清潭洞，<b>亞洲 50 最佳酒吧 #2 / 世界 50 大 #18</b>，極致零浪費（Zero-Waste）永續調酒神殿，自家精餾杜松子酒與濟州柑橘特調（近 M+MS bar 步行 6 分）。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Bar Cham (바 참)：</b> 西村老韓屋，<b>亞洲 50 最佳酒吧 #33</b>，融合傳統燒酎與地道食材（建議拆 2+3 人入座最快，現場平板 Catchtable 取號）。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%B0%94%EC%B0%B8" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• M+MS bar (엠엠에스 Dosan)：</b> 江南島山公園，<b>亞洲 50 最佳酒吧 #42</b>，摩登現代調酒藝術。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%97%A0%EC%97%A0%EC%97%90%EC%8A%A4%20%EB%8F%84%EC%82%B0" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Namsan Sool Club (남산술클럽)：</b> 梨泰院經理團路，韓國傳統酒 Tasting 聖殿，全韓微型獨立酒造珍稀地酒、生馬格利與蒸餾燒酎。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%82%A8%EC%82%B0%EC%88%A0%ED%81%B4%EB%9F%BD" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Korean Bistro Mr. Ahn's Makgeolli (안씨막걸리)：</b> 梨泰院，米芝蓮指南推薦現代生馬格利餐酒館。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%95%88%EC%94%A8%EB%A7%89%EA%B1%B8%EB%A6%AC" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Pine&amp;Co (파인앤코)：</b> 狎鷗亭隱密 Speakeasy 現代雞尾酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%8C%8C%EC%9D%B8%EC%95%A4%EC%BD%94" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Gong-Gan (공간 북촌점)：</b> 鐘路北村，質感傳統韓屋調酒吧（On 6.5 隔壁）。<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B3%B5%EA%B0%84%20%EB%B6%81%EC%B4%8C" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Alice Cheongdam (앨리스 청담)：</b> 清潭洞，愛麗絲夢遊仙境主題秘密花店暗門 Speakeasy。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%98%AC%EB%A6%AC%EC%8A%A4%20%EC%B2%AD%EB%8B%B4" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Le Chamber (르챔버)：</b> 清潭洞，推開魔法書架暗門進入的奢華威士忌與調酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A5%B4%EC%B1%94%EB%B2%84" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Cobbler (코블러 서촌)：</b> 西村傳統韓屋日式復古無酒單客製化雞尾酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%BD%94%EB%B8%94%EB%9F%AC%20%EC%84%9C%EC%B4%8C" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• BLOOD&amp;SAND (블러드앤샌드)：</b> 麻浦西橋洞/合井，西班牙風苦艾酒（Vermuteria）與波本威士忌名店，專業威士忌 Tasting Course 與經典調酒。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B8%94%EB%9F%AC%EB%93%9C%EC%95%A4%EC%83%8C%EB%93%9C" target="_blank" data-query="블러드앤샌드">🗺️ Naver Map 📱</a></p>
-<p class="event-p"><b>• tott seoul (바 토트)：</b> 麻浦合井（Talk of the Town），評分高達 5/5 滿分的質感巷弄調酒吧，細膩創意風味特調（如芹菜風味琴酒）。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B0%94%20%ED%86%A0%ED%8A%B8" target="_blank" data-query="바 토트">🗺️ Naver Map 📱</a></p>
-<p class="event-p"><b>• Bar Kian (바 키안)：</b> 麻浦合井，黑膠唱片 (LP) 復古音樂酒吧，伴隨溫暖黑膠原聲品嚐經典雞尾酒與單一麥芽威士忌，氣氛極度放鬆治癒。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B0%94%20%ED%82%A4%EC%95%88" target="_blank" data-query="바 키안">🗺️ Naver Map 📱</a></p>
+<p class="event-p"><b>• Zest ：</b> 江南清潭洞，<b>亞洲 50 最佳酒吧 #2 / 世界 50 大 #18</b>，極致零浪費（Zero-Waste）永續調酒神殿，自家精餾杜松子酒與濟州柑橘特調（近 M+MS bar 步行 6 分）。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Bar Cham ：</b> 西村老韓屋，<b>亞洲 50 最佳酒吧 #33</b>，融合傳統燒酎與地道食材（建議拆 2+3 人入座最快，現場平板 Catchtable 取號）。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%B0%94%EC%B0%B8" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• M+MS bar ：</b> 江南島山公園，<b>亞洲 50 最佳酒吧 #42</b>，摩登現代調酒藝術。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%97%A0%EC%97%A0%EC%97%90%EC%8A%A4%20%EB%8F%84%EC%82%B0" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Namsan Sool Club ：</b> 梨泰院經理團路，韓國傳統酒 Tasting 聖殿，全韓微型獨立酒造珍稀地酒、生馬格利與蒸餾燒酎。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%82%A8%EC%82%B0%EC%88%A0%ED%81%B4%EB%9F%BD" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Korean Bistro Mr. Ahn's Makgeolli (Mr. Ahn's Makgeolli)：</b> 梨泰院，米芝蓮指南推薦現代生馬格利餐酒館。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%95%88%EC%94%A8%EB%A7%89%EA%B1%B8%EB%A6%AC" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Pine&amp;Co ：</b> 狎鷗亭隱密 Speakeasy 現代雞尾酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%8C%8C%EC%9D%B8%EC%95%A4%EC%BD%94" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Gong-Gan ：</b> 鐘路北村，質感傳統韓屋調酒吧（On 6.5 隔壁）。<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B3%B5%EA%B0%84%20%EB%B6%81%EC%B4%8C" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Alice Cheongdam ：</b> 清潭洞，愛麗絲夢遊仙境主題秘密花店暗門 Speakeasy。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%98%AC%EB%A6%AC%EC%8A%A4%20%EC%B2%AD%EB%8B%B4" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Le Chamber ：</b> 清潭洞，推開魔法書架暗門進入的奢華威士忌與調酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A5%B4%EC%B1%94%EB%B2%84" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Cobbler ：</b> 西村傳統韓屋日式復古無酒單客製化雞尾酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%BD%94%EB%B8%94%EB%9F%AC%20%EC%84%9C%EC%B4%8C" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• BLOOD&amp;SAND ：</b> 麻浦西橋洞/合井，西班牙風苦艾酒（Vermuteria）與波本威士忌名店，專業威士忌 Tasting Course 與經典調酒。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B8%94%EB%9F%AC%EB%93%9C%EC%95%A4%EC%83%8C%EB%93%9C" target="_blank" data-query="블러드앤샌드">🗺️ Naver Map 📱</a></p>
+<p class="event-p"><b>• tott seoul ：</b> 麻浦合井（Talk of the Town），評分高達 5/5 滿分的質感巷弄調酒吧，細膩創意風味特調（如芹菜風味琴酒）。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B0%94%20%ED%86%A0%ED%8A%B8" target="_blank" data-query="바 토트">🗺️ Naver Map 📱</a></p>
+<p class="event-p"><b>• Bar Kian ：</b> 麻浦合井，黑膠唱片 (LP) 復古音樂酒吧，伴隨溫暖黑膠原聲品嚐經典雞尾酒與單一麥芽威士忌，氣氛極度放鬆治癒。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B0%94%20%ED%82%A4%EC%95%88" target="_blank" data-query="바 키안">🗺️ Naver Map 📱</a></p>
 </div>
 <!-- Section 4: 濟州備用特色美食 -->
 <div class="panel-card" data-cat="jeju jeju-food">
 <h3 class="panel-card-title">🐟 濟州備用在地特色美食</h3>
-<p class="event-p"><b>• 活青花魚刺身：</b> 美英家 (미영이네식당 · 謨瑟浦港藍絲帶名店，活青花魚附秘製紫菜飯) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%AF%B8%EC%98%81%EC%9D%B4%EB%84%A4%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• 海螺刀削麵/粥：</b> 玉琳海螺刀削麵 (옥림보말칼국수) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%98%A5%EB%A6%BC%EB%B3%B4%EB%A7%90%EC%BB%AC%EA%B5%AD%EC%88%98" target="_blank">🗺️ Naver Map</a> ｜ 大浦海螺刀削麵 (대포보말칼국수) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8C%80%ED%8F%AC%EB%B3%B4%EB%A7%90%EC%BB%AC%EA%B5%AD%EC%88%98" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• 醬燉海魚料理：</b> 頑固的石斑魚 (고집돌우럭 中文店/咸德店) <a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B3%A0%EC%A7%91%EB%8F%8C%EC%9A%B0%EB%9F%AD" target="_blank">🗺️ Naver Map</a> ｜ 鮮美食堂 (맛나식당 · 城山醬燉帶魚) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%9B%EB%82%98%EC%8B%9D%EB%8B%B9%20%EC%84%B1%EC%82%B0" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• 必吃熟成黑豬肉：</b> 熟成到 (숙성도 蓮洞店/老衡店 · 桌邊代烤抽號) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%88%99%EC%84%B1%EB%8F%84%20%EB%85%B8%ED%98%95" target="_blank">🗺️ Naver Map</a> ｜ 豚似豚 (돈사돈 · GD愛店厚切炭火黑豬) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8F%88%EC%82%AC%EB%8F%88" target="_blank">🗺️ Naver Map</a> ｜ 千吉谷 (천짓골식당 · 水煮白切肉名家) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%B2%9C%EC%A7%93%EA%B3%A8%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• 頂級刺身與鮑魚粥：</b> 藍景美樂 (남경미락 · 山房山野生海魚刺身) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%82%A8%EA%B2%BD%EB%AF%B8%EB%9D%BD" target="_blank">🗺️ Naver Map</a> ｜ 攝支海女之家 (섭지해녀의집) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%84%AD%EC%A7%80%ED%95%B4%EB%85%80%EC%9D%98%EC%A7%91" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• 鹽烤帶魚全席：</b> 滿足的商會 (만족한상회) <a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%8C%EC%A1%B1%ED%95%9C%EC%83%81%ED%9A%8C" target="_blank">🗺️ Naver Map</a> ｜ 春心之家 (춘심이네 · 1公尺整條烤銀帶魚) <a class="badge-naver" href="https://map.naver.com/v5/search/%EC%B6%98%EC%8B%AC%EC%9D%B4%EB%84%A4%20%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• 活青花魚刺身：</b>美英家 (謨瑟浦港藍絲帶名店，活青花魚附秘製紫菜飯)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%AF%B8%EC%98%81%EC%9D%B4%EB%84%A4%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• 海螺刀削麵/粥：</b>玉琳海螺刀削麵<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%98%A5%EB%A6%BC%EB%B3%B4%EB%A7%90%EC%BB%AC%EA%B5%AD%EC%88%98" target="_blank">🗺️ Naver Map</a>大浦海螺刀削麵<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8C%80%ED%8F%AC%EB%B3%B4%EB%A7%90%EC%BB%AC%EA%B5%AD%EC%88%98" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• 醬燉海魚料理：</b>頑固的石斑魚 ( 中文店/咸德店)<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B3%A0%EC%A7%91%EB%8F%8C%EC%9A%B0%EB%9F%AD" target="_blank">🗺️ Naver Map</a>鮮美食堂 (城山醬燉帶魚)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%9B%EB%82%98%EC%8B%9D%EB%8B%B9%20%EC%84%B1%EC%82%B0" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• 必吃熟成黑豬肉：</b>熟成到 ( 蓮洞店/老衡店 · 桌邊代烤抽號)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%88%99%EC%84%B1%EB%8F%84%20%EB%85%B8%ED%98%95" target="_blank">🗺️ Naver Map</a>豚似豚 (GD愛店厚切炭火黑豬)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8F%88%EC%82%AC%EB%8F%88" target="_blank">🗺️ Naver Map</a>千吉谷 (水煮白切肉名家)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%B2%9C%EC%A7%93%EA%B3%A8%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• 頂級刺身與鮑魚粥：</b>藍景美樂 (山房山野生海魚刺身)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%82%A8%EA%B2%BD%EB%AF%B8%EB%9D%BD" target="_blank">🗺️ Naver Map</a>攝支海女之家<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%84%AD%EC%A7%80%ED%95%B4%EB%85%80%EC%9D%98%EC%A7%91" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• 鹽烤帶魚全席：</b>滿足的商會<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%8C%EC%A1%B1%ED%95%9C%EC%83%81%ED%9A%8C" target="_blank">🗺️ Naver Map</a>春心之家 (1公尺整條烤銀帶魚)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%B6%98%EC%8B%AC%EC%9D%B4%EB%84%A4%20%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a></p>
 </div>
 <!-- Section 5: 濟州備用精品 Cafe & 甜品 -->
 <div class="panel-card" data-cat="jeju coffee jeju-cafe bakery">
 <h3 class="panel-card-title">🥐 濟州備用精品 Cafe ＆ 甜品</h3>
-<p class="event-p"><b>• Coffee Temple (커피템플)：</b> 13 年藍絲帶認證，韓國傳奇咖啡師主理，必喝「濟州特調柑橘拿鐵」。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%BB%A4%ED%94%BC%ED%85%9C%ED%94%8C" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Jejudang Bakery Cafe (제주당 베이커리카페)：</b> 歐洲莊園大型自然植栽烘焙咖啡館，擬真蔬菜造型麵包。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%EB%8B%B9%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%EC%BA%90%ED%8E%98" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Mamarron (마마롱)：</b> 西歸浦法式甜品名店，秋季限定手作栗子蒙布朗蛋糕。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%88%EB%A7%88%EB%A1%B1" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Coffee Temple ：</b> 13 年藍絲帶認證，韓國傳奇咖啡師主理，必喝「濟州特調柑橘拿鐵」。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%BB%A4%ED%94%BC%ED%85%9C%ED%94%8C" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Jejudang Bakery Cafe ：</b> 歐洲莊園大型自然植栽烘焙咖啡館，擬真蔬菜造型麵包。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%EB%8B%B9%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%EC%BA%90%ED%8E%98" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Mamarron ：</b> 西歸浦法式甜品名店，秋季限定手作栗子蒙布朗蛋糕。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%88%EB%A7%88%EB%A1%B1" target="_blank">🗺️ Naver Map</a></p>
 <p class="event-p"><b>• London Bagel Museum 濟州店：</b> 舊左邑東海岸海景店，英倫復古人氣貝果。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%9F%B0%EB%8D%98%EB%B2%A0%EC%9D%B4%EA%B8%80%EB% relief%EC%A7%80%EC%97%84%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a></p>
 </div>
 <!-- Section 6: 濟州備用酒吧與在地精釀 -->
 <div class="panel-card" data-cat="jeju jeju-bars">
 <h3 class="panel-card-title">🍺 濟州備用酒吧與在地精釀</h3>
-<p class="event-p"><b>• The Booze Jeju (더부즈 제주)：</b> 濟州市蓮洞，隱藏在紅色英式電話亭後的秘密 Speakeasy 威士忌酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8D%94%EB%B6%80%EC%A6%88%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Magpie Brewing Co. (맥파이 브루어리 제주)：</b> 濟州在地傳奇精釀啤酒釀造廠，新鮮生啤與窯烤披薩。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%A5%ED%8C%8C%EC%9D%B4%20%EB%B8%8C%EB%A3%A8%EC%96%B4%EB%A6%AC%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Jeju Beer Brewery (제주맥주 양조장)：</b> 濟州特產柑橘艾爾小麥啤酒釀造所與觀光體驗吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%EB%A7%A5%EC%A3%BC%20%EC%96%91%EC%A1%B0%EC%9E%A5" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Singing Turtle (노래하는 거북이)：</b> 挾才海灘海邊露天海景調酒吧，海浪與落日佐酒。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%85%B8%EB%9E%98%ED%95%98%EB%8A%94%20%EA%B1%B0%EB%B6%81%EC%9D%B4" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Southbounder (사우스바운더)：</b> 中文觀光園區美式復古手工精釀啤酒與特色披薩餐酒館。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%82%AC%EC%9A%B0%EC%8A%A4%EB%B0%94%EC%9A%B4%EB%8D%94" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• The Booze Jeju ：</b> 濟州市蓮洞，隱藏在紅色英式電話亭後的秘密 Speakeasy 威士忌酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8D%94%EB%B6%80%EC%A6%88%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Magpie Brewing Co. ：</b> 濟州在地傳奇精釀啤酒釀造廠，新鮮生啤與窯烤披薩。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%A5%ED%8C%8C%EC%9D%B4%20%EB%B8%8C%EB%A3%A8%EC%96%B4%EB%A6%AC%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Jeju Beer Brewery ：</b> 濟州特產柑橘艾爾小麥啤酒釀造所與觀光體驗吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%EB%A7%A5%EC%A3%BC%20%EC%96%91%EC%A1%B0%EC%9E%A5" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Singing Turtle ：</b> 挾才海灘海邊露天海景調酒吧，海浪與落日佐酒。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%85%B8%EB%9E%98%ED%95%98%EB%8A%94%20%EA%B1%B0%EB%B6%81%EC%9D%B4" target="_blank">🗺️ Naver Map</a></p>
+<p class="event-p"><b>• Southbounder ：</b> 中文觀光園區美式復古手工精釀啤酒與特色披薩餐酒館。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%82%AC%EC%9A%B0%EC%8A%A4%EB%B0%94%EC%9A%B4%EB%8D%94" target="_blank">🗺️ Naver Map</a></p>
 </div>
 </div>
 <div class="tab-panel" id="view-packing">
@@ -4635,130 +5569,12 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
 <!-- =========================================================
          VIEW 7: BILINGUAL SURVIVAL FLASHCARDS (Bilingual Modal)
          ========================================================= -->
-<div class="tab-panel" id="view-phrases">
-<div class="header-tracking-label">BILINGUAL COMMUNICATION CARDS</div>
-<h1 class="main-hero-title">韓文司機與店員大字溝通卡 (點擊放大出示)</h1>
-<p class="event-p" style="margin-bottom:18px;color:var(--text-muted);font-size:0.85rem;">
-        點擊任意會話卡片，即可彈出<b>全螢幕高對比大字模式</b>，直接出示給韓國司機大哥或餐廳服務員看，解決溝通難題！
-      </p>
-<div class="phrase-grid">
-<!-- Card 1 -->
-<div class="phrase-card" onclick="openPhraseModal('기사님, 이 주소로 가주세요.', '司機大哥，請載我們到這個地址。', 'Gisa-nim, i juso-ro gajuseyo.')">
-<div>
-<div class="phrase-kr">기사님, 이 주소로 가주세요.</div>
-<div class="phrase-pron">Gisa-nim, i juso-ro gajuseyo.</div>
-<div class="phrase-cn">司機大哥，請載我們到這個地址。</div>
-</div>
-<div class="phrase-tag">🚕 乘搭的士 / 導航</div>
-</div>
-<!-- Card 2: Full 5-item Dietary Card (including Oyster 굴) -->
-<div class="phrase-card" style="border:1.5px solid #E05A47;background:rgba(139,30,30,0.18);" onclick="openPhraseModal('저희는 파, 양파, 부추, 내장, 굴을 전혀 먹지 못합니다. 음식에 들어가지 않도록 꼭 빼주세요. 감사합니다!', '我們完全不吃蔥、洋蔥、韭菜、內臟、生蠔。請務必不要放入料理中，謝謝！', 'Pa, yangpa, buchu, naejang, gul-eun kkok bbae-juseyo!')">
-<div>
-<div class="phrase-kr" style="color:#FFD2C9;">파, 양파, 부추, 내장, 굴은 전혀 못 먹으니 꼭 빼주세요!</div>
-<div class="phrase-pron">Pa, yangpa, buchu, naejang, gul-eun kkok bbae-juseyo!</div>
-<div class="phrase-cn">【五不忌口總卡】請務必不要加蔥、洋蔥、韭菜、內臟和生蠔！</div>
-</div>
-<div class="phrase-tag" style="color:#FF9E8A;">🚫 餐廳點餐必備 · 點擊全屏放大＋韓語發音</div>
-</div>
-<!-- Card 2B: Myeongjin Jeonbok Abalone Stone Pot Rice No Innards -->
-<div class="phrase-card" onclick="openPhraseModal('전복돌솥밥에 전복 내장(게우)은 넣지 마시고 하얀 밥으로 해주세요. 파, 양파도 빼주세요.', '鮑魚石鍋飯請不要加鮑魚內臟，請用白飯底（並去掉蔥和洋蔥）。', 'Jeonbok dolsotbap-e naejang-eun neochi maseyo.')">
-<div>
-<div class="phrase-kr">전복돌솥밥에 내장은 넣지 마세요. (하얀 밥으로 해주세요)</div>
-<div class="phrase-pron">Jeonbok dolsotbap-e naejang-eun neochi maseyo.</div>
-<div class="phrase-cn">【銘珍鮑魚專用】鮑魚石鍋飯請勿加鮑魚內臟，請給白飯底。</div>
-</div>
-<div class="phrase-tag">🦪 Day 8 銘珍鮑魚石鍋飯去內臟</div>
-</div>
-<!-- Card 2C: Bada Sarang Takeout (포장) -->
-<div class="phrase-card" onclick="openPhraseModal('대방어회 포장(테이크아웃) 주문하려고 하는데요, 얼마나 걸리나요? (파, 양파는 빼주세요)', '我們想點大鰤魚刺身外帶自取，請問大約要等幾耐？（請去掉蔥和洋蔥）', 'Daebang-eohoe pojang jumun-haryeogo haneundeyo, eolmana geollinayo?')">
-<div>
-<div class="phrase-kr">대방어회 포장해 주세요. 얼마나 걸리나요?</div>
-<div class="phrase-pron">Daebang-eohoe pojang-hae juseyo. Eolmana geollinayo?</div>
-<div class="phrase-cn">【Bada Sarang 免排隊】我們想打包大鰤魚刺身外帶，請問要等幾耐？</div>
-</div>
-<div class="phrase-tag">🐟 Day 2 大鰤魚外帶 15 分鐘直取</div>
-</div>
-<!-- Card 2D: 5 People Split into 2+3 Tables -->
-<div class="phrase-card" onclick="openPhraseModal('저희 5명인데 큰 자리가 없으면 2명, 3명 따로 나눠 앉아도 괜찮습니다.', '我們有 5 個人，如果沒有大檯，分開 2 人和 3 人坐也可以。', 'Jeohui daseot-myeong-inde, 2-myeong 3-myeong ttaro anjado gwaenchanseumnida.')">
-<div>
-<div class="phrase-kr">5명인데 자리 없으면 2명, 3명 나눠 앉아도 괜찮아요.</div>
-<div class="phrase-pron">5-myeong-inde 2-myeong, 3-myeong nanwo anjado gwaenchanayo.</div>
-<div class="phrase-cn">【酒吧/餐廳免久等】我們有 5 人，若無大檯分開 2+3 坐也可以！</div>
-</div>
-<div class="phrase-tag">🍸 Bar Cham / Bar Zest / 餐廳快速入座</div>
-</div>
-<!-- Card 2E: Staria 9-seater High Roof Parking -->
-<div class="phrase-card" onclick="openPhraseModal('저희 차가 스타리아 9인승(높이 2m) 큰 차인데, 어디에 주차하면 될까요?', '我們的車是 Staria 9人座（高 2 米），請問停在哪個停車場比較好？', 'Seutaria 9-inseung keun cha-inde, eodi-e juchahamyeon doelkkayo?')">
-<div>
-<div class="phrase-kr">스타리아 9인승(높이 2m) 큰 차인데 어디에 주차할까요?</div>
-<div class="phrase-pron">Seutaria 9-inseung keun cha-inde, eodi-e juchahamyeon doelkkayo?</div>
-<div class="phrase-cn">【首爾自駕泊車】我們開 Staria 9人高頂車，請問泊邊度好？</div>
-</div>
-<div class="phrase-tag">🚐 詢問室外平面停車場</div>
-</div>
-<!-- Card 3 -->
-<div class="phrase-card" onclick="openPhraseModal('택스리펀(Tax Free) 영수증 발행해 주세요.', '請問可以幫我辦理即時退稅嗎？', 'Taekseu-ripeon yeongsujeung baraenghae juseyo.')">
-<div>
-<div class="phrase-kr">택스리펀(Tax Free) 영수증 발행해 주세요.</div>
-<div class="phrase-pron">Taekseu-ripeon yeongsujeung baraenghae juseyo.</div>
-<div class="phrase-cn">請幫我們開立退稅單據（或現場即刻扣減）。</div>
-</div>
-<div class="phrase-tag">🧾 藥妝服飾 / 退稅購物</div>
-</div>
-<!-- Card 4 -->
-<div class="phrase-card" onclick="openPhraseModal('저희 5명 단체 사진 한 장만 찍어주시겠어요?', '請問可以幫我們 5 個人拍張合照嗎？', 'Jeohui daseot-myeong danche sajin han jang-man jjigeo-jusigesseoyo?')">
-<div>
-<div class="phrase-kr">저희 5명 단체 사진 한 장만 찍어주시겠어요?</div>
-<div class="phrase-pron">Jeohui daseot-myeong danche sajin han jang-man jjigeo-jusigesseoyo?</div>
-<div class="phrase-cn">請問可以幫我們 5 個人拍張合照嗎？</div>
-</div>
-<div class="phrase-tag">📸 景點造訪簽到 / 拍照求助</div>
-</div>
-<!-- Card 5 -->
-<div class="phrase-card" onclick="openPhraseModal('따로 계산해 주실 수 있나요?', '請問可以分開付款嗎？', 'Ttaro gyesan-hae jusil su innayo?')">
-<div>
-<div class="phrase-kr">따로 계산해 주실 수 있나요?</div>
-<div class="phrase-pron">Ttaro gyesan-hae jusil su innayo?</div>
-<div class="phrase-cn">請問可以各自/分開付款結帳嗎？</div>
-</div>
-<div class="phrase-tag">💳 結帳付款 / 拆單</div>
-</div>
-<!-- Card 6 -->
-<div class="phrase-card" onclick="openPhraseModal('렌트카 예약했습니다. 예약번호는 1359047919213593 입니다.', '我們有預訂租車，訂單編號是 1359047919213593。', 'Renteuka yeyak-haesseumnida.')">
-<div>
-<div class="phrase-kr">렌트카 예약했습니다. (예약번호 제시)</div>
-<div class="phrase-pron">Renteuka yeyak-haesseumnida.</div>
-<div class="phrase-cn">我們有預訂租車，這是我們的預訂確認單。</div>
-</div>
-<div class="phrase-tag">🚗 機場租車 / 取歸還車輛</div>
-</div>
-<!-- Card 7 -->
-<div class="phrase-card" onclick="openPhraseModal('1++ 투뿔 한우 추천 부위가 어디인가요?', '請問今天有最推薦的 1++ 頂級韓牛部位嗎？', 'Tu-ppul han-u chucheon bu-wi-ga eodi-ingayo?')">
-<div>
-<div class="phrase-kr">1++ 투뿔 한우 추천 부위가 어디인가요?</div>
-<div class="phrase-pron">Tu-ppul han-u chucheon bu-wi-ga eodi-ingayo?</div>
-<div class="phrase-cn">請問今天最推薦的 1++ 頂級韓牛部位是什麼？</div>
-</div>
-<div class="phrase-tag">🥩 韓牛燒肉 / 望遠洞 뿔</div>
-</div>
-<!-- Card 8 -->
-<div class="phrase-card" onclick="openPhraseModal('화장실이 어디에 있나요?', '請問洗手間在什麼地方？', 'Hwajangsil-i eodi-e innayo?')">
-<div>
-<div class="phrase-kr">화장실이 어디에 있나요?</div>
-<div class="phrase-pron">Hwajangsil-i eodi-e innayo?</div>
-<div class="phrase-cn">請問洗手間在什麼地方？（密碼是多少？）</div>
-</div>
-<div class="phrase-tag">🚻 咖啡廳 / 市場日常</div>
-</div>
-</div>
-</div>
-<!-- END view-phrases -->
 </main>
 <!-- Floating Toast -->
 <div id="antiqueToast">已複製至剪貼簿至剪貼簿</div>
 <!-- Detailed Day Itinerary Data & Script -->
 <script>
-    const allDaysData = [{"num": 1, "date": "10/16 星期五", "region": "首爾仁川 · 恩平區", "title": "第一階段：都會夜色與自駕啟程", "highlight": "✈️ UO626 抵達 ➔ 提取 Hyundai Staria ➔ 恩平 Ribbon Stay 自帶免費專屬泊車位", "weather": "☀️ 12°C ~ 22°C ｜ 金秋晴朗，深夜微涼 14°C", "goldenHour": "🌇 首爾落日 17:54 (金光暮色)", "photoCaption": "首爾仁川・南山首爾塔街景遠眺", "events": [{"time": "🛫 16:55 ➔ 21:35", "cat": "FLIGHT", "title": "香港國際機場 T2 ➔ 仁川國際機場 T1", "hangul": "홍콩익스프레스 UO626 / 인천공항 T1", "desc": "乘搭香港快運 UO626 航班抵達仁川機場 T1。辦理入境手續並提取行李。", "copyVal": "UO626"}, {"transit": "🚶 通關與步行約 15 分鐘至 1樓 12號門"}, {"time": "🚗 22:30", "cat": "CAR RENTAL", "title": "仁川機場 T1 提取 Hyundai Staria 9人商務車", "hangul": "인천공항 T1 1층 12번 게이트 (GATE 12)", "desc": "交接提取商務車（RENTBANK / Trip.com 訂單 #1359047919213593）。", "tip": "⚠️ 必備文件：香港駕照正本、國際駕照 (IDP)、護照正本、實體凸字信用卡（按金約 KRW 100,000）。", "copyVal": "3410", "copyLabel": "複製 PIN 3410", "tel": "+82-10-3212-6215", "naver": "https://map.naver.com/p/search/%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD%20%EC%A0%9C1%EC%97%AC%EA%B0%9D%ED%84%B0%EB%AF%B8%EB%84%90"}, {"transit": "🚗 自駕前往恩平區，行車約 45 分鐘（注意行駛現金/信用卡收費道）"}, {"time": "🏨 23:15", "cat": "STAY", "title": "入住首爾恩平區：Ribbon Stay (리본스테이)", "hangul": "서울 은평구 연서로3길 8（鷹岩站步行7分）", "desc": "整套房源，電子密碼鎖自助入住。自帶【免費專屬泊車位】，Staria 商務車可直接停泊！", "tip": "💡 守則：10/17 11:00 前退房；垃圾分類（廚餘放水槽紫色專用袋）；離房請關冷氣。", "naver": "https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%9D%80%ED%8F%89%EA%B5%AC%20%EC%97%B0%EC%84%9C%EB%A1%9C3%EA%B8%B8%208", "copyVal": "서울 은평구 연서로3길 8"}]}, {"num": 2, "date": "10/17 星期六", "region": "首爾麻浦 · 延南洞 / 梨泰院", "title": "延南漫步、秋鰤魚 ➔ 汝矣島 The Hyundai 首爾 ＆ Namsan Sool Club", "highlight": "🌿 延南文創 3.5h ➔ 🌅 汝矣島 The Hyundai ＆ 17:53 漢江晚霞 ➔ 🐟 厚切秋鰤魚 ➔ 🍶 經理團路傳統酒", "weather": "☀️ 13°C ~ 22°C ｜ 秋高氣爽少雲，午後微暖舒適", "goldenHour": "🌇 汝矣島漢江落日 17:53 (金光暮色)", "photoCaption": "首爾麻浦・延南洞新村招牌活力街景", "events": [{"time": "🌾 09:30 ➔ 11:15", "cat": "OPTIONAL & STAY", "title": "恩平退房 ➔ (可選: 麻浦天空公園紫芒海) ➔ 延南洞 Airbnb 泊車寄存", "hangul": "하늘공원 억새축제 & 연남동 체크인", "desc": "【10月限定順路加點】若早起精神好，退房後可先順道去距離延南洞僅 8 分鐘車程的【麻浦天空公園 (하늘공원)】，搭青蛙電動車上山睇無邊際銀白紫芒草海與波波草！11:00 抵延南洞民宿寄存行李並泊妥 Staria（全天步行＋計程車）。", "naver": "https://map.naver.com/p/search/%ED%95%98%EB%8A%98%EA%B3%B5%EC%9B%90", "copyVal": "하늘공원 억새축제 & 연남동 체크인", "copyLabel": "複製韓文店名"}, {"transit": "🚶 漫步延南洞巷弄約 6 分鐘"}, {"time": "🍽️ 11:30 ➔ 12:45", "cat": "LUNCH", "title": "진청유점 (Jincheongyujeom) 延南磨坊現代韓食 (11:30開門首批免排隊)", "hangul": "진청유점", "desc": "店內自設磨坊每日現榨純正香油與紫蘇油。必吃甘藍菜包牛肉強大醬包飯、現壓紫蘇油冷蕎麥麵、香煎豬頸肉（出示飲食卡交代去蔥、洋蔥）。", "naver": "https://map.naver.com/p/search/%EC%A7%84%EC%B2%AD%EC%9C%A0%EC%A0%90", "copyVal": "진청유점", "copyLabel": "複製韓文店名"}, {"transit": "🚶 漫步京義線綠蔭大道（14:30 途經 Bada Sarang 可先去門口登記候位！）"}, {"time": "🌿 12:45 ➔ 16:00", "cat": "STROLL & COFFEE", "title": "延南洞文創潮鋪 (Object/Musinsa/fwee) ＆ 冠軍手沖咖啡巡禮", "hangul": "경의선숲길 & 오브젝트 & 디폴트밸류", "desc": "漫步京義線銀杏林道，逛 Object 四層文創、Musinsa Standard（即場退稅）、fwee 布丁彩妝、Parole & Langue 粟米塔；於 Default Value 飲虹吸冠軍手沖或 Pouring Out 黑膠聽歌。💡 貼士：14:30 途經 Bada Sarang 2號店時可先去門口抽號！", "naver": "https://map.naver.com/p/search/%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8%20%EC%84%9C%EA%B5%90%EC%A0%90", "copyVal": "경의선숲길 & 오브젝트 & 디폴트밸류", "copyLabel": "複製韓文店名"}, {"transit": "🚶 步行前往東橋路約 8 分鐘"}, {"time": "🐟 16:00 ➔ 17:30", "cat": "DINNER", "title": "Bada Sarang 2號店 厚切秋大鰤魚刺身 (錯峰堂食 / 外帶免排隊神技)", "hangul": "바다회사랑 2호점", "desc": "🚨 排隊實況：10月大鰤魚當造加週六，18:00 後現場動輒排 2 小時！兩大免死排神技：① 14:30 逛街時先去門口抽號，16:00 錯峰入座；② 點「外帶自取 (포장)」只需 15 分鐘即取，拎返延南洞獨棟民宿大客廳嘆！（長者熟食備選：延禧洞奶奶家現烤魚定食 或 延南刀削麵）。", "naver": "https://map.naver.com/p/search/%EB%B0%94%EB%8B%A4%ED%9A%8C%EC%82%AC%EB%9E%91%202%ED%98%B8%EC%A0%90", "copyVal": "바다회사랑 2호점", "copyLabel": "複製韓文店名"}, {"transit": "🚕 跨過麻浦大橋直達汝矣島，車程僅約 12 分鐘"}, {"time": "🏢 17:45 ➔ 20:30", "cat": "SHOPPING & NIGHT VIEW", "title": "汝矣島 The Hyundai Seoul 室內空中花園 ＆ 漢江公園璀璨夜景", "hangul": "더현대 서울 & 여의도한강공원", "desc": "先逛 5F Sounds Forest 挑高室內花園（6樓扶手電梯口俯拍全景）與 B2 潮牌（Matin Kim / Stand Oil / Depound，週六營業至 20:30）；隨後步出汝矣島漢江公園欣賞漢江大橋燈光夜景與江風。", "naver": "https://map.naver.com/p/search/%EB%8D%94%ED%98%84%EB%8C%80%20%EC%84%9C%EC%9A%B8", "copyVal": "더현대 서울 & 여의도한강공원", "copyLabel": "複製韓文店名"}, {"transit": "🚕 自汝矣島搭計程車走元曉路直達梨泰院經理團路，車程約 15 分鐘"}, {"time": "🍶 21:00", "cat": "BAR", "title": "Korean Bistro Mr. Ahn's Makgeolli (安氏막걸리)", "hangul": "한국술집 안씨막걸리 / 서울 용산구 회나무로 3", "desc": "米芝蓮指南推薦現代韓國酒館，精選多款傳統手工生馬格利與精緻下酒菜。", "naver": "https://map.naver.com/v5/search/%EC%95%88%EC%94%A8%EB%A7%89%EA%B1%B8%EB%A6%AC", "copyVal": "서울 용산구 회나무로 3"}, {"transit": "🚶 經理團路上坡步行約 4 分鐘"}, {"time": "🥃 22:30", "cat": "TASTING BAR", "title": "Namsan Sool Club (남산술클럽) 韓國傳統酒 Tasting", "hangul": "남산술클럽 / 서울 용산구 회나무로26길 12 (經理團路)", "desc": "首爾極具代表性的韓國傳統酒 Tasting Bar！嚴選全韓小型獨立酒造之珍稀地酒、生馬格利、藥酒與蒸餾燒酎，提供專業品飲組合（Tasting Flight）。距安氏馬格利僅數分鐘步程，兩者連線體驗極致微醺。", "tip": "💡 亮點：可品嚐市面上難得一見的微型酒造限定佳釀，現場團隊具備豐富傳統酒風土解說經驗。", "naver": "https://map.naver.com/v5/search/%EB%82%A8%EC%82%B0%EC%88%A0%ED%81%B4%EB%9F%BD", "copyVal": "서울 용산구 회나무로26길 12"}]}, {"num": 3, "date": "10/18 星期日", "region": "首爾鐘路 · 北村 / 西村", "title": "第二階段：韓屋古風與亞洲頂級酒吧", "highlight": "👘 景福宮韓服 2.5h ➔ 🥢 廣藏市場 ➔ 🎋 益善洞 ➔ ☕ 北村三清洞 ➔ 🍷 On 6.5 ➔ 🍸 Bar Cham", "weather": "☀️ 11°C ~ 21°C ｜ 天晴乾爽，早晚溫差顯著 (宜洋蔥式穿搭)", "goldenHour": "🌇 北村韓屋落日 17:51 (黑瓦晚霞)", "photoCaption": "首爾鐘路・北村黑瓦韓屋俯瞰城市天際線", "events": [{"time": "👘 09:00 ➔ 11:45", "cat": "EXPERIENCE", "title": "景福宮 免票韓服深度體驗 (首推西花韓服 · 預留足 2h45m)", "hangul": "경복궁 & 북촌한옥마을", "desc": "09:00 抵達【西花韓服 (서화한복)】（景福宮站4號出口步行1分鐘，全店統一公價 ₩24,000/4小時不加價，包編髮頭飾）。09:40 入宮慢拍慶會樓、香遠亭古楓倒影與勤政殿；11:25 歸還韓服換回輕便波鞋出發食午餐！", "naver": "https://map.naver.com/p/search/%EC%84%9C%ED%99%94%ED%95%9C%EB%B3%B5", "copyVal": "서울 종로구 사직로 137", "copyLabel": "複製西花韓服地址", "tel": "02-725-8560"}, {"transit": "🚕 搭車約 10 分鐘直達廣藏市場（若不想去市場迫，可直接行去景福宮旁食百年土俗村參雞湯）"}, {"time": "🥢 12:00 ➔ 13:30", "cat": "LUNCH", "title": "廣藏市場小吃：富村生牛肉 ＆ 順熙家綠豆煎餅", "hangul": "광장시장 (부촌육회 & 순희네빈대떡)", "desc": "12:00 提早抵達避開最高峰人潮！米芝蓮必比登推薦新鮮生牛肉配甜水梨絲（出示飲食卡交代去蔥、退回生牛肝百葉）；同場加購順熙家現煎香脆綠豆煎餅。", "naver": "https://map.naver.com/p/search/%EB%B6%80%EC%B4%8C%EC%9C%A1%ED%9A%8C%20%EB%B3%B8%EC%A0%90", "copyVal": "서울 종로구 종로 200-12", "copyLabel": "複製富村生牛肉地址", "tel": "02-2267-1831", "dietary": "파 빼주세요, 간/천엽(내장)은 빼주세요. (請去蔥，退回生牛肝百葉)"}, {"transit": "🚕 搭車 5 分鐘（或漫步 12 分鐘）前往益善洞韓屋村"}, {"time": "🎋 13:45 ➔ 15:00", "cat": "TEA", "title": "益善洞韓屋村 ＆ 清水堂竹林庭園下午茶 (順買自然島鹽麵包)", "hangul": "청수당 / 서울 종로구 돈화문로11나길 31-9", "desc": "漫步益善洞古樸韓屋小巷，順手買一袋 4 個剛出爐熱騰騰「自然島鹽麵包」，於清水堂流水竹林庭園品嚐滴漏咖啡與舒芙蕾（或小夏鹽田/Mil Toast）。", "naver": "https://map.naver.com/p/search/%EC%B2%AD%EC%88%98%EB%8B%B9", "copyVal": "서울 종로구 돈화문로11나길 31-9", "copyLabel": "複製清水堂地址"}, {"transit": "🚶 由益善洞往北漫步約 10 分鐘進入安國／北村／三清洞街區"}, {"time": "☕ 15:10 ➔ 16:55", "cat": "COFFEE", "title": "首爾工藝博物館千年銀杏 ＆ 北村三清洞香氛散步 (Green Mile 3F)", "hangul": "서울 종로구 북촌로 64 / 02-744-2404", "desc": "先經過安國站旁免費開放的【首爾工藝博物館】大草坪打卡百年金黃巨型銀杏樹；隨後探訪 Tamburins 三清旗艦店、雪花秀之屋、Granhand 韓屋香氛（免費鋼印麻布香包），並上 Green Mile Coffee 3 樓天台（或車喝庭園）俯瞰黑瓦全景。", "naver": "https://map.naver.com/v5/search/%EA%B7%B8%EB%A6%B0%EB%A7%88%EC%9D%BC%EC%BB%A4%ED%94%BC%20%EB%B6%81%EC%B4%8C%EC%A0%90", "copyVal": "서울 종로구 북촌로 64", "copyLabel": "複製韓文店名"}, {"transit": "🚶 零車程無縫銜接！由北村步行 3 分鐘直接入座安國站旁 On 6.5"}, {"time": "🍷 17:00 ➔ 19:00", "cat": "RESERVED", "title": "On 6.5 (온6.5) 創意泡菜餐酒館【已預約】", "hangul": "서울 종로구 북촌로1길 28", "desc": "首爾創意泡菜發酵與精緻料理餐酒館（已確認預約 17:00）。主廚將泡菜工藝精緻化，入座請向侍酒師出示飲食過敏卡。", "naver": "https://map.naver.com/p/search/%EC%98%A86.5", "copyVal": "서울 종로구 북촌로1길 28", "copyLabel": "複製 On 6.5 地址", "tel": "02-739-6565", "dietary": "저희는 파, 양파, 부추, 내장, 굴을 못 먹습니다. (五不忌口卡)"}, {"transit": "🚕 搭車 6 分鐘（或散步 12 分鐘）前往景福宮西側西村（可順逛 TOUT Y EST 皮具）"}, {"time": "🍸 19:15 ➔ 21:30", "cat": "ASIA'S 50 #33", "title": "Bar Cham (바 참) ＆ Gong-Gan (공간)", "hangul": "바 참 / 서울 종로구 자하문로7길 34", "desc": "亞洲50最佳酒吧 #33！17:00 前往 On 6.5 前或 18:30 先行登記候位，餐後 19:15 順暢前往入座，品嚐韓國傳統酒與地道風味調酒（建議拆 2+3 人入座）。", "tip": "⚠️ 排隊攻略：建議拆成 2+3 人入座最快；抵達現場立即以門口平板 Catchtable 取號！", "naver": "https://map.naver.com/v5/search/%EB%B0%94%EC%B0%B8", "copyVal": "바 참", "copyLabel": "複製韓文店名"}, {"transit": "🚶 步行至光化門約 8 分鐘"}, {"time": "🍗 22:00 ➔ 23:15", "cat": "LATE NIGHT", "title": "Hyodo Chicken (孝道炸雞 光化門店)", "hangul": "효도치킨 광화문점 / 서울 종로구 사직로8길 21-1", "desc": "招牌「小銀魚螺絲椒炸雞」（꽈리멸치치킨），外皮酥脆香辣多汁。", "naver": "https://map.naver.com/p/search/%ED%9A%A8%EB%8F%84%EC%B9%98%ED%82%A8%20%EA%B4%91%ED%99%94%EB%AC%B8%EC%A0%90", "copyVal": "서울 종로구 사직로8길 21-1", "copyLabel": "複製孝道炸雞地址", "tel": "02-722-1138", "dietary": "파, 양파 토핑은 빼주세요. (請去掉蔥與洋蔥配料)"}]}, {"num": 4, "date": "10/19 星期一", "region": "京畿道 · 加平秋楓自駕", "title": "加平秘境：南怡島賞楓 ➔ 聖水洞潮流巡禮 ➔ 東大門陳玉華一隻雞", "highlight": "⚡ 80米高空飛索 ➔ 🍁 水杉大道金黃銀杏 ➔ 🎨 聖水洞紅磚潮流選品 ➔ 🍲 東大門陳玉華一隻雞", "weather": "🌤️ 8°C ~ 18°C (加平山區) ｜ 晨間清冽宜著薄羽絨，午後回溫", "goldenHour": "🌅 晨曦出發 06:45 ｜ 🌇 加平南怡島落日 17:50", "photoCaption": "京畿道加平・南怡島水杉林火紅秋葉步道", "events": [{"time": "⚡ 06:45 出發 ➔ 08:30/09:00 飛索", "cat": "ZIPLINE", "title": "南怡島 Skyline Zipwire 高空飛索入島", "hangul": "남이섬 짚와이어 / 경기 가평군 북한강변로 1024", "desc": "自 80 公尺高塔鋼索以時速數十公里飛馳直衝入島（需提前 15 分鐘報到）。", "naver": "https://map.naver.com/p/search/%EB%82%A8%EC%9D%B4%EC%84%AC%20%EC%A7%9A%EC%99%80%EC%9D%B4%EC%96%B4", "copyVal": "경기 가평군 가평읍 북한강변로 1024", "copyLabel": "複製飛索碼頭地址", "tel": "031-580-8000"}, {"transit": "🚶 飛索入島後漫步水杉大道"}, {"time": "🍁 09:05 ➔ 12:00", "cat": "AUTUMN", "title": "南怡島 3 小時金秋徒步大環線 (水杉大道、松坡銀杏地毯、水岸楓林)", "hangul": "남이섬 (Nami Island)", "desc": "秋季金黃與緋紅滿山，水杉路與中央楓葉大道絕美景致。", "naver": "https://map.naver.com/p/search/%EB%82%A8%EC%9D%B4%EC%84%AC", "copyVal": "남이섬 메타세쿼이아길", "copyLabel": "複製水杉大道韓文"}, {"transit": "🚢 搭渡輪返回碼頭約 10 分鐘"}, {"time": "🧀 12:30", "cat": "LUNCH", "title": "加平碼頭：正宗春川辣炒雞排", "desc": "鐵板現炒嫩雞肉、高麗菜、年糕與牽絲芝士，最後炒入白飯製成鍋巴。", "naver": "https://map.naver.com/p/search/%EA%B0%80%ED%8F%89%20%EC%B6%98%EC%B2%9C%EB%8B%AD%EA%B0%88%EB%B9%84", "copyVal": "경기 가평군 가평읍 북한강변로 1044", "copyLabel": "複製碼頭美食街地址", "dietary": "양파, 대파, 부추 빼고 닭고기랑 양배추만 볶아주세요! (去洋蔥大蔥韭菜，只炒雞肉與高麗菜)"}, {"transit": "🚗 13:45 提早啟程自駕返回首爾，避開傍晚通勤塞車！行車約 1 小時 20 分鐘直達漢江北岸"}, {"time": "🎨 15:00 ➔ 18:15", "cat": "TREND & COFFEE", "title": "首爾林秋色漫步 ＆ 聖水洞 3.5 小時潮流旗艦巡禮 (Dior & POV)", "hangul": "성수동 카페거리 / 디올 성수 (Dior Seongsu)", "desc": "Staria 停首爾林公營平面停車場後，先步入旁邊【首爾林公園】水杉與銀杏林道漫步 20 分鐘！隨後逛聖水洞：① Dior 玻璃宮殿；② Point of View 三層復古文具博物館；③ Ader Error Space 2.0；④ Kith Seoul；⑤ Stand Oil & Blue Elephant 平價墨鏡。咖啡歇腳 Center Coffee 或 Lowkey。", "naver": "https://map.naver.com/v5/search/%EB%94%94%EC%98%AC%EC%84%B1%EC%88%98", "copyVal": "성수동 카페거리", "copyLabel": "複製韓文店名"}, {"transit": "🚗 自聖水洞開車或計程車至東大門，行車僅約 18 分鐘"}, {"time": "🍲 19:00", "cat": "DINNER", "title": "陳玉華一隻雞 (진옥화할매원조닭한마리)", "hangul": "서울 종로구 종로40가길 18 (東大門)", "desc": "Staria 停於東大門 DDP 大型平面停車場。開火剪雞時第一時間夾出厚切京蔥，純享蒜香清雞湯煮手工刀削麵。餐後順路散步 5 分鐘欣賞【DDP 東大門設計廣場】銀色太空建築夜景！隨後不飲酒司機開 Staria 載長輩返延南洞，3人搭車去江南 Bar Zest。", "naver": "https://map.naver.com/v5/search/%EC%A7%84%EC%98%A5%ED%99%94%ED%95%A0%EB%A7%A4%EC%9B%90%EC%A1%B0%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC", "copyVal": "서울 종로구 종로40가길 18 (東大門)", "copyLabel": "複製韓文店名"}, {"transit": "🚕 車程跨越漢江至江南島山公園約 20 分鐘"}, {"time": "🍸 21:00 ➔ 23:30", "cat": "ASIA'S 50 #2 & #42", "title": "Bar Zest (제스트) ＆ M+MS bar (엠엠에스)", "hangul": "서울 강남구 도산대로55길 26 (Zest) ｜ 도산공원 부근 (M+MS)", "desc": "【江南清潭/島山頂級酒吧雙絕】：\n1. 🌟 Bar Zest (제스트)：榮獲 2024「亞洲 50 最佳酒吧」第 2 名（世界 50 大第 18）！極致零浪費（Zero-Waste）永續調酒神殿，必點自家精餾杜松子酒調製的招牌 Zest G&T 與濟州柑橘特調。\n2. 🍸 M+MS bar (엠엠에스 Dosan)：亞洲 50 最佳酒吧第 42 名，距離 Zest 步行僅約 6 分鐘（約 500 公尺），兩家可依候位狀況安排雙連訪或二選一！", "tip": "💡 候位與預約攻略：Zest 建議提早於 Catchtable 預訂或現場 20:30 前取號候位（多人同行可分 2+3 人或入座桌席）；若 Zest 需候位可先至旁邊 M+MS bar 享用首杯！", "naver": "https://map.naver.com/v5/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4", "copyVal": "서울 강남구 도산대로55길 26", "copyLabel": "複製 Zest 地址", "tel": "+82-10-3177-8801"}]}, {"num": 5, "date": "10/20 星期二", "region": "首爾 · 漢南洞 / 馬場洞", "title": "漢南洞漫遊＆三星美術館 ➔ 狎鷗亭 MUTAN ➔ COEX 星空圖書館 ➔ 馬場洞 1++ 韓牛 ➔ 22:00 還車", "highlight": "☕ 漢南洞＆三星美術館 ➔ 🍜 MUTAN 炸醬麵 ➔ 📚 COEX 星空圖書館 ➔ 🥩 馬場洞韓牛 ➔ 🚗 22:00 首爾站還車", "weather": "🌤️ 10°C ~ 19°C ｜ 秋陽明朗，微風舒適宜著針織衫", "goldenHour": "🌇 首爾落日 17:49 (市區微涼)", "photoCaption": "漢南洞坡道與霓虹街景 ➔ 飛往濟州", "events": [{"time": "☕ 10:00 ➔ 11:00", "cat": "COFFEE", "title": "漢南洞晨光精品手沖：GML Seoul 世界名豆選品吧 或 BreadyPost 蝴蝶餅", "hangul": "지엠엘 한남 / 브레디포스트", "desc": "潮牌 11:00 開門前，先在 GML 品嚐世界咖啡大賽冠軍微批次手沖單品，或於 BreadyPost 享用新鮮出爐軟心牛油蝴蝶餅 (Pretzel)。", "naver": "https://map.naver.com/p/search/gml%20seoul", "copyVal": "지엠엘 한남", "copyLabel": "複製韓文店名"}, {"time": "🛍️ 11:00 ➔ 14:00", "cat": "SHOPPING & ART", "title": "漢南洞設計師潮牌漫遊 ＆ (可選) Leeum 三星美術館", "hangul": "한남동 쇼룸 & 리움미술관", "desc": "可順訪旁邊韓國頂級私人美術館【Leeum 三星美術館】（螺旋樓梯與常設展免費）；隨後掃街 Mardi Mercredi、Marithé、EMIS、Rockfish、BEAKER、Nonfiction 香氛、五月之鐘無花果歐包及 Hyundai Card 黑膠試聽館。", "naver": "https://map.naver.com/p/search/%EB%A6%AC%EC%9B%80%EB%AF%B8%EC%88%A0%EA%B4%80", "copyVal": "한남동 쇼룸 & 리움미술관", "copyLabel": "複製韓文店名"}, {"transit": "🚗 自駕跨過漢南大橋，車程僅約 15 分鐘直達江南狎鷗亭"}, {"time": "🍜 14:30 ➔ 15:45", "cat": "LUNCH", "title": "MUTAN 狎鷗亭本店：招牌黑松露韓牛牛排炸醬麵 ＆ 黃金麵包蝦", "hangul": "무탄 압구정본점", "desc": "14:30 錯峰免排隊輕鬆入座！必點招牌「黑松露韓牛牛排炸醬麵」與「特厚黃金麵包蝦 (Menbosha)」。", "naver": "https://map.naver.com/p/search/%EB%AC%B4%ED%83%84%20%EC%95%95%EA%B5%AC%EC%A0%95%EB%B3%B8%EC%A0%90", "copyVal": "무탄 압구정본점", "copyLabel": "複製韓文店名"}, {"time": "🛍️ 15:45 ➔ 17:30", "cat": "SHOPPING", "title": "狎鷗亭 Rodeo / 島山公園前衛旗艦店漫步 (HAUS DOSAN / Wiggle Wiggle)", "hangul": "압구정 로데오 & 하우스 도산", "desc": "探訪 HAUS DOSAN (Gentle Monster / Tamburins / Nudake 熔岩可頌蛋糕)、Stussy Seoul、Wiggle Wiggle Zip 奇幻旗艦店。", "naver": "https://map.naver.com/p/search/%ED%95%98%EC%9A%B0%EC%8A%A4%20%EB%8F%84%EC%82%B0", "copyVal": "압구정 로데오 & 하우스 도산", "copyLabel": "複製韓文店名"}, {"transit": "🚗 自駕約 10 分鐘前往江南三成洞 COEX 商場（地下停車場車位極充裕）"}, {"time": "📚 17:40 ➔ 18:30", "cat": "LANDMARK", "title": "江南 COEX 星空圖書館 (별마당도서관) 13米高通天書牆打卡", "hangul": "별마당도서관 (스타필드 코엑스몰)", "desc": "因為延至 22:00 還車，下午時間極充裕！順道造訪首爾視覺地標「星空圖書館」，高達 13 米的巨型挑高書架在傍晚暖光下極為震撼，長輩與年輕人打卡皆宜。", "naver": "https://map.naver.com/p/search/%EB%B3%84%EB%A7%88%EB%8B%B9%EB%8F%84%EC%84%9C%EA%B4%80", "copyVal": "별마당도서관 (스타필드 코엑스몰)", "copyLabel": "複製韓文店名"}, {"transit": "🚗 自駕跨過聖水大橋／東湖大橋直達馬場洞（車程約 25 分鐘，停市場西門公營平面停車場）"}, {"time": "🥩 19:00 ➔ 21:00", "cat": "DINNER", "title": "馬場洞畜產物市場：1++ No.9 頂級雪花韓牛炭火燒肉", "hangul": "마장동축산물시장", "desc": "5 人不用逼地鐵，直接開 Staria 到達！於 1 樓肉鋪挑選最高等級 1++ No.9 雪花肋眼與牛小排，直上 2 樓炭火現烤（只沾海鹽與山葵，退回涼拌蔥絲與烤牛腸）。", "naver": "https://map.naver.com/p/search/%EB%A7%88%EC%9E%A5%EB%8F%99%EC%B6%95%EC%82%B0%EB%AC%BC%EC%8B%9C%EC%9E%A5", "copyVal": "마장동축산물시장", "copyLabel": "複製韓文店名"}, {"transit": "🚗 食飽後開車約 20 分鐘前往首爾站周邊加油站入滿油，夜晚道路順暢不塞車！"}, {"time": "🚗 21:30 ➔ 22:00", "cat": "CAR RETURN", "title": "首爾站門市加滿油從容歸還 Staria 商務車 (22:00 還車)", "hangul": "서울역 렌터카 반납 (한강대로 405)", "desc": "於中區漢江大路 405 號辦妥還車手續。還車後長輩直接搭的士 15 分鐘返回延南洞民宿休息。", "naver": "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EA%B5%AC%20%ED%95%9C%EA%B0%95%EB%8C%80%EB%A1%9C%20405", "copyVal": "서울역 렌터카 반납 (한강대로 405)", "copyLabel": "複製韓文店名"}, {"transit": "🚕 3 人小酌組由首爾站搭車前往酒吧（或返延南洞/合井周邊酒吧）"}, {"time": "🍸 22:15 ➔ 23:45", "cat": "BAR", "title": "狎鷗亭 Speakeasy Pine&Co 或 延南/合井質感酒吧 (BLOOD&SAND / tott)", "hangul": "파인앤코 / 블러드앤샌드 / 바 토트", "desc": "在首爾最後一晚舉杯慶功！若不想再過江去江南，可直接去延南洞民宿旁合井的滿分酒吧 tott seoul 或威士忌吧 BLOOD&SAND，飲完 5 分鐘返房睡覺（明早飛濟州）！", "naver": "https://map.naver.com/p/search/%ED%8C%8C%EC%9D%B8%EC%95%A4%EC%BD%94", "copyVal": "파인앤코", "copyLabel": "複製韓文店名"}]}, {"num": 6, "date": "10/21 星期三", "region": "金浦飛濟州 ➔ 濟州市蓮洞", "title": "耽羅仙境：純電自駕、Arte Museum 光影 ＆ 熟成到黑豬肉", "highlight": "✈️ 晨飛濟州 ➔ ⚡ IONIQ 9 純電車 ➔ 🎨 Arte Museum ➔ 🥩 熟成到代烤黑豬肉", "weather": "🌤️ 15°C ~ 22°C ｜ 濟州初入秋，海風舒爽宜人", "goldenHour": "🌇 濟州落日 17:47 (海角暮色)", "photoCaption": "濟州西歸浦・柑橘體驗農場木牌", "events": [{"time": "🛫 07:35 ➔ 08:50", "cat": "FLIGHT", "title": "金浦機場 (GMP) ➔ 濟州機場 (CJU)", "hangul": "이스타항공 ZE207", "desc": "05:45 出發往金浦。乘搭易斯達航空 ZE207 抵達濟州機場領取行李。"}, {"transit": "🚌 機場 5號門乘搭樂天免費接駁車約 8 分鐘"}, {"time": "⚡ 09:30", "cat": "CAR RENTAL", "title": "LOTTE Auto House 提取 IONIQ 9 純電 7人車", "hangul": "LOTTE rent-a-car Auto House (제주시 용해로 92)", "desc": "5號門外搭接駁車至 Auto House 取車。車型：IONIQ 9 4WD 純電 7人座（預約號：2622541225）。", "tip": "🎁 福利：憑樂天車鑰匙享山茶花丘 30% 折扣、樂天飯店 15%！", "copyVal": "2622541225", "copyLabel": "複製預約號: 2622541225", "tel": "1588-1230", "naver": "https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4"}, {"transit": "🚗 自駕沿海岸線行駛約 10 分鐘"}, {"time": "🌈 10:00", "cat": "COAST", "title": "道頭彩虹海岸道路 (海岸自駕兜風路過)", "hangul": "도두동무지개해안도로 / 도두봉", "desc": "開車沿海岸線路過欣賞七彩防波塊與蔚藍海景，無需專程排隊拍照，悠閒兜風。", "naver": "https://map.naver.com/p/search/%EB%8F%84%EB%91%90%EB%8F%99%EB%AC%B4%EC%A7%80%EA%B0%9C%ED%95%B4%EC%95%88%EB%8F%84%EB%A1%9C", "copyVal": "도두동무지개해안도로", "copyLabel": "複製彩虹海岸韓文"}, {"transit": "🚗 車程約 8 分鐘至濟州市區"}, {"time": "🍜 11:30", "cat": "LUNCH", "title": "姊妹麵條 (자매국수) 濟州藍絲帶名店", "hangul": "자매국수", "desc": "濃白醇厚黑豬肉骨高湯，鋪滿炙烤切片黑豬肉片。", "naver": "https://map.naver.com/p/search/%EC%9E%90%EB%A7%A4%EA%B5%AD%EC%88%98", "copyVal": "제주 제주시 항골남길 46", "copyLabel": "複製姊妹麵條地址", "tel": "064-746-2222", "dietary": "고기국수에 파, 양파 꼭 빼주세요! (豬肉湯麵請務必去蔥去洋蔥)"}, {"transit": "🚗 往西南方向自駕約 25 分鐘"}, {"time": "🎨 13:15 ➔ 15:00", "cat": "ART", "title": "Arte Museum 沉浸式巨幅光影藝術館", "hangul": "아르떼뮤지엄 제주", "desc": "以聲光音效打造的巨幅光影浪潮、瀑布與熱帶雨林光影空間，視覺衝擊力極強。（芒草景觀專注安排在 Day 8 山君不離，此處不爬陡坡，省下體力）。", "naver": "https://map.naver.com/p/search/%EC%95%84%EB%A5%B4%EB%96%BC%EB%AE%A4%EC%A7%80%EC%97%84%20%EC%A0%9C%EC%A3%BC", "copyVal": "제주 제주시 애월읍 어림비로 478", "copyLabel": "複製 Arte Museum 地址", "tel": "1899-5008"}, {"transit": "🚗 15:20–17:15 前往郭支海灘漫步、品嚐 Umu 海藻布丁（🚨 16:00 準時打開 Catchtable 抽熟成到號碼牌！）"}, {"transit": "🚗 17:45 先返回蓮洞民宿 'Been' 辦理入住、卸下行李並泊好純電車於前院私人車位！"}, {"time": "🥩 18:30 ➔ 20:30", "cat": "DINNER", "title": "熟成到 (Sukseongdo 蓮洞店) 極品代烤黑豬肉", "hangul": "숙성도 노형점/연동점", "desc": "濟州第一名熟成黑豬肉，專人厚切炭火桌邊代烤，肉汁噴發！建議下午先以 Catchtable 取號。", "naver": "https://map.naver.com/p/search/%EC%88%99%EC%84%B1%EB%8F%84%20%EB%85%B8%ED%98%95%EC%A0%90", "copyVal": "제주 제주시 원노형로 41", "copyLabel": "複製熟成到地址", "tel": "064-711-5212", "dietary": "파김치, 양파, 내장젓갈은 빼고 소금과 와사비만 주세요. (只沾海鹽與芥末，避開蔥泡菜與魚腸醬)"}, {"transit": "🚗 車程約 3 分鐘直達民宿"}, {"time": "🏨 20:30", "cat": "STAY", "title": "入住蓮洞：도심 속 전원주택 'Been' (Airbnb)", "hangul": "제주특별자치도 제주시 신대로17길 7", "desc": "4.98超高評分「旅人至愛」。前院獨立私人免費車位（IONIQ 9 免費停泊）。3房5床2衛。", "copyVal": "제주특별자치도 제주시 신대로17길 7", "naver": "https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%8B%A0%EB%8C%80%EB%A1%9C17%EA%B8%B8%207"}]}, {"num": 7, "date": "10/22 星期四", "region": "濟州南岸 · 西歸浦", "title": "壯麗南岸：海膽海帶湯、整條烤帶魚、綠茶 ＆ 別墅私人露台 BBQ 派對", "highlight": "🥣 金黃海膽海帶湯 ➔ 🐟 一公尺烤帶魚 ➔ 🍵 Osulloc 綠茶 ➔ 🌸 山茶花丘 ➔ 🥩 海景別墅露台炭火BBQ", "weather": "☀️ 16°C ~ 23°C ｜ 西歸浦向陽避風，氣候最溫暖舒適", "goldenHour": "🌇 西歸浦懸崖落日 17:46 (露台暮色)", "photoCaption": "西歸浦・盛開洋紅山茶花樹林與花瓣步道", "events": [{"time": "🥣 08:45 ➔ 09:45", "cat": "BREAKFAST", "title": "純玉家 (순옥이네명가) 晨光鮮甜「海膽海帶湯」＆ 炭烤肥美青花魚", "hangul": "순옥이네명가 (도두점)", "desc": "品嚐鮮甜金黃海膽海帶湯配炭烤青花魚（完全無鮑魚，交代去蔥）。09:00 致電 064-794-2940 確認龍頭海岸當日潮汐開放時段。", "naver": "https://map.naver.com/p/search/%EC%88%9C%EC%98%A5%EC%9D%B4%EB%84%A4%EB%AA%85%EA%B0%80", "copyVal": "순옥이네명가 (도두점)", "copyLabel": "複製韓文店名"}, {"transit": "🚗 09:45 退房，沿西南景觀公路自駕前往山房山（車程約 45 分鐘）"}, {"time": "🌊 10:30 ➔ 12:00", "cat": "NATURE", "title": "山房山 ＆ 龍頭海岸 (海蝕奇岩棧道 & One and Only 絕壁海景)", "hangul": "산방산 & 용머리해안", "desc": "預留足 1.5 小時漫步於千萬年火山凝灰岩海蝕斷崖棧道，順訪旁邊全濟州景觀第一的「One and Only」絕壁海景。", "naver": "https://map.naver.com/p/search/%EC%9A%A9%EB%A8%B8%EB%A6%AC%ED%95%B4%EC%95%88", "copyVal": "산방산 & 용머리해안", "copyLabel": "複製韓文店名"}, {"transit": "🚗 自駕約 10 分鐘"}, {"time": "🐟 12:10 ➔ 13:30", "cat": "LUNCH", "title": "滿足的商會 (만족한상회) 一公尺整條烤帶魚全席", "hangul": "만족한상회 서귀포산방산점", "desc": "品嚐招牌一公尺長整條鹽烤濟州銀帶魚，店員桌邊 5 秒去刺表演，魚肉鮮嫩無骨。", "naver": "https://map.naver.com/p/search/%EB%A7%8C%EC%A1%B1%ED%95%9C%EC%83%81%ED%9A%8C", "copyVal": "만족한상회 서귀포산방산점", "copyLabel": "複製韓文店名"}, {"transit": "🚗 自駕約 12 分鐘至神話歷史公園／綠茶園區（兩店相距僅 3 分鐘，一次連逛零折返！）"}, {"time": "🍵 13:45 ➔ 15:20", "cat": "TEA & BAKERY", "title": "Osulloc 雪綠茶博物館 ＆ 隔壁 3 分鐘【濟州堂】溫室烘焙連逛", "hangul": "오설록 티뮤지엄 & 제주당 베이커리카페", "desc": "先漫步 Osulloc 萬坪翠綠茶園梯田、食特濃抹茶雪糕買手信；隨後車程 3 分鐘直達隔壁歐洲玻璃溫室莊園【濟州堂】，外帶招牌「擬真柑橘麵包」與「紫薯麵包」作為明晨別墅早餐（省去來回折返車程！）。", "naver": "https://map.naver.com/p/search/%EC%98%A4%EC%84%A4%EB%A1%9D%20%ED%8B%B0%EB%AE%A4%EC%A7%80%EC%97%84", "copyVal": "오설록 티뮤지엄 & 제주당 베이커리카페", "copyLabel": "複製韓文店名"}, {"transit": "🚗 自駕約 10 分鐘前往山茶花丘"}, {"time": "🌸 15:30 ➔ 16:35", "cat": "FLOWERS", "title": "山茶花丘 (Camellia Hill) 午後斜陽粉黛亂子草與銀芒草", "hangul": "카멜리아힐", "desc": "午後柔和斜陽逆光拍攝整片粉黛亂子草與銀白芒草（出示樂天租車確認信或車匙享門票 7 折優惠）。", "naver": "https://map.naver.com/p/search/%EC%B9%B4%EB%A9%9C%EB%A6%AC%EC%95%84%ED%9E%90", "copyVal": "카멜리아힐", "copyLabel": "複製韓文店名"}, {"transit": "🚗 自駕約 15 分鐘直達西歸浦 E-Mart 大型超市"}, {"time": "🛒 16:50 ➔ 17:40", "cat": "SHOPPING", "title": "西歸浦大型 E-Mart 超市：預留足 50 分鐘採購露台 BBQ 頂級食材", "hangul": "이마트 서귀포점", "desc": "充裕時間挑選今晚別墅 BBQ 食材：1++ 頂級雪花韓牛、濟州黑豬厚切五花肉、大紅蝦、生菜、海鹽芥末、濟州精釀啤酒，以及明早鮮奶與希臘優酪乳。", "naver": "https://map.naver.com/p/search/%EC%9D%B4%EB%A7%88%ED%8A%B8%20%EC%84%9C%EA%B7%80%ED%8F%AC%EC%A0%90", "copyVal": "이마트 서귀포점", "copyLabel": "複製韓文店名"}, {"transit": "🚗 由 E-Mart 開車僅約 10 分鐘即可抵達西歸浦海景別墅！"}, {"time": "🏨 17:50", "cat": "LUXURY STAY", "title": "入住西歸浦全景海景奢華別墅（連住 2 晚 · 暮色海景露台）", "hangul": "서귀포시 지장샘로182번길 25", "desc": "於暮色時分從容入住懸崖海景別墅，3間獨立臥室與3間衛浴，整理食材並欣賞全海景露台夜色。", "naver": "https://map.naver.com/p/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EC%8B%9C%20%EC%A7%80%EC%9E%A5%EC%83%98%EB%A1%9C182%EB%B2%88%EA%B8%B8%2025", "copyVal": "서귀포시 지장샘로182번길 25", "copyLabel": "複製韓文店名"}, {"time": "🥩 18:45 ➔ 21:30", "cat": "DINNER & JACUZZI", "title": "別墅私人海景露台：炭火 BBQ 盛宴 (1++韓牛&黑豬) ＆ 星空 Jacuzzi", "hangul": "프라이빗 바베큐 & 자쿠지", "desc": "於別墅私人露台親手炭火炙烤 1++ 韓牛與黑豬肉（沾海鹽與芥末，純高蛋白無洋蔥無蔥蒜無內臟無生蠔）；飯後邊泡熱水按摩池 (Jacuzzi) 邊仰望星空！", "naver": "https://map.naver.com/p/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EC%8B%9C%20%EC%A7%80%EC%9E%A5%EC%83%98%EB%A1%9C182%EB%B2%88%EA%B8%B8%2025", "copyVal": "서귀포시 지장샘로182번길 25", "copyLabel": "複製西歸浦別墅地址"}]}, {"num": 8, "date": "10/23 星期五", "region": "濟州東部 · 牛島跳島 ➔ 朝天芒草", "title": "牛島碧海：別墅高蛋白晨光輕食、城山日出峰、銘珍鮑魚 ＆ 芒草海", "highlight": "🥐 別墅晨光輕食 ➔ ⛵ 牛島跳島 ➔ 🌋 日出峰 ➔ 🦪 銘珍鮑魚 ➔ 🌾 山君不離 ➔ 🍢 偶來夜市", "weather": "🌤️ 14°C ~ 21°C ｜ 牛島海風強勁宜防風，芒草海傍晚約 15°C", "goldenHour": "🌇 山君不離芒草金光 17:45", "photoCaption": "濟州涯月・純淨藍綠珊瑚海灘與紅頂小屋", "events": [{"time": "🥐 06:40 ➔ 07:15", "cat": "BREAKFAST", "title": "海景別墅露台晨光高蛋白輕食（濟州堂麵包 ＆ 希臘優酪乳、鮮奶、水煮蛋）", "hangul": "서귀포 빌라 조식", "desc": "【Day 8 晨光輕食（無鮑魚，省時高蛋白）】：在別墅全海景露台享用昨日濟州堂購入的手工特色麵包，配 E-Mart 採購的高蛋白希臘優酪乳、濟州鮮奶與現煮水煮蛋，沖杯熱黑咖啡。無鮑魚負擔，快速吃飽墊胃，07:20 準時精神飽滿開車出發！", "naver": "https://map.naver.com/p/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EC%8B%9C%20%EC%A7%80%EC%9E%A5%EC%83%98%EB%A1%9C182%EB%B2%88%EA%B8%B8%2025", "copyVal": "서귀포시 지장샘로182번길 25", "copyLabel": "複製西歸浦別墅地址"}, {"transit": "🚗 07:20 準時自駕出發往東海岸（行車約 50 分鐘直達城山浦港）"}, {"time": "⛵ 08:30 ➔ 11:30", "cat": "ISLAND", "title": "城山浦港出發 ➔ 牛島跳島半日遊 (우도)", "hangul": "우도", "desc": "西歸浦提早至 07:20 出發（車程 50分），搭 08:30 船入島。租微型電動車環島，打卡西濱白沙珊瑚海灘、Jimmy's 花生雪糕。（帶 IDP 駕照與護照）。", "naver": "https://map.naver.com/p/search/%EC%84%B1%EC%82%B0%ED%8F%AC%ED%95%AD%EC%A2%85%ED%95%A9%EC%97%AC%EA%B0%9D%ED%84%B0%EB%AF%B8%EB%84%90", "copyVal": "제주 서귀포시 성산읍 성산등용로 112-7", "copyLabel": "複製城山浦港地址", "tel": "064-782-5671"}, {"transit": "🚢 渡輪返回城山港 ➔ 車程 5 分鐘抵達日出峰"}, {"time": "🌋 11:50 ➔ 12:40", "cat": "NATURE", "title": "城山日出峰 (Seongsan Ilchulbong) 絕壁海景觀景步道", "hangul": "성산일출봉", "desc": "世界自然遺產！走左側免費觀景木棧道（免爬陡峭階梯），遠眺壯麗海蝕火山錐懸崖與蔚藍海灣，感受大自然的鬼斧神工。", "naver": "https://map.naver.com/p/search/%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89", "copyVal": "제주 서귀포시 성산읍 일출로 284-12", "copyLabel": "複製城山日出峰地址", "tel": "064-783-0959"}, {"transit": "🚢 渡輪返回本島 ➔ 自駕沿海岸線約 15 分鐘"}, {"time": "🦪 12:55 ➔ 14:10", "cat": "LUNCH", "title": "銘珍鮑魚 (명진전복) 濟州必吃名店", "hangul": "제주 제주시 구좌읍 해맞이해안로 1282", "desc": "招牌熱騰騰鮑魚內臟石鍋拌飯、奶油香煎活鮑魚，鍋底倒入熱茶製成鍋巴湯。", "naver": "https://map.naver.com/v5/search/%EB%AA%85%EC%A7%84%EC%A0%84%EB%B3%B5", "copyVal": "제주 제주시 구좌읍 해맞이해안로 1282", "copyLabel": "複製銘珍鮑魚地址", "tel": "064-782-9944", "dietary": "전복돌솥밥에 내장(게우)은 넣지 마세요! 양파, 파도 빼주세요. (石鍋飯請勿加鮑魚內臟，去蔥及洋蔥)"}, {"transit": "🚗 沿海迎日海岸路向西自駕約 8 分鐘"}, {"time": "🏖️ 14:25 ➔ 15:15", "cat": "BEACH & CAFE", "title": "月汀里海灘 (Woljeongri Beach) ＆ 彩色木椅海景咖啡", "hangul": "월정리해수욕장", "desc": "濟州東北部最美白沙海灘！純白沙灘搭配蔚藍漸層果凍海與海上風力發電機，坐在標誌性彩色木椅拍照，選間無敵海景咖啡店悠閒小歇。", "naver": "https://map.naver.com/v5/search/%EC%98%94%EC%A0%95%EB%A6%AC%ED%95%B4%EB%B3%80", "copyVal": "월정리해수욕장", "copyLabel": "複製韓文店名"}, {"transit": "🚗 自駕向西南行駛約 20 分鐘抵達朝天邑"}, {"time": "🌾 15:35 ➔ 16:45", "cat": "NATURE", "title": "山君不離 (산굼부리) 10月金秋整片銀白芒草海", "hangul": "산굼부리 / 제주 제주시 조천읍 비자림로 768", "desc": "天然紀念物第263號平地火山口！10月正值整座火山口漫山遍野盛開無邊無際的金色芒草海，15:45-16:45 夕陽斜照為全天金光最高光時刻！木棧道平緩好走。", "naver": "https://map.naver.com/v5/search/%EC%82%B0%EA%B5%BC%EB%B6%80%EB%A6%AC", "copyVal": "산굼부리", "copyLabel": "複製韓文店名"}, {"transit": "🚗 自駕南下西歸浦果園區約 25 分鐘"}, {"time": "🍊 16:45 ➔ 17:45", "cat": "FARM", "title": "西歸浦親採蜜柑體驗（或選擇留在山君不離睇日落，將採柑移至明早 10:00！）", "desc": "【彈性雙保險】選項 A：若想今日採柑，16:00 離開山君不離南下，16:45 抵達柑橘園採摘；選項 B（最從容推薦）：在山君不離慢慢影到 17:00 日落，將採蜜柑留到明早 Day 9 10:00 別墅退房後順路 10 分鐘去採！", "naver": "https://map.naver.com/p/search/%EA%B7%A4%EA%BD%83%EB%8B%A4%EB%9D%BD", "copyVal": "제주 서귀포시 이어도로1027번길 34", "copyLabel": "複製橘花閣樓地址", "tel": "064-739-1515"}, {"transit": "🚗 自駕約 15 分鐘至市中心"}, {"time": "🍢 18:30 ➔ 20:00", "cat": "NIGHT MARKET", "title": "西歸浦每日偶來市場 (서귀포매일올레시장)", "hangul": "서귀포매일올레시장", "desc": "品嚐整顆爆汁柑橘大福、黑豬肉魷魚炸壽司、老奶奶年糕、烤秋刀魚紫菜包飯與地道小吃。", "naver": "https://map.naver.com/p/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EB%A7%A4%EC%9D%BC%EC%98%AC%EB%A0%88%EC%8B%9C%EC%9E%A5", "copyVal": "제주 서귀포시 중앙로62번길 18", "copyLabel": "複製偶來市場地址", "tel": "064-762-1949"}, {"transit": "🚗 車程約 8 分鐘返回海景別墅"}, {"time": "🌌 20:15", "cat": "RELAX", "title": "返回海景別墅露台與 Jacuzzi 享受星空夜色", "desc": "伴隨海浪微風泡熱水按摩浴池，享用夜市戰利品，度過濟州最後一個美好夜晚。", "naver": "https://map.naver.com/p/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EC%8B%9C%20%EC%A7%80%EC%9E%A5%EC%83%98%EB%A1%9C182%EB%B2%88%EA%B8%B8%2025", "copyVal": "서귀포시 지장샘로182번길 25", "copyLabel": "複製西歸浦別墅地址"}]}, {"num": 9, "date": "10/24 星期六", "region": "西歸浦 ➔ 涯月海線 ➔ 機場返港", "title": "鮮味尾聲：挾才海灘、涯月韓屋海景咖啡 ＆ 澎湃海鮮鍋", "highlight": "🏖️ 挾才海景海女拉麵 ➔ ☕ 涯月韓屋咖啡＆Kaymak ➔ 🍲 三姓穴海鮮湯 ➔ ✈️ 返港", "weather": "🌤️ 15°C ~ 22°C ｜ 晴時多雲，海灘漫步微風舒適", "goldenHour": "🛫 濟州直航返港 17:44 ｜ 暮色歸航", "photoCaption": "濟州東門傳統市場・地道蔬果市集拱廊", "events": [{"time": "🌅 10:00 ➔ 10:45", "cat": "RELAX", "title": "海景別墅從容退房（若昨日未採蜜柑，10:00–10:45 順路 10 分鐘採摘！）", "desc": "若昨日選擇在山君不離睇完日落未採柑，今早 10:00 退房後開車 10 分鐘順訪西歸浦「橘花閣樓」或「Jejue in 柑橘田」在晨光下採柑；若昨日已採，則可在別墅多睡至 10:30 悠閒退房！", "naver": "https://map.naver.com/p/search/%EA%B7%A4%EA%BD%83%EB%8B%A4%EB%9D%BD", "copyVal": "제주 서귀포시 이어도로1027번길 34", "copyLabel": "複製採柑農場地址"}, {"transit": "🚗 沿西北景觀公路自駕約 45 分鐘至挾才"}, {"time": "🦀 11:40 ➔ 12:50", "cat": "LUNCH", "title": "挾才海鮮拉麵 (협재해녀의집) ＆ 挾才白沙海灘", "hangul": "협재해녀의집", "desc": "驅車前往湛藍的挾才海灘，品嚐加入整隻紅蟳、活鮑魚與鮮蝦的道地海女拉麵。", "naver": "https://map.naver.com/p/search/%ED%98%91%EC%9E%AC%ED%95%B4%EB%85%80%EC%9D%98%EC%A7%91", "copyVal": "제주 제주시 한림읍 협재1길 11", "copyLabel": "複製挾才海女之家地址", "tel": "064-796-7790", "dietary": "해물라면에 파, 양파, 굴은 꼭 빼주세요! (海鮮拉麵請務必去蔥、去洋蔥、去生蠔)"}, {"transit": "🚗 沿海岸線自駕約 15 分鐘至涯月邑"}, {"time": "☕ 13:10 ➔ 15:10", "cat": "CAFE", "title": "涯月海線慢活巡禮：해지개 (海地開) 韓屋海景咖啡 ＆ siso kaymak 奶油麵包", "hangul": "해지개 (애월북서길 52) / 시소 카이막 (애월해맞이로 156)", "desc": "沿西北海岸公路自駕至涯月邑：先至【해지개（海地開）】漢潭海岸步道旁超美傳統韓屋風海景咖啡廳，三層樓落地窗坐擁無遮蔽海景，品嚐特色茶飲；接著漫步至【siso kaymak】品嚐熱騰騰現烤出爐的土耳其奶油蜂蜜麵包（Kaymak），濃郁水牛奶酪與純蜜香氣撲鼻，沿漢潭海岸散步道欣賞海天一色！", "naver": "https://map.naver.com/v5/search/%ED%95%B4%EC%A7%80%EA%B0%9C", "copyVal": "해지개 (애월북서길 52)", "copyLabel": "複製韓文店名"}, {"transit": "🚗 自駕前往濟州市區約 25 分鐘"}, {"time": "🛍️ 15:40 ➔ 17:15", "cat": "SHOPPING", "title": "東門傳統市場 ＆ 七星路商圈手信採買", "hangul": "동문재래시장", "desc": "採購濟州限定柑橘朱古力、牛島花生夾心餅、黑豬肉脆片與伴手禮。", "naver": "https://map.naver.com/p/search/%EB%8F%99%EB%AC%B8%EC%9E%AC%EB%9E%98%EC%8B%9C%EC%9E%A5", "copyVal": "제주 제주시 관덕로14길 20", "copyLabel": "複製東門市場地址", "tel": "064-752-3001"}, {"transit": "🚗 車程約 10 分鐘至蓮洞附近"}, {"time": "🍲 17:30 ➔ 18:45", "cat": "DINNER", "title": "三姓穴海鮮湯 (삼성혈해물탕) 藍絲帶澎湃鍋", "hangul": "삼성혈해물탕 / 제주 제주시 도령로 34", "desc": "整鍋滿出鍋沿的鮮活大章魚、鮑魚、扇貝與螃蟹，湯頭無比鮮甜，完美句點！", "naver": "https://map.naver.com/v5/search/%EC%82%BC%EC%84%B1%ED%98%88%ED%95%B4%EB%AC%BC%ED%83%95", "copyVal": "삼성혈해물탕", "copyLabel": "複製韓文店名"}, {"transit": "🚗 車程約 8 分鐘抵達機場租車站"}, {"time": "🚗 19:00", "cat": "CAR RETURN", "title": "濟州 LOTTE Auto House 歸還車輛 ➔ 機場接駁", "hangul": "롯데렌터카 오토하우스", "desc": "歸還純電車 IONIQ 9，乘搭免費接駁車前往濟州機場國際航廈，辦理退稅。", "naver": "https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4", "copyVal": "제주 제주시 용해로 92", "copyLabel": "複製樂天還車地址", "tel": "1588-1230"}, {"transit": "🚶 辦理出境與 Tax Free 退稅手續"}, {"time": "🛫 21:30 ➔ 23:35", "cat": "FLIGHT", "title": "濟州機場 (CJU) ➔ 香港國際機場 T1", "hangul": "진에어 LJ713", "desc": "乘搭真航空 LJ713 航班返回香港。平安滿載美好回憶返抵家門！"}]}];
+    const allDaysData = [{"num": 1, "date": "10/16 星期五", "region": "首爾仁川 · 恩平區", "title": "第一階段：都會夜色與自駕啟程", "highlight": "✈️ UO626 抵達 ➔ 提取 Hyundai Staria ➔ 恩平 Ribbon Stay 自帶免費專屬泊車位", "weather": "☀️ 12°C ~ 22°C ｜ 金秋晴朗，深夜微涼 14°C", "goldenHour": "🌇 首爾落日 17:54 (金光暮色)", "photoCaption": "首爾仁川・南山首爾塔街景遠眺", "events": [{"time": "🛫 16:55 ➔ 21:35", "cat": "FLIGHT", "title": "香港國際機場 T2 ➔ 仁川國際機場 T1", "desc": "乘搭香港快運 UO626 航班抵達仁川機場 T1。辦理入境手續並提取行李。", "copyVal": "UO626"}, {"transit": "🚶 通關與步行約 15 分鐘至 1樓 12號門"}, {"time": "🚗 22:30", "cat": "CAR RENTAL", "title": "仁川機場 T1 提取 Hyundai Staria 9人商務車", "desc": "交接提取商務車（RENTBANK / Trip.com 訂單 #1359047919213593）。", "tip": "⚠️ 必備文件：香港駕照正本、國際駕照 (IDP)、護照正本、實體凸字信用卡（按金約 KRW 100,000）。", "copyVal": "3410", "copyLabel": "複製 PIN 3410", "tel": "+82-10-3212-6215", "naver": "https://map.naver.com/p/search/%EC%9D%B8%EC%B2%9C%EA%B5%AD%EC%A0%9C%EA%B3%B5%ED%95%AD%20%EC%A0%9C1%EC%97%AC%EA%B0%9D%ED%84%B0%EB%AF%B8%EB%84%90"}, {"transit": "🚗 自駕前往恩平區，行車約 45 分鐘（注意行駛現金/信用卡收費道）"}, {"time": "🏨 23:15", "cat": "STAY", "title": "入住首爾恩平區：Ribbon Stay", "desc": "整套房源，電子密碼鎖自助入住。自帶【免費專屬泊車位】，Staria 商務車可直接停泊！", "tip": "💡 守則：10/17 11:00 前退房；垃圾分類（廚餘放水槽紫色專用袋）；離房請關冷氣。", "naver": "https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%20%EC%9D%80%ED%8F%89%EA%B5%AC%20%EC%97%B0%EC%84%9C%EB%A1%9C3%EA%B8%B8%208"}]}, {"num": 2, "date": "10/17 星期六", "region": "首爾麻浦 · 延南洞 / 梨泰院", "title": "延南漫步、秋鰤魚 ➔ 汝矣島 The Hyundai 首爾 ＆ Namsan Sool Club", "highlight": "🌿 延南文創 3.5h ➔ 🌅 汝矣島 The Hyundai ＆ 17:53 漢江晚霞 ➔ 🐟 厚切秋鰤魚 ➔ 🍶 經理團路傳統酒", "weather": "☀️ 13°C ~ 22°C ｜ 秋高氣爽少雲，午後微暖舒適", "goldenHour": "🌇 汝矣島漢江落日 17:53 (金光暮色)", "photoCaption": "首爾麻浦・延南洞新村招牌活力街景", "events": [{"time": "🌾 09:30 ➔ 11:15", "cat": "OPTIONAL & STAY", "title": "恩平退房 ➔ (可選: 麻浦天空公園紫芒海) ➔ 延南洞 Airbnb 泊車寄存", "desc": "【10月限定順路加點】若早起精神好，退房後可先順道去距離延南洞僅 8 分鐘車程的【麻浦天空公園 】，搭青蛙電動車上山睇無邊際銀白紫芒草海與波波草！11:00 抵延南洞民宿寄存行李並泊妥 Staria（全天步行＋計程車）。", "naver": "https://map.naver.com/p/search/%ED%95%98%EB%8A%98%EA%B3%B5%EC%9B%90"}, {"transit": "🚶 漫步延南洞巷弄約 6 分鐘"}, {"time": "🍽️ 11:30 ➔ 12:45", "cat": "LUNCH", "title": "延南磨坊韓食 (Jincheongyujeom) 延南磨坊現代韓食 (11:30開門首批免排隊)", "desc": "店內自設磨坊每日現榨純正香油與紫蘇油。必吃甘藍菜包牛肉強大醬包飯、現壓紫蘇油冷蕎麥麵、香煎豬頸肉（特別叮囑交代去蔥、洋蔥）。", "naver": "https://map.naver.com/p/search/%EC%A7%84%EC%B2%AD%EC%9C%A0%EC%A0%90"}, {"transit": "🚶 漫步京義線綠蔭大道（14:30 途經 Bada Sarang 可先去門口登記候位！）"}, {"time": "🌿 12:45 ➔ 16:00", "cat": "STROLL & COFFEE", "title": "延南洞文創潮鋪 (Object/Musinsa/fwee) ＆ 冠軍手沖咖啡巡禮", "desc": "漫步京義線銀杏林道，逛 Object 四層文創、Musinsa Standard（即場退稅）、fwee 布丁彩妝、Parole & Langue 粟米塔；於 Default Value 飲虹吸冠軍手沖或 Pouring Out 黑膠聽歌。💡 貼士：14:30 途經 Bada Sarang 2號店時可先去門口抽號！", "naver": "https://map.naver.com/p/search/%EC%98%A4%EB%B8%8C%EC%A0%9D%ED%8A%B8%20%EC%84%9C%EA%B5%90%EC%A0%90"}, {"transit": "🚶 步行前往東橋路約 8 分鐘"}, {"time": "🐟 16:00 ➔ 17:30", "cat": "DINNER", "title": "Bada Sarang 2號店 厚切秋大鰤魚刺身 (錯峰堂食 / 外帶免排隊神技)", "desc": "🚨 排隊實況：10月大鰤魚當造加週六，18:00 後現場動輒排 2 小時！兩大免死排神技：① 14:30 逛街時先去門口抽號，16:00 錯峰入座；② 點「外帶自取 (Takeout)」只需 15 分鐘即取，拎返延南洞獨棟民宿大客廳嘆！（長者熟食備選：延禧洞奶奶家現烤魚定食 或 延南刀削麵）。", "naver": "https://map.naver.com/p/search/%EB%B0%94%EB%8B%A4%ED%9A%8C%EC%82%AC%EB%9E%91%202%ED%98%B8%EC%A0%90"}, {"transit": "🚕 跨過麻浦大橋直達汝矣島，車程僅約 12 分鐘"}, {"time": "🏢 17:45 ➔ 20:30", "cat": "SHOPPING & NIGHT VIEW", "title": "汝矣島 The Hyundai Seoul 室內空中花園 ＆ 漢江公園璀璨夜景", "desc": "先逛 5F Sounds Forest 挑高室內花園（6樓扶手電梯口俯拍全景）與 B2 潮牌（Matin Kim / Stand Oil / Depound，週六營業至 20:30）；隨後步出汝矣島漢江公園欣賞漢江大橋燈光夜景與江風。", "naver": "https://map.naver.com/p/search/%EB%8D%94%ED%98%84%EB%8C%80%20%EC%84%9C%EC%9A%B8"}, {"transit": "🚕 自汝矣島搭計程車走元曉路直達梨泰院經理團路，車程約 15 分鐘"}, {"time": "🍶 21:00", "cat": "BAR", "title": "Korean Bistro Mr. Ahn's Makgeolli (安氏)", "desc": "米芝蓮指南推薦現代韓國酒館，精選多款傳統手工生馬格利與精緻下酒菜。", "naver": "https://map.naver.com/v5/search/%EC%95%88%EC%94%A8%EB%A7%89%EA%B1%B8%EB%A6%AC"}, {"transit": "🚶 經理團路上坡步行約 4 分鐘"}, {"time": "🥃 22:30", "cat": "TASTING BAR", "title": "Namsan Sool Club 韓國傳統酒 Tasting", "desc": "首爾極具代表性的韓國傳統酒 Tasting Bar！嚴選全韓小型獨立酒造之珍稀地酒、生馬格利、藥酒與蒸餾燒酎，提供專業品飲組合（Tasting Flight）。距安氏馬格利僅數分鐘步程，兩者連線體驗極致微醺。", "tip": "💡 亮點：可品嚐市面上難得一見的微型酒造限定佳釀，現場團隊具備豐富傳統酒風土解說經驗。", "naver": "https://map.naver.com/v5/search/%EB%82%A8%EC%82%B0%EC%88%A0%ED%81%B4%EB%9F%BD"}]}, {"num": 3, "date": "10/18 星期日", "region": "首爾鐘路 · 北村 / 西村", "title": "第二階段：韓屋古風與亞洲頂級酒吧", "highlight": "👘 景福宮韓服 2.5h ➔ 🥢 廣藏市場 ➔ 🎋 益善洞 ➔ ☕ 北村三清洞 ➔ 🍷 On 6.5 ➔ 🍸 Bar Cham", "weather": "☀️ 11°C ~ 21°C ｜ 天晴乾爽，早晚溫差顯著 (宜洋蔥式穿搭)", "goldenHour": "🌇 北村韓屋落日 17:51 (黑瓦晚霞)", "photoCaption": "首爾鐘路・北村黑瓦韓屋俯瞰城市天際線", "events": [{"time": "👘 09:00 ➔ 11:45", "cat": "EXPERIENCE", "title": "景福宮 免票韓服深度體驗 (首推西花韓服 · 預留足 2h45m)", "desc": "09:00 抵達【西花韓服 】（景福宮站4號出口步行1分鐘，全店統一公價 ₩24,000/4小時不加價，包編髮頭飾）。09:40 入宮慢拍慶會樓、香遠亭古楓倒影與勤政殿；11:25 歸還韓服換回輕便波鞋出發食午餐！", "naver": "https://map.naver.com/p/search/%EC%84%9C%ED%99%94%ED%95%9C%EB%B3%B5", "tel": "02-725-8560"}, {"transit": "🚕 搭車約 10 分鐘直達廣藏市場（若不想去市場迫，可直接行去景福宮旁食百年土俗村參雞湯）"}, {"time": "🥢 12:00 ➔ 13:30", "cat": "LUNCH", "title": "廣藏市場小吃：富村生牛肉 ＆ 順熙家綠豆煎餅", "desc": "12:00 提早抵達避開最高峰人潮！米芝蓮必比登推薦新鮮生牛肉配甜水梨絲（特別叮囑交代去蔥、退回生牛肝百葉）；同場加購順熙家現煎香脆綠豆煎餅。", "naver": "https://map.naver.com/p/search/%EB%B6%80%EC%B4%8C%EC%9C%A1%ED%9A%8C%20%EB%B3%B8%EC%A0%90", "tel": "02-2267-1831"}, {"transit": "🚕 搭車 5 分鐘（或漫步 12 分鐘）前往益善洞韓屋村"}, {"time": "🎋 13:45 ➔ 15:00", "cat": "TEA", "title": "益善洞韓屋村 ＆ 清水堂竹林庭園下午茶 (順買自然島鹽麵包)", "desc": "漫步益善洞古樸韓屋小巷，順手買一袋 4 個剛出爐熱騰騰「自然島鹽麵包」，於清水堂流水竹林庭園品嚐滴漏咖啡與舒芙蕾（或小夏鹽田/Mil Toast）。", "naver": "https://map.naver.com/p/search/%EC%B2%AD%EC%88%98%EB%8B%B9"}, {"transit": "🚶 由益善洞往北漫步約 10 分鐘進入安國／北村／三清洞街區"}, {"time": "☕ 15:10 ➔ 16:55", "cat": "COFFEE", "title": "首爾工藝博物館千年銀杏 ＆ 北村三清洞香氛散步 (Green Mile 3F)", "desc": "先經過安國站旁免費開放的【首爾工藝博物館】大草坪打卡百年金黃巨型銀杏樹；隨後探訪 Tamburins 三清旗艦店、雪花秀之屋、Granhand 韓屋香氛（免費鋼印麻布香包），並上 Green Mile Coffee 3 樓天台（或車喝庭園）俯瞰黑瓦全景。", "naver": "https://map.naver.com/v5/search/%EA%B7%B8%EB%A6%B0%EB%A7%88%EC%9D%BC%EC%BB%A4%ED%94%BC%20%EB%B6%81%EC%B4%8C%EC%A0%90"}, {"transit": "🚶 零車程無縫銜接！由北村步行 3 分鐘直接入座安國站旁 On 6.5"}, {"time": "🍷 17:00 ➔ 19:00", "cat": "RESERVED", "title": "On 6.5 創意泡菜餐酒館【已預約】", "desc": "首爾創意泡菜發酵與精緻料理餐酒館（已確認預約 17:00）。主廚將泡菜工藝精緻化，入座請向侍酒師特別叮囑。", "naver": "https://map.naver.com/p/search/%EC%98%A86.5", "tel": "02-739-6565"}, {"transit": "🚕 搭車 6 分鐘（或散步 12 分鐘）前往景福宮西側西村（可順逛 TOUT Y EST 皮具）"}, {"time": "🍸 19:15 ➔ 21:30", "cat": "ASIA'S 50 #33", "title": "Bar Cham ＆ Gong-Gan", "desc": "亞洲50最佳酒吧 #33！17:00 前往 On 6.5 前或 18:30 先行登記候位，餐後 19:15 順暢前往入座，品嚐韓國傳統酒與地道風味調酒（建議拆 2+3 人入座）。", "tip": "⚠️ 排隊攻略：建議拆成 2+3 人入座最快；抵達現場立即以門口平板 Catchtable 取號！", "naver": "https://map.naver.com/v5/search/%EB%B0%94%EC%B0%B8"}, {"transit": "🚶 步行至光化門約 8 分鐘"}, {"time": "🍗 22:00 ➔ 23:15", "cat": "LATE NIGHT", "title": "Hyodo Chicken (孝道炸雞 光化門店)", "desc": "招牌「小銀魚螺絲椒炸雞」，外皮酥脆香辣多汁。", "naver": "https://map.naver.com/p/search/%ED%9A%A8%EB%8F%84%EC%B9%98%ED%82%A8%20%EA%B4%91%ED%99%94%EB%AC%B8%EC%A0%90", "tel": "02-722-1138"}]}, {"num": 4, "date": "10/19 星期一", "region": "京畿道 · 加平秋楓自駕", "title": "加平秘境：南怡島賞楓 ➔ 聖水洞潮流巡禮 ➔ 東大門陳玉華一隻雞", "highlight": "⚡ 80米高空飛索 ➔ 🍁 水杉大道金黃銀杏 ➔ 🎨 聖水洞紅磚潮流選品 ➔ 🍲 東大門陳玉華一隻雞", "weather": "🌤️ 8°C ~ 18°C (加平山區) ｜ 晨間清冽宜著薄羽絨，午後回溫", "goldenHour": "🌅 晨曦出發 06:45 ｜ 🌇 加平南怡島落日 17:50", "photoCaption": "京畿道加平・南怡島水杉林火紅秋葉步道", "events": [{"time": "⚡ 06:45 出發 ➔ 08:30/09:00 飛索", "cat": "ZIPLINE", "title": "南怡島 Skyline Zipwire 高空飛索入島", "desc": "自 80 公尺高塔鋼索以時速數十公里飛馳直衝入島（需提前 15 分鐘報到）。", "naver": "https://map.naver.com/p/search/%EB%82%A8%EC%9D%B4%EC%84%AC%20%EC%A7%9A%EC%99%80%EC%9D%B4%EC%96%B4", "tel": "031-580-8000"}, {"transit": "🚶 飛索入島後漫步水杉大道"}, {"time": "🍁 09:05 ➔ 12:00", "cat": "AUTUMN", "title": "南怡島 3 小時金秋徒步大環線 (水杉大道、松坡銀杏地毯、水岸楓林)", "desc": "秋季金黃與緋紅滿山，水杉路與中央楓葉大道絕美景致。", "naver": "https://map.naver.com/p/search/%EB%82%A8%EC%9D%B4%EC%84%AC"}, {"transit": "🚢 搭渡輪返回碼頭約 10 分鐘"}, {"time": "🧀 12:30", "cat": "LUNCH", "title": "加平碼頭：正宗春川辣炒雞排", "desc": "鐵板現炒嫩雞肉、高麗菜、年糕與牽絲芝士，最後炒入白飯製成鍋巴。", "naver": "https://map.naver.com/p/search/%EA%B0%80%ED%8F%89%20%EC%B6%98%EC%B2%9C%EB%8B%AD%EA%B0%88%EB%B9%84"}, {"transit": "🚗 13:45 提早啟程自駕返回首爾，避開傍晚通勤塞車！行車約 1 小時 20 分鐘直達漢江北岸"}, {"time": "🎨 15:00 ➔ 18:15", "cat": "TREND & COFFEE", "title": "首爾林秋色漫步 ＆ 聖水洞 3.5 小時潮流旗艦巡禮 (Dior & POV)", "desc": "Staria 停首爾林公營平面停車場後，先步入旁邊【首爾林公園】水杉與銀杏林道漫步 20 分鐘！隨後逛聖水洞：① Dior 玻璃宮殿；② Point of View 三層復古文具博物館；③ Ader Error Space 2.0；④ Kith Seoul；⑤ Stand Oil & Blue Elephant 平價墨鏡。咖啡歇腳 Center Coffee 或 Lowkey。", "naver": "https://map.naver.com/v5/search/%EB%94%94%EC%98%AC%EC%84%B1%EC%88%98"}, {"transit": "🚗 自聖水洞開車或計程車至東大門，行車僅約 18 分鐘"}, {"time": "🍲 19:00", "cat": "DINNER", "title": "陳玉華一隻雞", "desc": "Staria 停於東大門 DDP 大型平面停車場。開火剪雞時第一時間夾出厚切京蔥，純享蒜香清雞湯煮手工刀削麵。餐後順路散步 5 分鐘欣賞【DDP 東大門設計廣場】銀色太空建築夜景！隨後不飲酒司機開 Staria 載長輩返延南洞，3人搭車去江南 Bar Zest。", "naver": "https://map.naver.com/v5/search/%EC%A7%84%EC%98%A5%ED%99%94%ED%95%A0%EB%A7%A4%EC%9B%90%EC%A1%B0%EB%8B%AD%ED%95%9C%EB%A7%88%EB%A6%AC"}, {"transit": "🚕 車程跨越漢江至江南島山公園約 20 分鐘"}, {"time": "🍸 21:00 ➔ 23:30", "cat": "ASIA'S 50 #2 & #42", "title": "Bar Zest ＆ M+MS bar", "desc": "【江南清潭/島山頂級酒吧雙絕】：\n1. 🌟 Bar Zest ：榮獲 2024「亞洲 50 最佳酒吧」第 2 名（世界 50 大第 18）！極致零浪費（Zero-Waste）永續調酒神殿，必點自家精餾杜松子酒調製的招牌 Zest G&T 與濟州柑橘特調。\n2. 🍸 M+MS bar ：亞洲 50 最佳酒吧第 42 名，距離 Zest 步行僅約 6 分鐘（約 500 公尺），兩家可依候位狀況安排雙連訪或二選一！", "tip": "💡 候位與預約攻略：Zest 建議提早於 Catchtable 預訂或現場 20:30 前取號候位（多人同行可分 2+3 人或入座桌席）；若 Zest 需候位可先至旁邊 M+MS bar 享用首杯！", "naver": "https://map.naver.com/v5/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4", "tel": "+82-10-3177-8801"}]}, {"num": 5, "date": "10/20 星期二", "region": "首爾 · 漢南洞 / 馬場洞", "title": "漢南洞漫遊＆三星美術館 ➔ 狎鷗亭 MUTAN ➔ COEX 星空圖書館 ➔ 馬場洞 1++ 韓牛 ➔ 22:00 還車", "highlight": "☕ 漢南洞＆三星美術館 ➔ 🍜 MUTAN 炸醬麵 ➔ 📚 COEX 星空圖書館 ➔ 🥩 馬場洞韓牛 ➔ 🚗 22:00 首爾站還車", "weather": "🌤️ 10°C ~ 19°C ｜ 秋陽明朗，微風舒適宜著針織衫", "goldenHour": "🌇 首爾落日 17:49 (市區微涼)", "photoCaption": "漢南洞坡道與霓虹街景 ➔ 飛往濟州", "events": [{"time": "☕ 10:00 ➔ 11:00", "cat": "COFFEE", "title": "漢南洞晨光精品手沖：GML Seoul 世界名豆選品吧 或 BreadyPost 蝴蝶餅", "desc": "潮牌 11:00 開門前，先在 GML 品嚐世界咖啡大賽冠軍微批次手沖單品，或於 BreadyPost 享用新鮮出爐軟心牛油蝴蝶餅 (Pretzel)。", "naver": "https://map.naver.com/p/search/gml%20seoul"}, {"time": "🛍️ 11:00 ➔ 14:00", "cat": "SHOPPING & ART", "title": "漢南洞設計師潮牌漫遊 ＆ (可選) Leeum 三星美術館", "desc": "可順訪旁邊韓國頂級私人美術館【Leeum 三星美術館】（螺旋樓梯與常設展免費）；隨後掃街 Mardi Mercredi、Marithé、EMIS、Rockfish、BEAKER、Nonfiction 香氛、五月之鐘無花果歐包及 Hyundai Card 黑膠試聽館。", "naver": "https://map.naver.com/p/search/%EB%A6%AC%EC%9B%80%EB%AF%B8%EC%88%A0%EA%B4%80"}, {"transit": "🚗 自駕跨過漢南大橋，車程僅約 15 分鐘直達江南狎鷗亭"}, {"time": "🍜 14:30 ➔ 15:45", "cat": "LUNCH", "title": "MUTAN 狎鷗亭本店：招牌黑松露韓牛牛排炸醬麵 ＆ 黃金麵包蝦", "desc": "14:30 錯峰免排隊輕鬆入座！必點招牌「黑松露韓牛牛排炸醬麵」與「特厚黃金麵包蝦 (Menbosha)」。", "naver": "https://map.naver.com/p/search/%EB%AC%B4%ED%83%84%20%EC%95%95%EA%B5%AC%EC%A0%95%EB%B3%B8%EC%A0%90"}, {"time": "🛍️ 15:45 ➔ 17:30", "cat": "SHOPPING", "title": "狎鷗亭 Rodeo / 島山公園前衛旗艦店漫步 (HAUS DOSAN / Wiggle Wiggle)", "desc": "探訪 HAUS DOSAN (Gentle Monster / Tamburins / Nudake 熔岩可頌蛋糕)、Stussy Seoul、Wiggle Wiggle Zip 奇幻旗艦店。", "naver": "https://map.naver.com/p/search/%ED%95%98%EC%9A%B0%EC%8A%A4%20%EB%8F%84%EC%82%B0"}, {"transit": "🚗 自駕約 10 分鐘前往江南三成洞 COEX 商場（地下停車場車位極充裕）"}, {"time": "📚 17:40 ➔ 18:30", "cat": "LANDMARK", "title": "江南 COEX 星空圖書館 13米高通天書牆打卡", "desc": "因為延至 22:00 還車，下午時間極充裕！順道造訪首爾視覺地標「星空圖書館」，高達 13 米的巨型挑高書架在傍晚暖光下極為震撼，長輩與年輕人打卡皆宜。", "naver": "https://map.naver.com/p/search/%EB%B3%84%EB%A7%88%EB%8B%B9%EB%8F%84%EC%84%9C%EA%B4%80"}, {"transit": "🚗 自駕跨過聖水大橋／東湖大橋直達馬場洞（車程約 25 分鐘，停市場西門公營平面停車場）"}, {"time": "🥩 19:00 ➔ 21:00", "cat": "DINNER", "title": "馬場洞畜產物市場：1++ No.9 頂級雪花韓牛炭火燒肉", "desc": "5 人不用逼地鐵，直接開 Staria 到達！於 1 樓肉鋪挑選最高等級 1++ No.9 雪花肋眼與牛小排，直上 2 樓炭火現烤（只沾海鹽與山葵，退回涼拌蔥絲與烤牛腸）。", "naver": "https://map.naver.com/p/search/%EB%A7%88%EC%9E%A5%EB%8F%99%EC%B6%95%EC%82%B0%EB%AC%BC%EC%8B%9C%EC%9E%A5"}, {"transit": "🚗 食飽後開車約 20 分鐘前往首爾站周邊加油站入滿油，夜晚道路順暢不塞車！"}, {"time": "🚗 21:30 ➔ 22:00", "cat": "CAR RETURN", "title": "首爾站門市加滿油從容歸還 Staria 商務車 (22:00 還車)", "desc": "於中區漢江大路 405 號辦妥還車手續。還車後長輩直接搭的士 15 分鐘返回延南洞民宿休息。", "naver": "https://map.naver.com/p/search/%EC%84%9C%EC%9A%B8%20%EC%A4%91%EA%B5%AC%20%ED%95%9C%EA%B0%95%EB%8C%80%EB%A1%9C%20405"}, {"transit": "🚕 3 人小酌組由首爾站搭車前往酒吧（或返延南洞/合井周邊酒吧）"}, {"time": "🍸 22:15 ➔ 23:45", "cat": "BAR", "title": "狎鷗亭 Speakeasy Pine&Co 或 延南/合井質感酒吧 (BLOOD&SAND / tott)", "desc": "在首爾最後一晚舉杯慶功！若不想再過江去江南，可直接去延南洞民宿旁合井的滿分酒吧 tott seoul 或威士忌吧 BLOOD&SAND，飲完 5 分鐘返房睡覺（明早飛濟州）！", "naver": "https://map.naver.com/p/search/%ED%8C%8C%EC%9D%B8%EC%95%A4%EC%BD%94"}]}, {"num": 6, "date": "10/21 星期三", "region": "金浦飛濟州 ➔ 濟州市蓮洞", "title": "耽羅仙境：純電自駕、Arte Museum 光影 ＆ 熟成到黑豬肉", "highlight": "✈️ 晨飛濟州 ➔ ⚡ IONIQ 9 純電車 ➔ 🎨 Arte Museum ➔ 🥩 熟成到代烤黑豬肉", "weather": "🌤️ 15°C ~ 22°C ｜ 濟州初入秋，海風舒爽宜人", "goldenHour": "🌇 濟州落日 17:47 (海角暮色)", "photoCaption": "濟州西歸浦・柑橘體驗農場木牌", "events": [{"time": "🛫 07:35 ➔ 08:50", "cat": "FLIGHT", "title": "金浦機場 (GMP) ➔ 濟州機場 (CJU)", "desc": "05:45 出發往金浦。乘搭易斯達航空 ZE207 抵達濟州機場領取行李。"}, {"transit": "🚌 機場 5號門乘搭樂天免費接駁車約 8 分鐘"}, {"time": "⚡ 09:30", "cat": "CAR RENTAL", "title": "LOTTE Auto House 提取 IONIQ 9 純電 7人車", "desc": "5號門外搭接駁車至 Auto House 取車。車型：IONIQ 9 4WD 純電 7人座（預約號：2622541225）。", "tip": "🎁 福利：憑樂天車鑰匙享山茶花丘 30% 折扣、樂天飯店 15%！", "copyVal": "2622541225", "copyLabel": "複製預約號: 2622541225", "tel": "1588-1230", "naver": "https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4"}, {"transit": "🚗 自駕沿海岸線行駛約 10 分鐘"}, {"time": "🌈 10:00", "cat": "COAST", "title": "道頭彩虹海岸道路 (海岸自駕兜風路過)", "desc": "開車沿海岸線路過欣賞七彩防波塊與蔚藍海景，無需專程排隊拍照，悠閒兜風。", "naver": "https://map.naver.com/p/search/%EB%8F%84%EB%91%90%EB%8F%99%EB%AC%B4%EC%A7%80%EA%B0%9C%ED%95%B4%EC%95%88%EB%8F%84%EB%A1%9C"}, {"transit": "🚗 車程約 8 分鐘至濟州市區"}, {"time": "🍜 11:30", "cat": "LUNCH", "title": "姊妹麵條 濟州藍絲帶名店", "desc": "濃白醇厚黑豬肉骨高湯，鋪滿炙烤切片黑豬肉片。", "naver": "https://map.naver.com/p/search/%EC%9E%90%EB%A7%A4%EA%B5%AD%EC%88%98", "tel": "064-746-2222"}, {"transit": "🚗 往西南方向自駕約 25 分鐘"}, {"time": "🎨 13:15 ➔ 15:00", "cat": "ART", "title": "Arte Museum 沉浸式巨幅光影藝術館", "desc": "以聲光音效打造的巨幅光影浪潮、瀑布與熱帶雨林光影空間，視覺衝擊力極強。（芒草景觀專注安排在 Day 8 山君不離，此處不爬陡坡，省下體力）。", "naver": "https://map.naver.com/p/search/%EC%95%84%EB%A5%B4%EB%96%BC%EB%AE%A4%EC%A7%80%EC%97%84%20%EC%A0%9C%EC%A3%BC", "tel": "1899-5008"}, {"transit": "🚗 15:20–17:15 前往郭支海灘漫步、品嚐 Umu 海藻布丁（🚨 16:00 準時打開 Catchtable 抽熟成到號碼牌！）"}, {"transit": "🚗 17:45 先返回蓮洞民宿 'Been' 辦理入住、卸下行李並泊好純電車於前院私人車位！"}, {"time": "🥩 18:30 ➔ 20:30", "cat": "DINNER", "title": "熟成到 (Sukseongdo 蓮洞店) 極品代烤黑豬肉", "desc": "濟州第一名熟成黑豬肉，專人厚切炭火桌邊代烤，肉汁噴發！建議下午先以 Catchtable 取號。", "naver": "https://map.naver.com/p/search/%EC%88%99%EC%84%B1%EB%8F%84%20%EB%85%B8%ED%98%95%EC%A0%90", "tel": "064-711-5212"}, {"transit": "🚗 車程約 3 分鐘直達民宿"}, {"time": "🏨 20:30", "cat": "STAY", "title": "入住蓮洞：蓮洞庭院別墅 'Been' (Airbnb)", "desc": "4.98超高評分「旅人至愛」。前院獨立私人免費車位（IONIQ 9 免費停泊）。3房5床2衛。", "naver": "https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EC%8B%9C%20%EC%8B%A0%EB%8C%80%EB%A1%9C17%EA%B8%B8%207"}]}, {"num": 7, "date": "10/22 星期四", "region": "濟州南岸 · 西歸浦", "title": "壯麗南岸：海膽海帶湯、整條烤帶魚、綠茶 ＆ 別墅私人露台 BBQ 派對", "highlight": "🥣 金黃海膽海帶湯 ➔ 🐟 一公尺烤帶魚 ➔ 🍵 Osulloc 綠茶 ➔ 🌸 山茶花丘 ➔ 🥩 海景別墅露台炭火BBQ", "weather": "☀️ 16°C ~ 23°C ｜ 西歸浦向陽避風，氣候最溫暖舒適", "goldenHour": "🌇 西歸浦懸崖落日 17:46 (露台暮色)", "photoCaption": "西歸浦・盛開洋紅山茶花樹林與花瓣步道", "events": [{"time": "🥣 08:45 ➔ 09:45", "cat": "BREAKFAST", "title": "純玉家 晨光鮮甜「海膽海帶湯」＆ 炭烤肥美青花魚", "desc": "品嚐鮮甜金黃海膽海帶湯配炭烤青花魚（完全無鮑魚，交代去蔥）。09:00 致電 064-794-2940 確認龍頭海岸當日潮汐開放時段。", "naver": "https://map.naver.com/p/search/%EC%88%9C%EC%98%A5%EC%9D%B4%EB%84%A4%EB%AA%85%EA%B0%80"}, {"transit": "🚗 09:45 退房，沿西南景觀公路自駕前往山房山（車程約 45 分鐘）"}, {"time": "🌊 10:30 ➔ 12:00", "cat": "NATURE", "title": "山房山 ＆ 龍頭海岸 (海蝕奇岩棧道 & One and Only 絕壁海景)", "desc": "預留足 1.5 小時漫步於千萬年火山凝灰岩海蝕斷崖棧道，順訪旁邊全濟州景觀第一的「One and Only」絕壁海景。", "naver": "https://map.naver.com/p/search/%EC%9A%A9%EB%A8%B8%EB%A6%AC%ED%95%B4%EC%95%88"}, {"transit": "🚗 自駕約 10 分鐘"}, {"time": "🐟 12:10 ➔ 13:30", "cat": "LUNCH", "title": "滿足的商會 一公尺整條烤帶魚全席", "desc": "品嚐招牌一公尺長整條鹽烤濟州銀帶魚，店員桌邊 5 秒去刺表演，魚肉鮮嫩無骨。", "naver": "https://map.naver.com/p/search/%EB%A7%8C%EC%A1%B1%ED%95%9C%EC%83%81%ED%9A%8C"}, {"transit": "🚗 自駕約 12 分鐘至神話歷史公園／綠茶園區（兩店相距僅 3 分鐘，一次連逛零折返！）"}, {"time": "🍵 13:45 ➔ 15:20", "cat": "TEA & BAKERY", "title": "Osulloc 雪綠茶博物館 ＆ 隔壁 3 分鐘【濟州堂】溫室烘焙連逛", "desc": "先漫步 Osulloc 萬坪翠綠茶園梯田、食特濃抹茶雪糕買手信；隨後車程 3 分鐘直達隔壁歐洲玻璃溫室莊園【濟州堂】，外帶招牌「擬真柑橘麵包」與「紫薯麵包」作為明晨別墅早餐（省去來回折返車程！）。", "naver": "https://map.naver.com/p/search/%EC%98%A4%EC%84%A4%EB%A1%9D%20%ED%8B%B0%EB%AE%A4%EC%A7%80%EC%97%84"}, {"transit": "🚗 自駕約 10 分鐘前往山茶花丘"}, {"time": "🌸 15:30 ➔ 16:35", "cat": "FLOWERS", "title": "山茶花丘 (Camellia Hill) 午後斜陽粉黛亂子草與銀芒草", "desc": "午後柔和斜陽逆光拍攝整片粉黛亂子草與銀白芒草（出示樂天租車確認信或車匙享門票 7 折優惠）。", "naver": "https://map.naver.com/p/search/%EC%B9%B4%EB%A9%9C%EB%A6%AC%EC%95%84%ED%9E%90"}, {"transit": "🚗 自駕約 15 分鐘直達西歸浦 E-Mart 大型超市"}, {"time": "🛒 16:50 ➔ 17:40", "cat": "SHOPPING", "title": "西歸浦大型 E-Mart 超市：預留足 50 分鐘採購露台 BBQ 頂級食材", "desc": "充裕時間挑選今晚別墅 BBQ 食材：1++ 頂級雪花韓牛、濟州黑豬厚切五花肉、大紅蝦、生菜、海鹽芥末、濟州精釀啤酒，以及明早鮮奶與希臘優酪乳。", "naver": "https://map.naver.com/p/search/%EC%9D%B4%EB%A7%88%ED%8A%B8%20%EC%84%9C%EA%B7%80%ED%8F%AC%EC%A0%90"}, {"transit": "🚗 由 E-Mart 開車僅約 10 分鐘即可抵達西歸浦海景別墅！"}, {"time": "🏨 17:50", "cat": "LUXURY STAY", "title": "入住西歸浦全景海景奢華別墅（連住 2 晚 · 暮色海景露台）", "desc": "於暮色時分從容入住懸崖海景別墅，3間獨立臥室與3間衛浴，整理食材並欣賞全海景露台夜色。", "naver": "https://map.naver.com/p/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EC%8B%9C%20%EC%A7%80%EC%9E%A5%EC%83%98%EB%A1%9C182%EB%B2%88%EA%B8%B8%2025"}, {"time": "🥩 18:45 ➔ 21:30", "cat": "DINNER & JACUZZI", "title": "別墅私人海景露台：炭火 BBQ 盛宴 (1++韓牛&黑豬) ＆ 星空 Jacuzzi", "desc": "於別墅私人露台親手炭火炙烤 1++ 韓牛與黑豬肉（沾海鹽與芥末，純高蛋白無洋蔥無蔥蒜無內臟無生蠔）；飯後邊泡熱水按摩池 (Jacuzzi) 邊仰望星空！", "naver": "https://map.naver.com/p/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EC%8B%9C%20%EC%A7%80%EC%9E%A5%EC%83%98%EB%A1%9C182%EB%B2%88%EA%B8%B8%2025"}]}, {"num": 8, "date": "10/23 星期五", "region": "濟州東部 · 牛島跳島 ➔ 朝天芒草", "title": "牛島碧海：別墅高蛋白晨光輕食、城山日出峰、銘珍鮑魚 ＆ 芒草海", "highlight": "🥐 別墅晨光輕食 ➔ ⛵ 牛島跳島 ➔ 🌋 日出峰 ➔ 🦪 銘珍鮑魚 ➔ 🌾 山君不離 ➔ 🍢 偶來夜市", "weather": "🌤️ 14°C ~ 21°C ｜ 牛島海風強勁宜防風，芒草海傍晚約 15°C", "goldenHour": "🌇 山君不離芒草金光 17:45", "photoCaption": "濟州涯月・純淨藍綠珊瑚海灘與紅頂小屋", "events": [{"time": "🥐 06:40 ➔ 07:15", "cat": "BREAKFAST", "title": "海景別墅露台晨光高蛋白輕食（濟州堂麵包 ＆ 希臘優酪乳、鮮奶、水煮蛋）", "desc": "【Day 8 晨光輕食（無鮑魚，省時高蛋白）】：在別墅全海景露台享用昨日濟州堂購入的手工特色麵包，配 E-Mart 採購的高蛋白希臘優酪乳、濟州鮮奶與現煮水煮蛋，沖杯熱黑咖啡。無鮑魚負擔，快速吃飽墊胃，07:20 準時精神飽滿開車出發！", "naver": "https://map.naver.com/p/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EC%8B%9C%20%EC%A7%80%EC%9E%A5%EC%83%98%EB%A1%9C182%EB%B2%88%EA%B8%B8%2025"}, {"transit": "🚗 07:20 準時自駕出發往東海岸（行車約 50 分鐘直達城山浦港）"}, {"time": "⛵ 08:30 ➔ 11:30", "cat": "ISLAND", "title": "城山浦港出發 ➔ 牛島跳島半日遊", "desc": "西歸浦提早至 07:20 出發（車程 50分），搭 08:30 船入島。租微型電動車環島，打卡西濱白沙珊瑚海灘、Jimmy's 花生雪糕。（帶 IDP 駕照與護照）。", "naver": "https://map.naver.com/p/search/%EC%84%B1%EC%82%B0%ED%8F%AC%ED%95%AD%EC%A2%85%ED%95%A9%EC%97%AC%EA%B0%9D%ED%84%B0%EB%AF%B8%EB%84%90", "tel": "064-782-5671"}, {"transit": "🚢 渡輪返回城山港 ➔ 車程 5 分鐘抵達日出峰"}, {"time": "🌋 11:50 ➔ 12:40", "cat": "NATURE", "title": "城山日出峰 (Seongsan Ilchulbong) 絕壁海景觀景步道", "desc": "世界自然遺產！走左側免費觀景木棧道（免爬陡峭階梯），遠眺壯麗海蝕火山錐懸崖與蔚藍海灣，感受大自然的鬼斧神工。", "naver": "https://map.naver.com/p/search/%EC%84%B1%EC%82%B0%EC%9D%BC%EC%B6%9C%EB%B4%89", "tel": "064-783-0959"}, {"transit": "🚢 渡輪返回本島 ➔ 自駕沿海岸線約 15 分鐘"}, {"time": "🦪 12:55 ➔ 14:10", "cat": "LUNCH", "title": "銘珍鮑魚 濟州必吃名店", "desc": "招牌熱騰騰鮑魚內臟石鍋拌飯、奶油香煎活鮑魚，鍋底倒入熱茶製成鍋巴湯。", "naver": "https://map.naver.com/v5/search/%EB%AA%85%EC%A7%84%EC%A0%84%EB%B3%B5", "tel": "064-782-9944"}, {"transit": "🚗 沿海迎日海岸路向西自駕約 8 分鐘"}, {"time": "🏖️ 14:25 ➔ 15:15", "cat": "BEACH & CAFE", "title": "月汀里海灘 (Woljeongri Beach) ＆ 彩色木椅海景咖啡", "desc": "濟州東北部最美白沙海灘！純白沙灘搭配蔚藍漸層果凍海與海上風力發電機，坐在標誌性彩色木椅拍照，選間無敵海景咖啡店悠閒小歇。", "naver": "https://map.naver.com/v5/search/%EC%98%94%EC%A0%95%EB%A6%AC%ED%95%B4%EB%B3%80"}, {"transit": "🚗 自駕向西南行駛約 20 分鐘抵達朝天邑"}, {"time": "🌾 15:35 ➔ 16:45", "cat": "NATURE", "title": "山君不離 10月金秋整片銀白芒草海", "desc": "天然紀念物第263號平地火山口！10月正值整座火山口漫山遍野盛開無邊無際的金色芒草海，15:45-16:45 夕陽斜照為全天金光最高光時刻！木棧道平緩好走。", "naver": "https://map.naver.com/v5/search/%EC%82%B0%EA%B5%BC%EB%B6%80%EB%A6%AC"}, {"transit": "🚗 自駕南下西歸浦果園區約 25 分鐘"}, {"time": "🍊 16:45 ➔ 17:45", "cat": "FARM", "title": "西歸浦親採蜜柑體驗（或選擇留在山君不離睇日落，將採柑移至明早 10:00！）", "desc": "【彈性雙保險】選項 A：若想今日採柑，16:00 離開山君不離南下，16:45 抵達柑橘園採摘；選項 B（最從容推薦）：在山君不離慢慢影到 17:00 日落，將採蜜柑留到明早 Day 9 10:00 別墅退房後順路 10 分鐘去採！", "naver": "https://map.naver.com/p/search/%EA%B7%A4%EA%BD%83%EB%8B%A4%EB%9D%BD", "tel": "064-739-1515"}, {"transit": "🚗 自駕約 15 分鐘至市中心"}, {"time": "🍢 18:30 ➔ 20:00", "cat": "NIGHT MARKET", "title": "西歸浦每日偶來市場", "desc": "品嚐整顆爆汁柑橘大福、黑豬肉魷魚炸壽司、老奶奶年糕、烤秋刀魚紫菜包飯與地道小吃。", "naver": "https://map.naver.com/p/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EB%A7%A4%EC%9D%BC%EC%98%AC%EB%A0%88%EC%8B%9C%EC%9E%A5", "tel": "064-762-1949"}, {"transit": "🚗 車程約 8 分鐘返回海景別墅"}, {"time": "🌌 20:15", "cat": "RELAX", "title": "返回海景別墅露台與 Jacuzzi 享受星空夜色", "desc": "伴隨海浪微風泡熱水按摩浴池，享用夜市戰利品，度過濟州最後一個美好夜晚。", "naver": "https://map.naver.com/p/search/%EC%84%9C%EA%B7%80%ED%8F%AC%EC%8B%9C%20%EC%A7%80%EC%9E%A5%EC%83%98%EB%A1%9C182%EB%B2%88%EA%B8%B8%2025"}]}, {"num": 9, "date": "10/24 星期六", "region": "西歸浦 ➔ 涯月海線 ➔ 機場返港", "title": "鮮味尾聲：挾才海灘、涯月韓屋海景咖啡 ＆ 澎湃海鮮鍋", "highlight": "🏖️ 挾才海景海女拉麵 ➔ ☕ 涯月韓屋咖啡＆Kaymak ➔ 🍲 三姓穴海鮮湯 ➔ ✈️ 返港", "weather": "🌤️ 15°C ~ 22°C ｜ 晴時多雲，海灘漫步微風舒適", "goldenHour": "🛫 濟州直航返港 17:44 ｜ 暮色歸航", "photoCaption": "濟州東門傳統市場・地道蔬果市集拱廊", "events": [{"time": "🌅 10:00 ➔ 10:45", "cat": "RELAX", "title": "海景別墅從容退房（若昨日未採蜜柑，10:00–10:45 順路 10 分鐘採摘！）", "desc": "若昨日選擇在山君不離睇完日落未採柑，今早 10:00 退房後開車 10 分鐘順訪西歸浦「橘花閣樓」或「Jejue in 柑橘田」在晨光下採柑；若昨日已採，則可在別墅多睡至 10:30 悠閒退房！", "naver": "https://map.naver.com/p/search/%EA%B7%A4%EA%BD%83%EB%8B%A4%EB%9D%BD"}, {"transit": "🚗 沿西北景觀公路自駕約 45 分鐘至挾才"}, {"time": "🦀 11:40 ➔ 12:50", "cat": "LUNCH", "title": "挾才海鮮拉麵 ＆ 挾才白沙海灘", "desc": "驅車前往湛藍的挾才海灘，品嚐加入整隻紅蟳、活鮑魚與鮮蝦的道地海女拉麵。", "naver": "https://map.naver.com/p/search/%ED%98%91%EC%9E%AC%ED%95%B4%EB%85%80%EC%9D%98%EC%A7%91", "tel": "064-796-7790"}, {"transit": "🚗 沿海岸線自駕約 15 分鐘至涯月邑"}, {"time": "☕ 13:10 ➔ 15:10", "cat": "CAFE", "title": "涯月海線慢活巡禮：海地開 (Haejigae) 韓屋海景咖啡 ＆ siso kaymak 奶油麵包", "desc": "沿西北海岸公路自駕至涯月邑：先至【海地開 (Haejigae)】漢潭海岸步道旁超美傳統韓屋風海景咖啡廳，三層樓落地窗坐擁無遮蔽海景，品嚐特色茶飲；接著漫步至【siso kaymak】品嚐熱騰騰現烤出爐的土耳其奶油蜂蜜麵包（Kaymak），濃郁水牛奶酪與純蜜香氣撲鼻，沿漢潭海岸散步道欣賞海天一色！", "naver": "https://map.naver.com/v5/search/%ED%95%B4%EC%A7%80%EA%B0%9C"}, {"transit": "🚗 自駕前往濟州市區約 25 分鐘"}, {"time": "🛍️ 15:40 ➔ 17:15", "cat": "SHOPPING", "title": "東門傳統市場 ＆ 七星路商圈手信採買", "desc": "採購濟州限定柑橘朱古力、牛島花生夾心餅、黑豬肉脆片與伴手禮。", "naver": "https://map.naver.com/p/search/%EB%8F%99%EB%AC%B8%EC%9E%AC%EB%9E%98%EC%8B%9C%EC%9E%A5", "tel": "064-752-3001"}, {"transit": "🚗 車程約 10 分鐘至蓮洞附近"}, {"time": "🍲 17:30 ➔ 18:45", "cat": "DINNER", "title": "三姓穴海鮮湯 藍絲帶澎湃鍋", "desc": "整鍋滿出鍋沿的鮮活大章魚、鮑魚、扇貝與螃蟹，湯頭無比鮮甜，完美句點！", "naver": "https://map.naver.com/v5/search/%EC%82%BC%EC%84%B1%ED%98%88%ED%95%B4%EB%AC%BC%ED%83%95"}, {"transit": "🚗 車程約 8 分鐘抵達機場租車站"}, {"time": "🚗 19:00", "cat": "CAR RETURN", "title": "濟州 LOTTE Auto House 歸還車輛 ➔ 機場接駁", "desc": "歸還純電車 IONIQ 9，乘搭免費接駁車前往濟州機場國際航廈，辦理退稅。", "naver": "https://map.naver.com/p/search/%EB%A1%AF%EB%8D%B0%EB%A0%8C%ED%84%B0%EC%B9%B4%20%EC%A0%9C%EC%A3%BC%EC%98%A4%ED%86%A0%ED%95%98%EC%9A%B0%EC%8A%A4", "tel": "1588-1230"}, {"transit": "🚶 辦理出境與 Tax Free 退稅手續"}, {"time": "🛫 21:30 ➔ 23:35", "cat": "FLIGHT", "title": "濟州機場 (CJU) ➔ 香港國際機場 T1", "desc": "乘搭真航空 LJ713 航班返回香港。平安滿載美好回憶返抵家門！"}]}];
 
     window.currentDayNum = 1;
     let currentDayNum = 1;
@@ -4845,74 +5661,100 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
     }
 
     // Render detailed timeline cards (Mature, Photo-free, Transit-aware)
+    function getCategoryBadgeStyle(cat) {
+      const c = (cat || '').toUpperCase();
+      if (c.includes('LUNCH') || c.includes('DINNER') || c.includes('BREAKFAST') || c.includes('RESERVED') || c.includes('LATE NIGHT')) {
+        return 'background:rgba(230,145,56,0.18);color:#FFB86C;border:1px solid rgba(230,145,56,0.4);';
+      }
+      if (c.includes('BAR') || c.includes('ASIA') || c.includes('TASTING')) {
+        return 'background:rgba(189,147,249,0.16);color:#D6ACFF;border:1px solid rgba(189,147,249,0.38);';
+      }
+      if (c.includes('COFFEE') || c.includes('TEA') || c.includes('CAFE') || c.includes('BAKERY')) {
+        return 'background:rgba(212,175,55,0.16);color:#F2E3B8;border:1px solid rgba(212,175,55,0.38);';
+      }
+      if (c.includes('NATURE') || c.includes('AUTUMN') || c.includes('COAST') || c.includes('ISLAND') || c.includes('FLOWERS') || c.includes('BEACH') || c.includes('FARM')) {
+        return 'background:rgba(80,200,120,0.15);color:#8CE99A;border:1px solid rgba(80,200,120,0.38);';
+      }
+      if (c.includes('FLIGHT') || c.includes('CAR')) {
+        return 'background:rgba(92,184,255,0.16);color:#8CCBFF;border:1px solid rgba(92,184,255,0.38);';
+      }
+      return 'background:rgba(212,175,55,0.14);color:#E5C378;border:1px solid rgba(212,175,55,0.32);';
+    }
+
     function renderDayDetail(num, dir) {
       const d = allDaysData.find(item => item.num === num);
       if (!d) return;
 
+      // Count day progress
+      const stopEvents = (d.events || []).filter(e => e.title);
+      let doneInDay = 0;
+      d.events.forEach((ev, idx) => {
+        if (!ev.title) return;
+        const k = `d${d.num}_e${idx}_${ev.title.slice(0, 6)}`;
+        if (visitedSet.has(k)) doneInDay++;
+      });
+
       const weatherText = d.weather ? `<span class="day-weather-pill">${d.weather} ｜ ${d.goldenHour}</span>` : '';
 
       let html = `
-        <!-- 🌟 1. 280px 高清全景大氣相片卡 (圖文徹底分離，相片清爽無遮擋) 🌟 -->
-        <div class="day-hero-poster-card" style="margin-bottom: 22px; border-radius: 18px; overflow: hidden; background: #141311; border: 1.5px solid rgba(212,175,55,0.4); box-shadow: 0 12px 36px rgba(0,0,0,0.75);">
-          <!-- 純淨相片視窗 (280px Cinematic Image Viewport) -->
-          <div style="position: relative; width: 100%; height: 280px; overflow: hidden; cursor: pointer;" onclick="openPhotoLightbox('DAY${d.num}.jpg', 'DAY 0${d.num} · ${d.title}', '${d.photoCaption || d.region}')">
-            <img src="DAY${d.num}.jpg" alt="Day ${d.num}" class="day-poster-img" style="width: 100%; height: 100%; object-fit: cover;" onerror="handleDayImgError(this, ${d.num})">
-            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0) 70%, rgba(20,19,17,0.85) 100%); pointer-events: none;"></div>
+        <!-- 🌟 Native App Hero Card -->
+        <div class="day-hero-poster-card app-elevated-hero">
+          <div class="app-hero-img-box" onclick="openPhotoLightbox('DAY${d.num}.jpg', 'DAY 0${d.num} · ${d.title}', '${d.photoCaption || d.region}')">
+            <img src="DAY${d.num}.jpg" alt="Day ${d.num}" class="day-poster-img" onerror="handleDayImgError(this, ${d.num})">
+            <div class="app-hero-scrim"></div>
             
-            <!-- 頂部日期徽章 (Frosted Glass Badge) -->
-            <span style="position: absolute; top: 14px; left: 14px; max-width: calc(100% - 28px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: rgba(18,17,16,0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.5); padding: 5px 14px; border-radius: 20px; font-size: 0.78rem; color: #D4AF37; font-weight: 700; z-index: 2; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
-              ◈ Day 0${d.num} · ${d.date} · ${d.region} ◈
-            </span>
+            <div class="app-hero-top-badges">
+              <span class="app-glass-pill gold">Day 0${d.num} · ${d.date}</span>
+              <span class="app-glass-pill">${d.region}</span>
+            </div>
             
-            <!-- 右下角放大賞析標籤 -->
-            <span style="position: absolute; bottom: 14px; right: 14px; background: rgba(18,17,16,0.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.35); padding: 5px 12px; border-radius: 20px; font-size: 0.74rem; color: #F5F2EB; z-index: 2; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
-              🔍 全屏高清賞析
-            </span>
+            <div class="app-hero-bottom-bar">
+              <span class="app-glass-pill mini">✓ 今日進度 ${doneInDay}/${stopEvents.length}</span>
+              <span class="app-glass-pill mini">🔍 放大相片</span>
+            </div>
           </div>
 
-          <!-- 獨立文字區 (Spacious Luxury Editorial Typography Below Image) -->
-          <div style="padding: 20px 22px; background: linear-gradient(180deg, rgba(24,22,19,0.98) 0%, rgba(18,17,16,0.98) 100%);">
-            ${weatherText ? `<div style="margin-bottom: 12px;">${weatherText}</div>` : ''}
-            <h2 style="font-size: 1.35rem; font-weight: 800; color: #FFF2CC; margin: 0 0 10px; line-height: 1.35; letter-spacing: -0.01em;">
-              ${d.title}
-            </h2>
-            <div style="font-size: 0.92rem; color: #D5CEBE; line-height: 1.6; padding-top: 12px; border-top: 1px solid rgba(212,175,55,0.18);">
-              ${d.highlight}
-            </div>
+          <div class="app-hero-body">
+            ${weatherText ? `<div style="margin-bottom: 10px;">${weatherText}</div>` : ''}
+            <h2 class="app-hero-title">${d.title}</h2>
+            <div class="app-hero-highlight">${d.highlight}</div>
           </div>
         </div>
 
-        <!-- 🌟 2. 當日行程時間軸直接展開 (移走頂部重複冗餘卡片，即刻睇到時間) 🌟 -->
-        <div class="timeline-wrap">
+        <!-- 🌟 Native App Timeline -->
+        <div class="timeline-wrap app-timeline-wrap">
       `;
 
       d.events.forEach((ev, idx) => {
         if (ev.transit) {
-          html += `<div class="transit-connector">${ev.transit}</div>`;
+          html += `
+            <div class="transit-connector app-transit-step">
+              <span class="app-transit-pill">${ev.transit}</span>
+            </div>
+          `;
           return;
         }
 
         const itemKey = `d${d.num}_e${idx}_${ev.title.slice(0, 6)}`;
         const isDone = visitedSet.has(itemKey);
+        const catStyle = getCategoryBadgeStyle(ev.cat);
 
         html += `
-          <div class="event-card ${isDone ? 'completed' : ''}" style="--card-idx: ${idx};">
+          <div class="event-card app-event-card ${isDone ? 'completed' : ''}" style="--card-idx: ${idx};">
             <div class="event-node-dot"></div>
-            <div class="event-top-meta">
-              <span class="event-time">${ev.time}</span>
-              <span class="event-cat-tag">${ev.cat}</span>
+            <div class="event-top-meta app-card-meta">
+              <span class="event-time app-time-chip">${ev.time}</span>
+              <span class="event-cat-tag app-cat-chip" style="${catStyle}">${ev.cat}</span>
             </div>
-            <h3 class="event-heading">${ev.title}</h3>
-            ${ev.hangul ? `<span class="event-korean">${ev.hangul}</span>` : ''}
-            <p class="event-p">${ev.desc}</p>
-            ${ev.tip ? `<div class="event-tip">${ev.tip}</div>` : ''}
-            <div class="event-actions-bar">
-              ${(ev.naver || (ev.cat !== 'FLIGHT' && ev.hangul)) ? `<a class="btn-act naver" href="${ev.naver || ('https://map.naver.com/p/search/' + encodeURIComponent(ev.hangul.split('/')[0].trim()))}" target="_blank">🧭 Naver 導航</a>` : ''}
-              ${ev.copyVal ? `<button class="btn-act" onclick="copyValue('${ev.copyVal.replace(/'/g, "\'")}', '${(ev.copyLabel || '已複製韓文內容').replace(/'/g, "\'")}')">📋 ${ev.copyLabel || '複製'}</button>` : ''}
-              ${ev.tel ? `<a class="btn-act" href="tel:${ev.tel}">📞 ${ev.tel}</a>` : ''}
-              ${(['LUNCH','DINNER','BREAKFAST','RESERVED','LATE NIGHT'].includes(ev.cat) || ev.dietary) ? `<button class="btn-act" style="border-color:rgba(224,90,71,0.55);color:#FFB4A2;" onclick="openCustomDietaryModal('${(ev.dietary || '').replace(/'/g, "\'")}', '${ev.title.replace(/'/g, "\'")}')">🚫 出示忌口卡</button>` : ''}
-              <button class="btn-act check ${isDone ? 'done' : ''}" onclick="toggleVisitItem('${itemKey}', this)">
-                ${isDone ? '已完成 ✓' : '造訪簽到 ✓'}
+            <h3 class="event-heading app-card-title">${ev.title}</h3>
+            <p class="event-p app-card-desc">${ev.desc}</p>
+            ${ev.tip ? `<div class="event-tip app-card-tip">${ev.tip}</div>` : ''}
+            <div class="event-actions-bar app-card-actions">
+              ${ev.naver ? `<a class="btn-act naver app-btn-primary" href="${ev.naver}" target="_blank">🧭 Naver 導航</a>` : ''}
+              ${ev.copyVal ? `<button class="btn-act app-btn-ghost" onclick="copyValue('${ev.copyVal.replace(/'/g, "\'")}', '${(ev.copyLabel || '已複製').replace(/'/g, "\'")}')">📋 ${ev.copyLabel || '複製'}</button>` : ''}
+              ${ev.tel ? `<a class="btn-act app-btn-ghost" href="tel:${ev.tel}">📞 ${ev.tel}</a>` : ''}
+              <button class="btn-act check app-btn-check ${isDone ? 'done' : ''}" onclick="toggleVisitItem('${itemKey}', this)">
+                ${isDone ? '已完成 ✓' : '打卡簽到'}
               </button>
             </div>
           </div>
@@ -4922,30 +5764,29 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
       html += `
         </div>
 
-        <!-- 🌟 3. 底部當日自駕總結與 WhatsApp 快捷匯報 (放喺最底，不阻頂部閱讀) 🌟 -->
-        <div class="day-bottom-summary-card" style="margin-top: 28px; margin-bottom: 40px; padding: 20px; border-radius: 16px; background: rgba(24,22,19,0.95); border: 1.5px solid rgba(212,175,55,0.3); box-shadow: 0 8px 24px rgba(0,0,0,0.55);">
-          <!-- WhatsApp 一鍵匯報行程 -->
-          <button class="btn-whatsapp-report" onclick="shareDayWhatsApp(${d.num})" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border-radius: 12px; font-size: 0.98rem; font-weight: 700; background: linear-gradient(135deg, #128C7E 0%, #25D366 100%); color: #FFF; border: none; box-shadow: 0 4px 16px rgba(37,211,102,0.3); cursor: pointer; margin-bottom: 14px; transition: transform 0.2s;">
-            <span>💬</span> <span>WhatsApp 一鍵匯報今日行程給同行家人</span>
+        <!-- 🌟 底部當日自駕總結與 WhatsApp 快捷匯報 -->
+        <div class="day-bottom-summary-card app-summary-box">
+          <button class="btn-whatsapp-report" onclick="shareDayWhatsApp(${d.num})">
+            <span>💬</span> <span>WhatsApp 一鍵分享今日行程給同行家人</span>
           </button>
 
-          <!-- 備用自駕導航站點折疊速查 (按需展開) -->
-          <details style="text-align: left; cursor: pointer;">
-            <summary style="font-size: 0.88rem; color: #D4AF37; font-weight: 600; padding: 6px 0; outline: none; display: flex; align-items: center; justify-content: space-between;">
-              <span>🗺️ 點擊展開當日自駕導航站點速查 (Naver Map)</span>
-              <span style="font-size: 0.78rem; color: #A89F91;">展開 ▾</span>
+          <details class="route-details-accordion">
+            <summary>
+              <span>🗺️ 點擊展開當日自駕導航站點速查 (${stopEvents.length} 站)</span>
+              <span style="font-size: 0.8rem; opacity: 0.8;">展開 ▾</span>
             </summary>
-            <div class="route-stops-flow" style="display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding-top:12px;">
+            <div class="route-stops-flow" style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(212,175,55,0.15);">
               ${renderRouteStops(d)}
             </div>
           </details>
         </div>
       `;
+
       const container = document.getElementById('dayDetailContainer');
       if (container) {
         container.innerHTML = html;
         container.classList.remove('anim-slide-right', 'anim-slide-left', 'anim-fade-in');
-        void container.offsetWidth; // trigger reflow for smooth animation replay
+        void container.offsetWidth;
         if (dir === 'right') {
           container.classList.add('anim-slide-right');
         } else if (dir === 'left') {
@@ -5386,24 +6227,6 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
       }
     }
 
-    // 5. Bilingual Phrase Fullscreen Modal
-    function openPhraseModal(kr, cn, pron) {
-      const mKr = document.getElementById('modalKrText');
-      const mCn = document.getElementById('modalCnText');
-      const mPron = document.getElementById('modalPronText');
-      const modal = document.getElementById('phraseModal');
-
-      if (mKr) mKr.innerText = kr;
-      if (mCn) mCn.innerText = cn;
-      if (mPron) mPron.innerText = pron;
-      if (modal) modal.classList.add('active');
-    }
-
-    function closePhraseModal() {
-      const modal = document.getElementById('phraseModal');
-      if (modal) modal.classList.remove('active');
-    }
-
     // Master DOM Loaded Listener
     window.addEventListener('DOMContentLoaded', () => {
       // Start Countdown
@@ -5820,44 +6643,7 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
     // 🌟 V37 NEW FEATURES: TTS, DIETARY MODAL, PARKING, LIVE LOCATOR, GLOBAL SEARCH
     // =========================================================
 
-    // 1. 🔊 Korean Text-to-Speech (Web Speech API)
-    function speakKoreanModal() {
-      triggerHaptic('light');
-      const mKr = document.getElementById('modalKrText');
-      if (!mKr) return;
-      const text = mKr.innerText.trim();
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const utter = new SpeechSynthesisUtterance(text);
-        utter.lang = 'ko-KR';
-        utter.rate = 0.92;
-        window.speechSynthesis.speak(utter);
-        showToast('🔊 正在播放韓文語音...');
-      } else {
-        showToast('此瀏覽器暫不支援語音朗讀，請直接出示大字卡');
-      }
-    }
-
-    // 2. 🚫 Restaurant-Specific Dietary Modal
-    function openCustomDietaryModal(customNote, placeTitle) {
-      triggerHaptic('medium');
-      const baseKr = '안녕하세요! 저희는 파, 양파, 부추, 내장, 굴을 전혀 먹지 못합니다. 음식에 들어가지 않도록 꼭 빼주세요!';
-      const baseCn = '您好！我們完全不吃蔥、洋蔥、韭菜、內臟、生蠔。請務必不要放入料理中！';
-      if (customNote && customNote.trim().length > 0) {
-        const parts = customNote.split('(');
-        const krPart = parts[0].trim();
-        const cnPart = parts[1] ? parts[1].replace(')', '').trim() : placeTitle;
-        openPhraseModal(
-          krPart + '\n\n(' + baseKr + ')',
-          '【' + placeTitle + ' 點餐叮囑】' + cnPart,
-          'Pa, yangpa, buchu, naejang, gul-eun kkok bbae-juseyo!'
-        );
-      } else {
-        openPhraseModal(baseKr, baseCn, 'Pa, yangpa, buchu, naejang, gul-eun kkok bbae-juseyo!');
-      }
-    }
-
-    // 3. 🅿️ Parking Spot Memory Saver
+    // 1. 🅿️ Parking Spot Memory Saver
     function loadParkingSpot() {
       try {
         const raw = localStorage.getItem('korea_parking_spot_v37');
@@ -6007,35 +6793,15 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
 </script>
 
 <!-- 🌟 Fullscreen Korean Survival Phrase Modal -->
-<div class="phrase-modal-backdrop" id="phraseModal" onclick="closePhraseModal()">
-<div class="phrase-modal-card" onclick="event.stopPropagation()">
-<button class="phrase-modal-close" onclick="closePhraseModal()">✕</button>
-<div style="font-size:0.75rem;color:var(--color-gold);font-weight:700;letter-spacing:1px;margin-bottom:8px;">出示給韓國司機或店員看 ｜ SHOW TO LOCAL</div>
-<div class="phrase-modal-kr" id="modalKrText">기사님, 이 주소로 가주세요.</div>
-<div class="phrase-modal-pron" id="modalPronText">Gisa-nim, i juso-ro gajuseyo.</div>
-<div class="phrase-modal-cn" id="modalCnText">司機大哥，請載我們到這個地址。</div>
-<div style="margin-top:20px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
-<button class="btn-action" onclick="speakKoreanModal()" style="padding:10px 20px;font-size:0.9rem;background:linear-gradient(135deg,#2E6F40,#1E4D2B);">🔊 播放韓文語音</button>
-<button class="btn-secondary" onclick="copyValue(document.getElementById('modalKrText').innerText, '已複製韓文句子')" style="padding:10px 18px;font-size:0.88rem;">📋 複製韓文</button>
-<button class="btn-secondary" onclick="closePhraseModal()" style="padding:10px 20px;font-size:0.88rem;">關閉視窗</button>
-</div>
-</div>
-</div>
 <!-- 🌟 Mobile Bottom Navigation Bar -->
-<!-- 🚫 Floating Quick Dietary & Parking Bar -->
-<div id="floatingQuickTools" style="position:fixed;right:14px;bottom:76px;z-index:990;display:flex;flex-direction:column;gap:8px;">
-  <button onclick="openPhraseModal('저희는 파, 양파, 부추, 내장, 굴을 전혀 먹지 못합니다. 음식에 들어가지 않도록 꼭 빼주세요. 감사합니다!', '我們完全不吃蔥、洋蔥、韭菜、內臟、生蠔。請務必不要放入料理中，謝謝！', 'Jeohui-neun pa, yangpa, buchu, naejang, gul-eul jeonhyeo meokji mot-hamnida. Kkok bbae-juseyo!')" title="一鍵出示五不忌口卡" style="background:linear-gradient(135deg,#8B1E1E,#C93B3B);color:#FFF2CC;border:1.5px solid rgba(255,215,0,0.6);border-radius:30px;padding:8px 13px;font-size:0.78rem;font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,0.65);cursor:pointer;display:flex;align-items:center;gap:5px;">
-    <span>🚫</span><span>忌口卡</span>
-  </button>
-</div>
-<nav class="mobile-bottom-nav">
+<nav class="mobile-bottom-nav" id="mobileBottomNav">
 <button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index')">
-<span class="icon">🔖</span>
+<span class="icon">🏠</span>
 <span>總覽</span>
 </button>
 <button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentDayNum || 1)">
 <span class="icon">📅</span>
-<span>每日</span>
+<span>日程</span>
 </button>
 <button class="bot-nav-btn" id="bot-nav-transit" onclick="showView('transit')">
 <span class="icon">🚗</span>
@@ -6046,12 +6812,12 @@ Solsot 延南店 (솔솥 연남점 · 麻浦區東橋路38街35 · 全熟極品�
 <span>美食</span>
 </button>
 <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')">
-<span class="icon">💰</span>
+<span class="icon">💳</span>
 <span>記賬</span>
 </button>
-<button class="bot-nav-btn" id="bot-nav-phrases" onclick="showView('phrases')">
-<span class="icon">🗣️</span>
-<span>韓語</span>
+<button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')">
+<span class="icon">🎒</span>
+<span>行李</span>
 </button>
 </nav>
 <!-- 🌟 Fullscreen Luxury Photo Lightbox Gallery -->
