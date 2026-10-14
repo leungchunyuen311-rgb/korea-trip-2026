@@ -1,37 +1,21 @@
 <!DOCTYPE html>
-
 <html lang="zh-HK">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<meta content="Lai’s Family Seoul &amp; Jeju Trip 2026" name="apple-mobile-web-app-title"/>
-<meta content="Lai’s Family Seoul &amp; Jeju Trip 2026" name="application-name"/>
+<meta content="Lai's Family Trip 2026" name="apple-mobile-web-app-title"/>
+<meta content="Lai's Family Trip 2026" name="application-name"/>
 <meta content="yes" name="mobile-web-app-capable"/>
 <meta content="telephone=no" name="format-detection"/>
-<meta content="#121110" name="theme-color"/>
+<meta content="#121110" name="theme-color" id="metaThemeColor"/>
 <link href="cover.jpg" rel="icon" type="image/jpeg"/>
 <link href="cover.jpg" rel="apple-touch-icon"/>
 <link href="cover.jpg" rel="apple-touch-icon-precomposed"/>
 <link href="cover.jpg" rel="shortcut icon"/>
 <link href="manifest.json" rel="manifest"/>
-<meta content="yes" name="apple-mobile-web-app-capable"/>
-<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
-<meta content="Lai’s Family Seoul &amp; Jeju Trip 2026" name="apple-mobile-web-app-title"/>
-<meta content="Lai’s Family Seoul &amp; Jeju Trip 2026" name="application-name"/>
-<!-- Web App & iOS Home Screen Icons using cover.jpg -->
-<link href="cover.jpg" rel="icon" type="image/jpeg"/>
-<link href="cover.jpg" rel="apple-touch-icon"/>
-<link href="cover.jpg" rel="apple-touch-icon-precomposed"/>
-<link href="cover.jpg" rel="shortcut icon"/>
-<link href="manifest.json" rel="manifest"/>
-<meta content="#121110" name="theme-color"/>
-<title>Lai’s Family Seoul &amp; Jeju Trip 2026</title>
-<!-- Typography: Classical Serif for Antique Korean Elegance & Clean Modern Monospace / Sans -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&amp;family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Playfair+Display:ital,wght@0,500;0,700;1,400&amp;family=Noto+Serif+TC:wght@400;600;700;900&amp;family=Noto+Serif+KR:wght@400;600;700&amp;family=Pretendard:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<title>Lai's Family · 首爾＆濟州島 2026 自駕典藏手帳</title>
 <style>
     :root {
       /* ⚜️ Classical Antique Heritage & Gilded Espresso Theme (ZERO GREEN, ZERO RED) */
@@ -1635,17 +1619,10 @@
     /* =========================================================
        🍎 APPLE IPHONE 18 RED THEME STYLING OVERRIDES (ZERO GREEN)
        ========================================================= */
-    body {
-      background-color: #000000 !important;
-      color: #FFFFFF !important;
-      font-family: var(--font-serif) !important;
-    }
+    /* removed legacy black body override */
 
     /* All Headings in Classical Mincho/Song Serif */
-    h1, h2, h3, .main-hero-title, .banner-h1, .event-heading, .stage-title, .panel-card-title {
-      font-family: var(--font-serif) !important;
-      color: #FFFFFF !important;
-    }
+    h1, h2, h3, .main-hero-title, .banner-h1, .event-heading, .stage-title, .panel-card-title { font-family: var(--font-sans) !important; color: var(--text-main) !important; }
 
     /* Progress Bar in Apple Red */
     .progress-track {
@@ -4332,6 +4309,478 @@
       color: var(--text-main);
     }
 
+
+    /* ========================================================= */
+    /* 🌟 V39 PRECISION MOBILE UI FIXES (FROM SCREENSHOT AUDIT)  */
+    /* ========================================================= */
+
+    /* Subtle non-intrusive autumn leaves */
+    .autumn-leaves-overlay {
+      opacity: 0.42 !important;
+    }
+
+    /* 1. Hero Cover Scrim & Single-Line Non-Wrapping Meta */
+    .v39-hero-card {
+      position: relative !important;
+      height: 235px !important;
+      border-radius: 24px !important;
+      overflow: hidden !important;
+      border: 1px solid rgba(212, 175, 55, 0.38) !important;
+    }
+    .v39-hero-scrim {
+      position: absolute !important;
+      inset: 0 !important;
+      background: linear-gradient(180deg, rgba(14,13,12,0.12) 0%, rgba(14,13,12,0.55) 48%, rgba(14,13,12,0.96) 100%) !important;
+      z-index: 1 !important;
+    }
+    .v39-hero-meta {
+      position: absolute !important;
+      left: 16px !important;
+      right: 16px !important;
+      bottom: 16px !important;
+      z-index: 2 !important;
+      text-align: left !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 5px !important;
+    }
+    .v39-hero-pill {
+      display: inline-block;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: rgba(18, 17, 15, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: #E5C378;
+    }
+    .v39-hero-cities {
+      font-size: 1.52rem;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      line-height: 1.18;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.9);
+    }
+    .v39-city-star {
+      color: #D4AF37;
+      font-size: 1.1rem;
+    }
+    .v39-hero-sub {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #E2DACB;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    /* 2. Full-Width 4-Column Countdown Card */
+    .v39-countdown-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 22px;
+      padding: 14px 16px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+    [data-theme="light"] .v39-countdown-card {
+      background: #FFFFFF;
+      box-shadow: 0 6px 20px rgba(36, 32, 26, 0.06);
+    }
+    .v39-cd-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .v39-cd-title-left {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .v39-pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #D4AF37;
+      box-shadow: 0 0 8px #D4AF37;
+      flex-shrink: 0;
+    }
+    .v39-flight-pill {
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: rgba(212, 175, 55, 0.16);
+      color: var(--color-gold-bright);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .v39-flight-pill {
+      color: #785A1D;
+    }
+    .v39-cd-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 8px !important;
+      width: 100% !important;
+    }
+    .v39-cd-box {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(212, 175, 55, 0.24);
+      border-radius: 14px;
+      padding: 10px 4px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    [data-theme="light"] .v39-cd-box {
+      background: rgba(154, 117, 40, 0.05);
+    }
+    .v39-cd-num {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--color-gold-bright);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.1;
+    }
+    [data-theme="light"] .v39-cd-num {
+      color: #785A1D;
+    }
+    .v39-cd-unit {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-top: 3px;
+      letter-spacing: 0.02em;
+    }
+
+    /* 3. Symmetrical 2x2 Bento Grid */
+    .v39-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .v39-bento-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 20px;
+      padding: 13px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      transition: transform 0.16s ease;
+      min-width: 0;
+    }
+    [data-theme="light"] .v39-bento-box {
+      background: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(36, 32, 26, 0.06);
+    }
+    .v39-bento-box:active {
+      transform: scale(0.97);
+    }
+    .v39-bento-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+    .v39-bento-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      white-space: nowrap;
+    }
+    .v39-bento-badge, .v39-bento-copy {
+      font-size: 0.64rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.14);
+      color: var(--color-gold-bright);
+      white-space: nowrap;
+    }
+    [data-theme="light"] .v39-bento-badge,
+    [data-theme="light"] .v39-bento-copy {
+      color: #785A1D;
+    }
+    .v39-bento-main {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.25;
+      margin-bottom: 3px;
+    }
+    .v39-bento-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* 4. Boarding Pass Plane SVG Line & Ticket Notch Cutouts */
+    .app-boarding-pass {
+      position: relative;
+      overflow: hidden;
+    }
+    .app-boarding-pass::before,
+    .app-boarding-pass::after {
+      content: "";
+      position: absolute;
+      top: 112px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--bg-canvas);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      z-index: 2;
+    }
+    .app-boarding-pass::before { left: -10px; }
+    .app-boarding-pass::after { right: -10px; }
+
+    .pass-plane-svg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--color-gold-bright);
+      margin: 4px 0;
+    }
+    .pass-plane-svg .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-gold);
+    }
+    .pass-plane-svg .line {
+      flex: 1;
+      max-width: 42px;
+      height: 1.5px;
+      background: linear-gradient(90deg, rgba(212,175,55,0.25), rgba(212,175,55,0.85));
+    }
+
+    /* 5. Sleek Gold & Ghost Buttons for Parking Widget */
+    .v39-gold-btn {
+      background: linear-gradient(135deg, #D4AF37 0%, #B38646 100%);
+      color: #121110;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.28);
+    }
+    .v39-ghost-btn {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-sub);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* 6. Mobile Header Icon-Only Pill Buttons & SVG Nav Icons */
+    .svg-nav-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 24px;
+    }
+    @media (max-width: 768px) {
+      .btn-theme-pill.icon-only-mobile .theme-label {
+        display: none !important;
+      }
+      .btn-theme-pill.icon-only-mobile {
+        width: 36px !important;
+        height: 36px !important;
+        padding: 0 !important;
+        border-radius: 50% !important;
+        justify-content: center !important;
+      }
+      .header-site-title {
+        font-size: 0.96rem !important;
+      }
+      .header-site-subtitle {
+        font-size: 0.68rem !important;
+      }
+    }
+
+
+    /* ========================================================= */
+    /* 🌟 V40 MASTER CLEAN ARCHITECTURE & LIGHT/DARK HARMONY 🌟  */
+    /* ========================================================= */
+
+    /* Ensure Sticky Top Header on Both Desktop & Mobile */
+    .editorial-header {
+      position: sticky !important;
+      top: 0 !important;
+      z-index: 1000 !important;
+      background: rgba(18, 17, 16, 0.88) !important;
+      backdrop-filter: blur(24px) saturate(180%) !important;
+      -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.22) !important;
+    }
+
+    /* Complete Light Theme (☀️ 淺色模式) Overhaul — Zero Black/White Tear! */
+    html[data-theme="light"],
+    html[data-theme="light"] body {
+      background-color: #F6F3EB !important;
+      color: #1F1B16 !important;
+    }
+    html[data-theme="light"] .editorial-header {
+      background: rgba(246, 243, 235, 0.92) !important;
+      border-bottom: 1px solid rgba(154, 117, 40, 0.22) !important;
+    }
+    html[data-theme="light"] .header-top-ribbon {
+      background: #EAE3D2 !important;
+      color: #6E5219 !important;
+      border-bottom-color: rgba(154, 117, 40, 0.2) !important;
+    }
+    html[data-theme="light"] .editorial-nav-dock {
+      background: rgba(246, 243, 235, 0.95) !important;
+      border-top-color: rgba(154, 117, 40, 0.18) !important;
+    }
+    html[data-theme="light"] .editorial-tab-btn {
+      color: #5C5245 !important;
+    }
+    html[data-theme="light"] .editorial-tab-btn.active {
+      background: rgba(154, 117, 40, 0.14) !important;
+      color: #5C4312 !important;
+      border-color: rgba(154, 117, 40, 0.4) !important;
+    }
+    html[data-theme="light"] .panel-card,
+    html[data-theme="light"] .quick-dock,
+    html[data-theme="light"] .currency-cheatsheet-card,
+    html[data-theme="light"] .progress-wrapper,
+    html[data-theme="light"] .day-bottom-summary-card,
+    html[data-theme="light"] .calc-stat-box,
+    html[data-theme="light"] .check-group-card {
+      background: #FFFFFF !important;
+      color: #1F1B16 !important;
+      border-color: rgba(154, 117, 40, 0.25) !important;
+      box-shadow: 0 6px 20px rgba(36, 32, 26, 0.06) !important;
+    }
+    html[data-theme="light"] h1,
+    html[data-theme="light"] h2,
+    html[data-theme="light"] h3,
+    html[data-theme="light"] h4,
+    html[data-theme="light"] .main-hero-title,
+    html[data-theme="light"] .panel-card-title,
+    html[data-theme="light"] .stage-title,
+    html[data-theme="light"] .event-heading,
+    html[data-theme="light"] .header-site-title {
+      color: #1F1B16 !important;
+    }
+    html[data-theme="light"] .stage-date-badge,
+    html[data-theme="light"] .btn-act,
+    html[data-theme="light"] .badge-naver,
+    html[data-theme="light"] .quick-dock-title,
+    html[data-theme="light"] .cheatsheet-title,
+    html[data-theme="light"] .krw-chip {
+      color: #5C4312 !important;
+      background: rgba(154, 117, 40, 0.1) !important;
+      border-color: rgba(154, 117, 40, 0.3) !important;
+    }
+    html[data-theme="light"] .btn-act.naver.app-btn-primary {
+      background: linear-gradient(135deg, #2EA043 0%, #238636 100%) !important;
+      color: #FFFFFF !important;
+      border: none !important;
+    }
+    html[data-theme="light"] .form-control {
+      background: #F9F6F0 !important;
+      color: #1F1B16 !important;
+      border-color: rgba(154, 117, 40, 0.35) !important;
+    }
+    html[data-theme="light"] .food-filter-chip {
+      background: #FFFFFF !important;
+      color: #4A4238 !important;
+      border-color: rgba(154, 117, 40, 0.28) !important;
+    }
+    html[data-theme="light"] .food-filter-chip.active {
+      background: linear-gradient(135deg, #9A7528 0%, #785A1D 100%) !important;
+      color: #FFFFFF !important;
+    }
+
+    /* 🍴 App Food Card Grid Styling */
+    .app-food-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 12px;
+    }
+    .app-food-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px !important;
+      border-radius: 20px !important;
+      margin-bottom: 0 !important;
+    }
+    .app-food-card-main {
+      flex: 1;
+      min-width: 0;
+    }
+    .app-food-meta {
+      margin-bottom: 5px;
+    }
+    .app-food-badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      background: rgba(212, 175, 55, 0.14);
+      color: var(--color-gold-bright);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    html[data-theme="light"] .app-food-badge {
+      color: #785A1D;
+      background: rgba(154, 117, 40, 0.1);
+    }
+    .app-food-title {
+      font-size: 1.02rem !important;
+      font-weight: 800 !important;
+      margin: 0 0 5px 0 !important;
+      line-height: 1.35 !important;
+    }
+    .app-food-desc {
+      font-size: 0.83rem !important;
+      color: var(--text-sub) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
+    .app-food-action {
+      flex-shrink: 0;
+    }
+
 </style>
 </head>
 <body>
@@ -4350,16 +4799,16 @@
 <img alt="Lai's Family Trip 2026" class="header-avatar-img" onerror="this.parentElement.style.display='none'" src="cover.jpg"/>
 </div>
 <div class="header-title-box">
-<h1 class="header-site-title">Lai’s Family Seoul &amp; Jeju Trip 2026</h1>
-<div class="header-site-subtitle">首爾・加平・濟州島 ｜ 九天八夜雙城自駕典藏手帳</div>
+<h1 class="header-site-title">Lai’s Family · 首爾濟州 2026</h1>
+<div class="header-site-subtitle">10.16 – 10.24 ｜ 九天八夜雙城自駕典藏手帳</div>
 </div>
 </div>
 <div class="header-action-group">
-<button class="btn-theme-pill" id="themeToggleBtn" onclick="toggleTheme()" title="切換日間/夜間模式">
+<button class="btn-theme-pill icon-only-mobile" id="themeToggleBtn" onclick="toggleTheme()" title="切換日間/夜間模式">
 <span class="theme-icon" id="themeIcon">☀️</span>
 <span class="theme-label" id="themeLabel">淺色</span>
 </button>
-<button class="btn-theme-pill" id="leavesToggleBtn" onclick="toggleAutumnLeaves()" title="切換金秋落葉動態特效">
+<button class="btn-theme-pill icon-only-mobile" id="leavesToggleBtn" onclick="toggleAutumnLeaves()" title="切換金秋落葉特效">
 <span class="theme-icon">🍁</span>
 <span class="theme-label">金秋</span>
 </button>
@@ -4412,117 +4861,102 @@
 <h1 class="main-hero-title">
 <span>首爾 ＆ 濟州島 9天8夜自駕手帳</span>
 </h1>
-<!-- 🌟 Hero Cover Poster Banner (cover.jpg) -->
+<!-- 🌟 Hero Cover Poster Banner (Clean Non-Overlapping Scrim & Single-Line Subtitle) -->
 <div class="hero-cover-container" id="heroCoverContainer">
-<div class="hero-cover-card" onclick="openPhotoLightbox('cover.jpg', 'Lai’s Family Seoul &amp; Jeju Trip 2026', '首爾・加平・濟州島 ｜ 九天八夜雙城自駕典藏封面海報')" style="cursor:pointer;">
-<!-- Direct loading of cover.jpg with automatic case/format fallbacks -->
-<img alt="Lai’s Family Seoul &amp; Jeju Trip 2026" class="hero-cover-img" data-try="0" id="heroCoverImg" onerror="handleCoverError(this)" src="cover.jpg"/>
-<div class="hero-cover-gradient"></div>
-<div class="hero-cover-meta">
-<div class="hero-cover-tag">◈ VOYAGE MEMOIR · AUTUMN 2026 ◈</div>
-<div class="hero-cover-cities">
-<span class="shimmer-text" style="white-space:nowrap;">SEOUL 首爾</span>
-<span class="city-sep">✦</span>
-<span class="shimmer-text" style="white-space:nowrap;">JEJU 濟州</span>
+  <div class="hero-cover-card v39-hero-card" onclick="openPhotoLightbox('cover.jpg', 'Lai’s Family Seoul &amp; Jeju Trip 2026', '首爾・加平・濟州島 ｜ 九天八夜雙城自駕典藏封面')" style="cursor:pointer;">
+    <img alt="Lai’s Family Seoul &amp; Jeju Trip 2026" class="hero-cover-img" data-try="0" id="heroCoverImg" onerror="handleCoverError(this)" src="cover.jpg"/>
+    <div class="v39-hero-scrim"></div>
+    <div class="hero-cover-meta v39-hero-meta">
+      <div class="v39-hero-pill">◈ AUTUMN VOYAGE · 2026.10.16 – 10.24 ◈</div>
+      <div class="v39-hero-cities">
+        <span class="shimmer-text">SEOUL 首爾</span>
+        <span class="v39-city-star">✦</span>
+        <span class="shimmer-text">JEJU 濟州</span>
+      </div>
+      <div class="v39-hero-sub">Lai’s Family 2026 · 9天8夜雙城自駕典藏手帳</div>
+    </div>
+  </div>
 </div>
-<div class="hero-cover-sub">Lai’s Family Seoul &amp; Jeju Trip 2026 ｜ 9天8夜雙城自駕典藏手帳</div>
+
+<!-- 🌟 Full-Width 4-Column Departure Countdown Card -->
+<div class="v39-countdown-card">
+  <div class="v39-cd-header">
+    <div class="v39-cd-title-left">
+      <span class="v39-pulse-dot"></span>
+      <span>啟航倒數 · 10月16日 (五) 16:55 HKG ➔ 21:35 ICN</span>
+    </div>
+    <span class="v39-flight-pill">✈️ UO626</span>
+  </div>
+  <div class="v39-cd-grid" id="departureCountdown">
+    <div class="v39-cd-box"><span class="v39-cd-num" id="cdDays">--</span><span class="v39-cd-unit">DAYS · 天</span></div>
+    <div class="v39-cd-box"><span class="v39-cd-num" id="cdHours">--</span><span class="v39-cd-unit">HRS · 時</span></div>
+    <div class="v39-cd-box"><span class="v39-cd-num" id="cdMins">--</span><span class="v39-cd-unit">MIN · 分</span></div>
+    <div class="v39-cd-box"><span class="v39-cd-num" id="cdSecs">--</span><span class="v39-cd-unit">SEC · 秒</span></div>
+  </div>
 </div>
+
+<!-- 🌟 Symmetrical 2x2 iOS Bento Grid (Zero Awkward Line Wraps + 1-Tap Copy Vouchers) -->
+<div class="v39-bento-grid">
+  <div class="v39-bento-box" onclick="openDay(1)">
+    <div class="v39-bento-top">
+      <span class="v39-bento-tag">📅 旅程週期</span>
+      <span class="v39-bento-badge">9天8夜</span>
+    </div>
+    <div class="v39-bento-main">10/16 ➔ 10/24</div>
+    <div class="v39-bento-sub">首爾 · 加平 · 濟州島</div>
+  </div>
+
+  <div class="v39-bento-box" onclick="showView('packing')">
+    <div class="v39-bento-top">
+      <span class="v39-bento-tag">🌡️ 金秋氣溫</span>
+      <span class="v39-bento-badge">洋蔥穿搭</span>
+    </div>
+    <div class="v39-bento-main">8–18° <small style="font-size:0.78rem;opacity:0.75;">/ 濟州 14–21°</small></div>
+    <div class="v39-bento-sub">早晚微涼 · 備防風薄羽絨</div>
+  </div>
+
+  <div class="v39-bento-box clickable" onclick="copyValue('3410', '已複製首爾 Staria 取車 PIN: 3410')">
+    <div class="v39-bento-top">
+      <span class="v39-bento-tag">🚐 首爾自駕 (D1–D5)</span>
+      <span class="v39-bento-copy">PIN 3410 📋</span>
+    </div>
+    <div class="v39-bento-main">Staria 9人車</div>
+    <div class="v39-bento-sub">仁川 T1 12號門 ➔ 首爾站</div>
+  </div>
+
+  <div class="v39-bento-box clickable" onclick="copyValue('2622541225', '已複製濟州樂天預約號: 2622541225')">
+    <div class="v39-bento-top">
+      <span class="v39-bento-tag">⚡ 濟州自駕 (D6–D9)</span>
+      <span class="v39-bento-copy">複製預約號 📋</span>
+    </div>
+    <div class="v39-bento-main">IONIQ 9 純電</div>
+    <div class="v39-bento-sub">樂天 #2622541225 · 山茶花7折</div>
+  </div>
 </div>
+
+<!-- Progress Bar & Quick Currency Bar -->
+<div class="progress-wrapper" style="margin-bottom:14px;">
+  <div class="progress-meta-row">
+    <span class="progress-label">旅程打卡進度</span>
+    <span class="progress-status" id="progressStatusText">已造訪簽到 0 / 62 個行程站點 (0%)</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progressBarFill"></div>
+  </div>
 </div>
-<!-- 🌟 Flight Departure Countdown Bar (TripIt Style) -->
-<div class="countdown-bar">
-<div class="countdown-title-wrap">
-<span class="countdown-icon">🧭</span>
-<div>
-<div class="countdown-label">CHRONOMETER · 啟航倒數紀曆 ｜ 香港快運 UO626</div>
-<div class="countdown-sub">出發：10月16日 (五) 16:55 ➔ 21:35 抵達仁川 T1</div>
+
+<div class="currency-cheatsheet-card" style="margin-bottom:16px;">
+  <div class="cheatsheet-title">
+    <span>💱 常用韓圓一鍵速查 (點擊打開雙向換算器 · 1 HKD ≈ 175.4 KRW)</span>
+  </div>
+  <div class="cheatsheet-pills-row">
+    <div class="krw-chip" onclick="showView('money')">₩5,000 ≈ <b>HK$29</b></div>
+    <div class="krw-chip" onclick="showView('money')">₩15,000 ≈ <b>HK$86</b></div>
+    <div class="krw-chip" onclick="showView('money')">₩30,000 ≈ <b>HK$171</b></div>
+    <div class="krw-chip" onclick="showView('money')">₩50,000 ≈ <b>HK$285</b></div>
+    <div class="krw-chip" onclick="showView('money')">₩100,000 ≈ <b>HK$570</b></div>
+  </div>
 </div>
-</div>
-<div class="countdown-timer-boxes" id="departureCountdown">
-<div class="countdown-box"><span class="countdown-num" id="cdDays">--</span><span class="countdown-unit">DAYS · 天</span></div>
-<div class="countdown-box"><span class="countdown-num" id="cdHours">--</span><span class="countdown-unit">HRS · 時</span></div>
-<div class="countdown-box"><span class="countdown-num" id="cdMins">--</span><span class="countdown-unit">MIN · 分</span></div>
-<div class="countdown-box"><span class="countdown-num" id="cdSecs">--</span><span class="countdown-unit">SEC · 秒</span></div>
-</div>
-</div>
-<!-- Trip Metrics & Weather Advisory (Mature Travel App Feature) -->
-<div class="trip-metrics-bar">
-<div class="metric-chip">
-<span class="metric-label">📅 旅程週期</span>
-<span class="metric-value">10/16 ➔ 10/24</span>
-<span class="metric-sub">9天8夜 · 首爾+加平+濟州</span>
-</div>
-<div class="metric-chip">
-<span class="metric-label">🍁 金秋天氣與穿著建議</span>
-<span class="metric-value">首爾 8~18°C ｜ 濟州 14~21°C</span>
-<span class="metric-sub">早晚溫差大，備防風薄羽絨</span>
-</div>
-<div class="metric-chip">
-<span class="metric-label">🚗 自駕座駕與租車方案</span>
-<span class="metric-value">Staria ➔ IONIQ 9 純電</span>
-<span class="metric-sub">首爾商務車 + 濟州 7人純電車</span>
-</div>
-</div>
-<!-- Progress Bar Section with Dynamic Counter -->
-<div class="progress-wrapper">
-<div class="progress-meta-row">
-<span class="progress-label">旅程造訪進度 (Progress)</span>
-<span class="progress-status" id="progressStatusText">已造訪簽到 0 / 28 個景點 (0%)</span>
-</div>
-<div class="progress-track">
-<div class="progress-fill" id="progressBarFill"></div>
-</div>
-</div>
-<!-- Quick Action Logistics Dock (Online travel app best practice) -->
-<div class="quick-dock">
-<div class="quick-dock-title">
-<span>🎫 核心自駕憑證與速查券 (Archival Credentials Vouchers)</span>
-</div>
-<div class="quick-dock-grid">
-<div class="quick-pill-item">
-<div class="voucher-info-col">
-<span class="voucher-label">首爾仁川自駕 · 取車 PIN</span>
-<span class="voucher-value">3410</span>
-</div>
-<button class="quick-copy-mini" onclick="copyValue('3410', '已複製至剪貼簿：首爾取車 PIN 3410')">📋 複製代碼</button>
-</div>
-<div class="quick-pill-item">
-<div class="voucher-info-col">
-<span class="voucher-label">首爾租車 · 聯絡電話</span>
-<span class="voucher-value">+82-10-3212-6215</span>
-</div>
-<button class="quick-copy-mini" onclick="copyValue('+82-10-3212-6215', '已複製至剪貼簿：首爾租車電話')">📋 複製電話</button>
-</div>
-<div class="quick-pill-item">
-<div class="voucher-info-col">
-<span class="voucher-label">濟州樂天租車 · 預約號碼</span>
-<span class="voucher-value">2622541225</span>
-</div>
-<button class="quick-copy-mini" onclick="copyValue('2622541225', '已複製至剪貼簿：濟州預約號碼')">📋 複製號碼</button>
-</div>
-<div class="quick-pill-item">
-<div class="voucher-info-col">
-<span class="voucher-label">濟州樂天租車 · 服務熱線</span>
-<span class="voucher-value">1588-1230</span>
-</div>
-<button class="quick-copy-mini" onclick="copyValue('1588-1230', '已複製至剪貼簿：濟州樂天熱線')">📋 複製電話</button>
-</div>
-</div>
-<!-- 🌟 Quick Currency Cheatsheet Bar -->
-<div class="currency-cheatsheet-card">
-<div class="cheatsheet-title">
-<span>💱 常用韓圓極速換算 (基準匯率 1 HKD ≈ 175.4 KRW)</span>
-</div>
-<div class="cheatsheet-pills-row">
-<div class="krw-chip" onclick="showView('money')">₩5,000 ≈ <b>HK$29</b> (街頭小食)</div>
-<div class="krw-chip" onclick="showView('money')">₩15,000 ≈ <b>HK$87</b> (一人午餐)</div>
-<div class="krw-chip" onclick="showView('money')">₩30,000 ≈ <b>HK$173</b> (烤肉正餐)</div>
-<div class="krw-chip" onclick="showView('money')">₩50,000 ≈ <b>HK$289</b> (雙人盛宴)</div>
-<div class="krw-chip" onclick="showView('money')">₩100,000 ≈ <b>HK$578</b> (大額採購)</div>
-</div>
-</div>
-</div>
-<!-- Itinerary List Section -->
 <!-- 🌟 iOS Live Activity Style Smart Widget -->
 <div class="app-live-widget">
   <div class="app-live-widget-top">
@@ -4731,31 +5165,6 @@
 <!-- ============================================== -->
 <!-- VIEW 3: INFO 旅程必讀須知 (Travel Essentials) -->
 <!-- ============================================== -->
-<div class="tab-panel" id="view-info">
-<div class="header-tracking-label">TRAVEL ESSENTIALS</div>
-<h1 class="main-hero-title">旅程必讀須知 (Travel Essentials)與自駕指南</h1>
-<div class="panel-card">
-<h3 class="panel-card-title">🚗 韓國自駕與導航重要規範</h3>
-<p class="event-p">• <b>導航系統：</b> 韓國境內 Google Maps 不支援駕車導航，必須使用 <b>Naver Map</b> 或 <b>Kakao Map</b>（App 內建一鍵直達按鈕）。</p>
-<p class="event-p">• <b>公路收費站：</b> 本車若無 Hi-Pass 感應卡，行駛高速公路收費站時請務必行駛 <b>藍色或灰色車道</b> (現金/信用卡通道)，切勿走 Hi-Pass 專用道。</p>
-<p class="event-p">• <b>市區停車：</b> 首爾與濟州市民宿均已配備免費專屬泊車位；市區外出行建議使用 Kakao Parking 或樂天 Outlets / 商場附屬停車場。</p>
-</div>
-<div class="panel-card">
-<h3 class="panel-card-title">📱 餐廳排隊與預約神器 Catchtable</h3>
-<p class="event-p">• <b>Catchtable Global：</b> 支援海外手機號碼與國際信用卡註冊，首爾及濟州排隊必備。</p>
-<p class="event-p">• <b>熟成到 (Day 6 濟州晚餐)：</b> 當天下午可透過 Catchtable App 遠端抽取候位號碼牌，大幅縮短現場等候時間。</p>
-<p class="event-p">• <b>Bar Cham (Day 3 西村酒吧)：</b> 亞洲 50 最佳酒吧 #33，抵達門口後直接以現場平板 Catchtable 取號；建議拆成 2+3 人入座最快。</p>
-<p class="event-p">• <b>On 6.5 (Day 3 創意泡菜餐酒館)：</b> 需提前預約完成。</p>
-</div>
-
-<div class="panel-card">
-<h3 class="panel-card-title">🚨 緊急電話與重要聯絡</h3>
-<p class="event-p">• <b>首爾租車 (RENTBANK / Staria)：</b> +82-10-3212-6215 ｜ PIN: 3410</p>
-<p class="event-p">• <b>濟州租車 (LOTTE rent-a-car / IONIQ 9)：</b> 1588-1230 ｜ 預約號: 2622541225</p>
-<p class="event-p">• <b>韓國報警 / 救護：</b> 112 (警察) ｜ 119 (急救消防)</p>
-<p class="event-p">• <b>韓國觀光諮詢熱線：</b> 1330 (提供 24 小時免費中文、英文翻譯與旅遊諮詢)</p>
-</div>
-</div>
 <!-- ============================================== -->
 <!-- VIEW 4: MONEY 公費分賬與即時匯率 (Finance & Currency) -->
 <!-- ============================================== -->
@@ -4878,84 +5287,44 @@
 </div>
 </div>
 
-<div class="panel-card" style="margin-top:24px;border:1.5px solid rgba(212,175,55,0.4);border-radius:16px;background:rgba(26,24,20,0.95);box-shadow:0 8px 24px rgba(0,0,0,0.6);">
-<h3 class="panel-card-title" style="color:#FFF2CC;display:flex;align-items:center;gap:8px;">
-  <span>🚕</span> <span>夜晚酒吧飲酒後 Call 車返 Airbnb 預算 (3位成人專屬)</span>
-</h3>
-<p class="event-p" style="color:#D4AF37;font-weight:700;margin-bottom:12px;">
-💡 3 人同行的士絕對優勢：韓國普通中型的士標準限載 4 人，3 人同行剛好一部車全部坐晒！毋須叫兩部車，亦毋須強制叫大型車，路邊伸手隨便截或用 Kakao T / Uber 叫車，全旅程平靚正！
-</p>
-<div style="overflow-x:auto;">
-<table style="width:100%;border-collapse:collapse;font-size:0.86rem;color:#E8E2D5;">
-  <thead>
-    <tr style="border-bottom:1.5px solid rgba(212,175,55,0.4);text-align:left;color:#D4AF37;">
-      <th style="padding:10px 8px;">夜晚與日期</th>
-      <th style="padding:10px 8px;">酒吧起點 ➔ 回程 Airbnb</th>
-      <th style="padding:10px 8px;">距離/時間</th>
-      <th style="padding:10px 8px;color:#98E4B0;">【首選】1部普通車 (3人合搭) ⭐</th>
-      <th style="padding:10px 8px;color:#A89F91;">升級: 1部大型車 (Venti/TADA)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-      <td style="padding:10px 8px;font-weight:bold;">Night 2 (10/17 六)</td>
-      <td style="padding:10px 8px;">梨泰院 經理團路 ➔ 延南洞</td>
-      <td style="padding:10px 8px;">8.5km / 20分</td>
-      <td style="padding:10px 8px;color:#98E4B0;font-weight:bold;">₩14,000 (約HK$81)<br><small style="color:#DDD;">每人約 HK$27</small></td>
-      <td style="padding:10px 8px;color:#A89F91;">₩19,000 (約HK$110)<br><small>每人約 HK$37</small></td>
-    </tr>
-    <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-      <td style="padding:10px 8px;font-weight:bold;">Night 3 (10/18 日)</td>
-      <td style="padding:10px 8px;">西村 Bar Cham / 孝道炸雞 ➔ 延南洞</td>
-      <td style="padding:10px 8px;">6.0km / 15分</td>
-      <td style="padding:10px 8px;color:#98E4B0;font-weight:bold;">₩10,500 (約HK$61)<br><small style="color:#DDD;">每人約 HK$20</small></td>
-      <td style="padding:10px 8px;color:#A89F91;">₩14,000 (約HK$81)<br><small>每人約 HK$27</small></td>
-    </tr>
-    <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-      <td style="padding:10px 8px;font-weight:bold;">Night 4 (10/19 一)</td>
-      <td style="padding:10px 8px;">江南清潭洞 Bar Zest ➔ 延南洞</td>
-      <td style="padding:10px 8px;">17.5km / 30分</td>
-      <td style="padding:10px 8px;color:#98E4B0;font-weight:bold;">₩24,500 (約HK$142)<br><small style="color:#DDD;">每人約 HK$47</small></td>
-      <td style="padding:10px 8px;color:#A89F91;">₩34,000 (約HK$197)<br><small>每人約 HK$66</small></td>
-    </tr>
-    <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-      <td style="padding:10px 8px;font-weight:bold;">Night 5 (10/20 二)</td>
-      <td style="padding:10px 8px;">狎鷗亭 Pine&Co ➔ 延南洞</td>
-      <td style="padding:10px 8px;">16.5km / 28分</td>
-      <td style="padding:10px 8px;color:#98E4B0;font-weight:bold;">₩23,500 (約HK$136)<br><small style="color:#DDD;">每人約 HK$45</small></td>
-      <td style="padding:10px 8px;color:#A89F91;">₩32,500 (約HK$188)<br><small>每人約 HK$63</small></td>
-    </tr>
-    <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-      <td style="padding:10px 8px;font-weight:bold;">Night 6 (10/21 三)</td>
-      <td style="padding:10px 8px;">濟州蓮洞熟成到 ➔ 民宿 Been</td>
-      <td style="padding:10px 8px;">1.5km / 5分</td>
-      <td style="padding:10px 8px;color:#98E4B0;font-weight:bold;">₩5,500 (約HK$32)<br><small style="color:#DDD;">每人約 HK$11 / 可步行</small></td>
-      <td style="padding:10px 8px;color:#A89F91;">₩7,500 (約HK$43)<br><small>每人約 HK$14</small></td>
-    </tr>
-    <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-      <td style="padding:10px 8px;font-weight:bold;">Night 7 (10/22 四)</td>
-      <td style="padding:10px 8px;">西歸浦別墅露台 BBQ ＆ Jacuzzi</td>
-      <td style="padding:10px 8px;">0 km</td>
-      <td style="padding:10px 8px;color:#98E4B0;font-weight:bold;">₩0 (露台自飲自泡)</td>
-      <td style="padding:10px 8px;color:#A89F91;">₩0</td>
-    </tr>
-    <tr style="border-bottom:1px solid rgba(255,255,255,0.08);">
-      <td style="padding:10px 8px;font-weight:bold;">Night 8 (10/23 五)</td>
-      <td style="padding:10px 8px;">偶來市場周邊 ➔ 西歸浦海景別墅</td>
-      <td style="padding:10px 8px;">3.8km / 10分</td>
-      <td style="padding:10px 8px;color:#98E4B0;font-weight:bold;">₩8,000 (約HK$46)<br><small style="color:#DDD;">每人約 HK$15</small></td>
-      <td style="padding:10px 8px;color:#A89F91;">₩10,500 (約HK$61)<br><small>每人約 HK$20</small></td>
-    </tr>
-  </tbody>
-</table>
+<div class="panel-card" style="margin-top:22px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+    <h3 class="panel-card-title" style="margin:0;">🚕 夜晚酒吧小酌後 Call 車返民宿預算 (3位成人合搭)</h3>
+    <span class="app-cat-chip" style="background:rgba(80,200,120,0.15);color:#2EA043;border:1px solid rgba(80,200,120,0.35);">1部普通的士坐齊3人</span>
+  </div>
+  <p class="event-p" style="font-size:0.84rem;color:var(--text-sub);margin-bottom:14px;">
+    💡 韓國普通中型的士限載 4 人，3 位飲酒成員剛好一部車坐齊，用 Kakao T 或 Uber 即叫即走，全旅程 8 晚總計每人只需約 <b>HK$166</b>！
+  </p>
+  <div class="app-mapcode-grid">
+    <div class="mapcode-item">
+      <div><div class="mc-name">Night 2 (10/17 六) 梨泰院 ➔ 延南洞</div><div class="mc-sub">8.5km · 車程約 20 分鐘</div></div>
+      <span class="mc-num">₩14,000 (HK$27/人)</span>
+    </div>
+    <div class="mapcode-item">
+      <div><div class="mc-name">Night 3 (10/18 日) 西村 Bar Cham ➔ 延南洞</div><div class="mc-sub">6.0km · 車程約 15 分鐘</div></div>
+      <span class="mc-num">₩10,500 (HK$20/人)</span>
+    </div>
+    <div class="mapcode-item">
+      <div><div class="mc-name">Night 4 (10/19 一) 江南 Bar Zest ➔ 延南洞</div><div class="mc-sub">17.5km · 車程約 30 分鐘</div></div>
+      <span class="mc-num">₩24,500 (HK$47/人)</span>
+    </div>
+    <div class="mapcode-item">
+      <div><div class="mc-name">Night 5 (10/20 二) 狎鷗亭 ➔ 延南洞</div><div class="mc-sub">16.5km · 車程約 28 分鐘</div></div>
+      <span class="mc-num">₩23,500 (HK$45/人)</span>
+    </div>
+    <div class="mapcode-item">
+      <div><div class="mc-name">Night 6 (10/21 三) 濟州熟成到 ➔ 蓮洞民宿</div><div class="mc-sub">1.5km · 車程 5 分鐘或步行</div></div>
+      <span class="mc-num">₩5,500 (HK$11/人)</span>
+    </div>
+    <div class="mapcode-item">
+      <div><div class="mc-name">Night 7–8 (10/22–23) 西歸浦偶來市場 ➔ 別墅</div><div class="mc-sub">3.8km · 車程約 8 分鐘</div></div>
+      <span class="mc-num">₩8,000 (HK$15/人)</span>
+    </div>
+  </div>
 </div>
-<div style="margin-top:14px;padding:14px;border-radius:12px;background:rgba(212,175,55,0.12);border:1.5px solid rgba(212,175,55,0.35);font-size:0.92rem;color:#FFF2CC;line-height:1.55;">
-  💰 <b>8 晚酒吧夜間返宿總預算 (1部普通車)</b>：全旅程總計約 <b>₩86,000 (約 HK$497)</b>，3 位成人平分<b>每人全個旅程只需約 HK$166 (約 ₩28,700 韓元)</b>！
 </div>
 </div>
 
-</div>
-</div>
 <div class="tab-panel" id="view-transit">
 <div class="header-tracking-label">FLIGHTS · CAR RENTALS · STAYS</div>
 <h1 class="main-hero-title">航班登機證、自駕憑證與住宿導航</h1>
@@ -4973,12 +5342,12 @@
     <input id="parkLocInput" class="form-control" type="text" placeholder="車場名 (如: COEX / 首爾林)"/>
     <input id="parkSpotInput" class="form-control" type="text" placeholder="樓層柱號 (如: B2 H-14)"/>
   </div>
-  <div style="display:flex;gap:8px;margin-bottom:12px;">
-    <button class="btn-action" style="flex:2;border-radius:12px;" onclick="saveParkingSpot()">💾 儲存泊車位</button>
-    <button class="btn-secondary" style="flex:1;border-radius:12px;" onclick="clearParkingSpot()">清除</button>
+  <div style="display:flex;gap:8px;margin-bottom:10px;">
+    <button class="v39-gold-btn" style="flex:3;" onclick="saveParkingSpot()">📍 儲存當前泊車位</button>
+    <button class="v39-ghost-btn" style="flex:1;" onclick="clearParkingSpot()">清除</button>
   </div>
   <div id="savedParkingDisplay" class="app-parking-status-box">
-    尚未記錄泊車位置（泊車後可於上方輸入樓層與車位編號）。
+    🅿️ 尚未記錄車位（泊車後輸入樓層與柱號即可保存）
   </div>
 </div>
 
@@ -4996,9 +5365,9 @@
         <div class="pass-code">HKG</div>
         <div class="pass-city">香港 T2</div>
       </div>
-      <div class="pass-flight- mid">
+      <div class="pass-flight-mid">
         <div class="pass-duration">3h 40m</div>
-        <div class="pass-plane-line">────── ✈️ ──────</div>
+        <div class="pass-plane-svg"><span class="dot"></span><span class="line"></span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" transform="rotate(90 12 12)"/></svg><span class="line"></span><span class="dot"></span></div>
         <div class="pass-date">2026.10.16 (五)</div>
       </div>
       <div class="pass-airport right">
@@ -5026,7 +5395,7 @@
       </div>
       <div class="pass-flight-mid">
         <div class="pass-duration">1h 15m</div>
-        <div class="pass-plane-line">────── ✈️ ──────</div>
+        <div class="pass-plane-svg"><span class="dot"></span><span class="line"></span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" transform="rotate(90 12 12)"/></svg><span class="line"></span><span class="dot"></span></div>
         <div class="pass-date">2026.10.21 (三)</div>
       </div>
       <div class="pass-airport right">
@@ -5054,7 +5423,7 @@
       </div>
       <div class="pass-flight-mid">
         <div class="pass-duration">3h 05m</div>
-        <div class="pass-plane-line">────── ✈️ ──────</div>
+        <div class="pass-plane-svg"><span class="dot"></span><span class="line"></span><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" transform="rotate(90 12 12)"/></svg><span class="line"></span><span class="dot"></span></div>
         <div class="pass-date">2026.10.24 (六)</div>
       </div>
       <div class="pass-airport right">
@@ -5225,189 +5594,689 @@
     </div>
   </div>
 </div>
+
+<!-- 🚨 6. 緊急聯絡與自駕實用錦囊 (整合自必讀須知) -->
+<div class="app-passes-grid" style="margin-top:18px;margin-bottom:10px;">
+  <div class="app-car-card">
+    <div class="car-card-header">
+      <div>
+        <div class="car-stage-tag">EMERGENCY &amp; HOTLINES · 24小時緊急支援</div>
+        <div class="car-model-title">🚨 韓國緊急電話與中文翻譯熱線</div>
+      </div>
+    </div>
+    <div class="car-specs-grid">
+      <div class="car-spec-item"><span class="lbl">韓國觀光公社 (24h 免費中文翻譯)</span><a href="tel:1330" class="val" style="color:var(--color-gold-bright);text-decoration:none;">📞 撥打 1330</a></div>
+      <div class="car-spec-item"><span class="lbl">韓國報警 / 交通意外處理</span><a href="tel:112" class="val" style="color:var(--color-gold-bright);text-decoration:none;">📞 撥打 112</a></div>
+      <div class="car-spec-item"><span class="lbl">緊急救護車 / 消防支援</span><a href="tel:119" class="val" style="color:var(--color-gold-bright);text-decoration:none;">📞 撥打 119</a></div>
+      <div class="car-spec-item"><span class="lbl">首爾 Staria 租車專員</span><a href="tel:+82-10-3212-6215" class="val" style="color:var(--color-gold-bright);text-decoration:none;">📞 +82-10-3212-6215</a></div>
+      <div class="car-spec-item"><span class="lbl">濟州樂天租車服務熱線</span><a href="tel:1588-1230" class="val" style="color:var(--color-gold-bright);text-decoration:none;">📞 1588-1230</a></div>
+    </div>
+  </div>
+
+  <div class="app-car-card">
+    <div class="car-card-header">
+      <div>
+        <div class="car-stage-tag">DRIVING &amp; DINING TIPS · 自駕與排隊錦囊</div>
+        <div class="car-model-title">💡 收費站、泊車與 Catchtable 要點</div>
+      </div>
+    </div>
+    <div class="car-specs-grid">
+      <div class="car-spec-item"><span class="lbl">高速公路收費站</span><span class="val">無 Hi-Pass 請行「藍色/現金信用卡」通道</span></div>
+      <div class="car-spec-item"><span class="lbl">首爾 Staria 泊車</span><span class="val">車高 2m 切勿入舊機械車位，請泊平面場</span></div>
+      <div class="car-spec-item"><span class="lbl">Day 2 大鰤魚免排隊</span><span class="val">14:30 途經門口先取號，或買外帶 15 分鐘直取</span></div>
+      <div class="car-spec-item"><span class="lbl">Day 6 濟州熟成到</span><span class="val">當日 16:00 準時用 Catchtable App 線上抽號</span></div>
+      <div class="car-spec-item"><span class="lbl">Day 3/4 亞洲50大酒吧</span><span class="val">Bar Cham / Zest 建議分 2+3 人入座最快</span></div>
+    </div>
+  </div>
+</div>
 </div>
 
 <!-- ============================================== -->
 <!-- VIEW 6: FOOD 美饌與品酩 (Gastronomy & Bars) & 備用清單 (BACKUP LIST) -->
 <!-- ============================================== -->
 <div class="tab-panel" id="view-food">
-<div class="header-tracking-label">BACKUP CULINARY &amp; BARS</div>
-<h1 class="main-hero-title">備用 / 替換美食與酒吧清單 (全附 Naver Map 直達)</h1>
-<!-- 🌟 分區／品類快速篩選標籤 (Filter Chips) -->
-<div class="food-filter-wrapper">
+<div class="header-tracking-label">GASTRONOMY &amp; BARS DIRECTORY</div>
+<h1 class="main-hero-title">精選美食、烘焙、手沖咖啡與酒吧指南</h1>
+
+<!-- 🔍 美食即時搜尋與分類膠囊 -->
+<div style="margin-bottom: 12px;">
+  <input id="foodSearchInput" type="search" class="form-control" placeholder="🔍 搜尋餐廳、咖啡店、鹽麵包、醬油蟹、酒吧或地區..." oninput="filterFoodByKeyword(this.value)" style="width:100%;padding:11px 14px;border-radius:14px;font-size:0.88rem;"/>
+</div>
+
+<div class="food-filter-wrapper" style="margin-bottom: 16px;">
   <div class="food-filter-scroll">
-    <button class="food-filter-chip active" onclick="filterFoodCategory('all', this)">✨ 全部清單</button>
-    <button class="food-filter-chip" onclick="filterFoodCategory('seoul-food', this)">🦀 首爾在地美食</button>
-    <button class="food-filter-chip" onclick="filterFoodCategory('seoul-bars', this)">🍸 首爾精選酒吧</button>
-    <button class="food-filter-chip" onclick="filterFoodCategory('coffee', this)">☕ 精品手沖咖啡</button>
-    <button class="food-filter-chip" onclick="filterFoodCategory('bakery', this)">🥐 人氣烘焙/麵包</button>
-    <button class="food-filter-chip" onclick="filterFoodCategory('jeju-food', this)">🐟 濟州特色海鮮/黑豬</button>
-    <button class="food-filter-chip" onclick="filterFoodCategory('jeju-cafe', this)">🥐 濟州Cafe甜品</button>
-    <button class="food-filter-chip" onclick="filterFoodCategory('jeju-bars', this)">🍺 濟州酒吧精釀</button>
-    <button class="food-filter-chip" onclick="filterFoodCategory('seoul', this)">🏙️ 首爾全區</button>
-    <button class="food-filter-chip" onclick="filterFoodCategory('jeju', this)">🌴 濟州全區</button>
+    <button class="food-filter-chip active" onclick="filterFoodCategory('all', this)">✨ 全部 (51)</button>
+    <button class="food-filter-chip" onclick="filterFoodCategory('seoul-food', this)">🍲 首爾美食</button>
+    <button class="food-filter-chip" onclick="filterFoodCategory('bakery', this)">🥐 烘焙/鹽麵包</button>
+    <button class="food-filter-chip" onclick="filterFoodCategory('coffee', this)">☕ 冠軍手沖咖啡</button>
+    <button class="food-filter-chip" onclick="filterFoodCategory('seoul-bars', this)">🍸 首爾50大酒吧</button>
+    <button class="food-filter-chip" onclick="filterFoodCategory('jeju-food', this)">🐟 濟州黑豬/海鮮</button>
+    <button class="food-filter-chip" onclick="filterFoodCategory('jeju-cafe', this)">🌴 濟州Cafe烘焙</button>
+    <button class="food-filter-chip" onclick="filterFoodCategory('jeju-bars', this)">🍺 濟州精釀酒吧</button>
   </div>
 </div>
 
-<div id="foodEmptyState" style="display:none;text-align:center;padding:40px 20px;color:#A89F91;background:rgba(26,24,20,0.6);border-radius:16px;border:1px dashed rgba(212,175,55,0.3);margin-top:20px;">
-  <div style="font-size:2rem;margin-bottom:8px;">🥐</div>
-  <div style="font-size:1.05rem;font-weight:700;color:#FFF2CC;margin-bottom:6px;">暫無此分類項目</div>
-  <div style="font-size:0.85rem;">可點選上方「✨ 全部清單」查看全部美食與烘焙店</div>
+<div id="foodEmptyState" class="app-parking-status-box" style="display:none;text-align:center;padding:32px 18px;margin-top:14px;">
+  找不到符合條件的店鋪，請點選「✨ 全部」或清除搜尋關鍵字。
 </div>
 
-<!-- Section: 首爾人氣烘焙與特色麵包備選 -->
-<div class="panel-card" data-cat="seoul bakery seoul-food">
-<h3 class="panel-card-title">🥐 首爾人氣烘焙・貝果・鹽麵包備選 (全附 Naver Map 直達)</h3>
+<div class="app-food-grid" id="appFoodGrid">
 
-<p class="event-p" style="color:var(--color-gold);font-weight:700;margin-top:10px;">◈ 鐘路 / 安國 / 益善洞 (Day 3 備選) ◈</p>
-<p class="event-p">
-• <b>Parole & Langue ( 延南店)：</b>首爾派塔天花板！招牌炙烤粟米塔 & 秋季栗子蒙布朗塔<a class="badge-naver" href="https://map.naver.com/p/search/%ED%8C%8C%EB%A1%A4%EC%95%A4%EB%9E%91%EA%B7%B8" target="_blank">🗺️ Naver Map</a><br/>
-• <b>萬洞製菓 ( 延南店)：</b>在地人天天排隊的大蒜法包 ，蒜香牛油爆漿濕潤<a class="badge-naver" href="https://map.naver.com/p/search/%EB%A7%8C%EB%8F%99%EC%A0%9C%EA%B3%BC%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Jo & Dawson ( 延南店)：</b> 全首爾最強焦糖法式吐司 (French Toast)，布丁般軟嫩沾海鹽 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%A1%B0%EC%95%A4%EB%8F%84%EC%8A%A8" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Artist Bakery ( 安國店)：</b> 全首爾鹽麵包天花板！松露/明太子/大蒜鹽麵包 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%95%84%ED%8B%B0%EC%8A%A4%ED%8A%B8%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%20%EC%95%88%EA%B5%AD" target="_blank">🗺️ Naver Map</a><br/>
-• <b>自然島鹽麵包 ( 益善洞店)：</b> 1 袋 4 個剛出爐純牛油海鹽麵包，紙袋麻繩包裝 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%9E%90%EC%97%B0%EB%8F%84%EC%86%8C%EA%B8%88%EB%B9%B5%20%EC%9D%B5%EC%84%A0%EB%8F%99" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Perment Bakeshop ：</b> 北村安國人氣法式可頌與酥皮糕點 <a class="badge-naver" href="https://map.naver.com/p/search/%ED%8D%BC%EB%A8%BC%ED%8A%B8%20%EC%95%88%EA%B5%AD" target="_blank">🗺️ Naver Map</a>
-</p>
-
-<p class="event-p" style="color:var(--color-gold);font-weight:700;margin-top:10px;">◈ 聖水洞潮流區 (Day 4 備選) ◈</p>
-<p class="event-p">
-• <b>Cafe Onion 聖水店 ：</b> 工業廢棄工廠改建鼻祖，招牌雪山糖霜麵包 (Pandoro) <a class="badge-naver" href="https://map.naver.com/p/search/%EC%96%B4%EB%8B%88%EC%96%B8%20%EC%84%B1%EC%88%98" target="_blank">🗺️ Naver Map</a><br/>
-• <b>大象貝果 ( 聖水店)：</b> 柴火窯爐現烤柴燒貝果，外脆內煙韌 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%BD%94%EB%81%BC%EB%A6%AC%EB%B2%A0%EC%9D%B4%EA%B8%80%20%EC%84%B1%EC%88%98" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Standard Bread ( 聖水)：</b> 現烤生吐司與布里歐麵包名所 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%8A%A4%ED%83%A0%EB%93%9C%EB%B8%8C%EB%A0%88%EB%93%9C%20%EC%84%B1%EC%88%98" target="_blank">🗺️ Naver Map</a>
-</p>
-
-<p class="event-p" style="color:var(--color-gold);font-weight:700;margin-top:10px;">◈ 漢南洞 / 梨泰院 (Day 5 備選) ◈</p>
-<p class="event-p">
-• <b>五月之鐘 (Maybell Bakery 本店)：</b> 傳奇天然酵母無花果全麥歐包，上午11:00開賣 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%98%A4%EC%9B%94%EC%9D%98%EC%87%A1%20%EC%9D%B4%ED%83%9C%EC%9B%90" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Teddy Beurre House ：</b> 法式泰迪熊主題牛角包專門店，招牌開心果牛角酥 <a class="badge-naver" href="https://map.naver.com/p/search/%ED%85%8C%EB%94%94%EB%B5%88%EB%A5%B4%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Artisan Bakers 漢南 ：</b> 德式酸種麵包、法棍與鹹牛油蝴蝶餅 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%95%84%ED%8B%B0%EC%9E%A5%EB%B2%A0%EC%9D%B4%EC%BB%A4%EC%8A%A4%20%ED%95%9C%EB%82%A8" target="_blank">🗺️ Naver Map</a>
-</p>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">延南洞 · Day 2 熟食備案</span>
+      </div>
+      <h3 class="app-food-title">延禧洞奶奶家 (現烤魚定食)</h3>
+      <p class="app-food-desc">現點現烤秋刀魚與青花魚，附熱湯、熱白飯與家常小菜，全熟健康暖胃。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%97%B0%ED%9D%AC%EB%8F%99%ED%95%A0%EB%A8%B8%EB%8B%88%EB%84%A4" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">延南洞 · Day 2 熟食備案</span>
+      </div>
+      <h3 class="app-food-title">延南刀削麵 (清雞湯/鮮蜆麵)</h3>
+      <p class="app-food-desc">熱騰騰現煮清雞湯或鮮蜆手工刀削麵，全熟無生食，湯頭清甜舒服。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%97%B0%EB%82%A8%EC%B9%BC%EA%B5%AD%EC%88%98" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">延南洞 · Day 2 熟食備案</span>
+      </div>
+      <h3 class="app-food-title">Solsot 延南店 (極品牛排石鍋飯)</h3>
+      <p class="app-food-desc">全熟極品牛排熱石鍋飯，上桌滋滋作響配熱高湯製成鍋巴湯。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%86%94%EC%86%A5%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">延南洞 · 手工派塔天花板</span>
+      </div>
+      <h3 class="app-food-title">Parole & Langue 延南店</h3>
+      <p class="app-food-desc">招牌炙烤粟米塔與秋季限定栗子蒙布朗塔，紅磚庭院打卡名所。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%ED%8C%8C%EB%A1%A4%EC%95%A4%EB%9E%91%EA%B7%B8" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">延南洞 · 爆漿大蒜法包</span>
+      </div>
+      <h3 class="app-food-title">萬洞製菓 延南店</h3>
+      <p class="app-food-desc">在地人天天排隊的招牌大蒜法包，蒜香牛油爆漿濕潤。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%A7%8C%EB%8F%99%EC%A0%9C%EA%B3%BC%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">延南洞 · 焦糖法式吐司</span>
+      </div>
+      <h3 class="app-food-title">Jo & Dawson 延南店</h3>
+      <p class="app-food-desc">全首爾最強焦糖法式吐司 (French Toast)，布丁般軟嫩沾海鹽。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%A1%B0%EC%95%A4%EB%8F%84%EC%8A%A8" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">安國站 · 鹽麵包名店</span>
+      </div>
+      <h3 class="app-food-title">Artist Bakery 安國店</h3>
+      <p class="app-food-desc">London Bagel 團隊新作！松露、明太子、純牛油鹽麵包天花板。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%95%84%ED%8B%B0%EC%8A%A4%ED%8A%B8%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%20%EC%95%88%EA%B5%AD" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">益善洞 · 剛出爐鹽麵包</span>
+      </div>
+      <h3 class="app-food-title">自然島鹽麵包 益善洞店</h3>
+      <p class="app-food-desc">1 袋 4 個剛出爐純牛油海鹽麵包，外酥內軟，紙袋麻繩包裝。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%9E%90%EC%97%B0%EB%8F%84%EC%86%8C%EA%B8%88%EB%B9%B5%20%EC%9D%B5%EC%84%A0%EB%8F%99" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">北村安國 · 法式可頌</span>
+      </div>
+      <h3 class="app-food-title">Perment Bakeshop 安國店</h3>
+      <p class="app-food-desc">北村安國人氣法式牛角可頌、無花果丹麥酥與酥皮糕點。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%ED%8D%BC%EB%A8%BC%ED%8A%B8%20%EC%95%88%EA%B5%AD" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">安國/島山 · 貝果神店</span>
+      </div>
+      <h3 class="app-food-title">London Bagel Museum 首爾店</h3>
+      <p class="app-food-desc">全韓第一人氣貝果，招牌馬鈴薯起司貝果與青蔥乳酪貝果。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%9F%B0%EB%8D%98%EB%B2%A0%EC%9D%B4%EA%B8%80%EB%AE%A4%EC%A7%80%EC%97%84" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">聖水洞 · 工業風廢墟麵包</span>
+      </div>
+      <h3 class="app-food-title">Cafe Onion 聖水店</h3>
+      <p class="app-food-desc">聖水洞工業廢墟改建鼻祖，必吃招牌雪山糖霜麵包 (Pandoro)。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%96%B4%EB%8B%88%EC%96%B8%20%EC%84%B1%EC%88%98" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">聖水洞 · 柴火窯烤貝果</span>
+      </div>
+      <h3 class="app-food-title">大象貝果 聖水店</h3>
+      <p class="app-food-desc">傳統柴火窯爐現烤柴燒貝果，外皮酥脆內裡極度煙韌。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%BD%94%EB%81%BC%EB%A6%AC%EB%B2%A0%EC%9D%B4%EA%B8%80%20%EC%84%B1%EC%88%98" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">聖水洞 · 現烤生吐司</span>
+      </div>
+      <h3 class="app-food-title">Standard Bread 聖水店</h3>
+      <p class="app-food-desc">每 30 分鐘新鮮出爐熱騰騰生吐司與焦糖布里歐麵包名所。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%8A%A4%ED%83%A0%EB%93%9C%EB%B8%8C%EB%A0%88%EB%93%9C%20%EC%84%B1%EC%88%98" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">漢南洞 · 天然酵母歐包</span>
+      </div>
+      <h3 class="app-food-title">五月之鐘 (Maybell Bakery 本店)</h3>
+      <p class="app-food-desc">漢南洞傳奇天然酵母無花果全麥歐包與蔓越莓法包，11:00 開賣。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%98%A4%EC%9B%94%EC%9D%98%EC%87%A1%20%EC%9D%B4%ED%83%9C%EC%9B%90" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">龍山/漢南 · 泰迪熊可頌</span>
+      </div>
+      <h3 class="app-food-title">Teddy Beurre House</h3>
+      <p class="app-food-desc">法式泰迪熊主題牛角包專門店，招牌開心果牛角酥與杏仁可頌。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%ED%85%8C%EB%94%94%EB%B5%88%EB%A5%B4%ED%95%98%EC%9A%B0%EC%8A%A4" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul bakery">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">漢南洞 · 酸種麵包</span>
+      </div>
+      <h3 class="app-food-title">Artisan Bakers 漢南店</h3>
+      <p class="app-food-desc">正宗德式酸種麵包、法棍與鹹牛油蝴蝶餅專門店。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%95%84%ED%8B%B0%EC%9E%A5%EB%B2%A0%EC%9D%B4%EC%BB%A4%EC%8A%A4%20%ED%95%9C%EB%82%A8" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">麻浦 · 米芝蓮醬油蟹</span>
+      </div>
+      <h3 class="app-food-title">真味食堂 (頂級西海梭子蟹)</h3>
+      <p class="app-food-desc">米芝蓮指南推薦麻浦名店，10月秋季母蟹爆膏，附鍋巴湯與紫菜包飯。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%A7%84%EB%AF%B8%EC%8B%9D%EB%8B%B9" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">新沙/明洞 · 爆膏醬油蟹</span>
+      </div>
+      <h3 class="app-food-title">元祖馬山醬蟹 / 烏達里家</h3>
+      <p class="app-food-desc">首爾人氣醬油蟹名店，蟹膏飽滿甘甜，配熱白飯與紫菜一流。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%9B%90%EC%A1%B0%EB%A7%88%EC%82%B0%ED%95%A0%EB%A7%A4%EC%95%84%EA%B5%AC%EC%A7%90" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">聖水洞 · 24小時排骨湯</span>
+      </div>
+      <h3 class="app-food-title">傳聞中的聖水馬鈴薯排骨湯</h3>
+      <p class="app-food-desc">白鍾元推薦聖水洞排隊名店，濃郁豬骨湯燉至軟爛，24 小時營業。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%86%8C%EB%AC%B8%EB%82%9C%EC%84%B1%EC%88%98%EA%B0%90%EC%9E%90%ED%83%95" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">景福宮旁 · 百年韓屋參雞湯</span>
+      </div>
+      <h3 class="app-food-title">土俗村參雞湯</h3>
+      <p class="app-food-desc">景福宮旁百年韓屋，整隻嫩雞配高蛋白人參糯米雞湯，長輩暖胃首選。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%ED%86%A0%EC%86%8D%EC%B4%8C%20%EC%82%BC%EA%B3%84%ED%83%95" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">弘大 · 米芝蓮參雞湯</span>
+      </div>
+      <h3 class="app-food-title">百年土種參雞湯 弘大總店</h3>
+      <p class="app-food-desc">距離延南洞極近的米芝蓮必比登參雞湯，湯頭清爽甘甜。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%B0%B1%EB%85%84%ED%86%A0%EC%A2%85%EC%82%BC%EA%B3%84%ED%83%95" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">鐘路/明洞 · 百年韓牛湯</span>
+      </div>
+      <h3 class="app-food-title">里門雪濃湯 / 河東館</h3>
+      <p class="app-food-desc">韓國歷史最悠久的百年米芝蓮牛骨清湯與韓牛湯飯，溫潤高蛋白。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%9D%B4%EB%AC%B8%EC%84%A4%EB%86%8D%ED%83%95" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">望遠洞 · 1++熟成韓牛</span>
+      </div>
+      <h3 class="app-food-title">望遠洞 Bbul 炭火韓牛</h3>
+      <p class="app-food-desc">鄰近延南洞並自帶車位，主打 1++ 熟成韓牛日式炭火燒肉。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/entry/place/1563382529" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">藥水/聖水 · 米芝蓮代烤</span>
+      </div>
+      <h3 class="app-food-title">金豬食堂 / 聖水 Kkoopdang</h3>
+      <p class="app-food-desc">米芝蓮必比登推薦厚切帶骨五花肉與熟成黑豬頸肉，專人桌邊代烤。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EA%B8%88%EB%8F%BC%EC%A7%80%EC%8B%9D%EB%8B%B9" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">市廳/弘大 · 米芝蓮豬腳</span>
+      </div>
+      <h3 class="app-food-title">滿足五香豬腳 / Myth 豬腳</h3>
+      <p class="app-food-desc">米芝蓮必比登溫熱彈牙五香滷豬腳與弘大蒜味沙律豬腳，宵夜絕配。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%A7%8C%EC%A1%B1%EC%98%A4%ED%96%A5%EC%A1%B1%EB%B0%9C%20%EC%8B%9C%EC%B2%AD%EB%B3%B8%EC%A0%90" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">延南洞 · 炭火現烤活鰻</span>
+      </div>
+      <h3 class="app-food-title">風川鰻魚 延南店</h3>
+      <p class="app-food-desc">延南洞人氣炭火現烤白燒活鰻魚，外皮金黃酥脆、肉質厚實彈牙。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%ED%92%8D%EC%B2%9C%EC%9E%A5%EC%96%B4%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">三清洞 · 米芝蓮刀削麵</span>
+      </div>
+      <h3 class="app-food-title">黃生家刀削麵 三清洞本店</h3>
+      <p class="app-food-desc">北村三清洞米芝蓮必比登名店，濃郁牛骨湯刀削麵與大王蒸餃。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%ED%99%A9%EC%83%9D%EA%B0%80%EC%B9%BC%EA%B5%AD%EC%88%98" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">全首爾 · 頂級韓式炸雞</span>
+      </div>
+      <h3 class="app-food-title">Puradak / BHC / 橋村炸雞</h3>
+      <p class="app-food-desc">黑蒜醬油無骨炸雞、芝士起司炸雞或蜂蜜炸雞，可外帶回延南洞韓屋享用。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%ED%91%B8%EB%9D%BC%EB%8B%AD" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul coffee">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">延禧洞 · 暗黑木質手沖</span>
+      </div>
+      <h3 class="app-food-title">Pouring Out</h3>
+      <p class="app-food-desc">延禧洞質感暗黑木質調空間，細膩單品手沖、高音質點歌與熱烤伯爵茶果醬吐司。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%ED%8F%AC%EC%96%B4%EB%A7%81%EC%95%84%EC%9B%83" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul coffee">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">延南洞 · 2022 韓國冠軍虹吸</span>
+      </div>
+      <h3 class="app-food-title">Default Value</h3>
+      <p class="app-food-desc">韓國咖啡師冠軍申昌浩主理，純白極簡空間品嚐頂級虹吸與手沖單品。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%94%94%ED%8F%B4%ED%8A%B8%EB%B0%B8%EB%A5%98" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul coffee">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">漢南洞 · 世界冠軍名豆吧</span>
+      </div>
+      <h3 class="app-food-title">GML Seoul 漢南店</h3>
+      <p class="app-food-desc">全球頂尖烘豆廠微批次名豆選品店，職人手沖吧檯。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/gml%20seoul" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul coffee">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">漢南洞 · 極簡概念手沖</span>
+      </div>
+      <h3 class="app-food-title">Unpage 漢南店</h3>
+      <p class="app-food-desc">漢南洞極簡金屬概念吧檯，手沖單品與創意咖啡調酒。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%96%B8%ED%8E%98%EC%9D%B4%EC%A7%80%20%ED%95%9C%EB%82%A8" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul coffee">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">上水/弘大 · 黑膠復古手沖</span>
+      </div>
+      <h3 class="app-food-title">Doduk & Kyubum</h3>
+      <p class="app-food-desc">麻浦上水站黑膠唱片 LP 復古手沖烘焙所，氣氛沉靜迷人。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%8F%84%EB%8D%95%EA%B3%BC%EA%B7%9C%EB%B2%94" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul coffee">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">狎鷗亭 · 冠軍烘豆工業風</span>
+      </div>
+      <h3 class="app-food-title">Bunker Company 狎鷗亭店</h3>
+      <p class="app-food-desc">狎鷗亭獨棟復古工業風，冠軍烘豆師創意特調咖啡與甜點。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%B2%99%EC%BB%A4%EC%BB%B4%ED%8D%BC%EB%8B%88%20%EC%95%95%EA%B5%AC%EC%A0%95" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul coffee">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">北村韓屋 · 3樓黑瓦全景</span>
+      </div>
+      <h3 class="app-food-title">Green Mile Coffee 北村店</h3>
+      <p class="app-food-desc">登上 3 樓露天平台俯瞰北村傳統黑瓦韓屋群全景，順訪百年韓屋「車喝庭園」。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EA%B7%B8%EB%A6%B0%EB%A7%88%EC%9D%BC%EC%BB%A4%ED%94%BC%20%EB%B6%81%EC%B4%8C%EC%A0%90" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-bars">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">清潭洞 · 亞洲50大 #2</span>
+      </div>
+      <h3 class="app-food-title">Bar Zest</h3>
+      <p class="app-food-desc">亞洲第 2 / 世界第 18！零浪費永續調酒神殿，必點自家精餾琴酒 Zest G&T。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-bars">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">西村韓屋 · 亞洲50大 #33</span>
+      </div>
+      <h3 class="app-food-title">Bar Cham</h3>
+      <p class="app-food-desc">西村傳統老韓屋調酒吧，融合韓國傳統燒酎與在地果物（建議拆 2+3 入座）。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%B0%94%EC%B0%B8" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-bars">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">島山公園 · 亞洲50大 #42</span>
+      </div>
+      <h3 class="app-food-title">M+MS bar</h3>
+      <p class="app-food-desc">距 Bar Zest 步行僅 6 分鐘，摩登現代雞尾酒藝術空間。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%97%A0%EC%97%A0%EC%97%90%EC%8A%A4%20%EB%8F%84%EC%82%B0" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-bars">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">梨泰院 · 傳統地酒 Tasting</span>
+      </div>
+      <h3 class="app-food-title">Namsan Sool Club & 安氏馬格利</h3>
+      <p class="app-food-desc">經理團路韓國獨立酒造珍稀馬格利、藥酒與燒酎品飲聖殿。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%82%A8%EC%82%B0%EC%88%A0%ED%81%B4%EB%9F%BD" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-bars">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">狎鷗亭/清潭 · 秘密暗門酒吧</span>
+      </div>
+      <h3 class="app-food-title">Pine&Co / Le Chamber / Alice</h3>
+      <p class="app-food-desc">江南三大傳奇 Speakeasy：書架暗門 Le Chamber、花店暗門 Alice 與實驗調酒 Pine&Co。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%ED%8C%8C%EC%9D%B8%EC%95%A4%EC%BD%94" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="seoul seoul-bars">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">麻浦合井 · 延南民宿旁滿分吧</span>
+      </div>
+      <h3 class="app-food-title">tott seoul / BLOOD&SAND / Bar Kian</h3>
+      <p class="app-food-desc">距離延南洞民宿僅 5 分鐘車程！滿分創意調酒 tott、苦艾酒威士忌 BLOOD&SAND 與黑膠吧 Bar Kian。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%B0%94%20%ED%86%A0%ED%8A%B8" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="jeju bakery jeju-cafe">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">舊左東岸 · 海景貝果神店</span>
+      </div>
+      <h3 class="app-food-title">London Bagel Museum & Cafe Layered 濟州店</h3>
+      <p class="app-food-desc">濟州東海岸無敵海景貝果與英式司康名店，兩店緊鄰可一次連逛。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%9F%B0%EB%8D%98%EB%B2%A0%EC%9D%B4%EA%B8%80%EB%AE%A4%EC%A7%80%EC%97%84%20%EC%A0%9C%EC%A3%BC" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="jeju bakery jeju-cafe">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">西歸浦 · 玻璃溫室莊園</span>
+      </div>
+      <h3 class="app-food-title">濟州堂 (Jejudang Bakery Cafe)</h3>
+      <p class="app-food-desc">Osulloc 旁 3 分鐘大型溫室烘焙咖啡館，招牌擬真柑橘麵包與紫薯麵包。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EB%8B%B9%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%EC%BA%90%ED%8E%98" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="jeju bakery jeju-cafe">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">涯月海線 · 韓屋海景＆凝脂奶油</span>
+      </div>
+      <h3 class="app-food-title">海地開 (Haejigae) & siso kaymak</h3>
+      <p class="app-food-desc">涯月漢潭海岸三層韓屋海景咖啡，配隔壁現烤熱歐包沾土耳其水牛奶酪蜂蜜。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%ED%95%B4%EC%A7%80%EA%B0%9C" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="jeju bakery jeju-cafe">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">東門市場 · 爆漿甜甜圈手信</span>
+      </div>
+      <h3 class="app-food-title">Abebe Bakery 濟州本店</h3>
+      <p class="app-food-desc">濟州東門市場第一人氣排隊手信，爆漿柑橘與牛島花生奶油年糕麵包。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%95%84%EB%B2%A0%EB%B2%A0%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="jeju coffee jeju-cafe">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">濟州市 · 13年藍絲帶咖啡</span>
+      </div>
+      <h3 class="app-food-title">Coffee Temple</h3>
+      <p class="app-food-desc">韓國傳奇咖啡師主理，必喝濟州限定「特調柑橘拿鐵」。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%BB%A4%ED%94%BC%ED%85%9C%ED%94%8C" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="jeju jeju-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">謨瑟浦港 · 藍絲帶活青花魚</span>
+      </div>
+      <h3 class="app-food-title">美英家食堂 (活青花魚刺身)</h3>
+      <p class="app-food-desc">濟州西南岸藍絲帶名店，完全無腥味的鮮甜活青花魚刺身配秘製紫菜飯與辣魚湯。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%AF%B8%EC%98%81%EC%9D%B4%EB%84%A4%EC%8B%9D%EB%8B%B9" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="jeju jeju-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">濟州全島 · 必吃黑豬肉代烤</span>
+      </div>
+      <h3 class="app-food-title">熟成到 / 豚似豚 / 千吉谷</h3>
+      <p class="app-food-desc">濟州三大黑豬名所：熟成到桌邊代烤、GD 愛店豚似豚炭火厚切、千吉谷水煮白切肉。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EC%88%99%EC%84%B1%EB%8F%84%20%EB%85%B8%ED%98%95" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="jeju jeju-food">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">中文/山房山 · 整條烤帶魚</span>
+      </div>
+      <h3 class="app-food-title">滿足的商會 / 春心之家 / 頑固石斑魚</h3>
+      <p class="app-food-desc">一公尺長整條鹽烤銀帶魚（專人 5 秒去骨表演）與濟州經典醬燉海魚料理。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%A7%8C%EC%A1%B1%ED%95%9C%EC%83%81%ED%9A%8C" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="jeju jeju-bars">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">濟州蓮洞 · 電話亭秘密威士忌吧</span>
+      </div>
+      <h3 class="app-food-title">The Booze Jeju</h3>
+      <p class="app-food-desc">隱藏在蓮洞紅色英式電話亭後的 Speakeasy 威士忌與經典雞尾酒吧。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%8D%94%EB%B6%80%EC%A6%88%20%EC%A0%9C%EC%A3%BC" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+  <div class="panel-card app-food-card" data-cat="jeju jeju-bars">
+    <div class="app-food-card-main">
+      <div class="app-food-meta">
+        <span class="app-food-badge">濟州精釀 · 手工生啤與海景吧</span>
+      </div>
+      <h3 class="app-food-title">Magpie Brewing / 濟州啤酒廠 / Singing Turtle</h3>
+      <p class="app-food-desc">濟州在地傳奇精釀啤酒廠、柑橘艾爾小麥啤與挾才海灘落日露天調酒吧。</p>
+    </div>
+    <div class="app-food-action">
+      <a class="btn-act naver app-btn-primary" href="https://map.naver.com/p/search/%EB%A7%A5%ED%8C%8C%EC%9D%B4%20%EB%B8%8C%EB%A3%A8%EC%96%B4%EB%A6%AC%20%EC%A0%9C%EC%A3%BC" target="_blank">🧭 導航</a>
+    </div>
+  </div>
+</div>
 </div>
 
-
-<p class="event-p" style="color:var(--color-gold);font-weight:700;margin-top:10px;">◈ 西村 / 景福宮旁 小眾皮具與文創 (Day 3 備選) ◈</p>
-<p class="event-p">
-• <b>TOUT Y EST ( 西村旗艦店)：</b> 全韓最火紅法式復古牛皮包！經典帆船包與手提醫生包 <a class="badge-naver" href="https://map.naver.com/p/search/%ED%88%AC%ED%8B%B0%EC%97%90" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Ofr. Seoul ( 西村店)：</b> 法國巴黎傳奇獨立書店老宅店，必買刺繡字母帆布袋與古董飾品 <a class="badge-naver" href="https://map.naver.com/p/search/ofr%20seoul" target="_blank">🗺️ Naver Map</a><br/>
-• <b>車喝庭園 ：</b> 北村百年月景韓屋茶室，俯瞰黑瓦喝五味子花茶配熱蒸南瓜年糕 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%B0%A8%EB%A7%88%EC%8B%9C%EB%8A%94%EB%96%B3" target="_blank">🗺️ Naver Map</a>
-</p>
-
-<!-- Section: 濟州人氣烘焙與特色麵包備選 -->
-<div class="panel-card" data-cat="jeju bakery jeju-cafe">
-<h3 class="panel-card-title">🥐 濟州人氣烘焙・手信麵包備選 (全附 Naver Map 直達)</h3>
-<p class="event-p" style="color:var(--color-gold);font-weight:700;margin-top:10px;">◈ 濟州經典烘焙與手信 (Day 7–9) ◈</p>
-<p class="event-p">
-• <b>London Bagel Museum 濟州店：</b> 全韓第一貝果神店海景店，馬鈴薯起司貝果 (Catchtable線上候位) <a class="badge-naver" href="https://map.naver.com/p/search/%EB%9F%B0%EB%8D%98%EB%B2%A0%EC%9D%B4%EA%B8%80%EB%AE%A4%EC%A7%80%EC%97%84%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Cafe Layered 濟州店：</b> 英式復古鄉村司康與果醬蛋糕 (London Bagel 隔壁) <a class="badge-naver" href="https://map.naver.com/p/search/%EB%A0%88%EC%9D%B4%EC%96%B4%EB%93%9C%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a><br/>
-• <b>濟州堂 ：</b> 歐洲溫室莊園，招牌擬真柑橘/紫薯麵包 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%A0%9C%EC%A3%BC%EB%8B%B9%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%EC%BA%90%ED%8E%98" target="_blank">🗺️ Naver Map</a><br/>
-• <b>siso kaymak ( 涯月店)：</b> 現烤熱歐包沾抹土耳其水牛凝脂奶油與野花蜂蜜 <a class="badge-naver" href="https://map.naver.com/p/search/%EC%8B%9C%EC%86%8C%20%EC%B9%B4%EC%9D%B4%EB%A7%89" target="_blank">🗺️ Naver Map</a><br/>
-• <b>Abebe Bakery ( 濟州東門市場本店)：</b> 濟州第一名爆漿年糕甜甜圈手信！ <a class="badge-naver" href="https://map.naver.com/p/search/%EC%95%84%EB%B2%A0%EB%B2%A0%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC" target="_blank">🗺️ Naver Map</a>
-</p>
-</div>
-
-<!-- Section 1: 首爾備用必吃美食 -->
-<div class="panel-card" data-cat="seoul seoul-food">
-<h3 class="panel-card-title">🦀 首爾備用必吃美食 (點擊直接開 Naver Map 導航)</h3>
-<p class="event-p">
-<b>• 頂級醬油蟹：</b>真味食堂 (米芝蓮推薦麻浦名店)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A7%84%EB%AF%B8%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a>元祖馬山醬蟹<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9B%90%EC%A1%B0%EB%A7%88%EC%82%B0%ED%95%A0%EB%A7%A4%EC%95%84%EA%B5%AC%EC%A7%90" target="_blank">🗺️ Naver Map</a>一味醬蟹<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9D%BC%EB%AF%B8%EA%B0%84%EC%9E%A5%EA%B2%8C%EC%9E%A5" target="_blank">🗺️ Naver Map</a>烏達里家 ( 明洞)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%98%A4%EB%8B%A4%EB%A6%AC%EC%A7%91%20%EB%AA%85%EB%8F%99" target="_blank">🗺️ Naver Map</a>
-</p>
-<p class="event-p">
-<b>• 濃郁排骨湯：</b>傳聞中的聖水馬鈴薯排骨湯 (24小時)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%86%8C%EB%AC%B8%EB%82%9C%EC%84%B1%EC%88%98%EA%B0%90%EC%9E%90%ED%83%95" target="_blank">🗺️ Naver Map</a>東廟 24小時馬鈴薯排骨湯<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8F%99%EB%AC%98%20%EA%B0%90%EC%9E%90%ED%83%95" target="_blank">🗺️ Naver Map</a>
-</p>
-<p class="event-p">
-<b>• 暖胃參雞湯：</b>土俗村參雞湯 (景福宮百年韓屋)<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%86%A0%EC%86%8D%EC%B4%8C%20%EC%82%BC%EA%B3%84%ED%83%95" target="_blank">🗺️ Naver Map</a>百年土種參雞湯 (弘大米芝蓮)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%B0%B1%EB%85%84%ED%86%A0%EC%8 species%82%BC%EA%B3%84%ED%83%95" target="_blank">🗺️ Naver Map</a>
-</p>
-<p class="event-p">
-<b>• 韓牛雪濃湯：</b>里門雪濃湯 (百年老店米芝蓮)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9D%B4%EB%AC%B8%EC%84%A4%EB%86%8D%ED%83%95" target="_blank">🗺️ Naver Map</a>河東館 ( 明洞本店 · 80年牛骨清湯)<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%95%98%EB%8F%99%EA%B4%80%20%EB%AA%85%EB%8F%99%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a>
-</p>
-<p class="event-p">
-<b>• 烤肉與韓牛：</b>
-          望遠洞 Bbul (1++韓牛 · 1++熟成韓牛日式炭火，近延南洞帶車位) <a class="badge-naver" href="https://map.naver.com/p/entry/place/1563382529" target="_blank">🗺️ Naver Map</a>金豬食堂 (米芝蓮必比登/BTS愛店)<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B8%88%EB%8F%BC%EC%A7%80%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a>肉典食堂 (專人代烤厚切梅花肉)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9C%A1%EC%A0%84%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a>馬場洞畜產物市場 (1++ 韓牛炭火現烤)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%88%EC%9E%A5%EB%8F%99%EC%B6%95%EC%82%B0%EB%AC%BC%EC%8B%9C%EC%9E%A5" target="_blank">🗺️ Naver Map</a>
-</p>
-<p class="event-p">
-<b>• 傳統蹄膀與牛腸：</b>滿足五香豬腳 ( 市廳本店 · 米芝蓮必比登)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%8C%EC%A1%B1%EC%98%A4%ED%96%A5%EC%A1%B1%EB%B0%9C%20%EC%8B%9C%EC%B2%AD%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a>Myth 豬腳 ( 弘大本店 · 蒜味沙律豬腳)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%AF%B8%EC%93%B0%EC%A1%B1%EB%B0%9C%20%ED%99%8D%EB%8C%80%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a>君子大韓烤腸<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8C%80%ED%95%9C%EA%B3%B1%EC%B0%BD" target="_blank">🗺️ Naver Map</a>風川鰻魚 ( 延南店 · 現烤炭火活鰻)<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%92%8D%EC%B2%9C%EC%9E%A5%EC%96%B4%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank">🗺️ Naver Map</a>
-</p>
-<p class="event-p">
-<b>• 韓式炸雞與麵點：</b>Puradak Chicken (黑蒜醬油頂級炸雞)<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%91%B8%EB%9D%BC%EB%8B%AD" target="_blank">🗺️ Naver Map</a>BHC 炸雞 (BHC · 芝士起司炸雞)<a class="badge-naver" href="https://map.naver.com/v5/search/BHC%EC%B9%98%ED%82%A8" target="_blank">🗺️ Naver Map</a>橋村炸雞 (蜂蜜經典炸雞)<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B5%90%EC%B4%8C%EC%B9%98%ED%82%A8" target="_blank">🗺️ Naver Map</a>黃生家刀削麵 (三清洞米芝蓮)<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%99%A9%EC%83%9D%EA%B0%80%EC%B0%A8%EA%B5%AD%EC%88%98" target="_blank">🗺️ Naver Map</a>
-</p>
-<p class="event-p">
-<b>• 人氣烘焙早午餐：</b>London Bagel Museum ( 安國/島山)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%9F%B0%EB%8D%98%EB%B2%A0%EC%9D%B4%EA%B8%80%EB% relief%EC%A7%80%EC%97%84" target="_blank">🗺️ Naver Map</a>Egg Drop ( 弘大/明洞)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%97%90%EA%B7%B8%EB%93%9C%EB%9E%8D" target="_blank">🗺️ Naver Map</a>Isaac Toast<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%9D%B4%EC%82%AD%ED%86%A0%EC%8A%A4%ED%8A%B8" target="_blank">🗺️ Naver Map</a>
-</p>
-</div>
-<!-- Section 1B: Day 2 晚餐長者/同行不吃生食之延南洞全熟熱食備選 -->
-<div class="panel-card" data-cat="seoul seoul-food">
-<h3 class="panel-card-title">🍲 Day 2 晚餐應急：長者／同行不吃生食之延南洞全熟熱食備選</h3>
-<p class="event-p" style="color:var(--color-gold); font-size:0.85rem; margin-bottom:10px;">
-⚠️ 原定 16:30 之 Bada Sarang 主打厚切生魚刺身。若長者不習慣生食，可在延南洞原區無縫替換以下全熟名店：
-</p>
-<p class="event-p">
-<b>• 後備 A（現烤魚定食）：</b>延禧洞奶奶家 (麻浦區城山路100 · 現點現烤秋刀魚與青花魚，附熱湯熱白飯，全熟健康)<a class="badge-naver" href="https://map.naver.com/p/search/%EC%97%B0%ED%9D%AC%EB%8F%99%ED%95%A0%EB%A8%B8%EB%8B%88%EB%84%A4" target="_blank" data-query="연희동할머니네">🗺️ Naver Map 📱</a>
-</p>
-<p class="event-p">
-<b>• 後備 B（暖胃清雞湯/海鮮麵）：</b>延南刀削麵 (麻浦區延南路19 · 熱騰騰現煮清雞湯或鮮蜆刀削麵，全熟無生食，暖胃舒服)<a class="badge-naver" href="https://map.naver.com/p/search/%EC%97%B0%EB%82%A8%EC%B9%BC%EA%B5%AD%EC%88%98" target="_blank" data-query="연남칼국수">🗺️ Naver Map 📱</a>
-</p>
-<p class="event-p">
-<b>• 後備 C（全熟熱石鍋飯）：</b>Solsot 延南店 (麻浦區東橋路38街35 · 全熟極品牛排石鍋飯，上桌滋滋作響配熱高湯)<a class="badge-naver" href="https://map.naver.com/p/search/%EC%86%94%EC%86%A5%20%EC%97%B0%EB%82%A8%EC%A0%90" target="_blank" data-query="솔솥 연남점">🗺️ Naver Map 📱</a>
-</p>
-</div>
-
-<!-- Section 2: 首爾備用精品手沖與冠軍咖啡 -->
-<div class="panel-card" data-cat="seoul coffee">
-<h3 class="panel-card-title">☕ 首爾備用精品咖啡與手沖名店</h3>
-<p class="event-p"><b>• Pouring Out ：</b> 延禧洞極具質感的暗黑木質調氛圍名店，細膩單品手沖濾滴、高音質點歌音樂空間 ＆ 招牌熱烤伯爵茶果醬吐司。<a class="badge-naver" href="https://map.naver.com/p/search/%ED%8F%AC%EC%96%B4%EB%A7%81%EC%95%84%EC%9B%83" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Default Value ：</b> 延禧洞/延南洞，2022 韓國咖啡師冠軍申昌浩，純白極簡虹吸名店。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%94%94%ED%8F%B4%ED%8A%B8%EB%B0%B8%EB%A5%98" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• GML Seoul ：</b> 漢南洞，全球名廠咖啡豆選品店 ＆ 職人單品手沖吧。<a class="badge-naver" href="https://map.naver.com/v5/search/gml%20seoul" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Unpage ：</b> 漢南洞，極簡手沖濾滴與咖啡調酒概念吧檯。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%96%B8%ED%8E%98%EC%9D%B4%EC%A7%80%20%ED%95%9C%EB%82%A8" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Doduk&amp;Kyubum ：</b> 麻浦上水/弘大，黑膠唱片 LP 復古手沖烘焙所。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8F%84%EB%8D%95%EA%B3%BC%EA%B7%9C%EB%B2%94" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Bunker Company Apgujeong ：</b> 狎鷗亭獨棟復古工業風，冠軍烘豆師創意特調咖啡與甜點。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%B2%99%EC%BB%A4%EC%BB%B4%ED%8D%BC%EB%8B%88%20%EC%95%95%EA%B5%AC%EC%A0%95" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Lounge Clarimento ：</b> 麻浦合井，精緻手沖單品與沉靜氛圍。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%9D%BC%EC%9A%B4%EC%A7%80%20%ED%81%B4%EB%9D%BC%EB%A6%AC%EB%A9%98%ED%86%A0" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Green Mile Coffee Bukchon ：</b> 北村韓屋村 3 樓露台，俯瞰黑瓦韓屋頂全景。<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B7%B8%EB%A6%B0%EB%A7%88%EC%9D%BC%EC%BB%A4%ED%94%BC%20%EB%B6%81%EC%B4%8C%EC%A0%90" target="_blank">🗺️ Naver Map</a></p>
-</div>
-<!-- Section 3: 首爾備用頂級人氣酒吧 -->
-<div class="panel-card" data-cat="seoul seoul-bars">
-<h3 class="panel-card-title">🍸 首爾備用人氣酒吧 (Asia's 50 Best &amp; Speakeasy)</h3>
-<p class="event-p"><b>• Zest ：</b> 江南清潭洞，<b>亞洲 50 最佳酒吧 #2 / 世界 50 大 #18</b>，極致零浪費（Zero-Waste）永續調酒神殿，自家精餾杜松子酒與濟州柑橘特調（近 M+MS bar 步行 6 分）。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A0%9C%EC%8A%A4%ED%8A%B8%20%EC%B2%AD%EB%8B%B4" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Bar Cham ：</b> 西村老韓屋，<b>亞洲 50 最佳酒吧 #33</b>，融合傳統燒酎與地道食材（建議拆 2+3 人入座最快，現場平板 Catchtable 取號）。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%B0%94%EC%B0%B8" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• M+MS bar ：</b> 江南島山公園，<b>亞洲 50 最佳酒吧 #42</b>，摩登現代調酒藝術。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%97%A0%EC%97%A0%EC%97%90%EC%8A%A4%20%EB%8F%84%EC%82%B0" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Namsan Sool Club ：</b> 梨泰院經理團路，韓國傳統酒 Tasting 聖殿，全韓微型獨立酒造珍稀地酒、生馬格利與蒸餾燒酎。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%82%A8%EC%82%B0%EC%88%A0%ED%81%B4%EB%9F%BD" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Korean Bistro Mr. Ahn's Makgeolli (Mr. Ahn's Makgeolli)：</b> 梨泰院，米芝蓮指南推薦現代生馬格利餐酒館。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%95%88%EC%94%A8%EB%A7%89%EA%B1%B8%EB%A6%AC" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Pine&amp;Co ：</b> 狎鷗亭隱密 Speakeasy 現代雞尾酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%ED%8C%8C%EC%9D%B8%EC%95%A4%EC%BD%94" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Gong-Gan ：</b> 鐘路北村，質感傳統韓屋調酒吧（On 6.5 隔壁）。<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B3%B5%EA%B0%84%20%EB%B6%81%EC%B4%8C" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Alice Cheongdam ：</b> 清潭洞，愛麗絲夢遊仙境主題秘密花店暗門 Speakeasy。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%98%AC%EB%A6%AC%EC%8A%A4%20%EC%B2%AD%EB%8B%B4" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Le Chamber ：</b> 清潭洞，推開魔法書架暗門進入的奢華威士忌與調酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A5%B4%EC%B1%94%EB%B2%84" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Cobbler ：</b> 西村傳統韓屋日式復古無酒單客製化雞尾酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%BD%94%EB%B8%94%EB%9F%AC%20%EC%84%9C%EC%B4%8C" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• BLOOD&amp;SAND ：</b> 麻浦西橋洞/合井，西班牙風苦艾酒（Vermuteria）與波本威士忌名店，專業威士忌 Tasting Course 與經典調酒。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B8%94%EB%9F%AC%EB%93%9C%EC%95%A4%EC%83%8C%EB%93%9C" target="_blank" data-query="블러드앤샌드">🗺️ Naver Map 📱</a></p>
-<p class="event-p"><b>• tott seoul ：</b> 麻浦合井（Talk of the Town），評分高達 5/5 滿分的質感巷弄調酒吧，細膩創意風味特調（如芹菜風味琴酒）。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B0%94%20%ED%86%A0%ED%8A%B8" target="_blank" data-query="바 토트">🗺️ Naver Map 📱</a></p>
-<p class="event-p"><b>• Bar Kian ：</b> 麻浦合井，黑膠唱片 (LP) 復古音樂酒吧，伴隨溫暖黑膠原聲品嚐經典雞尾酒與單一麥芽威士忌，氣氛極度放鬆治癒。<a class="badge-naver" href="https://map.naver.com/p/search/%EB%B0%94%20%ED%82%A4%EC%95%88" target="_blank" data-query="바 키안">🗺️ Naver Map 📱</a></p>
-</div>
-<!-- Section 4: 濟州備用特色美食 -->
-<div class="panel-card" data-cat="jeju jeju-food">
-<h3 class="panel-card-title">🐟 濟州備用在地特色美食</h3>
-<p class="event-p"><b>• 活青花魚刺身：</b>美英家 (謨瑟浦港藍絲帶名店，活青花魚附秘製紫菜飯)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%AF%B8%EC%98%81%EC%9D%B4%EB%84%A4%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• 海螺刀削麵/粥：</b>玉琳海螺刀削麵<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%98%A5%EB%A6%BC%EB%B3%B4%EB%A7%90%EC%BB%AC%EA%B5%AD%EC%88%98" target="_blank">🗺️ Naver Map</a>大浦海螺刀削麵<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8C%80%ED%8F%AC%EB%B3%B4%EB%A7%90%EC%BB%AC%EA%B5%AD%EC%88%98" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• 醬燉海魚料理：</b>頑固的石斑魚 ( 中文店/咸德店)<a class="badge-naver" href="https://map.naver.com/v5/search/%EA%B3%A0%EC%A7%91%EB%8F%8C%EC%9A%B0%EB%9F%AD" target="_blank">🗺️ Naver Map</a>鮮美食堂 (城山醬燉帶魚)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%9B%EB%82%98%EC%8B%9D%EB%8B%B9%20%EC%84%B1%EC%82%B0" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• 必吃熟成黑豬肉：</b>熟成到 ( 蓮洞店/老衡店 · 桌邊代烤抽號)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%88%99%EC%84%B1%EB%8F%84%20%EB%85%B8%ED%98%95" target="_blank">🗺️ Naver Map</a>豚似豚 (GD愛店厚切炭火黑豬)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8F%88%EC%82%AC%EB%8F%88" target="_blank">🗺️ Naver Map</a>千吉谷 (水煮白切肉名家)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%B2%9C%EC%A7%93%EA%B3%A8%EC%8B%9D%EB%8B%B9" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• 頂級刺身與鮑魚粥：</b>藍景美樂 (山房山野生海魚刺身)<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%82%A8%EA%B2%BD%EB%AF%B8%EB%9D%BD" target="_blank">🗺️ Naver Map</a>攝支海女之家<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%84%AD%EC%A7%80%ED%95%B4%EB%85%80%EC%9D%98%EC%A7%91" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• 鹽烤帶魚全席：</b>滿足的商會<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%8C%EC%A1%B1%ED%95%9C%EC%83%81%ED%9A%8C" target="_blank">🗺️ Naver Map</a>春心之家 (1公尺整條烤銀帶魚)<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%B6%98%EC%8B%AC%EC%9D%B4%EB%84%A4%20%EB%B3%B8%EC%A0%90" target="_blank">🗺️ Naver Map</a></p>
-</div>
-<!-- Section 5: 濟州備用精品 Cafe & 甜品 -->
-<div class="panel-card" data-cat="jeju coffee jeju-cafe bakery">
-<h3 class="panel-card-title">🥐 濟州備用精品 Cafe ＆ 甜品</h3>
-<p class="event-p"><b>• Coffee Temple ：</b> 13 年藍絲帶認證，韓國傳奇咖啡師主理，必喝「濟州特調柑橘拿鐵」。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%BB%A4%ED%94%BC%ED%85%9C%ED%94%8C" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Jejudang Bakery Cafe ：</b> 歐洲莊園大型自然植栽烘焙咖啡館，擬真蔬菜造型麵包。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%EB%8B%B9%20%EB%B2%A0%EC%9D%B4%EC%BB%A4%EB%A6%AC%EC%BA%90%ED%8E%98" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Mamarron ：</b> 西歸浦法式甜品名店，秋季限定手作栗子蒙布朗蛋糕。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%88%EB%A7%88%EB%A1%B1" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• London Bagel Museum 濟州店：</b> 舊左邑東海岸海景店，英倫復古人氣貝果。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%9F%B0%EB%8D%98%EB%B2%A0%EC%9D%B4%EA%B8%80%EB% relief%EC%A7%80%EC%97%84%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a></p>
-</div>
-<!-- Section 6: 濟州備用酒吧與在地精釀 -->
-<div class="panel-card" data-cat="jeju jeju-bars">
-<h3 class="panel-card-title">🍺 濟州備用酒吧與在地精釀</h3>
-<p class="event-p"><b>• The Booze Jeju ：</b> 濟州市蓮洞，隱藏在紅色英式電話亭後的秘密 Speakeasy 威士忌酒吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%8D%94%EB%B6%80%EC%A6%88%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Magpie Brewing Co. ：</b> 濟州在地傳奇精釀啤酒釀造廠，新鮮生啤與窯烤披薩。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%A7%A5%ED%8C%8C%EC%9D%B4%20%EB%B8%8C%EB%A3%A8%EC%96%B4%EB%A6%AC%20%EC%A0%9C%EC%A3%BC" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Jeju Beer Brewery ：</b> 濟州特產柑橘艾爾小麥啤酒釀造所與觀光體驗吧。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%EB%A7%A5%EC%A3%BC%20%EC%96%91%EC%A1%B0%EC%9E%A5" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Singing Turtle ：</b> 挾才海灘海邊露天海景調酒吧，海浪與落日佐酒。<a class="badge-naver" href="https://map.naver.com/v5/search/%EB%85%B8%EB%9E%98%ED%95%98%EB%8A%94%20%EA%B1%B0%EB%B6%81%EC%9D%B4" target="_blank">🗺️ Naver Map</a></p>
-<p class="event-p"><b>• Southbounder ：</b> 中文觀光園區美式復古手工精釀啤酒與特色披薩餐酒館。<a class="badge-naver" href="https://map.naver.com/v5/search/%EC%82%AC%EC%9A%B0%EC%8A%A4%EB%B0%94%EC%9A%B4%EB%8D%94" target="_blank">🗺️ Naver Map</a></p>
-</div>
-</div>
 <div class="tab-panel" id="view-packing">
 <div class="header-tracking-label">SMART PACKING CHECKLIST</div>
 <h1 class="main-hero-title">行前必備與行李智能檢查清單</h1>
@@ -6415,6 +7284,24 @@
     }
   
     // 🌟 1. 美食分頁快速篩選標籤 (Filter Chips Logic)
+    
+    function filterFoodByKeyword(val) {
+      const q = (val || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('#view-food .app-food-card');
+      let matchCount = 0;
+      cards.forEach(c => {
+        const txt = c.innerText.toLowerCase();
+        if (!q || txt.includes(q)) {
+          c.style.display = 'flex';
+          matchCount++;
+        } else {
+          c.style.display = 'none';
+        }
+      });
+      const emptyEl = document.getElementById('foodEmptyState');
+      if (emptyEl) emptyEl.style.display = (matchCount === 0) ? 'block' : 'none';
+    }
+
     function filterFoodCategory(cat, btn) {
       triggerHaptic('light');
       document.querySelectorAll('.food-filter-chip').forEach(b => b.classList.remove('active'));
@@ -6425,7 +7312,7 @@
       cards.forEach(card => {
         const cats = (card.getAttribute('data-cat') || '').split(' ');
         if (cat === 'all' || cats.includes(cat)) {
-          card.style.display = 'block';
+          card.style.display = card.classList.contains('app-food-card') ? 'flex' : 'block';
           card.classList.remove('fade-in-card');
           void card.offsetWidth; // trigger reflow for smooth animation
           card.classList.add('fade-in-card');
@@ -6795,30 +7682,42 @@
 <!-- 🌟 Fullscreen Korean Survival Phrase Modal -->
 <!-- 🌟 Mobile Bottom Navigation Bar -->
 <nav class="mobile-bottom-nav" id="mobileBottomNav">
-<button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index')">
-<span class="icon">🏠</span>
-<span>總覽</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentDayNum || 1)">
-<span class="icon">📅</span>
-<span>日程</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-transit" onclick="showView('transit')">
-<span class="icon">🚗</span>
-<span>自駕</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-food" onclick="showView('food')">
-<span class="icon">🍴</span>
-<span>美食</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')">
-<span class="icon">💳</span>
-<span>記賬</span>
-</button>
-<button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')">
-<span class="icon">🎒</span>
-<span>行李</span>
-</button>
+  <button class="bot-nav-btn active" id="bot-nav-index" onclick="showView('index')">
+    <span class="icon svg-nav-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1V9.5z"/></svg>
+    </span>
+    <span>總覽</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-day" onclick="openDay(currentDayNum || 1)">
+    <span class="icon svg-nav-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3" ry="3"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+    </span>
+    <span>日程</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-transit" onclick="showView('transit')">
+    <span class="icon svg-nav-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+    </span>
+    <span>自駕</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-food" onclick="showView('food')">
+    <span class="icon svg-nav-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+    </span>
+    <span>美食</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-money" onclick="showView('money')">
+    <span class="icon svg-nav-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="15" x2="10" y2="15"/></svg>
+    </span>
+    <span>記賬</span>
+  </button>
+  <button class="bot-nav-btn" id="bot-nav-packing" onclick="showView('packing')">
+    <span class="icon svg-nav-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    </span>
+    <span>清單</span>
+  </button>
 </nav>
 <!-- 🌟 Fullscreen Luxury Photo Lightbox Gallery -->
 <div class="photo-lightbox-modal" id="photoLightbox" onclick="closePhotoLightbox(event)">
