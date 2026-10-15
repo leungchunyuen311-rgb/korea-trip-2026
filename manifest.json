@@ -1,7 +1,7 @@
 {
   "name": "Lai’s Family Seoul & Jeju Trip 2026",
-  "short_name": "Lai’s Family Seoul & Jeju Trip 2026",
-  "description": "Lai’s Family Seoul & Jeju Trip 2026 - 9-Day Bespoke Travelogue & Road Trip Journal",
+  "short_name": "Korea 2026",
+  "description": "Lai’s Family Seoul & Jeju Trip 2026 · 九天八夜雙城自駕典藏手帳",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -9,10 +9,22 @@
   "theme_color": "#121110",
   "icons": [
     {
-      "src": "cover.jpg",
-      "sizes": "192x192 512x512",
+      "src": "icon-512.jpg",
+      "sizes": "512x512",
       "type": "image/jpeg",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "maskable"
+    },
+    {
+      "src": "cover.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
     }
   ]
 }
