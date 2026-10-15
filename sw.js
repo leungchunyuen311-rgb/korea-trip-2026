@@ -1,5 +1,5 @@
 // Service Worker for Lai's Family Seoul & Jeju Trip 2026 PWA (V43 Master Aesthetic Edition)
-const CACHE_NAME = 'lais-trip-v49';
+const CACHE_NAME = 'lais-trip-v50';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

@@ -5003,6 +5003,241 @@
       border-bottom: 1px solid rgba(212, 175, 55, 0.18);
     }
 
+
+    /* ========================================================= */
+    /* 🌟 V45 PANORAMIC HERO & FULL-SPECTRUM ACTION ANIMATIONS 🌟 */
+    /* ========================================================= */
+
+    /* 1. Tall Unobstructed Panoramic Hero Cover (See Full Seoul & Jeju Art!) */
+    .v45-panoramic-hero {
+      height: 380px !important;
+      border-radius: 26px !important;
+      position: relative !important;
+      overflow: hidden !important;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65) !important;
+      border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+    }
+    @media (min-width: 768px) {
+      .v45-panoramic-hero {
+        height: 490px !important;
+      }
+    }
+    .v45-kenburns-img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center 38% !important;
+      animation: v45KenBurnsBreathe 18s ease-in-out infinite alternate !important;
+      will-change: transform;
+    }
+    @keyframes v45KenBurnsBreathe {
+      0% { transform: scale(1) translateY(0); }
+      100% { transform: scale(1.07) translateY(-6px); }
+    }
+    /* Crystal-clear top 72% of photo, gentle vignette only at bottom 28% */
+    .v45-hero-scrim-light {
+      position: absolute !important;
+      inset: 0 !important;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.12) 0%,
+        rgba(0, 0, 0, 0) 22%,
+        rgba(0, 0, 0, 0.02) 64%,
+        rgba(12, 11, 10, 0.86) 100%
+      ) !important;
+      z-index: 1 !important;
+      pointer-events: none !important;
+    }
+    .v45-hero-zoom-pill {
+      position: absolute !important;
+      top: 12px !important;
+      right: 12px !important;
+      z-index: 3 !important;
+      background: rgba(18, 17, 16, 0.68) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.28) !important;
+      color: #F5F2EB !important;
+      font-size: 0.7rem !important;
+      font-weight: 700 !important;
+      padding: 4px 11px !important;
+      border-radius: 999px !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+    }
+    /* Dock the title plaque neatly at the lower portion so the photo shines! */
+    .hero-cover-meta.v39-hero-meta.v45-hero-bottom-dock {
+      position: absolute !important;
+      inset: auto 0 12px 0 !important;
+      height: auto !important;
+      width: 100% !important;
+      padding: 0 12px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-end !important;
+      align-items: center !important;
+      text-align: center !important;
+      z-index: 2 !important;
+    }
+    .v43-hero-glass-plaque.v45-compact-plaque {
+      background: rgba(16, 15, 13, 0.62) !important;
+      backdrop-filter: blur(10px) saturate(160%) !important;
+      -webkit-backdrop-filter: blur(10px) saturate(160%) !important;
+      border: 1px solid rgba(212, 175, 55, 0.42) !important;
+      border-radius: 18px !important;
+      padding: 10px 14px !important;
+      gap: 4px !important;
+      max-width: 390px !important;
+      animation: v45PlaqueFloatIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+    }
+    @keyframes v45PlaqueFloatIn {
+      from { opacity: 0; transform: translateY(16px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Also make Day Detail Hero Image taller & breathing */
+    .app-hero-img-box {
+      height: 290px !important;
+    }
+    .app-hero-img-box .day-poster-img {
+      animation: v45KenBurnsBreathe 16s ease-in-out infinite alternate !important;
+    }
+
+    /* 2. Gold Touch Ripple Effect on Every Tap */
+    .v45-ripple-host {
+      position: relative;
+      overflow: hidden;
+    }
+    .v45-touch-ripple {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      background: radial-gradient(circle, rgba(229, 195, 120, 0.55) 0%, rgba(212, 175, 55, 0.22) 55%, transparent 75%);
+      transform: translate(-50%, -50%) scale(0);
+      animation: v45RippleBurst 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes v45RippleBurst {
+      0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0.95; }
+      100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+    }
+
+    /* 3. Confetti & Sparkle Particle Burst on Check-in / Copy / Action */
+    .v45-confetti-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 100000;
+      font-size: 1rem;
+      will-change: transform, opacity;
+      animation: v45ParticleFly 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes v45ParticleFly {
+      0% {
+        transform: translate(-50%, -50%) translate(0, 0) scale(0.4) rotate(0deg);
+        opacity: 1;
+      }
+      70% {
+        opacity: 0.95;
+      }
+      100% {
+        transform: translate(-50%, -50%) translate(var(--tx, 0px), var(--ty, -60px)) scale(1.15) rotate(var(--rot, 180deg));
+        opacity: 0;
+      }
+    }
+
+    /* 4. Universal Spring Press & Bounce on All Interactive Elements */
+    button,
+    .btn-act,
+    .v39-bento-box,
+    .stage-item,
+    .app-food-card,
+    .app-boarding-pass,
+    .app-car-card,
+    .app-stay-card,
+    .mapcode-item,
+    .krw-chip,
+    .app-weather-chip,
+    .check-item,
+    .v41-nav-pill,
+    .day-pill-btn {
+      transition: transform 0.24s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.24s ease,
+                  border-color 0.24s ease,
+                  background-color 0.24s ease !important;
+    }
+    .v39-bento-box:active,
+    .app-food-card:active,
+    .app-boarding-pass:active,
+    .app-car-card:active,
+    .app-stay-card:active,
+    .mapcode-item:active,
+    .check-item:active {
+      transform: scale(0.955) !important;
+      border-color: rgba(229, 195, 120, 0.75) !important;
+    }
+
+    /* 5. Staggered Cascade Entrance When Switching Any Tab or Filtering */
+    .v45-cascade-in {
+      animation: v45CascadeUp 0.46s cubic-bezier(0.22, 1, 0.36, 1) both !important;
+      animation-delay: calc(var(--cascade-i, 0) * 0.045s) !important;
+    }
+    @keyframes v45CascadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(22px) scale(0.965);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* 6. Scroll-Reveal Viewport Animation for Cards as You Scroll Down */
+    .v45-scroll-reveal {
+      opacity: 0;
+      transform: translateY(20px) scale(0.975);
+      transition: opacity 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.48s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    }
+    .v45-scroll-reveal.v45-in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* 7. Copy Success Flash & Pop Animation */
+    .v45-copied-flash {
+      animation: v45CopyPop 0.48s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      box-shadow: 0 0 18px rgba(46, 160, 67, 0.65) !important;
+      border-color: #3FB950 !important;
+    }
+    @keyframes v45CopyPop {
+      0% { transform: scale(0.9); }
+      45% { transform: scale(1.09); }
+      100% { transform: scale(1); }
+    }
+
+    /* 8. Bottom Nav Active Tab 3D Icon Flip & Glow */
+    .bot-nav-btn.active {
+      animation: v45TabPillPop 0.38s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    }
+    @keyframes v45TabPillPop {
+      0% { transform: scale(0.88); }
+      55% { transform: scale(1.07); }
+      100% { transform: scale(1); }
+    }
+
+    /* 9. Smooth Accordion Reveal (<details>) */
+    details[open] > *:not(summary) {
+      animation: v45AccordionOpen 0.34s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes v45AccordionOpen {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    details[open] .v41-expand-badge {
+      background: rgba(212, 175, 55, 0.28);
+      color: #FFF2CC;
+    }
+
 </style>
 </head>
 <body>
@@ -5085,11 +5320,12 @@
 </h1>
 <!-- 🌟 Hero Cover Poster Banner (Clean Non-Overlapping Scrim & Single-Line Subtitle) -->
 <div class="hero-cover-container" id="heroCoverContainer">
-  <div class="hero-cover-card v39-hero-card" onclick="openPhotoLightbox('cover.jpg', 'Lai’s Family Seoul &amp; Jeju Trip 2026', '首爾・加平・濟州島 ｜ 九天八夜雙城自駕典藏封面')" style="cursor:pointer;">
-    <img alt="Lai’s Family Seoul &amp; Jeju Trip 2026" class="hero-cover-img" data-try="0" id="heroCoverImg" onerror="handleCoverError(this)" src="cover.jpg"/>
-    <div class="v39-hero-scrim"></div>
-    <div class="hero-cover-meta v39-hero-meta">
-      <div class="v43-hero-glass-plaque">
+  <div class="hero-cover-card v39-hero-card v45-panoramic-hero" onclick="openPhotoLightbox('cover.jpg', 'Lai’s Family Seoul &amp; Jeju Trip 2026', '首爾・加平・濟州島 ｜ 九天八夜雙城自駕典藏封面')" style="cursor:pointer;">
+    <img alt="Lai’s Family Seoul &amp; Jeju Trip 2026" class="hero-cover-img v45-kenburns-img" data-try="0" id="heroCoverImg" onerror="handleCoverError(this)" src="cover.jpg"/>
+    <div class="v45-hero-scrim-light"></div>
+    <span class="v45-hero-zoom-pill">🔍 點擊全屏賞析</span>
+    <div class="hero-cover-meta v39-hero-meta v45-hero-bottom-dock">
+      <div class="v43-hero-glass-plaque v45-compact-plaque">
         <div class="v39-hero-pill">◈ AUTUMN VOYAGE · 2026.10.16 – 10.24 ◈</div>
         <div class="v39-hero-cities">
           <span class="shimmer-text">SEOUL 서울</span>
@@ -5100,6 +5336,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <!-- 🌟 Full-Width 4-Column Departure Countdown Card -->
@@ -8179,6 +8416,153 @@
       html += '</div>';
       bdBox.innerHTML = html;
     };
+
+
+    // =========================================================
+    // 🌟 V45 INTERACTIVE ANIMATION ENGINE (RIPPLE, CONFETTI, CASCADE, SCROLL REVEAL)
+    // =========================================================
+
+    // 1. Gold Touch Ripple on Any Interactive Tap
+    document.addEventListener('pointerdown', function(e) {
+      const target = e.target.closest('button, a, .stage-item, .v39-bento-box, .mapcode-item, .krw-chip, .check-item, .v41-collapsible-summary');
+      if (!target) return;
+      const ripple = document.createElement('div');
+      ripple.className = 'v45-touch-ripple';
+      const size = Math.min(Math.max(target.offsetWidth || 60, 56), 130);
+      ripple.style.width = size + 'px';
+      ripple.style.height = size + 'px';
+      ripple.style.left = e.clientX + 'px';
+      ripple.style.top = e.clientY + 'px';
+      document.body.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 560);
+    }, { passive: true });
+
+    // 2. Celebratory Particle Burst Helper (For Check-in, Packing Check, Copy, Expense Add)
+    let _lastTapX = window.innerWidth / 2;
+    let _lastTapY = window.innerHeight / 2;
+    document.addEventListener('pointerdown', function(e) {
+      _lastTapX = e.clientX;
+      _lastTapY = e.clientY;
+    }, { passive: true });
+
+    function spawnParticleBurst(x, y, icons) {
+      const cx = x || _lastTapX || (window.innerWidth / 2);
+      const cy = y || _lastTapY || (window.innerHeight / 2);
+      const palette = icons || ['✨', '🍁', '⭐', '💛', '🎉'];
+      const count = 14;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'v45-confetti-particle';
+        p.innerText = palette[i % palette.length];
+        const angle = (Math.PI * 2 * i) / count + (Math.random() * 0.4 - 0.2);
+        const dist = 36 + Math.random() * 58;
+        const tx = Math.round(Math.cos(angle) * dist);
+        const ty = Math.round(Math.sin(angle) * dist - 22);
+        const rot = Math.round((Math.random() - 0.5) * 260);
+        p.style.left = cx + 'px';
+        p.style.top = cy + 'px';
+        p.style.setProperty('--tx', tx + 'px');
+        p.style.setProperty('--ty', ty + 'px');
+        p.style.setProperty('--rot', rot + 'deg');
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 860);
+      }
+    }
+
+    // 3. Staggered Cascade Animation on View Switch & Filter
+    function triggerStaggeredCascade(containerSelector) {
+      const root = document.querySelector(containerSelector);
+      if (!root) return;
+      const cards = root.querySelectorAll('.v39-bento-box, .stage-item, .app-boarding-pass, .app-car-card, .app-stay-card, .mapcode-item, .app-food-card, .panel-card, .check-item');
+      cards.forEach((el, idx) => {
+        el.classList.remove('v45-cascade-in');
+        void el.offsetWidth;
+        el.style.setProperty('--cascade-i', Math.min(idx, 14));
+        el.classList.add('v45-cascade-in');
+      });
+    }
+
+    // Wrap showView to trigger staggered cascade entrance on every tab switch!
+    const _origShowViewV44 = showView;
+    showView = function(viewId) {
+      triggerHaptic('light');
+      _origShowViewV44(viewId);
+      setTimeout(() => {
+        triggerStaggeredCascade('#view-' + viewId);
+        initScrollRevealObserver();
+      }, 20);
+    };
+
+    // Wrap toggleVisitItem to fire celebratory confetti burst when checking off a stop!
+    const _origToggleVisitV44 = toggleVisitItem;
+    toggleVisitItem = function(key, btn) {
+      const wasDone = visitedSet.has(key);
+      _origToggleVisitV44(key, btn);
+      if (!wasDone && btn) {
+        const rect = btn.getBoundingClientRect();
+        spawnParticleBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, ['✨', '🍁', '🎉', '⭐', '💛']);
+      }
+    };
+
+    // Wrap toggleCheckItem (Packing Checklist) to fire sparkle burst when checking an item!
+    const _origToggleCheckV44 = toggleCheckItem;
+    toggleCheckItem = function(el) {
+      const wasCompleted = el && el.classList.contains('completed');
+      _origToggleCheckV44(el);
+      if (!wasCompleted && el) {
+        const box = el.querySelector('.check-box-custom') || el;
+        const rect = box.getBoundingClientRect();
+        spawnParticleBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, ['✓', '✨', '🎒', '⭐']);
+      }
+    };
+
+    // Wrap copyValue to add visual flash & mini sparkle burst!
+    const _origCopyValueV44 = copyValue;
+    copyValue = function(text, msg) {
+      _origCopyValueV44(text, msg);
+      spawnParticleBurst(_lastTapX, _lastTapY, ['📋', '✨', '✓']);
+    };
+
+    // Wrap addExpenseRecord to celebrate adding an expense!
+    const _origAddExpV44 = addExpenseRecord;
+    addExpenseRecord = function() {
+      const beforeLen = expenses ? expenses.length : 0;
+      _origAddExpV44();
+      if (expenses && expenses.length > beforeLen) {
+        spawnParticleBurst(_lastTapX, _lastTapY, ['💰', '✨', '💳', '✓']);
+      }
+    };
+
+    // 4. IntersectionObserver for Scroll-Reveal Card Entrance
+    let _revealObserver = null;
+    function initScrollRevealObserver() {
+      if (!('IntersectionObserver' in window)) return;
+      if (_revealObserver) _revealObserver.disconnect();
+      _revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('v45-in-view');
+            _revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+      document.querySelectorAll('.stage-item, .event-card, .app-food-card, .app-boarding-pass, .app-car-card, .app-stay-card').forEach(el => {
+        el.classList.add('v45-scroll-reveal');
+        _revealObserver.observe(el);
+      });
+    }
+
+    // Hook openDay to re-init scroll reveal on newly rendered day cards
+    const _origOpenDayV44 = openDay;
+    openDay = function(num, dir) {
+      _origOpenDayV44(num, dir);
+      setTimeout(() => initScrollRevealObserver(), 50);
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => initScrollRevealObserver(), 120);
+    });
 
 </script>
 
